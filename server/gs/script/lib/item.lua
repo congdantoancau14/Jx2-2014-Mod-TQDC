@@ -99,3 +99,6 @@ function DropItems(g,d,p,nScatterNum)
 	DropItem(g,d,p, nMapID, nX, nY, nWidthBegin, nWidthEnd, nScatterNum)
 end;
 
+function GetFreeItemWeight()
+	return GetMaxItemWeight() - GetCurItemWeight();
+end;

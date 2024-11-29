@@ -23,7 +23,7 @@ function main_show_npc()
 		"Show mixed npcs/showMixedNpcs",
 		"Show talking npcs/showTalkingNpcs",
 		"Show fighting npcs/showFightingNpcs",
-		"T¹o trang trÝ/#createDecorators(1)",
+		"T¹o trang trÝ/createDecorators",
 		"HiÓn thÞ All npcs t¹i Linh B¶o S¬n/#showAllNpcs(0)",
 		"HiÓn thÞ Talk npcs t¹i Linh B¶o S¬n/#showAllNpcs(1)",
 		"HiÓn thÞ Fight npcs t¹i Linh B¶o S¬n/#showAllNpcs(2)",
@@ -98,52 +98,54 @@ function showAllNpcs(nType, tNpcs)
 end;
 
 function createDecorators(page)
+	if page == nil then page = 1 end
 	tSay = {}
-	tinsert(tSay, "Create a random decorator/#createDecorator(0)");
-	tinsert(tSay, "\n");
 	local LINE = 5;
 	local nEndPoint = LINE;
 	local nStartPoint = 1;
-	local MAX = getn(tDecorators);
+	local LAST = getn(tDecorators);
+	local last_page = floor(LAST/LINE);
 	
 	if page == 1 then
 		nEndPoint = LINE;
 	else 
-		nStartPoint = (page-1) * LINE
+		nStartPoint = (page-1) * LINE + 1
 		nEndPoint = page * LINE;
 	end
 	
-	if nEndPoint > MAX then
-		nEndPoint = MAX;
+	if nEndPoint > LAST then
+		nEndPoint = LAST;
 	end
 	
 	for i=nStartPoint, nEndPoint do
 		tinsert(tSay, "Create "..tDecorators[i][1]..format("/#createDecorator(%d)",i))
 	end
 	
-	if nEndPoint < getn(tDecorators) then
+	if nEndPoint < LAST then
 		tinsert(tSay, format("\nTrang kÕ/#createDecorators(%d)",page+1));
+		tinsert(tSay, format("Trang cuèi/#createDecorators(%d)",last_page));
 	end
 	if page > 1 then
-		if nEndPoint < MAX then
+		if nEndPoint < LAST then
 			tinsert(tSay, format("Trang tr­íc/#createDecorators(%d)",page-1));
 		else
 			tinsert(tSay, format("\nTrang tr­íc/#createDecorators(%d)",page-1));
 		end
+		tinsert(tSay, format("Trang ®Çu/#createDecorators(%d)",1));
 	end
 	
+	tinsert(tSay, "Create a random decorator/#createDecorator(0)");
+	
 	tinsert(tSay, "\nTho¸t/nothing")
-	Say("---- Danh s¸ch nh©n vËt trang trÝ ----\nPage: "..page,getn(tSay),tSay);
+	Say(format("---- Danh s¸ch nh©n vËt trang trÝ ----\nPage %d/%d.",page,last_page),getn(tSay),tSay);
 end;
 
 
 function createDecorator(nId)
 	if nId == 0 then
-		local nRand = random(1,getn(tDecorators));
-		CreateNpc(tDecorators[nRand][1],tDecorators[nRand][1], GetWorldPos());
-	else
-		CreateNpc(tDecorators[nId][1],tDecorators[nId][1], GetWorldPos());
+		local nId = random(1,getn(tDecorators));
 	end
+	CreateNpc(tDecorators[nId][1],tDecorators[nId][1], GetWorldPos());
 end;
 
 

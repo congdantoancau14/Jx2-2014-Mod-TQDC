@@ -1,0 +1,3 @@
+function OnUse()
+	OpenBox();
+end;

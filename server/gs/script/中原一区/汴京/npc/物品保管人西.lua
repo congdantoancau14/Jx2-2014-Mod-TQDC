@@ -7,7 +7,7 @@
 -- 2005/05/17 PM 16:45
 
 -- ======================================================
-
+Include("\\script\\mod\\store_box\\store_box_head.lua");
 ID_ITEMBOX = 805;
 function main()
 		if random(1,30) == 1 then
@@ -29,7 +29,7 @@ function main()
 		check_box();
 		return
  	else
-	
+	if main_store_box(203) == 0 then return 0 end;
 		OpenBox()
 		EnableBoxLock(1)
 		SetPlayerRevivalPos(203)

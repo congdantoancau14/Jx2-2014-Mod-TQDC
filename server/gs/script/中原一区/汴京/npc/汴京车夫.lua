@@ -9,6 +9,7 @@
 
 --Include("\\script\\task\\teach\\teach_main.lua");
 Include("\\script\\lib\\transport_head.lua")
+Include("\\script\\mod\\carriage\\carriage_head.lua");
 
 function main()
 
@@ -40,18 +41,37 @@ function main()
 		"TuyÒn Ch©u/quanzhou",
 		"Kh«ng ®i ®©u c¶/no")
 	else
-		Say("Lé phÝ chØ cã <color=yellow>"..szTransportPrice.." l­îng<color> th«i, ng­¬i muèn ®i ®©u?",
-		8,
-		"Vâ L©m Minh("..szTransportPrice.." l­îng)/wulinming",
-		"Thµnh §« ("..szTransportPrice.." l­îng)/chengdu",
-		"TuyÒn Ch©u ("..szTransportPrice.." l­îng)/quanzhou",
-		"T­¬ng D­¬ng ("..szTransportPrice.." l­îng)/xiangyang",
-		"D­¬ng Ch©u ("..szTransportPrice.." l­îng)/yangzhou",
-		"Phông T­êng ("..szTransportPrice.." l­îng b¹c)/fengxiang",
-		"§¹i Lý ("..szTransportPrice.." l­îng)/dali",
-		"Kh«ng ®i ®©u c¶/no")
-	return
+		local tbSay = {
+			"Thµnh §« ("..szTransportPrice.." l­îng)/chengdu",
+			"TuyÒn Ch©u ("..szTransportPrice.." l­îng)/quanzhou",
+			"T­¬ng D­¬ng ("..szTransportPrice.." l­îng)/xiangyang",
+			"D­¬ng Ch©u ("..szTransportPrice.." l­îng)/yangzhou",
+			"Phông T­êng ("..szTransportPrice.." l­îng b¹c)/fengxiang",
+			"§¹i Lý ("..szTransportPrice.." l­îng)/dali",
+			"Ta muèn thuª xe ngùa/rentCarriage",
+			"Ta muèn tr¶ xe ngùa/returnCarriage",
+		}
+		local nMap = GetWorldPos()
+		if nMap == 200 then
+			tinsert(tbSay, "Vâ L©m Minh/wulinmeng")
+		else
+			tinsert(tbSay, "BiÖn Kinh "..szTransportPrice.."/bianjing")
+		end
+		
+		tinsert(tbSay, "Kh«ng ®i ®©u c¶/no")
+		Say("Lé phÝ chØ cã <color=yellow>"..szTransportPrice.."<color> th«i, ng­¬i muèn ®i ®©u?",
+			getn(tbSay), tbSay)
+		return
 	end	
+end
+
+function wulinmeng()
+	n=moneygo()
+	if n==0 then 
+		Talk(1,"","Cã tiÒn th× h·y ngåi xe!")
+		return 0
+	end
+	NewWorld(425,1746,3197)
 end
 
 function moneygo()
@@ -77,16 +97,7 @@ function moneygo()
 	end
 end;
 
-function wulinming()
-	n=moneygo()
-	if n==0 then 
-		Talk(1,"","Cã tiÒn th× h·y ngåi xe!")
-	else 
-		CleanInteractive();	--½â³ýÍæ¼Ò»¥¶¯¶¯×÷ added by yanjun 2006-3-14
-		NewWorld(425,1756,3200)
-		SetFightState(0); --»»³ÇÉèÖÃÆäÕ½¶·×´Ì¬ÎªºÍÆ½Ä£Ê½ added by vivi 2008-06-03
-	end
-end;
+
 
 function bianjing()
 	n=moneygo()

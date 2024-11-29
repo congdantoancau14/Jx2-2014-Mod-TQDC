@@ -15,10 +15,10 @@ TSK_USE_HSB = 599
 
 -- ½Å±¾±»³ÌĞòÄ¬ÈÏµ÷ÓÃµÄÈë¿Úº¯Êı
 function OnUse()
-	Say("B¹n cã muèn lÊy <color=yellow>Hßa ThŞ Bİch<color> ®æi thµnh tiÒn game kh«ng? Cã thÓ ®æi ®­îc <color=yellow>2000<color>.",
-		2,
-		"§­îc/open_panlongbi",
-		"T¹m thêi kh«ng më/cancel_dialog")
+	-- Say("B¹n cã muèn lÊy <color=yellow>Hßa ThŞ Bİch<color> ®æi thµnh tiÒn game kh«ng? Cã thÓ ®æi ®­îc <color=yellow>2000<color>.",
+		-- 2,
+		-- "§­îc/open_panlongbi",
+		-- "T¹m thêi kh«ng më/cancel_dialog")
 end;
 
 -- ÍË³ö¶Ô»°£¬²»×öÈÎºÎ²Ù×÷

@@ -21,7 +21,7 @@ function main()
 				"T¹i h¹ muèn mua 1 bã cñi (1 bã cñi = 10 b¹c)/bug_wood",
 				"Ta chØ ®Õn xem thö/no",
 				}
-	Say(g_szInfoHead.."Ho¹t ®éng lµm B¸nh Trung Thu diÔn ra tõ ngµy 05-09-2008 ®Õn 24:00 ngµy 05-10-2008. Trong thêi gian nµy, ng­êi ch¬i tham gia c¸c ho¹t ®éng trong trß ch¬i ®Ó thu thËp c¸c Tói Nguyªn LiÖu, bªn trong cã chøa c¸c nguyªn liÖu cÇn thiÕt ®Ó lµm B¸nh Trung Thu. Ngoµi ra, ng­êi ch¬i cã thÓ lµm ra nh÷ng chiÕc b¸nh trung thu ®Æc biÖt khi mua gãi Gia VŞ tõ Ngù C¸c. Sö dông c¸c lo¹i B¸nh Trung Thu sÏ ®­îc ®iÓm kinh nghiÖm vµ vËt phÈm cã gi¸ trŞ.",getn(selTab),selTab);
+	Say(g_szInfoHead.."Lµm b¸nh kh«ng khã, chØ cÇn ch¨m chØ lµ ®­îc. B¹n trÎ muèn ta gióp g× nµo?",getn(selTab),selTab);
 end
 
 function bug_wood()
@@ -42,12 +42,12 @@ function bug_wood()
 end
 
 function mooncake_guide()
-	Say(g_szInfoHead.."Nguyªn liÖu cÇn thiÕt:\n- 1 B¸nh trung thu ch­a n­íng lo¹i th­êng cÇn cã: 2 Bét M× + 1 §­êng C¸t + 1 Trøng Muèi + 1 Nguyªn LiÖu ThËp CÈm + 40B¹c\n- 1 B¸nh trung thu ch­a n­íng lo¹i ®Æc biÖt cÇn cã: 2 Bét M× + 1 §­êng C¸t + 1 Trøng Muèi + 1 Nguyªn LiÖu ThËp CÈm + 1 Gãi Gia VŞ\nNg­êi ch¬i mua mét İt Bã Cñi ®Ó n­íng b¸nh, mét lÇn cã thÓ n­íng 8 B¸nh. Tïy theo sè lÇn bá cñi thµnh c«ng trong qu¸ tr×nh n­íng b¸nh mµ ng­êi ch¬i sÏ nhËn ®­îc nh÷ng chiÕc B¸nh trung thu th¬m ngon.",1,"C¸m ¬n TÇn §¹i ThÈm ®· tËn t×nh h­íng dÉn!/no");
+	Say(g_szInfoHead.."Nguyªn liÖu cÇn thiÕt:\n- 1 B¸nh trung thu ch­a n­íng lo¹i th­êng cÇn cã: 2 Bét M× + 1 §­êng C¸t + 1 Trøng Muèi + 1 Nguyªn LiÖu ThËp CÈm + 40B¹c\n- 1 B¸nh trung thu ch­a n­íng lo¹i ®Æc biÖt cÇn cã: 2 Bét M× + 1 §­êng C¸t + 1 Trøng Muèi + 1 Nguyªn LiÖu ThËp CÈm + 1 Gãi Gia VŞ\nB¹n trÎ h·y mua mét İt Bã Cñi ®Ó n­íng b¸nh, mét lÇn cã thÓ n­íng 8 B¸nh. Tïy theo sè lÇn bá cñi thµnh c«ng trong qu¸ tr×nh n­íng b¸nh mµ ng­¬i sÏ nhËn ®­îc nh÷ng chiÕc B¸nh trung thu th¬m ngon.",1,"C¸m ¬n TÇn §¹i ThÈm ®· tËn t×nh h­íng dÉn!/no");
 end
 
 function make_mooncake(nType)
 	if GetLevel() < 20 then
-		Talk(1,"",g_szInfoHead.."Ng­êi ch¬i ph¶i cÊp 20 trë lªn míi cã thÓ tiÕn hµnh n­íng B¸nh trung thu");
+		Talk(1,"",g_szInfoHead.."Ng­¬i ph¶i cÊp 20 trë lªn míi cã thÓ tiÕn hµnh n­íng B¸nh trung thu");
 		return
 	end
 

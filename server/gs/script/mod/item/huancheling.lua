@@ -1,11 +1,9 @@
 --Include("\\script\\lib\\globalfunctions.lua");
-Include("\\script\\lib\\npccmdhead.lua");
 Include("\\script\\mod\\carriage\\carriage_head.lua");
 
 tRouteMap = {
 }
 
-MAX_DISTANCE = 70;
 
 function OnUse()
 	move()
@@ -21,12 +19,12 @@ function move()
 	local nCurTime = GetTime();
 	
 	local nOldNpcIdx = BIAOCHE_TASKGROUP:GetTask(BIAOCHE_TASKGROUP.BIAOCHE_INDEX);
-	local nOldMap = BIAOCHE_TASKGROUP:GetTask(BIAOCHE_TASKGROUP.YUNBIAO_MAP);
+	local nOldMap = BIAOCHE_TASKGROUP:GetTask(BIAOCHE_TASKGROUP.LAST_MAP);
 	
 	local nNpcMapID,nNpcPosX,nNpcPosY = GetNpcWorldPos(nOldNpcIdx);
 	local nDistance = abs(nPosX-nNpcPosX)+abs(nPosY-nNpcPosY);
 	
-	print(nDistance);
+	-- print(nDistance);
 	
 	local nNewMap = nMap;
 	if nOldNpcIdx ~= 0 then
@@ -58,7 +56,7 @@ function createBiaoChe()
 	SetNpcScript(nNpcIdx,"\\script\\mod\\carriage\\npc_xevanchuyen.lua");
 	BIAOCHE_TASKGROUP:SetTask(BIAOCHE_TASKGROUP.BIAOCHE_INDEX, nNpcIdx);
 	local nMap = GetWorldPos();
-	BIAOCHE_TASKGROUP:SetTask(BIAOCHE_TASKGROUP.YUNBIAO_MAP,nMap);
+	BIAOCHE_TASKGROUP:SetTask(BIAOCHE_TASKGROUP.LAST_MAP,nMap);
 	if nNpcIdx ~= 0 then
 	
 		local nNpcID = GetNpcID(nNpcIdx);

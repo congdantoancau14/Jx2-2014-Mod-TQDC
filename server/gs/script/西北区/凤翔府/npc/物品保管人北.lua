@@ -1,4 +1,4 @@
-
+Include("\\script\\mod\\store_box\\store_box_head.lua");
 -- ====================== 文件信息 ======================
 
 -- 剑侠情缘onlineII 物品保管人脚本
@@ -26,7 +26,7 @@ function main()
 		check_box();
 		return
  	else
-	
+	if main_store_box(504) == 0 then return 0 end;
 		OpenBox()
 		EnableBoxLock(1)
 		SetPlayerRevivalPos(504)

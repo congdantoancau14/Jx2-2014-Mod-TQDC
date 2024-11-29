@@ -56,10 +56,14 @@ function OnPutinComplete(param)
 	
 	-- for i=1, getn(t) do
 		-- for j=1,getn(t[i]) do
-			-- print(format("t[%d][%d]",i,j)..t[i][j]);
+			-- print(format("t[%d][%d] = ",i,j)..t[i][j]);
 		-- end
 	-- end
+	destroy(t);
 	
+end
+
+function destroy(t)
 	local nResult = 1;
 	for i = 1, getn(t) do
 		--local nCount = get_item_count(t, t[i][2], t[i][3], t[i][4]);
@@ -72,7 +76,8 @@ function OnPutinComplete(param)
 	else
 		Msg2Player("§· x¶y ra lçi trong qu¸ tr×nh tiªu hñy.");
 	end
-end
+	return nResult;
+end;
 
 function get_item_count(t, id1, id2, id3)
 	local nCount = 0;

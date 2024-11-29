@@ -1,4 +1,4 @@
-
+Include("\\script\\mod\\store_box\\store_box_head.lua");
 Include("\\script\\lib\\string.lua");
 Include("\\script\\lib\\item.lua");
 Include("\\script\\lib\\globalfunctions.lua");
@@ -14,9 +14,68 @@ MAX_CARRIAGE_ITEMS = 100;
 MAX_ITEM_COUNT = 0
 TB_ITEMS = {}
 
+tExpandBoxs = {
+	{201,{200,1490,2951},"§«ng BiÖn Kinh"},
+	{202,{200,1299,2992},"Nam BiÖn Kinh"},
+	{203,{200,1268,2771},"T©y BiÖn Kinh"},
+	{301,{300,1909,3609},"§«ng Thµnh §«"},
+	{302,{300,1685,3650},"Nam Thµnh §«"},
+	{303,{300,1692,3452},"T©y Thµnh §«"},
+	{304,{300,1928,3478},"B¾c Thµnh §«"},
+	{350,{350,1388,3072},"Nam T­¬ng D­¬ng"},
+	{351,{350,1363,2863},"T©y T­¬ng D­¬ng"},
+	{352,{350,1528,2862},"B¾c T­¬ng D­¬ng"},
+	{150,{150,1735,3062},"B¾c D­¬ng Ch©u"},
+	{151,{150,1632,3047},"T©y D­¬ng Ch©u"},
+	{152,{150,1610,3167},"Nam D­¬ng Ch©u"},
+	{153,{150,1742,3201},"§«ng D­¬ng Ch©u"},
+	{100,{100,1517,2859},"B¾c TuyÒn Ch©u"},
+	{101,{100,1381,2905},"T©y TuyÒn Ch©u"},
+	{102,{100,1561,3082},"§«ng TuyÒn Ch©u"},
+	{501,{500,1793,3211},"§«ng Phông T­êng"},
+	{502,{500,1681,3099},"T©y Phông T­êng"},
+	{503,{500,1659,3211},"Nam Phông T­êng"},
+	{504,{500,1835,3045},"B¾c Phông T­êng"},
+	{401,{400,1521,3119},"§«ng §¹i Lý"},
+	{402,{400,1450,3068},"Nam §¹i Lý"},
+	{403,{400,1548,2922},"B¾c §¹i Lý"},
+}
 -------------------------------------------------------------------------------
 --								FUNCTIONS
 -------------------------------------------------------------------------------
+
+function getBoxId(m,x,y)
+	local t = tExpandBoxs;
+	for i=1,getn(t) do 
+		if t[i][2][1] == m and t[i][2][2] == x and t[i][2][3] == y then 
+			return t[i][1];
+		end
+	end
+	return 0;
+end;
+
+function CreateNpcList(tNpcList)
+	for _, tNpc in tNpcList do
+		local npc = CreateNpc(tNpc[1], tNpc[2], tNpc[3], tNpc[4], tNpc[5]);
+		SetNpcScript(npc, tNpc[6] or "");
+		if npc > 0 then
+		else
+			WriteLogEx(format("Create[%s] Npc[%s][%s] fail", tNpc[1], tNpc[2], tNpc[6] or ""))
+		end
+		
+	end
+end
+
+function create_expand_boxs()
+	local script = "\\script\\mod\\expand_box\\expand_box.lua";
+	local model = "B¶o r­¬ng tµi nguyªn";
+	local name = "R­¬ng ®å";
+	local t = tExpandBoxs;
+	for i=1, getn(t) do 
+		local nNpcIndex = CreateNpc(model,name,t[i][2][1],t[i][2][2],t[i][2][3])
+		SetNpcScript(nNpcIndex,script);
+	end
+end;
 
 function isItemAllow(g,d,p)
 	if g == 2 then 
@@ -76,17 +135,32 @@ function DropItemsByList(tItems)
 	end
 end;
 
-function RemoveItemFromFile(tItem,nStoreId)
+function GetItemIndexFromFile(g,d,p)
 	for i=1, MAX_ITEM_COUNT do 
-		if (tItem[2][1] == TB_ITEMS[i][2][1]
+		if(	g == tonumber(TB_ITEMS[i][2][1])
+			and d == tonumber(TB_ITEMS[i][2][2])
+			and p == tonumber(TB_ITEMS[i][2][3])
+		) then 
+			return i;
+		end
+	end
+	return 0;
+end;
+
+function RemoveItemFromFile(tItem,nStoreId)
+	local result = 0;
+	for i=1, MAX_ITEM_COUNT do 
+		if (	tItem[2][1] == TB_ITEMS[i][2][1]
 			and tItem[2][2] == TB_ITEMS[i][2][2]
 			and tItem[2][3] == TB_ITEMS[i][2][3]
 		) then 
 			tremove(TB_ITEMS,i);
+			result = 1;
 			break
 		end
 	end
 	overwritedata(nStoreId);
+	return result;
 end;
 
 

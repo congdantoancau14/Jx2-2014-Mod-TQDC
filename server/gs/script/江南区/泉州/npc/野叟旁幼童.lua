@@ -6,7 +6,7 @@ Include("\\script\\online\\viet_event\\mooncake_08\\mooncake_head.lua")
 Include("\\script\\lib\\globalfunctions.lua")
 
 g_szLogTitle = "Ho¹t ®éng trung thu : ".."TiÓu ®ång"		--´Ë´¦·ÖÎª2¶ÎÖ»ÊÇÎªÁË²»Ôö¼ÓĞÂµÄ·­Òë
-g_szInfoHead = "<color=green>§øa bĞ<color>: "
+g_szInfoHead = "<color=green>TiÓu ®ång<color>: "
 
 function main()
 	if is_mooncake_viet_open() == 0 then
@@ -16,7 +16,7 @@ function main()
 				"Ta sÏ “l× x×” cho muéi, muéi ®æi cho ta 1 c©y NÕn Vµng nhĞ!/bug_candle",
 				"Ta sÏ quay l¹i sau.!/no",
 				}
-	Say(g_szInfoHead.."Ho¹t ®éng \"Truy t×m lång ®Ìn may m¾n\" diÔn ra tõ 05-09-2008 ®Õn 24:00 ngµy 05-10-2008. Lång §Ìn sÏ xuÊt hiÖn Tõ 11:00 ®Õn 14:00 vµ tõ 21:00 ®Õn 24:00 vµo c¸c ngµy Thø 6, Thø 7 vµ Chñ nhËt h»ng tuÇn. Trong thêi gian nµy, ng­êi ch¬i ®Õn NPC TiÓu §ång ®Ó nhËn “NÕn vµng”. ë tr¹ng th¸i chiÕn ®Êu, ng­êi ch¬i mang NÕn Vµng ®Õn c¸c b¶n ®å ®Ó th¾p s¸ng Lång §Ìn May M¾n, sÏ cã c¬ héi nhËn ®­îc phÇn th­ëng ®iÓm kinh nghiÖm vµ c¸c vËt phÈm cã gi¸ trŞ.",getn(selTab),selTab);
+	Say(g_szInfoHead.."§¹i ca t×m ta cã chuyÖn g× sao?",getn(selTab),selTab);
 end
 
 function bug_candle()

@@ -9,6 +9,7 @@
 
 --Include("\\script\\task\\teach\\teach_main.lua");
 Include("\\script\\lib\\transport_head.lua")
+Include("\\script\\mod\\carriage\\carriage_head.lua");
 
 function main()
 
@@ -41,7 +42,7 @@ function main()
 		"Kh«ng ®i ®©u c¶/no")
 	else
 		Say("Lé phÝ chØ cã <color=yellow>"..szTransportPrice.." l­îng<color> th«i, ng­¬i muèn ®i ®©u?",
-		7,
+		10,
 		"BiÖn Kinh ("..szTransportPrice.." l­îng b¹c)/bianjing",
 		"Thµnh §« ("..szTransportPrice.." l­îng)/chengdu",
 		"T­¬ng D­¬ng ("..szTransportPrice.." l­îng)/xiangyang",
@@ -49,12 +50,19 @@ function main()
 		"§¹i Lý ("..szTransportPrice.." l­îng)/dali",
 		"Phông T­êng ("..szTransportPrice.." l­îng b¹c)/fengxiang",
 		"Vâ L©m Minh/wulinmeng",
+		"Ta muèn thuª xe ngùa/rentCarriage",
+		"Ta muèn tr¶ xe ngùa/returnCarriage",
 		"Kh«ng ®i ®©u c¶/no")
 	return
 	end;
 end
 
 function wulinmeng()
+	n=moneygo()
+	if n==0 then 
+		Talk(1,"","Cã tiÒn th× h·y ngåi xe!")
+		return 0
+	end
 	NewWorld(425,1746,3197)
 end
 

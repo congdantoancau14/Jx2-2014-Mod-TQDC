@@ -61,7 +61,7 @@ g_tCatchFish = {
         {103,1838,3419},
 	},
 	nStartDate=20150417,
-	nEndDate=20150430,
+	nEndDate=20450430,
 	nMaxServerCounter=30000,
 	szBoss="",
 	g_this_file = "\\script\\online\\201504_catch_fish\\head.lua",

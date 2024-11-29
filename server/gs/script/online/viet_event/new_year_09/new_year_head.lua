@@ -43,3 +43,8 @@ function is_new_year_09_viet_open()
 	end
 end
 
+function get_new_year_09_info()
+	Talk(1,"","Mçi ngµy ng­êi ch¬i cã cÊp 10 trë lªn vµ ®· vµo m«n ph¸i tÆng hoa mai cho NPC Phi YÕn Tiªn Tö sÏ ®­îc phÇn th­ëng cã gi¸ trŞ: \n-Tõ 0:05 ®Õn 19:00 ng­êi ch¬i tÆng 4 hoa mai cho NPC Phi YÕn Tiªn Tö sÏ ®­îc phÇn th­ëng kinh nghiÖm\n-Tõ 19:05 ®Õn 24:00, ng­êi ch¬i ®· tÆng ®ñ 4 hoa mai ®Õn ®èi tho¹i víi Phi YÕn sÏ ®­îc nh÷ng phÇn quµ ®Æc biÖt\n-Ng­êi ch¬i may m¾n nhÊt trong ngµy sÏ ®­îc 1 Ngò Hµnh MËt TŞch.")
+end	
+
+

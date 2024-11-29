@@ -50,7 +50,7 @@ function exchange_confirm()
 				"Ta muèn d©ng tÆng 4 b¸nh trung thu ®Æc biÖt./#give_mooncake(2)",
 				"Ta sÏ quay l¹i sau.!/no",
 				}
-	Say(g_szInfoHead.."Ho¹t ®éng “TÆng B¸nh Trung Thu” diÔn ra h»ng ngµy tõ 05-09-2008 ®Õn 24:00 ngµy 05-10-2008. Hµng ngµy tõ 7:00 ®Õn 19:00, ng­êi ch¬i mang 4 b¸nh trung thu b×nh th­êng hoÆc 4 b¸nh trung thu ®Æc biÖt ®Õn tÆng cho NPC Phi YÕn Tiªn Tö ®Ó nhËn lÊy 1 ®iÒu ­íc. Tõ 20:00 ®Õn 06:00 s¸ng h«m sau, ng­êi ch¬i ®Õn NPC Phi YÕn Tû Tû ®Ó nhËn phÇn th­ëng tõ ®iÒu ­íc cña m×nh.\nChó ı: Sau thêi gian quy ®Şnh mµ ng­êi ch¬i kh«ng ®Õn nhËn th­ëng th× phÇn th­ëng sÏ bŞ hñy bá.",getn(selTab),selTab);
+	Say(g_szInfoHead.."Trung thu n¨m nay trÇn gian vÉn n¸o nhiÖt nh­ x­a!",getn(selTab),selTab);
 end
 
 function give_mooncake(nType)

@@ -63,8 +63,8 @@ function getExtendActivities(tbSay)
 	tinsert(tbSay, "Tham gia tİnh n¨ng Vâ L©m B¶o H¹p/vlbh_active")
 	tinsert(tbSay, "Tham gia ho¹t ®éng T«n s­ träng ®¹o/showEventTonSu")
 	tinsert(tbSay, "Ta muèn nhËn nhiÖm vô TiÕu Ng¹o Giang Hå!/accept_tngh_task")
-	tinsert(tbSay, "Më tiÖm trao ®æi mét sè vËt phÈm/exchangeItems");
-	tinsert(tbSay, "Danh s¸ch c¸c ho¹t ®éng kh¸c/showActivities");
+	tinsert(tbSay, "Ta muèn trao ®æi mét sè vËt phÈm/exchangeItems");
+	tinsert(tbSay, "Xem danh s¸ch c¸c ho¹t ®éng kh¸c/showActivities");
 	return tbSay;
 end;
 

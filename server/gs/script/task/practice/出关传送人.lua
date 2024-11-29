@@ -6,7 +6,7 @@ function main()
     local faction_table = {
         "ThiÕu L©m", "Vâ §ang", "Nga My", "C¸i Bang", "§­êng M«n", "Thiªn Ba D­¬ng phñ", "Ngò §éc"
     };
-    local szMsg = "<color=green>Qu¸ ¶i hé tèng nh©n<color>: Ta lµ"..faction_table[nFaction].." Xa phu duy nhÊt n¬i nµy. CÇn ta gióp g× kh«ng?";
+    local szMsg = "<color=green>Qu¸ ¶i hé tèng nh©n<color>: Ta lµ "..faction_table[nFaction].." Xa phu duy nhÊt n¬i nµy. CÇn ta gióp g× kh«ng?";
     if GetItemCount(cards_table[nFaction][1], cards_table[nFaction][2], cards_table[nFaction][3]) >= 1 then
         Say(szMsg,
             3,

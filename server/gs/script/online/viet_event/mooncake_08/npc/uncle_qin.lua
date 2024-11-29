@@ -49,7 +49,7 @@ function exchange_confirm()
 				"T¹i h¹ muèn ®æi vËt phÈm thu thËp lÊy tói nguyªn liÖu/exchange_talk",
 				"Ta chØ ®Õn xem thö/no",
 				}
-	Say(g_szInfoHead.."Tõ 05-09-2008 ®Õn 24:00 ngµy 05-10-2008, ng­êi ch¬i cã thÓ ®¸nh qu¸i ®Ó thu thËp nguyªn liÖu lµm b¸nh trung thu (xem chi tiÕt trªn trang chñ).",getn(selTab),selTab);
+	Say(g_szInfoHead.."Ng­êi trÎ muèn cã nguyªn liÖu lµm b¸nh sao?",getn(selTab),selTab);
 end
 
 function exchange_talk()
@@ -72,7 +72,7 @@ function exchange_talk()
 				"Xem trang sau/exchange_talk_2",
 				"KÕt thóc ®èi tho¹i/no",
 				}
-	Say(g_szInfoHead.."Tõ 05-09-2008 ®Õn 24:00 ngµy 05-10-2008, ng­êi ch¬i cã thÓ ®¸nh qu¸i ®Ó thu thËp nguyªn liÖu lµm b¸nh trung thu (xem chi tiÕt trªn trang chñ).",getn(selTab),selTab);
+	Say(g_szInfoHead.."Ng­êi trÎ muèn ®æi nguyªn liÖu g× nµo?",getn(selTab),selTab);
 end
 
 function exchange_talk_2()
@@ -86,7 +86,7 @@ function exchange_talk_2()
 				"Xem trang sau/exchange_talk_3",
 				"KÕt thóc ®èi tho¹i/no",
 				}
-	Say(g_szInfoHead.."Tõ 05-09-2008 ®Õn 24:00 ngµy 05-10-2008, ng­êi ch¬i cã thÓ ®¸nh qu¸i ®Ó thu thËp nguyªn liÖu lµm b¸nh trung thu (xem chi tiÕt trªn trang chñ).",getn(selTab),selTab);
+	Say(g_szInfoHead.."Ng­êi trÎ muèn ®æi nguyªn liÖu g× nµo?",getn(selTab),selTab);
 end
 
 function exchange_talk_3()
@@ -100,7 +100,7 @@ function exchange_talk_3()
 				"Xem trang sau/exchange_talk_4",
 				"KÕt thóc ®èi tho¹i/no",
 				}
-	Say(g_szInfoHead.."Tõ 05-09-2008 ®Õn 24:00 ngµy 05-10-2008, ng­êi ch¬i cã thÓ ®¸nh qu¸i ®Ó thu thËp nguyªn liÖu lµm b¸nh trung thu (xem chi tiÕt trªn trang chñ).",getn(selTab),selTab);
+	Say(g_szInfoHead.."Ng­êi trÎ muèn ®æi nguyªn liÖu g× nµo?",getn(selTab),selTab);
 end
 
 function exchange_talk_4()
@@ -112,7 +112,7 @@ function exchange_talk_4()
 				"Xem trang tr­íc/exchange_talk_3",
 				"KÕt thóc ®èi tho¹i/no",
 				}
-	Say(g_szInfoHead.."Tõ 05-09-2008 ®Õn 24:00 ngµy 05-10-2008, ng­êi ch¬i cã thÓ ®¸nh qu¸i ®Ó thu thËp nguyªn liÖu lµm b¸nh trung thu (xem chi tiÕt trªn trang chñ).",getn(selTab),selTab);
+	Say(g_szInfoHead.."Ng­êi trÎ muèn ®æi nguyªn liÖu g× nµo?",getn(selTab),selTab);
 end
 
 function exchange_prize(nType)
@@ -123,7 +123,7 @@ function exchange_prize(nType)
 			return
 		else
 			if gf_Judge_Room_Weight(1, 20) == 0 then
-				Talk(1,"",g_szInfoHead.."Kho¶ng trèng hµnh trang hoÆc søc lùc kh«ng ®ñ, xin kiÓm tra l¹i!");
+				Talk(1,"",g_szInfoHead.."Ng­êi trÎ «m ®åm nhiÒu qu¸. Mau thanh lÝ hµnh trang ®i!");
 				return
 			end;
 			if DelItem(g_tbItem[nType][2],g_tbItem[nType][3],g_tbItem[nType][4],g_tbItem[nType][5]) == 1 then

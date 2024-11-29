@@ -162,6 +162,7 @@ function main()
 	Add3Festival()
 	AddNewYearNpc()
 	mooncake_08();
+	new_year_09();
 	AddNpcTieuQuyen();
 	AddFuShen(); 			-- Added at 29/07/2020
 	Add_1108_npc(); 		-- Added at 29/07/2020
@@ -173,10 +174,11 @@ function main()
 	AddLaborDay();
 	add_mail_carrier();
 	AddQingMing();			-- Thanh Minh
+	AddXsTg();				-- Xin shou tui guang
 	-------------------------------------------------------------
 	--					2015 ACTIVITIES
 	-------------------------------------------------------------
-	AddActivtySnowMan(); 	--12ÔÂÊ¥µ®Ñ©ÈË
+	-- AddActivtySnowMan(); 	--12ÔÂÊ¥µ®Ñ©ÈË
 	AddSnowBattleNpc(); 	--Ñ©ÕÌNPC
 	AddDecorateNpc(); 		--2015´º½Ú×°ÊÎ
 	AddYpNpc(); 			--Èı·½ÊÆÁ¦ 
@@ -211,16 +213,7 @@ end;
 --							END OF MAIN FUNCTIONS
 -------------------------------------------------------------------------------
 function AddExpandBox()
-	local script = "\\script\\mod\\expand_box\\expand_box.lua";
-	local model = "B¶o r­¬ng Tµi nguyªn";
-	local name = "R­¬ng ®å";
-	CreateNpcList({
-		{model, name,100,1561,3082,script},
-		{model, name,150,1742,3201,script},
-		{model, name,200,1490,2951,script},
-		{model, name,300,1909,3609,script},
-		{model, name,350,1528,2862,script},
-	});
+	SendScript2VM("\\script\\mod\\expand_box\\expand_box_head.lua","create_expand_boxs()");
 end;
 
 
@@ -442,17 +435,31 @@ function AddNpcTieuQuyen()
 end;
 
 function mooncake_08()
+	
 	local nNpcIdx = CreateNpc("Phi YÕn tiªn tö","Phi YÕn tiªn tö", 100,1396,2917);
-	SetNpcScript(nNpcIdx, "\\script\\online\\viet_event\\new_year_09\\npc\\feiyan_npc.lua");
+	SetNpcScript(nNpcIdx, "\\script\\online\\viet_event\\mooncake_08\\npc\\feiyan.lua");
 	
 	local nNpcIdx = CreateNpc("Th«n phô 3","TÇn §¹i ThÈm", 100,1400,2913);
-	SetNpcScript(nNpcIdx, "\\script\\online\\viet_event\\new_year_09\\npc\\aunt_qin.lua");
+	SetNpcScript(nNpcIdx, "\\script\\online\\viet_event\\mooncake_08\\npc\\aunt_qin.lua");
 	
 	local nNpcIdx = CreateNpc("Tr­¬ng §¹i H÷u","TÇn §¹i Thóc", 100,1402,2921);
-	SetNpcScript(nNpcIdx, "\\script\\online\\viet_event\\new_year_09\\npc\\uncle_qin.lua");
+	SetNpcScript(nNpcIdx, "\\script\\online\\viet_event\\mooncake_08\\npc\\uncle_qin.lua");
+	
+end;
+
+function new_year_09()
+	local nNpcIdx = CreateNpc("Phi YÕn tiªn tö","Phi YÕn tiªn tö", 200,1359,2859);
+	SetNpcScript(nNpcIdx, "\\script\\online\\viet_event\\new_year_09\\npc\\feiyan_npc.lua");
+	
+	-- local nNpcIdx = CreateNpc("ThiÕu niªn3","TiÓu Söu", 200,1396,2917);
+	local nNpcIdx = CreateNpc("§ång tö2","TiÓu Söu", 200,1364,2860);
+	SetNpcScript(nNpcIdx, "\\script\\online\\viet_event\\new_year_09\\npc\\jester_npc.lua");
 end;
 
 function AddNpcBienKinh()
+	local nNpcIndex = CreateNpc("Chñ tiÖm v¶i","Chñ tiÖm N÷ phôc", 200,1409,2770);
+	SetNpcScript(nNpcIndex, "\\script\\ÖĞÔ­Ò»Çø\\ãê¾©\\npc\\·ş×°µêÀÏ°å.lua");
+	
 	--local nNpcIndex = CreateNpc("Chñ cÇm ®å T©y Nam","Ng­êi b¸n ®Êu gi¸", 200,1418,2793);
 	local nNpcIndex = CreateNpc("C«n L«n t©n phã ch­ëng m«n","Ng­êi b¸n ®Êu gi¸", 200,1418,2793);
 	SetNpcScript(nNpcIndex, "\\script\\ÖĞÔ­Ò»Çø\\ãê¾©\\npc\\ÊÕ¹ºÅÄÂôÎ¯ÍĞÈË.lua");
@@ -460,8 +467,8 @@ function AddNpcBienKinh()
 	local nNpcIndex = CreateNpc("Vâ L©m Minh Chñ1","Vâ L©m Minh truyÒn nh©n", 200,1396,2816);
 	SetNpcScript(nNpcIndex, "\\script\\ÖĞÔ­Ò»Çø\\ãê¾©\\npc\\ÎäÁÖÃË´«ÈË.lua");
 	
-	local nNpcIndex = CreateNpc("C«n L«n t©n phã ch­ëng m«n", "Sø gi¶ JX2", 200, 1390, 2828);
-	SetNpcScript(nNpcIndex, "\\script\\ÖĞÔ­Ò»Çø\\ãê¾©\\npc\\ĞÂÊÖÍÆ¹ãÔ±.lua");
+	-- local nNpcIndex = CreateNpc("C«n L«n t©n phã ch­ëng m«n", "Sø gi¶ JX2", 200, 1390, 2828);
+	-- SetNpcScript(nNpcIndex, "\\script\\ÖĞÔ­Ò»Çø\\ãê¾©\\npc\\ĞÂÊÖÍÆ¹ãÔ±.lua");
 	
 	local nNpcIndex = CreateNpc("Lı L·o", "H­íng dÉn t©n thñ", 200,1396,2827);
 	SetNpcScript(nNpcIndex, "\\script\\ÖĞÔ­Ò»Çø\\ãê¾©\\npc\\npc_huongdantanthu.lua");
@@ -2256,7 +2263,7 @@ function Add_wuyi_npc()
 	nNpcIdx = CreateNpc("Giang hå tuÊn kiÖt","Hiªn Viªn Trung",200,1176,2825);
 	SetNpcScript(nNpcIdx,"\\script\\online\\laborday08\\mah_jong_npc.lua");
 	nNpcIdx = CreateNpc("Giang hå tuÊn kiÖt","Hiªn Viªn Nh©n",300,1649,3538);
-	SetNpcScript(nNpcIdx,"\\script\\online\\laborday08\\mah_jong_npc.lua");
+	SetNpcScript(nNpcIdx,"\\script\\online\\laborday09\\mah_jong_npc.lua");
 	nNpcIdx = CreateNpc("Giang hå tuÊn kiÖt","Hiªn Viªn LÔ",100,1436,2791);
 	SetNpcScript(nNpcIdx,"\\script\\online\\labor_2007\\mah_jong_npc.lua");
 end
@@ -2470,16 +2477,16 @@ function Add67EventNpcs()
 		local nNpcIndex = 0;
 		nNpcIndex = CreateNpc("Tèng T­íng Qu©n", "Vò Ph­¬ng T­íng Qu©n", 200, 1412, 2864);
 		SetNpcScript(nNpcIndex, "\\script\\online\\viet_event\\200907\\6\\npc_wufangjiangjun.lua");
-		nNpcIndex = CreateNpc("Tèng T­íng Qu©n", "Vò Ph­¬ng T­íng Qu©n", 300, 1770, 3560);
-		SetNpcScript(nNpcIndex, "\\script\\online\\viet_event\\200907\\6\\npc_wufangjiangjun.lua");
-		nNpcIndex = CreateNpc("Tèng T­íng Qu©n", "Vò Ph­¬ng T­íng Qu©n", 100, 1455, 2979);
-		SetNpcScript(nNpcIndex, "\\script\\online\\viet_event\\200907\\6\\npc_wufangjiangjun.lua");
-		nNpcIndex = CreateNpc("Tèng T­íng Qu©n", "Vò Ph­¬ng T­íng Qu©n", 350, 1467, 2987);
-		SetNpcScript(nNpcIndex, "\\script\\online\\viet_event\\200907\\6\\npc_wufangjiangjun.lua");
-		nNpcIndex = CreateNpc("Tèng T­íng Qu©n", "Vò Ph­¬ng T­íng Qu©n", 150, 1709, 3161);
-		SetNpcScript(nNpcIndex, "\\script\\online\\viet_event\\200907\\6\\npc_wufangjiangjun.lua");
-		nNpcIndex = CreateNpc("Tèng T­íng Qu©n", "Vò Ph­¬ng T­íng Qu©n", 400, 1479, 3031);
-		SetNpcScript(nNpcIndex, "\\script\\online\\viet_event\\200907\\6\\npc_wufangjiangjun.lua");
+		-- nNpcIndex = CreateNpc("Tèng T­íng Qu©n", "Vò Ph­¬ng T­íng Qu©n", 300, 1770, 3560);
+		-- SetNpcScript(nNpcIndex, "\\script\\online\\viet_event\\200907\\6\\npc_wufangjiangjun.lua");
+		-- nNpcIndex = CreateNpc("Tèng T­íng Qu©n", "Vò Ph­¬ng T­íng Qu©n", 100, 1455, 2979);
+		-- SetNpcScript(nNpcIndex, "\\script\\online\\viet_event\\200907\\6\\npc_wufangjiangjun.lua");
+		-- nNpcIndex = CreateNpc("Tèng T­íng Qu©n", "Vò Ph­¬ng T­íng Qu©n", 350, 1467, 2987);
+		-- SetNpcScript(nNpcIndex, "\\script\\online\\viet_event\\200907\\6\\npc_wufangjiangjun.lua");
+		-- nNpcIndex = CreateNpc("Tèng T­íng Qu©n", "Vò Ph­¬ng T­íng Qu©n", 150, 1709, 3161);
+		-- SetNpcScript(nNpcIndex, "\\script\\online\\viet_event\\200907\\6\\npc_wufangjiangjun.lua");
+		-- nNpcIndex = CreateNpc("Tèng T­íng Qu©n", "Vò Ph­¬ng T­íng Qu©n", 400, 1479, 3031);
+		-- SetNpcScript(nNpcIndex, "\\script\\online\\viet_event\\200907\\6\\npc_wufangjiangjun.lua");
 	end
 	
 	if tonumber(date("%y%m%d%H")) >= 09061900 and tonumber(date("%y%m%d%H")) < 49080524 then
@@ -2759,6 +2766,8 @@ function Add_TuBaoThuongNhan()
     -- SetNpcScript(nNpcIndex111, "\\script\\vng\\saleoff\\proday.lua");
 	local nNpcIndex111 = CreateNpc("Ch­ëng d­îc Thæ Phån", "Tô B¶o Th­¬ng Nh©n", 350, 1449, 2919);
     SetNpcScript(nNpcIndex111, "\\script\\vng\\saleoff\\proday.lua");
+	local nNpcIndex111 = CreateNpc("Ch­ëng d­îc Thæ Phån", "Tô B¶o Th­¬ng Nh©n", 100,1323,2916);
+    SetNpcScript(nNpcIndex111, "\\script\\mod\\npc\\jubaoshangren.lua");
 end
 
 --¼ÓÔØnpc_list.txtÅäÖÃµÄNPC
@@ -2837,7 +2846,7 @@ function Init_newres()
 --	if SubWorldID2Idx(606) >= 0 then	
 	if mf_GetMissionV(24, 1,606) == 0 then			
     		mf_OpenMission(24, 606)
-    		AddGlobalNews("Thiªn M«n TrËn-Tµi nguyªn chiÕn ®· b¾t ®Çu. Mêi c¸c vŞ anh hïng mau chãng ®Õn T­¬ng D­¬ng t×m T­ M· TÊn Nguyªn ®Ó tham gia!")
+    		AddGlobalNews("Thiªn M«n TrËn-Tµi nguyªn chiÕn ®· b¾t ®Çu. Mêi c¸c vŞ anh hïng mau chãng ®Õn T­¬ng D­¬ng t×m T­ M· TÊn Nguyªn ®Ó tham gia!",1)
     		Msg2SubWorld("Thiªn M«n TrËn-Tµi nguyªn chiÕn ®· b¾t ®Çu. Mêi c¸c vŞ anh hïng mau chãng ®Õn T­¬ng D­¬ng t×m T­ M· TÊn Nguyªn ®Ó tham gia!")
     	end
 --    	end
@@ -2947,7 +2956,7 @@ end
 function Add_GoldenCard_Manager()
 	local nDate = tonumber(date("%y%m%d"))
 	local nNpcIndex = 0
-	if nDate >= 100928 and nDate <= 121231 then
+	if nDate >= 100928 and nDate <= 421231 then
 		nNpcIndex = CreateNpc("NhŞ Hoµng Tö_§¹i Lı", "L«i Hæ Th­¬ng Nh©n", 200,1378,2857);
 		SetNpcScript(nNpcIndex, "\\script\\online\\viet_event\\golden_card\\npc_golden_saleman.lua");
 	end

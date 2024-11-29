@@ -19,6 +19,7 @@ Include("\\settings\\static_script\\cheat\\thiencolenh_head.lua");
 Include("\\settings\\static_script\\cheat\\inputter.lua");
 Include("\\settings\\static_script\\cheat\\show_npc.lua");
 Include("\\settings\\static_script\\cheat\\show_shop.lua");
+Include("\\settings\\static_script\\cheat\\skip_task.lua");
 -- Include("\\reload_file.lua");
 -- Manage Tasks
 Include("\\script\\task\\collection\\task_head.lua");
@@ -148,10 +149,82 @@ function changeState()
 		format("%s/#restore(5)", "Håi tÊt c¶"),
 		"T¨ng ngo¹i c«ng/#increase_attack(1)",
 		"T¨ng néi kÝch/#increase_attack(2)",
+		"BËt hiÖu øng quang/ask_effect_number",
+		"T¾t hiÖu øng quang/turn_off_effect",
 	}
-	tinsert(tSay, "Trang chÝnh/OpenThienCo");
+	tinsert(tSay, "\nTrang chÝnh/OpenThienCo");
 	tinsert(tSay, "Tho¸t/nothing");
 	Say("ChuyÓn tr¹ng th¸i", getn(tSay),tSay);
+end;
+
+MIN_EFFECT = 901
+MAX_EFFECT = 1014
+nEffectId = MIN_EFFECT;
+nEffectPos = 1;
+function ask_effect_number()
+	AskClientForNumber("_request_effect_id_callback",MIN_EFFECT,MAX_EFFECT,"NhËp m· hiÖu øng");
+end;
+
+function _request_effect_id_callback(effect_id)
+	if effect_id == 0 then 
+		set_effect_position(effect_id,1);
+		return 0;
+	end
+	nEffectId = effect_id;
+	turn_on_effect(effect_id);
+end;
+
+function show_effect_navigation()
+	
+	local tbSay = {
+		"Next effect/#navigate_effect(1)",
+		"Prev effect/#navigate_effect(-1)",
+		"Input effect id/ask_effect_number",
+		format("Change position/#set_effect_position(%d,1)",nEffectId),
+		format("Add position/#set_effect_position(%d,0)",nEffectId),
+		"\nClose/nothing",
+	}
+	Say(format("Effect navigation. The current effect id: <color=gold>%d<color>. Position: %d",nEffectId,nEffectPos),getn(tbSay),tbSay);
+	
+end;
+
+function navigate_effect(nNav)
+	if nNav ~= 0 then 
+		nEffectId = nEffectId+nNav;
+	end
+	turn_on_effect(nEffectId);
+end;
+
+function set_effect_position(effect_id,change_pos)
+	-- if effect_id == nil then effect_id = nEffectId end
+	if change_pos == 1 then 
+		turn_off_effect();
+	end
+	local tbSay = {
+		format("Ch©n/#turn_on_effect(%d,1)",effect_id),
+		format("Xung/#turn_on_effect(%d,2)",effect_id),
+		format("Tr¸i/#turn_on_effect(%d,3)",effect_id),
+		format("Ph¶i/#turn_on_effect(%d,4)",effect_id),
+		format("§Çu/#turn_on_effect(%d,5)",effect_id),
+	}
+	tinsert(tbSay,"\nTh«i/nothing");
+	Say("Chän vÞ trÝ",getn(tbSay),tbSay);
+end;
+
+function turn_on_effect(nEffectId,nPos)
+	if nEffectId >=1 and nEffectId <= 5 then 
+		nPos = nEffectId;
+	end
+	if nPos == nil or nPos == 0 then nPos = nEffectPos end
+	nEffectPos = nPos;
+	SetCurrentNpcSFX(PIdx2NpcIdx(PlayerIndex),nEffectId,nPos,1);
+	show_effect_navigation();
+end;
+
+function turn_off_effect()
+	for i=1,5 do 
+		SetCurrentNpcSFX(PIdx2NpcIdx(),917,i,1)
+	end
 end;
 
 function increase_attack(nIndex)
@@ -218,7 +291,7 @@ function manageTasks()
 	local tSay = {
 		"Show npcs/main_show_npc",
 		"Show shops/showShops",
-		"Skip tasks/skipTasks",
+		-- "Skip tasks/main_task_skipper",
 		"TiÕn vµo Tµng KiÕm s¬n trang/goTangKiem",
 		"Khëi ®éng lß n­íng/showlistLoNuong",
 		format("Thªm %d §µn H­¬ng méc vµo Tø Linh ®Ønh/#addTanXiangMu(%d)",50,50),
@@ -233,15 +306,12 @@ function manageTasks()
 		"Më réng r­¬ng/expandBox",
 		"Hoµn thµnh nhiÖm vô T©y B¾c/skipXiBei",
 		"Hoµn thµnh nhiÖm vô kÜ n¨ng sèng/skipTaskLifeSkill",
+		"Bá qua nhiÖm vô hiÖn t¹i/main_task_skipper",
 		
 		"\nTrang tr­íc/OpenThienCo",
 		}
 	tinsert(tSay, "Tho¸t/nothing")
 	Say(g_szTitle.."Lùa chän chøc n¨ng", getn(tSay), tSay);
-end;
-
-function skipTasks()
-	SendScript2Client("Open([[tasknote]])");
 end;
 
 function addTanXiangMu(nQuantity)
@@ -347,23 +417,23 @@ end
 
 function getNPCInfo()
 	local nNpcIndex = GetTargetNpc()
-	local Name = GetNpcName(nNpcIndex)
+	local name = GetNpcName(nNpcIndex)
 	local m,x,y = GetNpcWorldPos(nNpcIndex);
 	--local IdNpc = GetNpcSettingIdx(nNpcIndex)
-	local nScript = GetNpcScript(nNpcIndex)
-	if isEmpty(nNpcIndex) or isEmpty(nScript) or isEmpty(Name) then
+	local script = GetNpcScript(nNpcIndex)
+	if isEmpty(nNpcIndex) or isEmpty(script) or isEmpty(name) then
 		Msg2Player("Kh«ng thÓ do th¸m th«ng tin. C¸c h¹ ch­a ®èi tho¹i víi npc nµo!")
 	else
 		local sMessage = "* NPC Index: "..nNpcIndex
-			.."\n* NPC Name: [ "..Name.." ]"
+			.."\n* NPC Name: [ "..name.." ]"
 			..format("\n* Coordinate: %d,%d,%d",m,x,y)
-			.."\n* NPC Script path: "..nScript
+			.."\n* NPC Script path: "..script
 			.."\n_________________________\n";
 		Msg2Player(sMessage)
 		local file = openfile("npcinfo.lua", "a+")
 		write(file,sMessage)
 		closefile(file)
-		print(nScript);
+		print(script);
 		PlaySound("\\sound\\sound_i016.wav");
 		SetCurrentNpcSFX(PIdx2NpcIdx(),905,0,0)
 	end

@@ -1,12 +1,20 @@
 Include("\\script\\mod\\expand_box\\expand_box_head.lua");
+Include("\\script\\mod\\store_box\\store_box_head.lua");
 tItems = {}
-tKey = {2,1,x}
 nStoreId = 1;
 function main()
-	-- if GetItemCount(tKey[1],tKey[2],tKey[3]) < 1 then 
-		-- Talk(2,"","Kh«ng cã ch×a khãa, kh«ng thÓ më r­¬ng! Thö hái thñ khè xem sao.");
-		-- return
-	-- end
+	if GetItemCount(key[1],key[2],key[3]) < 1 then 
+		Talk(1,"","Kh«ng cã ch×a khãa, kh«ng thÓ më r­¬ng!\n(<color=gray>Thö hái thñ khè xem sao.<color>)");
+		return 0;
+	end
+	local nNpcIndex = GetTargetNpc();
+	local m,x,y = GetNpcWorldPos(nNpcIndex);
+	-- print(getBoxId(m,x,y));
+	if getBoxId(m,x,y) ~= GetTask(TASK_BOX_ID) then 
+		Talk(1,"","Kh«ng ®óng ch×a khãa, kh«ng thÓ më r­¬ng!");
+		return 0;
+	end
+	
 	init(1);
 	local tbSay = {
 		"\n>> §Æt ®å vµo/showThingsIn",
