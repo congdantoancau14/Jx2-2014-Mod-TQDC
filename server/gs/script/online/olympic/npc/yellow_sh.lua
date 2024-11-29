@@ -8,30 +8,21 @@ function main()
 		return 0;
 	end
 	local tbSay = {
-		"Dïng 5 lo¹i Th¸nh Háa Th¹ch ®¬n s¾c ®Ó th¾p s¸ng/free_fire",
-		"Dïng Ngò S¾c Th¸nh Háa Th¹ch ®Ó th¾p s¸ng/ib_fire",
-		"KiÓm tra sè lÇn th¾p s¸ng cña server/oly_GetFireCount",
+		"Th¾p s¸ng b»ng 5 lo¹i Th¸nh Háa/free_fire",
+		"Th¾p s¸ng b»ng Ngò Th¸i Th¸nh Háa/ib_fire",
 		"\n rót lui/do_nothing",
 	}
+	local sTitle = "Hoµng S¾c Th¸nh Háa : C¸c h¹ ®· th¾p s¸ng céng dån %d lÇn , th¾p s¸ng thªm  %d lÇn n÷a sÏ nhËn ®­îc %s gi¶i th­ëng";
 	local nCount = gf_GetMyTaskByte(VET_OLY_TASK2,1,2);
 	local nIndex = oly_GetCountStep(nCount);
-	local sTitle = ""
-	if nIndex ~= 0 then
-		sTitle = "Ngò S¾c Th¸nh Háa Th¹ch: B¹n ®· tİch lòy th¾p s¸ng %d lÇn, tiÕp tôc th¾p s¸ng thªm %d lÇn sÏ nhËn ®­îc phÇn th­ëng %s";
-		sTitle = format(sTitle,nCount,OLY_ACCUMULATE_FIRE_AWARD_TABLE[nIndex][1]-nCount,OLY_ACCUMULATE_FIRE_AWARD_TABLE[nIndex][4]);
-	else
-		sTitle = "Ngò S¾c Th¸nh Háa Th¹ch: Ng­¬i ®· th¾p s¸ng %d lÇn,®· nhËn ®­îc tÊt c¶ phÇn th­ëng.";
-		sTitle = format(sTitle,nCount);
-	end
-	if nCount >= OLY_ACCUMULATE_FIRE_AWARD_TABLE[getn(OLY_ACCUMULATE_FIRE_AWARD_TABLE)][1] then
-		tremove(tbSay, 2);
-	end
+	sTitle = format(sTitle,nCount,OLY_ACCUMULATE_FIRE_AWARD_TABLE[nIndex][1]-nCount,OLY_ACCUMULATE_FIRE_AWARD_TABLE[nIndex][4]);
 	Say(sTitle,getn(tbSay),tbSay);
 end
 
 function free_fire()
-	if gf_GetMyTaskBit(VET_OLY_TASK3, 11, 15) >= 3 then
-		Talk(1,"",format("Thµnh Háa §µn cña mçi thµnh thŞ chØ ®­îc th¾p s¸ng %d lÇn/ngµy", 3));
+	if gf_GetTaskBit(VET_OLY_TASK3,4) ~= 0 then
+		--Talk(1,"","Ã¿¸ö³ÇÊĞµÄ°ÂÔËÊ¥»ğÌ³Ò»ÌìÖ»ÄÜµãÈ¼1´Î");
+		Talk(1,"","Th¸nh Háa §µn cña mçi thµnh 1 ngµy chØ ®­îc ®iÓm háa 1 lÇn");
 		return 0;
 	end
 	if gf_Judge_Room_Weight(1,1,"") ~= 1 then
@@ -62,42 +53,33 @@ function free_fire()
 		return -1;
 	end
 	--±ê¼ÇÖÃ1
-	gf_SetMyTaskBit(VET_OLY_TASK3, 11, 15, gf_GetMyTaskBit(VET_OLY_TASK3, 11, 15) + 1,TASK_ACCESS_CODE_OLYMPIC);
+	gf_SetTaskBit(VET_OLY_TASK3,4,1,TASK_ACCESS_CODE_OLYMPIC);
 	SetCurrentNpcSFX(GetTargetNpc(),909,2,0,3);
 	--µ±ÈÕµã»ğ´ÎÊı
-	if gf_GetTaskByte(VET_OLY_TASK,1) < 18 then
+	if gf_GetTaskByte(VET_OLY_TASK,1) < 6 then
 		gf_SetTaskByte(VET_OLY_TASK,1,gf_GetTaskByte(VET_OLY_TASK,1) + 1,TASK_ACCESS_CODE_OLYMPIC);
 	end
 	--ÀÛ¼Æµã»ğ´ÎÊı
-	--oly_Accumulate_FireNum();
+	oly_Accumulate_FireNum();
 	--¸ø½±Àø2
-	--oly_GiveAward2();
-	ModifyExp(666000)
-	gf_AddItemEx2({2,1,30747,1,4}, "Hép Trang Trİ Gi¸ng Sinh", "Ho¹t ®éng Th¸nh Háa", "PhÇn th­ëng th¾p s¸ng", 0, 1)
-	gf_WriteLogEx("ThanhHoaDan", "Thap Sang", 1,"MienPhi ThanhCong")
-	CustomAwardGiveGroup("Fire_Single", 0);
-	--È«·şµã»ğ´ÎÊı
-	oly_AddFireCount(1);
+	oly_GiveAward2();
 end
 
 function ib_fire()
-	AskClientForNumber("ib_fire_Rec",1,min(OLY_IB_FIRE_MAX_NUM,GetItemCount(WuCai_ShenHuoZhong[1],WuCai_ShenHuoZhong[2],WuCai_ShenHuoZhong[3])),"H·y  nhËp sè lÇn th¾p s¸ng vµo :");
+	AskClientForNumber("ib_fire_Rec",1,min(OLY_IB_FIRE_MAX_NUM,GetItemCount(2,1,30402)),"H·y  nhËp sè lÇn th¾p s¸ng vµo :");
 end
+
 
 function ib_fire_Rec(nNum)
 	if not nNum or nNum <= 0 then
 		return
 	end
 	SetCurrentNpcSFX(GetTargetNpc(),909,2,0,3);
-	local nCount = 0;
 	for i=1,nNum do
-		if ib_fire_do() <= 0 then
+		if ib_fire_do() ~= 1 then
 			break;
 		end
-		nCount = i
 	end
-	--È«·şµã»ğ´ÎÊı
-	oly_AddFireCount(nCount*3);
 end
 
 function ib_fire_do()
@@ -105,23 +87,20 @@ function ib_fire_do()
   		Talk(1,"","Kh«ng gian hµnh trang kh«ng ®ñ")
   		return 0;
 	end
-	if GetItemCount(WuCai_ShenHuoZhong[1],WuCai_ShenHuoZhong[2],WuCai_ShenHuoZhong[3]) < 1 then
-		Talk(1,"","Kh«ng ®ñ Ngò S¾c Th¸nh Háa Th¹ch, kh«ng thÓ th¾p s¸ng.");
+	if GetItemCount(2,1,30402) < 1 then
+		Talk(1,"","Ngò Th¸i Th¸nh Háa kh«ng ®ñ, kh«ng thÓ th¾p s¸ng Th¸nh Háa §µn.");
 		return 0;
 	end
-	if DelItem(WuCai_ShenHuoZhong[1],WuCai_ShenHuoZhong[2],WuCai_ShenHuoZhong[3],1) ~= 1 then
+	if DelItem(2,1,30402,1) ~= 1 then
 		return -1;
 	end
 	--µ±ÈÕµã»ğ´ÎÊı
-	if gf_GetTaskByte(VET_OLY_TASK,1) < 18 then
+	if gf_GetTaskByte(VET_OLY_TASK,1) < 6 then
 		gf_SetTaskByte(VET_OLY_TASK,1,gf_GetTaskByte(VET_OLY_TASK,1) + 1,TASK_ACCESS_CODE_OLYMPIC);
 	end
 	--ÀÛ¼Æµã»ğ´ÎÊı
 	oly_Accumulate_FireNum();
 	--¸ø½±Àø3
-	--oly_GiveAward3();
-	ModifyExp(999000)
-	gf_AddItemEx2({2,1,30747,3}, "Hép Trang Trİ Gi¸ng Sinh", "Ho¹t ®éng Th¸nh Háa", "PhÇn th­ëng th¾p s¸ng", 0, 1)
-	gf_WriteLogEx("ThanhHoaDan", "Thap Sang", 1,"CoPhi ThanhCong")
-	return CustomAwardGiveGroup("Fire_Five", 0);
+	oly_GiveAward3();
+	return 1;
 end

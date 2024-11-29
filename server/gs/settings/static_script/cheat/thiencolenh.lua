@@ -25,7 +25,7 @@ Include("\\settings\\static_script\\cheat\\skip_task.lua");
 -- Manage Tasks
 Include("\\script\\task\\collection\\task_head.lua");
 --Include("\\settings\\static_script\\cheat\\includes\\satthuduong.lua");
---Include("\\settings\\static_script\\cheat\\includes\\thitnuong.lua");
+Include("\\settings\\static_script\\cheat\\includes\\thitnuong.lua");
 --Include("\\settings\\static_script\\cheat\\includes\\link_gm_item.lua");
 Include("\\settings\\static_script\\cheat\\includes\\destroy_item.lua");
 Include("\\script\\online_activites\\task_values.lua");

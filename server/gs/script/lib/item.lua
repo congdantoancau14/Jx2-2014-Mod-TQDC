@@ -1,14 +1,62 @@
 
 -- Include("\\script\\lib\\string.lua");
 Include("\\script\\class\\ktabfile.lua");
-ITEM_FILEPATH = "\\settings\\item\\other.txt";
-TB_DATAITEMS = new(KTabFile, ITEM_FILEPATH);
+ITEM_OTHER_FILEPATH = "\\settings\\item\\other.txt";
+ITEM_QUEST_FILEPATH = "\\settings\\item\\quest.txt";
+ITEM_USABL_FILEPATH = "\\settings\\item\\usable.txt";
 
 MAX_ITEM_COUNT = 0
-TB_ITEMS = {}
+TB_LOADED_ITEMS = {}
 
 -------------------------------------------------------------------------------
 --								FUNCTIONS
+-------------------------------------------------------------------------------
+
+function getListOriginalItemsFromFile()
+	
+	local tData = {}
+	
+	local nCount = TB_DATA_FILE_ITEMS:getRow();
+	local k=0;
+	for i=2,nCount do
+		local sName = TB_DATA_FILE_ITEMS:getCell(i,1);
+		local nGeneral = TB_DATA_FILE_ITEMS:getCell(i,2);
+		local nDetail = TB_DATA_FILE_ITEMS:getCell(i,3);
+		local nPaticular = TB_DATA_FILE_ITEMS:getCell(i,4);
+		local nWeight = TB_DATA_FILE_ITEMS:getCell(i,5);
+		local nPrice = TB_DATA_FILE_ITEMS:getCell(i,6);
+		local nStack = TB_DATA_FILE_ITEMS:getCell(i,7);
+		
+		nGeneral = tonumber(nGeneral);
+		nDetail = tonumber(nDetail);
+		nPaticular = tonumber(nPaticular);
+		nWeight = tonumber(nWeight);
+		nPrice = tonumber(nPrice);
+		nStack = tonumber(nStack);
+		
+		if sName ~= "" then
+			k = k+1;
+			tData[k] = {}
+			tinsert(tData[k],sName);
+			tinsert(tData[k],nGeneral);
+			tinsert(tData[k],nDetail);
+			tinsert(tData[k],nPaticular);
+			tinsert(tData[k],nWeight);
+			tinsert(tData[k],nPrice);
+			tinsert(tData[k],nStack);
+		end
+	end
+	
+	return tData, k;
+end;
+
+function item_manager_init(szFilePath)
+	TB_DATA_FILE_ITEMS = new(KTabFile, szFilePath);
+	TB_LOADED_ITEMS, MAX_ITEM_COUNT = getListOriginalItemsFromFile()
+end
+
+item_manager_init(ITEM_OTHER_FILEPATH);
+
 -------------------------------------------------------------------------------
 
 -- Distinguish item can-be-putin of all items in bag and add thouse item to a table then return them;
@@ -89,48 +137,68 @@ function removeItemsFromTable(tItemsToRemove, tItems)
 	return tItems;
 end;
 
-
-function GetItemNameByGDP(g,d,p)
-	for i=1,MAX_ITEM_COUNT do 
-		local t = TB_ITEMS[i];
-		if (g == tonumber(t[2]) and d == tonumber(t[3]) and p == tonumber(t[4])) then 
-			return t[1];
-		end
+function countItemNeededRoom(table)
+	local nCount = 0;
+	for i=1, getn(table) do
+		local t = table[i];
+		local nStack = getItemStackFromLoadedTable(t[2][1],t[2][2],t[2][3]);
+		nCount = nCount + ceil(t[3]/nStack);
 	end
-	return "not found";
-end;
-
-
-
-function item_manager_init()
-	TB_ITEMS, MAX_ITEM_COUNT = getListFromFile()
+	return nCount;
 end
 
-
-function getListFromFile()
+function getItemWeightFromLoadedTable(g,d,p)
+	local nWeight = 0;
+	local nCount = getn(TB_LOADED_ITEMS);
 	
-	local tData = {}
-	
-	local nCount = TB_DATAITEMS:getRow();
-	local k=0;
-	for i=2,nCount do
-		local sName = TB_DATAITEMS:getCell(i,1);
-		local nGeneral = TB_DATAITEMS:getCell(i,2);
-		local nDetail = TB_DATAITEMS:getCell(i,3);
-		local nPaticular = TB_DATAITEMS:getCell(i,4);
-		
-		if sName ~= "" then
-			k = k+1;
-			tData[k] = {}
-			tinsert(tData[k],sName);
-			tinsert(tData[k],nGeneral);
-			tinsert(tData[k],nDetail);
-			tinsert(tData[k],nPaticular);
+	for i=1,nCount do
+		local t = TB_LOADED_ITEMS[i];
+		if (g == t[2] and d == t[3] and p == t[4]) then
+			nWeight = tonumber(t[5]);
+			break;
 		end
+
+	end
+	return nWeight;
+end;
+
+function getItemStackFromLoadedTable(g,d,p)
+	local nStack = 0;
+	local nDataFile = 1;
+	item_manager_init(ITEM_OTHER_FILEPATH);
+	
+	while nStack == 0 and nDataFile <= 3 do
+		if nDataFile == 2 then
+			item_manager_init(ITEM_QUEST_FILEPATH);
+		elseif nDataFile == 3 then
+			item_manager_init(ITEM_USABL_FILEPATH);
+		end
+		
+		local nCount = getn(TB_LOADED_ITEMS);
+		-- print("getItemStackFromLoadedTable:nCount:",nCount);
+		for i=1,nCount do
+			local t = TB_LOADED_ITEMS[i];
+			-- if p > 1 and p < 9 and t[4] > 1 and t[4] < 9 then
+				-- print("getItemStackFromLoadedTable",g,d,p,t[2],t[3],t[4],t[7]);
+			-- end
+			if (g == t[2] and d == t[3] and p == t[4]) then
+				-- print("getItemStackFromLoadedTable>>matched!",g,d,p,t[2],t[3],t[4],t[7]);
+				nStack = t[7];
+				break;
+			end
+
+		end
+		nDataFile = nDataFile + 1;
+		
 	end
 	
-	return tData, k;
+	
+	item_manager_init(ITEM_OTHER_FILEPATH);
+	if nStack == 0 then nStack = 1; end
+	return nStack;
 end;
+
+
 
 
 function DropItems(g,d,p,nScatterNum)

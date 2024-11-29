@@ -587,22 +587,28 @@ end;
 
 
 function xb_takeallout(nStoreId,szStoreFileName)
-	local nFreeRoom = GetFreeItemRoom();
+	-- local nFreeRoom = GetFreeItemRoom();
 	local nOverflow = 0;
 	
-	local tmove, tleft = filtetable(TB_ITEMS);
-	if getn(tmove) == 0 then
+	local tGeneralItems, tEquipItems = filtetable(TB_ITEMS);
+	
+	if getn(TB_ITEMS) > 0 and getn(tGeneralItems) == 0 then
 		Talk(1,"","VËt phÈm trang bÞ kh«ng thÓ lÊy ra hµng lo¹t!");
 		return 0;
 	end;
-	AddItemsByList(tmove);
-	TB_ITEMS = tleft;
 	
-	local nCount = getn(tmove);
-	if nCount > nFreeRoom then 
-		nOverflow = nCount - nFreeRoom;
-		local tMoveItems = gf_SplitTable(tmove, 1, nFreeRoom);
-		local tDropItems = gf_SplitTable(tmove, nFreeRoom+1, nOverflow);
+	local nCount = getn(tGeneralItems);
+	-- local nNeededItemRoomCount = countItemNeededRoom(tGeneralItems);
+	
+	local nFullRoomIndex = AddItemsByListJudge(tGeneralItems);
+
+	if nCount > nFullRoomIndex then 
+		nOverflow = nCount - nFullRoomIndex;
+		local tMoveItems = gf_SplitTable(tGeneralItems, 1, nFullRoomIndex);
+		-- local tDropItems = gf_SplitTable(tGeneralItems, nFullRoomIndex+1, nOverflow);
+		local tDropItems = gf_SplitTable(tGeneralItems, nFullRoomIndex+1, nCount);
+
+		-- do return end;
 		if getn(tDropItems) > 0 then
 			DropItemsByList(tDropItems);
 		end
@@ -613,22 +619,51 @@ function xb_takeallout(nStoreId,szStoreFileName)
 	
 end;
 
+
+function AddItemsByListJudge(tItems)
+	-- print("tItems",getn(tItems));
+	local nFullRoomIndex = getn(tItems);
+	for i = 1,getn(tItems) do
+		local t = tItems[i];
+		-- if gf_Judge_Room_Weight(1,100) == 1 then
+		local nStack = getItemStackFromLoadedTable(t[2][1],t[2][2],t[2][3]);
+		local nNeedRoom = ceil(t[3]/nStack);
+		local nWeight = getItemWeightFromLoadedTable(t[2][1],t[2][2],t[2][3]);
+		local nNeedCapacity = t[3] * nWeight;
+		-- print("AddItemsByListJudge:nNeedRoom,nNeedCapacity:",nNeedRoom,nNeedCapacity,gf_Judge_Room_Weight(nNeedRoom,nNeedCapacity));
+
+		if gf_Judge_Room_Weight(nNeedRoom,nNeedCapacity) == 1 then
+			local nAddResult, nItemIndex = AddItem(t[2][1],t[2][2],t[2][3],t[3]);
+			if t[5] and tonumber(t[5]) ~= nil and tonumber(t[5]) > 0 then 
+				SetItemExpireTime(nItemIndex,t[5]);	
+			end
+		else
+			nFullRoomIndex = i;
+			break;
+		end
+	end
+	--erasedata();
+	return nFullRoomIndex;
+end
+
 function filtetable(table)
 	local tmove = {}
 	local tleft = {}
+	local t = table;
 	
-	for i=1,getn(table) do
+	for i=1,getn(t) do
 		if table[i] == nil then
 			break;
 		end
-		local g,d,p = table[i][2][1],table[i][2][2],table[i][2][3];
+		local g,d,p = t[i][2][1],t[i][2][2],t[i][2][3];
 		if IsAnEquip(g,d,p) == 0 then
-			tinsert(tmove,table[i]);
-			tremove(table,i);
+			tinsert(tmove,t[i]);
+			tremove(t,i);
 			i = i-1;
 		end
 	end
-	tleft = table;
+
+	tleft = t;
 	return tmove, tleft;
 end
 
@@ -755,7 +790,7 @@ end
 
 function DropItemsByList(tItems)
 	local t = tItems;
-	-- print("tItems",getn(tItems));
+	print("DropItemsByList>>tItems: ",getn(tItems));
 	for i=1, getn(t) do 
 		print(i,t[i][2][1],t[i][2][2],t[i][2][3],t[i][3]);
 		DropItems(t[i][2][1],t[i][2][2],t[i][2][3],t[i][3]);
@@ -920,7 +955,7 @@ function GetStoreFreeRoom(nStoreId,szStoreFileName)
 	end
 end;
 
-function getListFromFile()
+function getListStoredItemsFromFile()
 	
 	local tData = {}
 	local nCount = TB_DATAITEMS:getRow();
@@ -948,6 +983,25 @@ function getListFromFile()
 		local nIsDing10 = TB_DATAITEMS:getCell(i,17);
 		local nLingqi = TB_DATAITEMS:getCell(i,18);
 		----------------------------------------------
+		nGeneral = tonumber(nGeneral);
+		nDetail = tonumber(nDetail);
+		nParticular = tonumber(nParticular);
+		nQuantity = tonumber(nQuantity);
+		nCreateTime = tonumber(nCreateTime);
+		nExpireTime = tonumber(nExpireTime);
+		
+		nAbrasive = tonumber(nAbrasive);
+		nMofa1 = tonumber(nMofa1);
+		nLevel1 = tonumber(nLevel1);
+		nMofa2 = tonumber(nMofa2);
+		nLevel2 = tonumber(nLevel2);
+		nMofa3 = tonumber(nMofa3);
+		nLevel3 = tonumber(nLevel3);
+		nEnhance = tonumber(nEnhance);
+		nIsDing7 = tonumber(nIsDing7);
+		nIsDing10 = tonumber(nIsDing10);
+		nLingqi = tonumber(nLingqi);
+		----------------------------------------------
 		if sName ~= "" then
 			k = k+1;
 			--tData[k] = {sName,{nGeneral,nDetail,nPaticular},nQuantity,nCreateTime,nExpireTime}
@@ -974,7 +1028,7 @@ function init(nStoreId, szStoreFileName)
 	generateItemFilePath(READ_FILE,nStoreId,szStoreFileName)
 	TB_DATAITEMS = {}
 	TB_DATAITEMS = new(KTabFile, ITEM_FILEPATH);
-	TB_ITEMS, ITEM_COUNT = getListFromFile();
+	TB_ITEMS, ITEM_COUNT = getListStoredItemsFromFile();
 	-- print("nStoreId:",nStoreId);
 	-- print("ITEM_FILEPATH",ITEM_FILEPATH)
 	-- print("TB_ITEMS",getn(TB_ITEMS))

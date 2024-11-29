@@ -6,7 +6,14 @@ FIGHT_STATE = 3069 -- MODDED. MAYBE IT IS CONFLICT WITH OTHERS
 
 function main()
 	local nGoInFlag = GetTask(TSK_GOIN)
-	Say("",3,"Dıng ch©n nghÿ ng¨i/rest","Ta Æ∑ nghÿ ng¨i Æ≠Óc bao l©u rÂi nhÿ?/askSleepInfo","RÍi Æi/leave")
+	local tSays = {}
+	if nGoInFlag ~= 1 then
+		tinsert(tSays,"\nDıng ch©n nghÿ ng¨i/rest");
+	else
+		tinsert(tSays,"\nTa Æ∑ nghÿ ng¨i Æ≠Óc bao l©u rÂi nhÿ?/askSleepInfo");
+	end
+	tinsert(tSays,"\nRÍi Æi/leave");
+	Say("",getn(tSays),tSays)
 end;
 
 
@@ -15,12 +22,16 @@ function askSleepInfo()
 end;
 
 function leave()
+	local nGoInFlag = GetTask(TSK_GOIN);
 	local nIndex = GetTargetNpc()
 	local m,x,y = GetNpcWorldPos(nIndex);
-	NewWorld(m,x,y+2);
-	SetTask(TSK_GOIN, 0);
-	ET_OnGetup()
-	RestorePlayerState()
+	
+	if nGoInFlag == 1 then
+		NewWorld(m,x,y+2);
+		SetTask(TSK_GOIN, 0);
+		ET_OnGetup()
+		RestorePlayerState()
+	end
 end;
 
 function rest()

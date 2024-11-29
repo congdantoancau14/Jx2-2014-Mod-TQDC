@@ -3434,6 +3434,7 @@ end
 -------------------------------------------------------------------------------
 
 function gf_SplitTable(table,nBegin,nEnd)
+
 	local TABLEEND = getn(table);
 	if nBegin == 1 and nEnd == TABLEEND then 
 		print("The table are trying to splited is the same size with the original.");
@@ -3449,22 +3450,24 @@ function gf_SplitTable(table,nBegin,nEnd)
 	local tItemsLeftHeadPart = {}
 	local tItemsLeftEndPart = {}
 	
-	if nBegin == 1 then 
+	if nBegin == 1 then -- take head part
+		for i=nBegin, nEnd do -- take all or head part only
+			tinsert(tItemsTake,table[i]);
+		end
+		if nEnd ~= TABLEEND then -- the left items
+			for i=nEnd+1, TABLEEND do 
+				tinsert(tItemsLeft,table[i]);
+			end
+		end
+	elseif nEnd == TABLEEND then -- take end part
 		for i=nBegin, nEnd do 
 			tinsert(tItemsTake,table[i]);
 		end
-		for i=nEnd+1, TABLEEND do 
-			tinsert(tItemsLeft,table[i]);
-		end
-	elseif nEnd == TABLEEND then
-		for i=nBegin, nEnd do 
-			tinsert(tItemsLeft,table[i]);
-		end
-		for i=nEnd+1, TABLEEND do 
-			tinsert(tItemsTake,table[i]);
-		end
-	else
 		for i=1, nBegin-1 do 
+			tinsert(tItemsLeft,table[i]);
+		end
+	else 	-- take head part, the middle, and the end part
+		for i=1, nBegin-1 do
 			tinsert(tItemsLeftHeadPart,table[i]);
 		end	
 		for i=nBegin, nEnd do 
@@ -3474,7 +3477,7 @@ function gf_SplitTable(table,nBegin,nEnd)
 			tinsert(tItemsLeftEndPart,table[i]);
 		end	
 	end	
-	return tItemsTake, tItemsLeft or tItemsLeftHeadPart, tItemsLeftEndPart;
+	return tItemsTake, tItemsLeft;
 end;
 
 

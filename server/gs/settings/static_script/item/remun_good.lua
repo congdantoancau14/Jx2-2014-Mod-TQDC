@@ -28,7 +28,7 @@ TB_USABLEITEMS = {}
 TB_QUESTITEMS = {}
 
 tbListofTables = {}
-tbCurrentItems = {}
+tbCurrentListItems = {}
 
 tItemShortkeys = {
 	{"Cæ Linh Th¹ch",{2,1,30368},"clt"},
@@ -53,7 +53,7 @@ function searchItemInTables(str)
 	for i = 1, getn(tbListofTables) do
 		nIndex, tDup = checkItemInTable(tbListofTables[i],str);
 		if nIndex ~= 0 then 
-			tbCurrentItems = tbListofTables[i];
+			tbCurrentListItems = tbListofTables[i];
 			break; 
 		end
 	end
@@ -127,6 +127,7 @@ function init()
 	tinsert(tbListofTables,TB_USABLEITEMS);
 	tinsert(tbListofTables,TB_QUESTITEMS);
 	--print("remun_good>>init() is called!");
+	tbCurrentListItems = tbListofTables[1];
 end
 
 
@@ -186,9 +187,9 @@ function _request_additem_string_call_back(str)
 		end
 	elseif nAction ~= nil and nAction == 2 then 
 		if result == 1 then
-			Msg2Player("X?a vËt phÈm thµnh c«ng!");
+			Msg2Player("Xãa vËt phÈm thµnh c«ng!");
 		elseif result == 0 then
-			Msg2Player("X?a vËt phÈm thÊt b¹i!");
+			Msg2Player("Xãa vËt phÈm thÊt b¹i!");
 		end
 	end
 end;
@@ -236,7 +237,7 @@ function handleString(szInput,nAction)
 			elseif tonumber(p) > 0 and nAction == VALUE_DELITEM then
 				if tonumber(q) > 0 then 
 					--DelItem(g,d,p,q);
-					tbCurrentItems = {GetItemName(g,d,p),{g,d,p},q}
+					tbCurrentListItems = {GetItemName(g,d,p),{g,d,p},q}
 					return _request_delitem_number_call_back(q);
 				else
 					confirmDelItem(nIndex);
@@ -284,9 +285,9 @@ function onTwoParam(t,nAction)
 			else
 				talkErrorSyntax();
 			end
-			g = tbCurrentItems[nIndex][2][1];
-			d = tbCurrentItems[nIndex][2][2];
-			p = tbCurrentItems[nIndex][2][3];
+			g = tbCurrentListItems[nIndex][2][1];
+			d = tbCurrentListItems[nIndex][2][2];
+			p = tbCurrentListItems[nIndex][2][3];
 		end
 	end
 	return result, nIndex, nAction;
@@ -337,9 +338,9 @@ function onOneParam(t, nAction)
 				result = 0;
 			else
 				--print("remun_good.lua>>onOneParam>>nIndex:"..nIndex);
-				g = tbCurrentItems[nIndex][2][1];
-				d = tbCurrentItems[nIndex][2][2];
-				p = tbCurrentItems[nIndex][2][3];
+				g = tbCurrentListItems[nIndex][2][1];
+				d = tbCurrentListItems[nIndex][2][2];
+				p = tbCurrentListItems[nIndex][2][3];
 			end
 		end
 	end
@@ -389,25 +390,25 @@ function confirmDelItem(nIndex)
 		Talk(1,"","Kh«ng t×m thÊy vËt phÈm cÇn xãa trong hµnh trang!");
 		return 0;
 	end
-	local nCount = GetItemCount(tbCurrentItems[nIndex][2][1],tbCurrentItems[nIndex][2][2],tbCurrentItems[nIndex][2][3]);
+	local nCount = GetItemCount(tbCurrentListItems[nIndex][2][1],tbCurrentListItems[nIndex][2][2],tbCurrentListItems[nIndex][2][3]);
 	if nCount > 1 then 
-		Say(format("B¹n muèn xãa vËt phÈm <color=yellow>%s<color>?",tbCurrentItems[nIndex][1]),3,
+		Say(format("B¹n muèn xãa vËt phÈm <color=yellow>%s<color>?",tbCurrentListItems[nIndex][1]),3,
 			format("§óng! NhËp sè l­îng/#getDelNum(%d)",nCount),
 			format("§óng! Xãa hÕt lu«n/#_request_delitem_number_call_back(%d)",nCount),
 			"Kh«ng! NhÇm th«i/nothing"
 		)
 	else
-		Say(format("X¸c nhËn xãa %s",tbCurrentItems[nIndex][1]),2,"§ång ý/#_request_delitem_number_call_back(1)","Kh«ng/nothing");
+		Say(format("X¸c nhËn xãa %s",tbCurrentListItems[nIndex][1]),2,"§ång ý/#_request_delitem_number_call_back(1)","Kh«ng/nothing");
 	end
 end
 
 function _request_delitem_number_call_back(nQuantity)
-	local nDel = DelItem(tbCurrentItems[nItemDelIndex][2][1],tbCurrentItems[nItemDelIndex][2][2],tbCurrentItems[nItemDelIndex][2][3],nQuantity);
+	local nDel = DelItem(tbCurrentListItems[nItemDelIndex][2][1],tbCurrentListItems[nItemDelIndex][2][2],tbCurrentListItems[nItemDelIndex][2][3],nQuantity);
 	if nDel == 1 then 
-		Msg2Player(format("Xãa thµnh c«ng %s x%d!",tbCurrentItems[nItemDelIndex][1],nQuantity))
+		Msg2Player(format("Xãa thµnh c«ng %s x%d!",tbCurrentListItems[nItemDelIndex][1],nQuantity))
 		return 1
 	else
-		Msg2Player(format("XuÊt hiÖn lçi trong khi xãa %s x%d!",tbCurrentItems[nItemDelIndex][1],nQuantity))
+		Msg2Player(format("XuÊt hiÖn lçi trong khi xãa %s x%d!",tbCurrentListItems[nItemDelIndex][1],nQuantity))
 		return 0
 	end
 end;
@@ -430,7 +431,7 @@ function addItemAndLog(nIndex, szName)
 	
 	local file = openfile("additem_log.lua", "a+")
 	if nIndex ~= 0 then
-		local szLog = format("{'%s',%s},\n",tbCurrentItems[nIndex][1],szItemCode);
+		local szLog = format("{'%s',%s},\n",tbCurrentListItems[nIndex][1],szItemCode);
 		write(file,szLog);
 	else
 		local szLog = format("{'%s',%s},\n",szName,szItemCode);
@@ -456,11 +457,13 @@ function showNavigation()
 end;
 
 function addRandomItem(nShowNav)
+	init();
 	local nRand = random(MAX_ITEM_COUNT);
-	g = tbCurrentItems[nRand][2][1];
-	d = tbCurrentItems[nRand][2][2];
-	p = tbCurrentItems[nRand][2][3];
-	addItemAndLog(0,tbCurrentItems[nRand][1]);
+	print("addRandomItem",MAX_ITEM_COUNT,nRand,getn(tbCurrentListItems));
+	g = tbCurrentListItems[nRand][2][1];
+	d = tbCurrentListItems[nRand][2][2];
+	p = tbCurrentListItems[nRand][2][3];
+	addItemAndLog(0,tbCurrentListItems[nRand][1]);
 	if nShowNav == 1 then 
 		showNavigation();
 	end
