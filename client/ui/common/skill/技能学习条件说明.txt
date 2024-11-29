@@ -1,0 +1,224 @@
+ID	Tªn kü n¨ng	Giíi thiÖu s¬ l­îc	§¼ng cÊp yªu cÇu	Yªu cÇu kü n¨ng phèi hîp:	Yªu cÇu danh väng
+1	Tay kh«ng tÊn c«ng b×nh th­êng				
+2	QuyÒn tÊn c«ng b×nh th­êng				
+3	§ao tÊn c«ng b×nh th­êng				
+4	KiÕm tÊn c«ng b×nh th­êng				
+5	C«n tÊn c«ng b×nh th­êng				
+6	Tr­îng tÊn c«ng b×nh th­êng				
+7	¸m khİ tÊn c«ng b×nh th­êng				
+8	Bót tÊn c«ng b×nh th­êng				
+9	§µn cÇm tÊn c«ng b×nh th­êng				
+10	NPC §¸nh ngo¹i c«ng (gÇn)				
+11	NPC §¸nh ngo¹i c«ng (xa)				
+12	NPC §¸nh néi c«ng (gÇn)				
+13	NPC §¸nh néi c«ng (xa)				
+14	NPC tÊn c«ng tiÔn				
+15					
+16					
+17					
+18					
+19	Ngåi thiÒn				
+20	Khinh c«ng				
+21	Hçn Nguyªn NhÊt Khİ C«ng	ThiÕu L©m ®Ö tö tôc gia nhËp m«n t©m ph¸p, gióp kh«i phôc ngo¹i th­¬ng			
+22	ThiÕu L©m ®ao ph¸p	ThiÕu L©m ®ao thuËt c¨n b¶n, n©ng cao kü x¶o dïng ®ao	Yªu cÇu ®¼ng cÊp: 10	Yªu cÇu luyÖn thµnh tÇng 1 Hçn Nguyªn NhÊt Khİ C«ng	
+23	ThiÕu L©m c«n ph¸p	ThiÕu L©m c«n thuËt c¨n b¶n, n©ng cao kü x¶o dïng c«n	Yªu cÇu ®¼ng cÊp: 10	Yªu cÇu luyÖn thµnh tÇng 1 Hçn Nguyªn NhÊt Khİ C«ng	
+24	Tr¶m Ma ®ao ph¸p	ThiÕu L©m ®ao thuËt c¨n b¶n, ra ®ßn nhanh khi ®èi kh¸ng	Yªu cÇu ®¼ng cÊp: 12	Yªu cÇu luyÖn thµnh tÇng 1 ThiÕu L©m §ao ph¸p	Yªu cÇu danh väng: 30 ®iÓm
+25	Phong Ma c«n ph¸p	ThiÕu L©m c«n thuËt c¨n b¶n, tÊn c«ng sè İt	Yªu cÇu ®¼ng cÊp: 15	Yªu cÇu luyÖn thµnh tÇng 1 ThiÕu L©m C«n ph¸p	Yªu cÇu danh väng 50 ®iÓm
+26	Kim Chung Tr¸o	ThiÕu L©m ®éc m«n t©m ph¸p, t¨ng phßng ngù ngo¹i c«ng	Yªu cÇu ®¼ng cÊp: 22	Yªu cÇu luyÖn thµnh tÇng 5 Hçn Nguyªn NhÊt Khİ C«ng	Yªu cÇu danh väng 100 ®iÓm
+27	Nhiªn Méc ®ao ph¸p	ThiÕu L©m ®ao thuËt trung cÊp. <enter>HiÖu qu¶ h¬n khi ®èi kh¸ng hÖ Méc	Yªu cÇu ®¼ng cÊp: 29	Yªu cÇu luyÖn thµnh tÇng 4 Tr¶m Ma §ao ph¸p	Yªu cÇu danh väng 300 ®iÓm
+28	V« Th­êng c«n ph¸p	ThiÕu L©m c«n thuËt trung cÊp. <enter>Dïng khİ ®Èy lïi ®èi ph­¬ng	Yªu cÇu ®¼ng cÊp: 32	Yªu cÇu luyÖn thµnh tÇng 4 Phong Ma C«n ph¸p	Yªu cÇu danh väng 500 ®iÓm
+29	X¶ Th©n QuyÕt	ThiÕu L©m ngo¹i gia tuyÖt häc.<enter>DÔ dµng khèng chÕ ®èi ph­¬ng	Yªu cÇu ®¼ng cÊp: 39	Yªu cÇu luyÖn thµnh tÇng 6 Kim Chung Tr¸o	Yªu cÇu danh väng 700 ®iÓm
+30	§¹i Nh­ Lai Ph¸p	ThiÕu L©m t©m ph¸p th­îng thõa, dïng phËt ph¸p n©ng cao sinh lùc	Yªu cÇu ®¼ng cÊp: 47	Yªu cÇu luyÖn thµnh tÇng 2 X¶ Th©n QuyÕt	Yªu cÇu danh väng 1000 ®iÓm
+31	§¹t Ma Vò Kinh	ThiÕu L©m mét trong 72 tuyÖt kü, vâ c«ng cao nhÊt cña c«n vµ ®ao	Yªu cÇu ®¼ng cÊp: 55	Yªu cÇu luyÖn thµnh tÇng 5 Nhiªn Méc §ao ph¸p hoÆc tÇng 5 V« Th­êng C«n ph¸p	Yªu cÇu danh väng 3000 ®iÓm
+32	DŞch C©n Kinh	Mét trong 72 tuyÖt kü ThiÕu L©m, thÇn c«ng trÊn ph¸i tôc gia.<enter> T¨ng n¨ng lùc phßng ngù	CÇn ph¶i ®¹t cÊp 80 	Ph¶i häc ®­îc tÊt c¶ vâ c«ng cÊp cao cña bæn ph¸i 	Ph¶i cã 10000 danh väng
+33	ThiÕu L©m La H¸n C«ng	ThiÕu L©m vâ t¨ng nhËp m«n t©m ph¸p, gióp håi phôc néi ngo¹i khİ			
+34	ThÊt B¶o ChiÕu Ph¸p	ThiÕu L©m vâ t¨ng t©m ph¸p c¨n b¶n<enter>T¨ng c«ng víi néi khİ th©m hËu	Yªu cÇu ®¼ng cÊp: 10	Yªu cÇu luyÖn thµnh tÇng 1 ThiÕu L©m La H¸n C«ng	
+35	La H¸n QuyÒn	ThiÕu L©m quyÒn ph¸p c¨n b¶n, dïng néi khİ tÊn c«ng liªn tôc ®èi ph­¬ng	Yªu cÇu ®¼ng cÊp: 12	Yªu cÇu luyÖn thµnh tÇng 1 ThÊt B¶o ChiÕu Ph¸p	Yªu cÇu danh väng: 30 ®iÓm
+36	Ca DiÖp Thèi	ThiÕu L©m thèi ph¸p c¨n b¶n, dïng néi khİ tÊn c«ng liªn tôc ®èi ph­¬ng	Yªu cÇu ®¼ng cÊp: 15	Yªu cÇu luyÖn thµnh tÇng 2 ThÊt B¶o ChiÕu Ph¸p	Yªu cÇu danh väng 50 ®iÓm
+37	HuÖ Nh·n Chó	ThiÕu L©m ®éc m«n t©m ph¸p, t¨ng chİnh x¸c	Yªu cÇu ®¼ng cÊp: 22	Yªu cÇu luyÖn thµnh tÇng 5 ThiÕu L©m La H¸n C«ng	Yªu cÇu danh väng 100 ®iÓm
+38	Vi §µ QuyÒn	ThiÕu L©m quyÒn ph¸p trung cÊp, liªn tôc xuÊt chiªu<enter>Ph¶i ph¸t ®éng La H¸n QuyÒn hoÆc Ca DiÖp Thèi	Yªu cÇu ®¼ng cÊp: 28	Yªu cÇu luyÖn thµnh tÇng 4 La H¸n QuyÒn	Yªu cÇu danh väng 300 ®iÓm
+39	V¨n Thï XuÊt V©n Thèi	ThiÕu L©m c­íc ph¸p trung cÊp, liªn tôc xuÊt chiªu<enter>Ph¶i ph¸t ®éng La H¸n QuyÒn hoÆc Ca DiÖp Thèi	Yªu cÇu ®¼ng cÊp: 31	Yªu cÇu luyÖn thµnh tÇng 4 Ca DiÖp Thèi	Yªu cÇu danh väng 500 ®iÓm
+40	La H¸n TrËn	ThiÕu L©m tuyÖt kü, trËn ph¸p do nhiÒu vâ t¨ng phèi hîp, uy lùc kinh ng­êi	Yªu cÇu ®¼ng cÊp: 37	Yªu cÇu luyÖn thµnh tÇng 4 HuÖ Nh·n Chó	Yªu cÇu danh väng 600 ®iÓm
+41	§¹i Tu Di Ch­ëng	ThiÕu L©m quyÒn thuËt th­îng thõa, dïng néi khİ ph¸t ®éng<enter> ph¸ hiÖu qu¶ phßng ngù nh­ng ph¶i ph¸t ®éng Vi §µ QuyÒn hoÆc V¨n Thï XuÊt V©n Thèi	Yªu cÇu ®¼ng cÊp: 44	Yªu cÇu luyÖn thµnh tÇng 6 Vi §µ QuyÒn	Yªu cÇu danh väng 800 ®iÓm
+42	V« ¶nh C­íc	ThiÕu L©m thèi ph¸p th­îng thõa, dïng néi khİ ph¸t ®éng <enter>chíp nho¸ng ®¸nh b¹i ®èi ph­¬ng nh­ng ph¶i ph¸t ®éng Vi §µ QuyÒn hoÆc V¨n Thï XuÊt V©n Thèi	Yªu cÇu ®¼ng cÊp: 48	Yªu cÇu luyÖn thµnh tÇng 6 V¨n Thï XuÊt V©n Thèi	Yªu cÇu danh väng 1000 ®iÓm
+43	ThiÕu L©m Long Tr¶o Thñ	ThiÕu L©m mét trong 72 tuyÖt kü, dïng néi khİ ph¸t ®éng.<enter>Søc ®¸nh nh­ vò b·o	Yªu cÇu ®¼ng cÊp: 55	Yªu cÇu luyÖn thµnh tÇng 4 La H¸n TrËn	Yªu cÇu danh väng 3000 ®iÓm
+44	Nh­ Lai ThÇn Ch­ëng	Mét trong 72 tuyÖt kü ThiÕu L©m, Vâ t¨ng trÊn ph¸i <enter>Héi tô v« sè ch­ëng phong bao v©y ®Şch.	CÇn ph¶i ®¹t cÊp 80 	Ph¶i häc ®­îc tÊt c¶ vâ c«ng cÊp cao cña bæn ph¸i 	Ph¶i cã 10000 danh väng
+45	ThiÕu L©m ThiÒn Viªn C«ng	ThiÕu L©m thiÒn t¨ng nhËp m«n t©m ph¸p, gióp håi phôc néi khİ			
+46	Phôc Hæ Khİ C«ng	ThiÕu L©m thiÒn c«ng c¨n b¶n, ®¸nh m¹nh nh­ hæ vå	Yªu cÇu ®¼ng cÊp: 10	Yªu cÇu luyÖn thµnh tÇng 1 ThiÕu L©m ThiÒn Viªn C«ng	
+47	ThiÕu L©m Tu T©m Ph¸p	ThiÕu L©m thiÒn t¨ng t©m ph¸p c¨n b¶n, t¨ng hiÖu qu¶ thiÒn c«ng	Yªu cÇu ®¼ng cÊp: 12	Yªu cÇu luyÖn thµnh tÇng 1 ThiÕu L©m ThiÒn Viªn C«ng	Yªu cÇu danh väng: 30 ®iÓm
+48	Ngò ChuyÓn ChØ	ThiÕu L©m thiÒn c«ng s¬ cÊp, chuyÓn ®æi thuéc tİnh ngò hµnh phßng ngù ®èi ph­¬ng	Yªu cÇu ®¼ng cÊp: 15	Yªu cÇu luyÖn thµnh tÇng 1 ThiÕu L©m Tu T©m ph¸p	Yªu cÇu danh väng 50 ®iÓm
+49	Ph¸ Ma Chó	ThiÕu L©m thiÒn c«ng s¬ cÊp, hãa gi¶i ma lùc thuéc tİnh ©m	Yªu cÇu ®¼ng cÊp: 20	Yªu cÇu luyÖn thµnh tÇng 2 ThiÕu L©m Tu T©m ph¸p	Yªu cÇu danh väng 80 ®iÓm
+50	Kim Cang BÊt Ho¹i	§éc m«n t©m ph¸p ThiÕu L©m t¨ng nhiÒu phßng thñ néi c«ng	Yªu cÇu ®¼ng cÊp: 22	Yªu cÇu luyÖn thµnh tÇng 2 Ngò ChuyÓn ChØ	Yªu cÇu danh väng 100 ®iÓm
+51	§µ L«i Ph¸	ThiÕu L©m thiÒn c«ng trung cÊp. <enter>HiÖu qu¶ khi ®èi kh¸ng víi thuéc tİnh Thñy	Yªu cÇu ®¼ng cÊp: 26	Yªu cÇu luyÖn thµnh tÇng 5 Phôc Hæ Khİ C«ng	Yªu cÇu danh väng 300 ®iÓm
+52	Cµ Sa Phôc Ma thÇn c«ng	ThiÕu L©m thiÒn c«ng trung cÊp, tÊn c«ng theo ®­êng th¼ng	Yªu cÇu ®¼ng cÊp: 31	Yªu cÇu luyÖn thµnh tÇng 6 Phôc Hæ Khİ C«ng	Yªu cÇu danh väng 500 ®iÓm
+53	V« T­íng ThÇn C«ng	ThiÕu L©m thiÒn c«ng trung cÊp. <enter>V« hiÖu hãa thuéc tİnh ngò hµnh phßng ngù ®èi ph­¬ng	Yªu cÇu ®¼ng cÊp: 36	Yªu cÇu luyÖn thµnh tÇng 4 Kim Cang BÊt Ho¹i	Yªu cÇu danh väng 600 ®iÓm
+54	S­ Tö Hèng	ThiÕu L©m thiÒn c«ng th­îng thõa.<enter>®¸nh diÖn réng vµ thªm hiÖu øng cho¸ng	Yªu cÇu ®¼ng cÊp: 43	Yªu cÇu luyÖn thµnh tÇng 4 Cµ Sa Phôc Ma ThÇn Th«ng	Yªu cÇu danh väng 800 ®iÓm
+55	BÊt §éng Minh V­¬ng Chó	ThiÕu L©m thiÒn c«ng th­îng thõa.<enter>®Şnh th©n ®èi ph­¬ng ®ång thêi g©y s¸t th­¬ng ma vËt thuéc tİnh ©m	Yªu cÇu ®¼ng cÊp: 48	Yªu cÇu luyÖn thµnh tÇng 6 Ph¸ Ma Chó	Yªu cÇu danh väng 1000 ®iÓm
+56	§¹i Lùc Kim Cang ChØ	ThiÕu L©m mét trong 72 tuyÖt kü.<enter>ChØ phong m¹nh tÊn c«ng trong ph¹m vi nhá	Yªu cÇu ®¼ng cÊp: 55	Yªu cÇu luyÖn thµnh tÇng 6 Nh©n §µ La L«i Ên Ph¸  hoÆc tÇng 2 S­ Tö Hèng	Yªu cÇu danh väng 3000 ®iÓm
+57	TÈy Tñy Kinh	Mét trong 72 tuyÖt kü ThiÕu L©m,ThiÒn t¨ng Vâ c«ng TrÊn ph¸i <enter>Lµm cho n¨ng lùc ®èi thñ suy gi¶m.	CÇn ph¶i ®¹t cÊp 80 	Ph¶i häc ®­îc tÊt c¶ vâ c«ng cÊp cao cña bæn ph¸i 	Ph¶i cã 10000 danh väng
+58	§­êng M«n ¸m khİ	§­êng M«n nhËp m«n t©m ph¸p, n©ng cao kü x¶o sö dông ¸m khİ			
+59	ChÕ ¸m thuËt	§­êng M«n tuyÖt kü c¨n b¶n, ghi l¹i ph­¬ng ph¸p chÕ t¹o ¸m khİ	Yªu cÇu ®¼ng cÊp: 14	Yªu cÇu luyÖn thµnh tÇng 1 T©m Nh·n	Yªu cÇu danh väng 50 ®iÓm
+60	T©m Nh·n	§­êng M«n ¸m khİ thuËt c¨n b¶n, t¨ng s¸t th­¬ng khi sö dông thªm ¸m khİ	Yªu cÇu ®¼ng cÊp: 10	Yªu cÇu luyÖn thµnh tÇng 1 §­êng M«n ¸m khİ	
+61	§éc Thİch Cèt	§­êng M«n bÉy s¬ cÊp, trong ph¹m vi nhÊt ®Şnh lµm ®èi ph­¬ng tróng ®éc	Yªu cÇu ®¼ng cÊp: 12	Yªu cÇu luyÖn thµnh tÇng 1 §­êng M«n ¸m khİ	Yªu cÇu danh väng: 30 ®iÓm
+62	Gi¶i §éc bİ thuËt	§­êng M«n tuyÖt kü s¬ cÊp, gióp gi¶i ®éc	Yªu cÇu ®¼ng cÊp: 17	Yªu cÇu luyÖn thµnh tÇng 2 T©m Nh·n	Yªu cÇu danh väng 60 ®iÓm
+63	C©u Hån TÜnh	§­êng M«n bÉy s¬ cÊp, trong ph¹m nhá khiÕn ®èi ph­¬ng hçn lo¹n	Yªu cÇu ®¼ng cÊp: 20	Yªu cÇu luyÖn thµnh tÇng 4 §­êng M«n ¸m khİ	Yªu cÇu danh väng 80 ®iÓm
+64	Ph¸ quan thuËt	§­êng M«n tuyÖt kü s¬ cÊp, ®¹o cô th¸o bÉy hoÆc thu håi bÉy	Yªu cÇu ®¼ng cÊp: 22	Yªu cÇu luyÖn thµnh tÇng 2 §éc Thİch Cèt	Yªu cÇu danh väng 100 ®iÓm
+65	Truy T©m TiÔn	§­êng M«n ¸m khİ thuËt Trung cÊp, ra ®ßn liªn tiÕp lªn ®èi ph­¬ng	Yªu cÇu ®¼ng cÊp: 25	Yªu cÇu luyÖn thµnh tÇng 3 ¸m khİ chÕ t¸c thuËt	Yªu cÇu danh väng 200 ®iÓm
+66	Thu Hµo Minh Tra	§­êng M«n t©m ph¸p Trung cÊp, ph¸t hiÖn ra bÉy cña ®èi ph­¬ng	Yªu cÇu ®¼ng cÊp: 27	Yªu cÇu luyÖn thµnh tÇng 2 C©u Hån TÜnh	Yªu cÇu danh väng 300 ®iÓm
+67	Xuyªn T©m Thİch	§­êng M«n bÉy Trung cÊp, trong ph¹m vi nhÊt ®Şnh khiÕn ®èi ph­¬ng tróng ®éc	Yªu cÇu ®¼ng cÊp: 30	Yªu cÇu luyÖn thµnh tÇng 2 C¬ quan ph¸ gi¶i thuËt	Yªu cÇu danh väng 500 ®iÓm
+68	Thèi §éc ThuËt	§­êng M«n tuyÖt kü Trung cÊp. <enter>vò khİ tÈm ®éc khi ®¸nh kÌm ®éc s¸t	Yªu cÇu ®¼ng cÊp: 34	Yªu cÇu luyÖn thµnh tÇng 4 Gi¶i ®éc bİ thuËt	Yªu cÇu danh väng 500 ®iÓm
+69	§o¹t Ph¸ch Phiªn	§­êng M«n bÉy Trung cÊp, trong ph¹m vŞ nhÊt ®Şnh khiÕn ®èi ph­¬ng buån ngñ	Yªu cÇu ®¼ng cÊp: 36	Yªu cÇu luyÖn thµnh tÇng 2 Thu Hµo Minh Tra	Yªu cÇu danh väng 600 ®iÓm
+70	B¹o Vò Lª Hoa Ch©m	§­êng M«n ¸m khİ thuËt cao cÊp. <enter>Chíp nho¸ng phãng ra nhiÒu ¸m khİ	Yªu cÇu ®¼ng cÊp: 40	Yªu cÇu luyÖn thµnh tÇng 4 Truy T©m TiÔn	Yªu cÇu danh väng 700 ®iÓm
+71	Hµm Sa X¹ ¶nh	§­êng M«n t©m ph¸p cao cÊp. <enter>vËn khİ khiÕn ®éc quay ng­îc l¹i ®èi ph­¬ng	Yªu cÇu ®¼ng cÊp: 45	Yªu cÇu luyÖn thµnh tÇng 2 Thèi §éc ThuËt	Yªu cÇu danh väng 800 ®iÓm
+72	Táa MÖnh Ch©m	§­êng M«n bÉy cao cÊp. <enter>KhiÕn ®èi ph­¬ng tróng ®éc vµ gi¶m tèc ®é di chuyÓn	Yªu cÇu ®¼ng cÊp: 50	Yªu cÇu luyÖn thµnh tÇng 5 Xuyªn T©m Thİch hoÆc tÇng 3 §o¹t Ph¸ch Phiªn	Yªu cÇu danh väng 1000 ®iÓm
+73	M·n Thiªn Hoa Vò	§­êng M«n ¸m khİ thuËt cao cÊp. <enter>§¸nh diÖn réng vµ khiÕn ®èi ph­¬ng tróng ®éc	Yªu cÇu ®¼ng cÊp: 55	Yªu cÇu luyÖn thµnh tÇng 4 B¹o Vò Lª Hoa Ch©m	Yªu cÇu danh väng 3000 ®iÓm
+74	HÊp Tinh TrËn	§­êng m«n TrÊn Ph¸i c¹m bÉy, c¬ quan ®Çy rÉy, <enter>S¸t th­¬ng ®Şch thñ trong ph¹m vi réng	CÇn ph¶i ®¹t cÊp 80 	Ph¶i häc ®­îc tÊt c¶ vâ c«ng cÊp cao cña bæn ph¸i 	Ph¶i cã 10000 danh väng
+75	Ngäc N÷ T©m Kinh	XuÊt gia nhËp m«n t©m ph¸p, gióp håi phôc néi khİ			
+76	Quan ¢m QuyÕt	PhËt ph¸p s¬ cÊp, gióp håi phôc sinh lùc	Yªu cÇu ®¼ng cÊp: 10	Yªu cÇu luyÖn thµnh tÇng 1 Ngäc N÷ T©m Kinh	
+77	Nga My PhËt ı	T©m ph¸p s¬ cÊp, t¨ng hiÖu qu¶ PhËt ph¸p	Yªu cÇu ®¼ng cÊp: 12	Yªu cÇu luyÖn thµnh tÇng 1 Quan ¢m QuyÕt	Yªu cÇu danh väng 50 ®iÓm
+78	Ngäc N÷ kiÕm ph¸p	Nga My néi c«ng, ®¸nh môc tiªu theo ®­êng th¼ng	Yªu cÇu ®¼ng cÊp: 16	Yªu cÇu luyÖn thµnh tÇng 2 Ngäc N÷ T©m Kinh	Yªu cÇu danh väng: 30 ®iÓm
+79	§é Nguyªn QuyÕt	PhËt ph¸p s¬ cÊp, gióp môc tiªu håi phôc néi khİ	Yªu cÇu ®¼ng cÊp: 20	Yªu cÇu luyÖn thµnh tÇng 3 Quan ¢m QuyÕt	Yªu cÇu danh väng 80 ®iÓm
+80	PhËt Quang Phæ ChiÕu	PhËt ph¸p Trung cÊp, t¨ng phßng ngù phe m×nh	Yªu cÇu ®¼ng cÊp: 23	Yªu cÇu luyÖn thµnh tÇng 4 Quan ¢m QuyÕt	Yªu cÇu danh väng 100 ®iÓm
+81	Liªn Hoa T©m Kinh	PhËt ph¸p Trung cÊp. <enter>§¶ th«ng kinh m¹ch, gióp xuÊt chiªu nhanh	Yªu cÇu ®¼ng cÊp: 26	Yªu cÇu luyÖn thµnh tÇng 4 Quan ¢m QuyÕt	Yªu cÇu danh väng 200 ®iÓm
+82	Thanh ¢m Ph¹n X­íng	PhËt ph¸p Trung cÊp, lµm mÊt hiÖu qu¶ hç trî	Yªu cÇu ®¼ng cÊp: 30	Yªu cÇu luyÖn thµnh tÇng 3 §é Nguyªn QuyÕt	Yªu cÇu danh väng 300 ®iÓm
+83	L­u Thñy QuyÕt	PhËt ph¸p Trung cÊp, n©ng tèc ®é di chuyÓn	Yªu cÇu ®¼ng cÊp: 34	Yªu cÇu luyÖn thµnh tÇng 3 Liªn Hoa T©m Kinh	Yªu cÇu danh väng 500 ®iÓm
+84	Phæ TÕ Chóng Sinh	PhËt ph¸p Trung cÊp, gióp phe m×nh håi phôc sinh lùc	Yªu cÇu ®¼ng cÊp: 39	Yªu cÇu luyÖn thµnh tÇng 6 Quan ¢m QuyÕt	Yªu cÇu danh väng 700 ®iÓm
+85	BÊt DiÖt T©m Ph¸p	Nga My phËt ph¸p cao cÊp, n©ng sinh lùc tèi ®a	Yªu cÇu ®¼ng cÊp: 43	Yªu cÇu luyÖn thµnh tÇng 2 L­u Thñy quyÕt	Yªu cÇu danh väng 800 ®iÓm
+86	PhËt Quang ChiÕn Khİ	Nga My phËt ph¸p cao cÊp. <enter>n©ng lùc ®¸nh ngo¹i c«ng phe m×nh	Yªu cÇu ®¼ng cÊp: 48	Yªu cÇu luyÖn thµnh tÇng 5 PhËt Quang Phæ ChiÕu	Yªu cÇu danh väng 1000 ®iÓm
+87	PhËt ¢m ChiÕn ı	Nga My phËt ph¸p cao cÊp. <enter>n©ng lùc ®¸nh néi c«ng phe m×nh	Yªu cÇu ®¼ng cÊp: 50	Yªu cÇu luyÖn thµnh tÇng 5 PhËt Quang Phæ ChiÕu	Yªu cÇu danh väng 1200 ®iÓm
+88	§¹i Bi Chó	PhËt ph¸p th­îng thõa.<enter>Gióp môc tiªu sèng l¹i	Yªu cÇu ®¼ng cÊp: 55	Yªu cÇu luyÖn thµnh tÇng 4 Phæ TÕ Chóng Sinh	Yªu cÇu danh väng 3000 ®iÓm
+89	V¹n T­íng ThÇn C«ng	PhËt ph¸p trÊn ph¸i <enter>t¨ng hiÖu qu¶ phßng ngù cho ®ång ®éi	CÇn ph¶i ®¹t cÊp 80 	Ph¶i häc ®­îc tÊt c¶ vâ c«ng cÊp cao cña bæn ph¸i 	Ph¶i cã 10000 danh väng
+90	Väng NguyÖt T©m Ph¸p	Nga My ®Ö tö tôc gia nhËp m«n t©m ph¸p.<enter>Gióp håi phôc néi khİ vµ t¨ng tİnh linh ho¹t			
+91	Tïy ı Khóc	CÇm ph¸p s¬ cÊp, dïng cÇm ©m tÊn c«ng ®èi ph­¬ng	Yªu cÇu ®¼ng cÊp: 10	Yªu cÇu luyÖn thµnh tÇng 1 Väng NguyÖt T©m Ph¸p	
+92	Khóc NghÖ Tinh Th«ng	T©m ph¸p s¬ cÊp. <enter>CÇm ©m khiÕn ®èi ph­¬ng mÊt søc chiÕn ®Êu	Yªu cÇu ®¼ng cÊp: 12	Yªu cÇu luyÖn thµnh tÇng 1 Väng NguyÖt T©m Ph¸p	Yªu cÇu danh väng: 30 ®iÓm
+93	NguyÖt Thùc khóc	CÇm ph¸p s¬ cÊp. <enter>CÇm ©m khiÕn dèi ph­¬ng hao tæn sinh lùc	Yªu cÇu ®¼ng cÊp: 17	Yªu cÇu luyÖn thµnh tÇng 2 Tïy ı Khóc	Yªu cÇu danh väng 60 ®iÓm
+94	§o¹n Thñy T©m Ph¸p	T©m ph¸p s¬ cÊp, cã thÓ tïy ı diÔn tÊu	Yªu cÇu ®¼ng cÊp: 21	Yªu cÇu luyÖn thµnh tÇng 3 Khóc NghÖ Tinh Th«ng	Yªu cÇu danh väng 100 ®iÓm
+95	TÜnh D¹ T­	CÇm ph¸p Trung cÊp, nhiÔu lo¹n ®ång thêi g©y buån ngñ cho ®èi ph­¬ng	Yªu cÇu ®¼ng cÊp: 25	Yªu cÇu luyÖn thµnh tÇng 2 NhËt NguyÖt Khóc	Yªu cÇu danh väng 200 ®iÓm
+96	D­ ¢m NhiÔu L­¬ng C«ng	T©m ph¸p Trung cÊp, t¨ng kh¶ n¨ng chiÕn ®Êu	Yªu cÇu ®¼ng cÊp: 29	Yªu cÇu luyÖn thµnh tÇng 6 Khóc NghÖ Tinh Th«ng	Yªu cÇu danh väng 300 ®iÓm
+97	D­¬ng Quan Tam §iÖp	CÇm ph¸p Trung cÊp, nhiÔu lo¹n phßng thñ cña ®èi ph­¬ng	Yªu cÇu ®¼ng cÊp: 33	Yªu cÇu luyÖn thµnh tÇng 5 NhËt NguyÖt Khóc	Yªu cÇu danh väng 500 ®iÓm
+98	Phóc Thñy T©m Ph¸p	T©m ph¸p Trung cÊp. <enter>DiÔn l¹i cÇm khóc võa gi¸n ®o¹n, duy tr× néi khİ	Yªu cÇu ®¼ng cÊp: 37	Yªu cÇu luyÖn thµnh tÇng 4 §o¹n Thñy T©m Ph¸p	Yªu cÇu danh väng 600 ®iÓm
+99	PhÉn CÇm Chö H¹c QuyÕt	Nga My vâ c«ng th­îng thõa, dïng cÇm tÊn c«ng, uy lùc kinh ng­êi	Yªu cÇu ®¼ng cÊp: 42	Yªu cÇu luyÖn thµnh tÇng 1 Phóc Thñy T©m Ph¸p hoÆc tÇng 2 D­ ¢m NhiÔu L­¬ng C«ng	Yªu cÇu danh väng 800 ®iÓm
+100	¤ D¹ §Ò	CÇm ph¸p th­îng thõa, nhiÔu lo¹n néi khİ kÎ ®Şch ®ång thêi gi¶m tû lÖ t¸c chiÕn	Yªu cÇu ®¼ng cÊp: 48	Yªu cÇu luyÖn thµnh tÇng 6 TÜnh D¹ T­	Yªu cÇu danh väng 1000 ®iÓm
+101	Mª T©m Phiªu H­¬ng Khóc	CÇm ph¸p th­îng thõa, g©y cho¸ng trong ph¹m vi réng	Yªu cÇu ®¼ng cÊp: 55	Yªu cÇu luyÖn thµnh tÇng 6 D­¬ng Quan Tam §iÖp	Yªu cÇu danh väng 3000 ®iÓm
+102	Thiªn ¢m TrÊn Hån Khóc	Nga My cÇm khóc trÊn ph¸i, phÕ vâ c«ng ®èi ph­¬ng	CÇn ph¶i ®¹t cÊp 80 	Ph¶i häc ®­îc tÊt c¶ vâ c«ng cÊp cao cña bæn ph¸i 	Ph¶i cã 10000 danh väng
+103	Hçn Thiªn Khİ C«ng	C¸i Bang ®Ö tö tŞnh y nhËp m«n t©m ph¸p, gióp håi phôc ngo¹i th­¬ng			
+104	C¸i Bang Ch­ëng ph¸p	C¸i Bang quyÒn ch­ëng c¨n b¶n, n©ng kü x¶o sö dông hé thñ	Yªu cÇu ®¼ng cÊp: 10	Yªu cÇu luyÖn thµnh tÇng 1 Hçn Thiªn Khİ C«ng	
+105	Th«ng Tı QuyÒn	QuyÒn ph¸p s¬ cÊp, n©ng lùc ®¸nh quyÒn ph¸p th«ng th­êng	Yªu cÇu ®¼ng cÊp: 12	Yªu cÇu luyÖn thµnh tÇng 1 Hçn Thiªn Khİ C«ng	Yªu cÇu danh väng: 30 ®iÓm
+106	Thiªn C©n H¹p	T©m ph¸p s¬ cÊp. <enter>Gi¶m thä th­¬ng	Yªu cÇu ®¼ng cÊp: 34	Yªu cÇu luyÖn thµnh tÇng 3 Tiªu Dao Du	Yªu cÇu danh väng 500 ®iÓm
+107	B¸ V­¬ng QuyÒn	Ch­ëng ph¸p s¬ cÊp, uy lùc m¹nh mÏ khiÕn ®èi ph­¬ng bŞ cho¸ng	Yªu cÇu ®¼ng cÊp: 22	Yªu cÇu luyÖn thµnh tÇng 4 C¸i Bang Ch­ëng ph¸p	Yªu cÇu danh väng 100 ®iÓm
+108	Táa HÇu CÇm N· Thñ	QuyÒn ph¸p Trung cÊp, võa c­¬ng võa nhu khãa chÆt ®èi ph­¬ng	Yªu cÇu ®¼ng cÊp: 28	Yªu cÇu luyÖn thµnh tÇng 3 Th«ng Tı QuyÒn	Yªu cÇu danh väng 300 ®iÓm
+109	Tiªu Dao Du	T©m ph¸p Trung cÊp, t¨ng linh ho¹t khi chiÕn ®Êu	Yªu cÇu ®¼ng cÊp: 17	Yªu cÇu luyÖn thµnh tÇng 2 Hçn Thiªn Khİ C«ng	Yªu cÇu danh väng 60 ®iÓm
+110	Lôc Hîp QuyÒn Ph¸p	QuyÒn ph¸p Trung cÊp.<enter>KÕt hîp Hoµnh T¶o Lôc Hîp s¸t th­¬ng sè ®«ng	Yªu cÇu ®¼ng cÊp: 40	Yªu cÇu luyÖn thµnh tÇng 4 B¸ V­¬ng QuyÒn	Yªu cÇu danh väng 700 ®iÓm
+111	Tóy §iÖp	T©m ph¸p cao cÊp. <enter>S¸t th­¬ng cùc cao	Yªu cÇu ®¼ng cÊp: 48	Yªu cÇu luyÖn thµnh tÇng 3 Thiªn C©n H¹p	Yªu cÇu danh väng 1000 ®iÓm
+112	Tóy QuyÒn	QuyÒn ph¸p cao cÊp. <enter>Ra ®ßn nhanh khiÕn ®èi ph­¬ng kh«ng kŞp trë tay	Yªu cÇu ®¼ng cÊp: 55	Yªu cÇu luyÖn thµnh tÇng 5 B¸ V­¬ng QuyÒn, tÇng 5 Thiªn C©n H¹p, tÇng 6 Táa HÇu CÇm N· Thñ	Yªu cÇu danh väng 3000 ®iÓm
+113	Gi¸ng Long ThËp B¸t Ch­ëng	C¸i Bang trÊn ph¸i Ch­ëng ph¸p	CÇn ph¶i ®¹t cÊp 80 	Ph¶i häc ®­îc tÊt c¶ vâ c«ng cÊp cao cña bæn ph¸i 	Ph¶i cã 10000 danh väng
+114	Thiªn Hµnh Khİ C«ng	C¸i Bang ®Ö tö « y nhËp m«n t©m ph¸p, n©ng cao th©n ph¸p			
+115	C¸i Bang C«n ph¸p	C¸i Bang C«n ph¸p c¨n b¶n, n©ng cao kü x¶o dïng c«n	Yªu cÇu ®¼ng cÊp: 10	Yªu cÇu luyÖn thµnh tÇng 1 Thiªn Hµnh Khİ C«ng	
+116	Khu Xµ c«n ph¸p	C«n ph¸p s¬ cÊp, liªn tôc xuÊt chiªu	Yªu cÇu ®¼ng cÊp: 12	Yªu cÇu luyÖn thµnh tÇng 1 C¸i Bang C«n ph¸p	Yªu cÇu danh väng: 30 ®iÓm
+117	KhÊt Thiªn Th¶o §Şa	Kü n¨ng s¬ cÊp C¸i Bang.<enter>T¨ng hiÖu qu¶ håi phôc	Yªu cÇu ®¼ng cÊp: 16	Yªu cÇu luyÖn thµnh tÇng 2 Thiªn Hµnh Khİ C«ng	Yªu cÇu danh väng 60 ®iÓm
+118	Nª Thu C«ng	T©m ph¸p Trung cÊp. <enter>Di chuyÓn nhanh nhÑn	Yªu cÇu ®¼ng cÊp: 22	Yªu cÇu luyÖn thµnh tÇng 4 C¸i Bang C«n ph¸p	Yªu cÇu danh väng 100 ®iÓm
+119	DiÖu Thñ QuyÕt	Kü n¨ng Trung cÊp. <enter>Lµm gi¶m søc chiÕn ®Êu ®èi ph­¬ng	Yªu cÇu ®¼ng cÊp: 28	Yªu cÇu luyÖn thµnh tÇng 2 KhÊt Thiªn Th¶o §Şa	Yªu cÇu danh väng 300 ®iÓm
+120	Th©u Long ChuyÓn Phông	C«ng ph¸p Trung cÊp, trém c«ng ph¸p tõ ®èi ph­¬ng	Yªu cÇu ®¼ng cÊp: 35	Yªu cÇu luyÖn thµnh tÇng 1 DiÖu Thñ QuyÕt	Yªu cÇu danh väng 500 ®iÓm
+121	B¸ V­¬ng T¹ Gi¸p	C«ng ph¸p cao cÊp. <enter>Ph¸ háng phßng cô ®èi ph­¬ng	Yªu cÇu ®¼ng cÊp: 40	Yªu cÇu luyÖn thµnh tÇng 6 Nª Thu C«ng	Yªu cÇu danh väng 700 ®iÓm
+122	Th©u Thiªn Ho¸n NhËt	C«ng ph¸p cao cÊp. <enter>Häc trém chiªu thøc ®èi ph­¬ng	Yªu cÇu ®¼ng cÊp: 48	Yªu cÇu luyÖn thµnh tÇng 5 DiÖu Thñ QuyÕt	Yªu cÇu danh väng 1000 ®iÓm
+123	§¶ CÈu Bæng Ph¸p	C«n ph¸p th­îng thõa, ®¸nh liªn tôc khiÕn ®èi ph­¬ng khã tho¸t	Yªu cÇu ®¼ng cÊp: 55	Yªu cÇu luyÖn thµnh tÇng 6 Khu Xµ C«n ph¸p	Yªu cÇu danh väng 3000 ®iÓm
+124	§¶ CÈu c«n ph¸p	C¸i Bang tuyÖt kü trÊn ph¸i.<enter>võa c«ng võa ®¸nh	CÇn ph¶i ®¹t cÊp 80 	Ph¶i häc ®­îc tÊt c¶ vâ c«ng cÊp cao cña bæn ph¸i 	Ph¶i cã 10000 danh väng
+125	Vâ §ang kiÕm kinh	Vâ §ang ®Ö tö ®¹o gia nhËp m«n t©m ph¸p, gióp håi phôc néi khİ			
+126	Vâ §ang kiÕm ph¸p	Vâ §ang kiÕm ph¸p c¨n b¶n, dïng KiÕm khİ tÊn c«ng ®­êng th¼ng	Yªu cÇu ®¼ng cÊp: 10	Yªu cÇu luyÖn thµnh tÇng 1 Vâ §ang KiÕm Kinh	
+127	L­u Quang kiÕm ph¸p	Vâ §ang kiÕm ph¸p s¬ cÊp (kim), ®¶ th­¬ng ®èi ph­¬ng theo ®­êng th¼ng	Yªu cÇu ®¼ng cÊp: 15	Yªu cÇu luyÖn thµnh tÇng 3 Vâ §ang KiÕm Ph¸p	Yªu cÇu danh väng 60 ®iÓm
+128	VŞ ¦¬ng kiÕm ph¸p	Vâ §ang kiÕm ph¸p s¬ cÊp (méc), tÊn c«ng tÇm xa	Yªu cÇu ®¼ng cÊp: 16	Yªu cÇu luyÖn thµnh tÇng 3 Vâ §ang KiÕm Ph¸p	Yªu cÇu danh väng 60 ®iÓm
+129	Nhu V©n kiÕm ph¸p	Vâ §ang kiÕm ph¸p s¬ cÊp (thñy), ®¸nh ®èi ph­¬ng theo ®­êng th¼ng	Yªu cÇu ®¼ng cÊp: 15	Yªu cÇu luyÖn thµnh tÇng 3 Vâ §ang KiÕm Ph¸p	Yªu cÇu danh väng 60 ®iÓm
+130	LiÖt DiÖm kiÕm ph¸p	Vâ §ang kiÕm ph¸p s¬ cÊp (háa), ®¸nh ®èi ph­¬ng tÇm xa	Yªu cÇu ®¼ng cÊp: 16	Yªu cÇu luyÖn thµnh tÇng 3 Vâ §ang KiÕm Ph¸p	Yªu cÇu danh väng 60 ®iÓm
+131	B«n L«i kiÕm ph¸p	Vâ §ang kiÕm ph¸p s¬ cÊp (thæ).<enter>TÊn c«ng trªn diÖn réng	Yªu cÇu ®¼ng cÊp: 16	Yªu cÇu luyÖn thµnh tÇng 3 Vâ §ang KiÕm Ph¸p	Yªu cÇu danh väng 60 ®iÓm
+132	V« Ng· T©m Ph¸p	Vâ §ang ®éc m«n t©m ph¸p, dïng néi khİ chèng l¹i søc tÊn c«ng bªn ngoµi	Yªu cÇu ®¼ng cÊp: 22	Yªu cÇu luyÖn thµnh tÇng 6 Vâ §ang KiÕm Kinh	Yªu cÇu danh väng 100 ®iÓm
+133	Th¸i Thanh kiÕm khİ	Vâ §ang kiÕm ph¸p Trung cÊp (Kim).<enter>KiÕm khİ dòng m·nh sµt th­¬ng trong ph¹m vi nhÊt ®Şnh	Yªu cÇu ®¼ng cÊp: 28	Yªu cÇu luyÖn thµnh tÇng 6 L­u Quang KiÕm Ph¸p	Yªu cÇu danh väng 300 ®iÓm
+134	TriÒn Méng KiÕm ı	Vâ §ang kiÕm ph¸p Trung cÊp (méc).<enter>KhiÕn ®èi ph­¬ng di chuyÓn chËm ch¹p	Yªu cÇu ®¼ng cÊp: 29	Yªu cÇu luyÖn thµnh tÇng 6 VŞ ¦¬ng KiÕm Ph¸p	Yªu cÇu danh väng 400 ®iÓm
+135	L¹c S­¬ng KiÕm ı	Vâ §ang kiÕm ph¸p Trung cÊp (thñy).<enter>KhiÕn ®éng t¸c ®èi ph­¬ng chËm ch¹p	Yªu cÇu ®¼ng cÊp: 29	Yªu cÇu luyÖn thµnh tÇng 6 Nhu V©n KiÕm Ph¸p	Yªu cÇu danh väng 400 ®iÓm
+136	Tİch D­¬ng kiÕm khİ	Vâ §ang kiÕm ph¸p Trung cÊp (háa).<enter>KiÕm khİ m¹nh mÏ bao v©y ®èi ph­¬ng	Yªu cÇu ®¼ng cÊp: 28	Yªu cÇu luyÖn thµnh tÇng 6 LiÖt DiÖm KiÕm Ph¸p	Yªu cÇu danh väng 300 ®iÓm
+137	HuyÒn Vâ KiÕm TrËn	Vâ §ang kiÕm ph¸p Trung cÊp (thæ).<enter>ChÆn lùc ®¸nh bªn ngoµi	Yªu cÇu ®¼ng cÊp: 30	Yªu cÇu luyÖn thµnh tÇng 6 B«n L«i KiÕm Ph¸p	Yªu cÇu danh väng 500 ®iÓm
+138	Ngù KiÕm QuyÕt	Vâ §ang kiÕm ı thÇn bİ, chíp nho¸ng ®Õn n¬i chØ ®Şnh	Yªu cÇu ®¼ng cÊp: 36	Yªu cÇu luyÖn thµnh tÇng 6 Vâ §ang KiÕm Kinh	Yªu cÇu danh väng 600 ®iÓm
+139	Chİnh L­ìng Nghi kiÕm ph¸p	Vâ §ang kiÕm ph¸p kú dŞ, uy lùc v« biªn	Yªu cÇu ®¼ng cÊp: 41	Yªu cÇu luyÖn thµnh tÇng 6 Vâ §ang KiÕm Ph¸p	Yªu cÇu danh väng 800 ®iÓm
+140	Th¸i Êt Tam Thanh kiÕm	KiÕm ph¸p cao cÊp hÖ Kim<enter>Ph¸t ra 3 ®­êng kiÕm khİ tÊn c«ng	Yªu cÇu ®¼ng cÊp: 46	Yªu cÇu luyÖn thµnh tÇng 5 Th¸i Thanh KiÕm Khİ	Yªu cÇu danh väng 1000 ®iÓm
+141	ThÇn m«n thËp tam kiÕm	KiÕm ph¸p cao cÊp hÖ Méc, chíp m¾t xuÊt 13 chiªu kiÕm tÊn c«ng vµo huyÖt ThÇn M«n ®èi ph­¬ng<enter>T¹m thêi v« hiÖu hãa vò khİ cña kÎ ®Şch	Yªu cÇu ®¼ng cÊp: 47	Yªu cÇu luyÖn thµnh tÇng 5 TriÒn Méng KiÕm ı	Yªu cÇu danh väng 1000 ®iÓm
+142	HuyÒn ¢m KiÕm	KiÕm ph¸p cao cÊp hÖ Thñy, lÊy ®Şa khİ chÕ ngù kiÕm khİ.<enter>Chİnh x¸c cùc cao	Yªu cÇu ®¼ng cÊp: 46	Yªu cÇu luyÖn thµnh tÇng 5 L¹c S­¬ng KiÕm ı	Yªu cÇu danh väng 1000 ®iÓm
+143	ThuÇn D­¬ng KiÕm.	KiÕm ph¸p cao cÊp hÖ Háa.<enter>ThuÇn D­¬ng KiÕm Khİ ph¸t ra, ®øng gÇn khã tr¸nh s¸t th­¬ng	Yªu cÇu ®¼ng cÊp: 47	Yªu cÇu luyÖn thµnh tÇng 5 Tİch D­¬ng KiÕm Khİ	Yªu cÇu danh väng 1000 ®iÓm
+144	B¸t Qu¸i KiÕm Khİ	KiÕm ph¸p cao cÊp hÖ Thæ, dïng b¸t qu¸i trËn khãa chÆt kÎ ®Şch.<enter>Cã thÓ g©y ra s¸t th­¬ng lín	Yªu cÇu ®¼ng cÊp: 48	Yªu cÇu luyÖn thµnh tÇng 5 HuyÒn Vò kiÕm trËn	Yªu cÇu danh väng 1000 ®iÓm
+145	Ch©n Vò ThÊt TiÖt KiÕm	Vâ §ang kiÕm ph¸p cao cÊp, s¸t th­¬ng diÖn réng<enter>Ng­êi th­êng khã chèng ®ì næi	Yªu cÇu ®¼ng cÊp: 55	Yªu cÇu luyÖn thµnh tÇng 5 Chİnh L­ìng Nghi KiÕm Ph¸p	Yªu cÇu danh väng 3000 ®iÓm
+146	V« Th­îng Th¸i Cùc KiÕm	HÊp thu tinh hoa cña trêi ®Êt, uy lùc v« song<enter>	CÇn ph¶i ®¹t cÊp 80 	Ph¶i häc ®­îc tÊt c¶ vâ c«ng cÊp cao cña bæn ph¸i 	Ph¶i cã 10000 danh väng
+147	Vâ §ang Kú Kinh	Vâ §ang tôc gia ®Ö tö nhËp m«n t©m ph¸p, n©ng cao ı chİ chiÕn ®Êu			
+148	Vâ §ang Bót ph¸p	Bót ph¸p c¬ b¶n n©ng cao kü x¶o bót ph¸p	Yªu cÇu ®¼ng cÊp: 10	Yªu cÇu luyÖn thµnh tÇng 1 Vâ §ang Kú Kinh	
+149	Th¸i Êt Tiªu Diªu C«ng	Vâ §ang bót ph¸p s¬ cÊp, dïng bót tÊn c«ng kÎ ®Şch ®¬n lÎ	Yªu cÇu ®¼ng cÊp: 12	Yªu cÇu luyÖn thµnh tÇng 1 Vâ §ang Bót ph¸p	Yªu cÇu danh väng: 30 ®iÓm
+150	Lôc Hãa C«ng	Vâ §ang néi c«ng s¬ cÊp, gi¶i ®éc môc tiªu ®¬n lÎ	Yªu cÇu ®¼ng cÊp: 16	Yªu cÇu luyÖn thµnh tÇng 2 Vâ §ang Kú Kinh	Yªu cÇu danh väng 60 ®iÓm
+151	ThÕ V©n Tung	Khinh c«ng ®éc m«n, cã thÓ nhanh chãng nh¶y ra phİa sau kÎ ®Şch, tÊn c«ng bÊt ngê	Yªu cÇu ®¼ng cÊp: 21	Yªu cÇu luyÖn thµnh tÇng 1 Lôc Khİ Hãa Ngäc C«ng	Yªu cÇu danh väng 100 ®iÓm
+152	ThÊt Tinh QuyÕt	Bót ph¸p Trung cÊp, dïng bót tÊn c«ng kÎ ®Şch trong chíp m¾t	Yªu cÇu ®¼ng cÊp: 25	Yªu cÇu luyÖn thµnh tÇng 6 Vâ §ang Bót ph¸p	Yªu cÇu danh väng 300 ®iÓm
+153	ThiÕu D­¬ng quyÕt	Bót ph¸p Trung cÊp, dïng bót phong tÊn c«ng tõ xa	Yªu cÇu ®¼ng cÊp: 29	Yªu cÇu luyÖn thµnh tÇng 3 Th¸i Êt Tiªu Diªu C«ng	Yªu cÇu danh väng 400 ®iÓm
+154	ThiÕu ¢m QuyÕt	Bót ph¸p Trung cÊp, uy lùc cùc kú lîi h¹i	Yªu cÇu ®¼ng cÊp: 31	Yªu cÇu luyÖn thµnh tÇng 4 Th¸i Êt Tiªu Diªu C«ng	Yªu cÇu danh väng 500 ®iÓm
+155	B¾c §Èu ThÊt Tinh trËn	Vâ §ang trËn ph¸p bİ truyÒn, do nhiÒu ®Ö tö hîp l¹i bµy trËn, uy lùc rÊt m¹nh <enter>	Yªu cÇu ®¼ng cÊp: 36	Yªu cÇu luyÖn thµnh tÇng 3 ThÕ V©n Tung	Yªu cÇu danh väng 600 ®iÓm
+156	Tµn ¶nh QuyÕt	Vâ §ang bót ph¸p thÇn bİ, s¸t th­¬ng kÎ ®Şch trong chíp m¾t <enter>	Yªu cÇu ®¼ng cÊp: 42	Yªu cÇu luyÖn thµnh tÇng 4 ThÊt Tinh QuyÕt	Yªu cÇu danh väng 800 ®iÓm
+157	Cµn Kh«n QuyÕt	Vâ §ang bót ph¸p cao cÊp, chíp m¾t ®· tiÕn s¸t kÎ ®Şch xuÊt chiªu liªn tôc	Yªu cÇu ®¼ng cÊp: 48	Yªu cÇu luyÖn thµnh tÇng 4 ThÕ V©n Tung	Yªu cÇu danh väng 1000 ®iÓm
+158	Th­îng Thanh V« Cùc C«ng	Vâ §ang tuyÖt ®Ønh Bót ph¸p, liªn tôc tÊn c«ng kÎ ®Şch<enter>Mçi chiªu ®Òu tÊn c«ng chİ m¹ng	Yªu cÇu ®¼ng cÊp: 55	Yªu cÇu luyÖn thµnh tÇng 6 ThiÕu D­¬ng quyÕt hoÆc tÇng 6 ThiÕu ¢m quyÕt	Yªu cÇu danh väng 3000 ®iÓm
+159	Th¸i Cùc ThÇn C«ng	T©m ph¸p Vâ ®ang trÊn ph¸i, héi tô linh quang trêi ®Êt<enter>C«ng kİch ®Şch thñ trong ph¹m vi réng.	CÇn ph¶i ®¹t cÊp 80 	Ph¶i häc ®­îc tÊt c¶ vâ c«ng cÊp cao cña bæn ph¸i 	Ph¶i cã 10000 danh väng
+347	B¸ch Cæ T©m Kinh	Ngò §éc cæ s­ nhËp m«n t©m ph¸p, gióp håi phôc khİ huyÕt			
+348	H¹ Cæ MËt Ph­¬ng	Ngò §éc cæ s­ thñ ph¸p c¨n b¶n, thay ®æi qua l¹i c¸ch bá ng¶i	Yªu cÇu ®¼ng cÊp: 10	Yªu cÇu luyÖn thµnh tÇng 1 B¸ch Cæ T©m Kinh	
+349	óy D­ìng Cæ MÉu	Ngò §éc cæ s­ kü x¶o c¨n b¶n, chØ ®Şnh vËt phÈm nu«i Cæ MÉu	Yªu cÇu ®¼ng cÊp: 10	Yªu cÇu luyÖn thµnh tÇng 1 B¸ch Cæ T©m Kinh	
+350	S¶n Cæ	Ngò §éc cæ s­ kü x¶o c¨n b¶n, ®iÒu khiÓn Cæ MÉu sinh s¶n TiÓu Cæ	Yªu cÇu ®¼ng cÊp: 10	Yªu cÇu luyÖn thµnh tÇng 1 óy D­ìng Cæ MÉu	
+351	Phong Cæ	§éc thuËt c¬ b¶n, tÊn c«ng ®¬n lÎ khiÕn ®èi ph­¬ng mÊt m¸u	Yªu cÇu ®¼ng cÊp: 10	Yªu cÇu luyÖn thµnh tÇng 1 B¸ch Cæ T©m Kinh	
+352	D­ìng Cæ MËt ThuËt	§éc thuËt s¬ cÊp, cã thÓ chÕ t·o nh÷g thùc vËt nu«i Cæ mÉu, n©ng cao ®éc tİnh cña Cæ mÉu	Yªu cÇu ®¼ng cÊp: 12	Yªu cÇu luyÖn thµnh tÇng 1 óy D­ìng Cæ MÉu	Yªu cÇu danh väng: 30 ®iÓm
+353	Cuång Phong Tr¶o	Ngò §éc tr¶o thuËt cÊp thÊp, tung tr¶o nhanh khiÕn ®èi ph­¬ng mÊt m¸u	Yªu cÇu ®¼ng cÊp: 15	Yªu cÇu luyÖn thµnh tÇng 2 Phong Cæ	Yªu cÇu danh väng 50 ®iÓm
+354	§éc cæ	§éc thuËt trung cÊp, ®èi ph­¬ng tróng ®éc khã gi¶i	Yªu cÇu ®¼ng cÊp: 17	Yªu cÇu luyÖn thµnh tÇng 3 B¸ch Cæ T©m Kinh	Yªu cÇu danh väng 60 ®iÓm
+355	HuyÕt §Ønh C«ng	Ngò §éc t©m ph¸p cÊp thÊp, gióp Cæ MÉu t¨ng tû lÖ sinh TiÓu Cæ	Yªu cÇu ®¼ng cÊp: 21	Yªu cÇu luyÖn thµnh tÇng 4 D­ìng Cæ MËt thuËt	Yªu cÇu danh väng 100 ®iÓm
+356	HuyÕt cæ	TuyÖt ®éc! §èi ph­¬ng tróng ®ßn sÏ liªn tôc mÊt m¸u	Yªu cÇu ®¼ng cÊp: 25	Yªu cÇu luyÖn thµnh tÇng 2 §éc Cæ	Yªu cÇu danh väng 200 ®iÓm
+357	H­¬ng cæ	§éc phßng tuyÖt kü, ph¶n ®ßn khiÕn kÎ tÊn c«ng m×nh bŞ tª liÖt	Yªu cÇu ®¼ng cÊp: 29	Yªu cÇu luyÖn thµnh tÇng 6 B¸ch Cæ T©m Kinh	Yªu cÇu danh väng 300 ®iÓm
+358	Thi cæ	TuyÖt s¸t! §èi ph­¬ng tróng ®ßn cµng xuÊt chiªu sÏ cµng mÊt m¸u!	Yªu cÇu ®¼ng cÊp: 33	Yªu cÇu luyÖn thµnh tÇng 2 HuyÕt Cæ	Yªu cÇu danh väng 500 ®iÓm
+359	Yªu cæ	§éc phßng tuyÖt kü, ph¶n ®ßn khiÕn ®èi ph­¬ng tÊn c«ng m×nh mÊt Néi lùc	Yªu cÇu ®¼ng cÊp: 37	Yªu cÇu luyÖn thµnh tÇng 2 H­¬ng Cæ	Yªu cÇu danh väng 600 ®iÓm
+360	T©m cæ	TuyÖt s¸t! §èi ph­¬ng tróng ®ßn sÏ kh«ng thÓ tù khèng chÕ m×nh	Yªu cÇu ®¼ng cÊp: 40	Yªu cÇu luyÖn thµnh tÇng 2 Thi Cæ	Yªu cÇu danh väng 700 ®iÓm
+361	V¹n Cæ Thùc Thiªn	TuyÖt s¸t! TÊn c«ng hót m¸u toµn bé ®èi ph­¬ng xung quanh	Yªu cÇu ®¼ng cÊp: 44	Yªu cÇu luyÖn thµnh tÇng 6 Cuång Phong Tr¶o	Yªu cÇu danh väng 800 ®iÓm
+362	HuyÔn Cæ	Ngò §éc cæ thuËt phßng ngù hÖ huyÕt, TiÓu Cæ g©y hiÖu øng ¶o gi¸c gióp chñ nh©n trèn tho¸t	Yªu cÇu ®¼ng cÊp: 48	Yªu cÇu luyÖn thµnh tÇng 3 Yªu Cæ	Yªu cÇu danh väng 1000 ®iÓm
+363	Tµm cæ	TuyÖt s¸t! TÊn c«ng hót m¸u vµ khèng chÕ tèc ®é toµn bé ®èi ph­¬ng xung quanh	Yªu cÇu ®¼ng cÊp: 55	Yªu cÇu luyÖn thµnh tÇng 4 T©m Cæ hoÆc tÇng 4 V¹n Cæ Thùc Thiªn hoÆc tÇng 2 HuyÔn Cæ	Yªu cÇu danh väng 3000 ®iÓm
+364	V¹n §éc T©m Ph¸p	Ngò §éc tµ hiÖp nhËp m«n t©m ph¸p, t¨ng tµ khİ c¬ thÓ			
+365	Ngò §éc ®ao ph¸p	Ngò §éc ®ao ph¸p c¨n b¶n, n©ng hiÖu qu¶ sö dông song ®ao, ®ång thêi cã tÈm ®éc	Yªu cÇu ®¼ng cÊp: 10	Yªu cÇu luyÖn thµnh tÇng 1 V¹n §éc T©m Ph¸p	
+366	DÉn Hån Chó	Ngò §éc ®éc m«n Tµ chó, ng­êi tróng ph¶i sÏ bŞ c­¬ng thi tÊn c«ng	Yªu cÇu ®¼ng cÊp: 12	Yªu cÇu luyÖn thµnh tÇng 1 V¹n §éc T©m Ph¸p	
+367	Thao Thi ThuËt	Ngò §éc tµ chó cÊp thÊp, biÕn thi thÓ ®éng vËt thµnh c­¬ng thi rÊt khã ®¸nh	Yªu cÇu ®¼ng cÊp: 12	Yªu cÇu luyÖn thµnh tÇng 1 V¹n §éc T©m Ph¸p	Yªu cÇu danh väng: 30 ®iÓm
+368	Thi §éc ThuËt	Ngò §éc bİ thuËt cÊp thÊp, hót khİ ®éc tõ thi thÓ	Yªu cÇu ®¼ng cÊp: 16	Yªu cÇu luyÖn thµnh tÇng 3 V¹n §éc T©m Ph¸p	Yªu cÇu danh väng 50 ®iÓm
+369	Thi Béc §¹i Ph¸p	Ngò §éc bİ thuËt cÊp thÊp, lµm næ thi thÓ g©y s¸t th­¬ng xung quanh	Yªu cÇu ®¼ng cÊp: 20	Yªu cÇu luyÖn thµnh tÇng 1 Thi §éc thuËt	Yªu cÇu danh väng 100 ®iÓm
+370	T¹p Thi Tµ Khİ	Tµ C«ng trung cÊp, t¨ng sinh lùc cña C­¬ng Thi	Yªu cÇu ®¼ng cÊp: 23	Yªu cÇu luyÖn thµnh tÇng 6 Ngò ®éc §ao ph¸p	Yªu cÇu danh väng 180 ®iÓm
+371	Ngù Thi ThuËt	Ngò §éc tµ chó trung cÊp, biÕn thi thÓ ng­êi thµnh c­¬ng thi, lùc ®¸nh cùc m¹nh	Yªu cÇu ®¼ng cÊp: 26	Yªu cÇu luyÖn thµnh tÇng 4 Thao Thi thuËt	Yªu cÇu danh väng 220 ®iÓm
+372	V¹n §éc §o¹t MÖnh §ao	Ngò §éc ®ao ph¸p trung cÊp, song ®ao bay l­în, ra ®ßn hiÓm ®éc	Yªu cÇu ®¼ng cÊp: 30	Yªu cÇu luyÖn thµnh tÇng 3 TËp Thi tµ khİ	Yªu cÇu danh väng 300 ®iÓm
+373	¢m Tµ HÊp Hån Khİ	Ngò §éc tµ c«ng trung cÊp, hÊp thô ©m khİ trªn c­¬ng thi ®Ó håi phôc c¬ thÓ	Yªu cÇu ®¼ng cÊp: 34	Yªu cÇu luyÖn thµnh tÇng 4 TËp Thi tµ khİ	Yªu cÇu danh väng 500 ®iÓm
+374	Th«i Thi Tµ Khİ	Ngò §éc tµ c«ng trung cÊp, dïng néi khİ ®iÒu khiÓn c­¬ng thi tÊn c«ng	Yªu cÇu ®¼ng cÊp: 38	Yªu cÇu luyÖn thµnh tÇng 4 Thi Béc ®¹i ph¸p	Yªu cÇu danh väng 600 ®iÓm
+375	Tµ Linh §¹i Ph¸p	Ngò §éc tµ chó cao cÊp, dïng tµ chó ®Ó håi sinh o¸n hån	Yªu cÇu ®¼ng cÊp: 43	Yªu cÇu luyÖn thµnh tÇng 5 Ngù Thi ThuËt	Yªu cÇu danh väng 800 ®iÓm
+376	Tµ §éc C«ng	Ngò §éc tµ c«ng cao cÊp, khiÕn thi thÓ håi sinh g©y ®éc s¸t cho ®èi ph­¬ng xung quanh	Yªu cÇu ®¼ng cÊp: 48	Yªu cÇu luyÖn thµnh tÇng 5 V¹n §éc §o¹t MÖnh ®ao hoÆc tÇng 3 ¢m Tµ HÊp Hån Khİ	Yªu cÇu danh väng 1000 ®iÓm
+377	Thi LiÖt Ma C«ng	Ngò §éc tµ c«ng cao cÊp, truyÒn tµ khİ khiÕn n¨ng lùc C­¬ng thi t¨ng ®ét biÕn	Yªu cÇu ®¼ng cÊp: 55	Yªu cÇu luyÖn thµnh tÇng 5 Th«i Thi tµ khİ	Yªu cÇu danh väng 3000 ®iÓm
+774	V« ¶nh Ma Cæ	Cæ Méc Ngò §éc TrÊn ph¸i, <enter>Lµm cho kÎ tróng th­¬ng ®au ®ín tét cïng.	CÇn ph¶i ®¹t cÊp 80 	Ph¶i häc ®­îc tÊt c¶ vâ c«ng cÊp cao cña bæn ph¸i 	Ph¶i cã 10000 danh väng
+775	V« Thiªn Ma C«ng	Tµ c«ng Ngò ®éc TrÊn ph¸i, lµ ¸c méng cña vâ l©m nh©n sÜ	CÇn ph¶i ®¹t cÊp 80 	Ph¶i häc ®­îc tÊt c¶ vâ c«ng cÊp cao cña bæn ph¸i 	Ph¶i cã 10000 danh väng
+720	D­¬ng Gia Th­¬ng T©m Ph¸p	D­¬ng M«n Th­¬ng Kş t©m ph¸p, t¨ng phßng thñ vµ kş thuËt			
+721	D­¬ng Gia Th­¬ng Ph¸p Tæng QuyÕt	D­¬ng M«n th­¬ng ph¸p c¬ b¶n, t¨ng lùc tÊn c«ng khi sö dông th­¬ng	Yªu cÇu ®¼ng cÊp: 10	Yªu cÇu luyÖn thµnh tÇng 1 D­¬ng Gia th­¬ng T©m Ph¸p	
+722	D­¬ng Gia Ph¸ Phong Th­¬ng	D­¬ng M«n th­¬ng ph¸p s¬ cÊp, liªn tôc tÊn c«ng môc tiªu ®¬n lÎ	Yªu cÇu ®¼ng cÊp: 12	Yªu cÇu luyÖn thµnh tÇng 1 D­¬ng Gia th­¬ng ph¸p tæng quyÕt	Yªu cÇu danh väng: 30 ®iÓm
+723	D­¬ng Gia Ngù M· ThuËt	D­¬ng M«n m· thuËt s¬ cÊp, t¨ng phßng thñ khi c­ìi ngùa	Yªu cÇu ®¼ng cÊp: 16	Yªu cÇu luyÖn thµnh tÇng 3 D­¬ng Gia th­¬ng ph¸p tæng quyÕt	Yªu cÇu danh väng 50 ®iÓm
+724	D­¬ng Gia B«n Lang Th­¬ng	Th­¬ng ph¸p S¬ cÊp. TÊn c«ng cïng lóc 2 môc tiªu	Yªu cÇu ®¼ng cÊp: 20	Yªu cÇu luyÖn thµnh tÇng 4 D­¬ng Gia th­¬ng ph¸p tæng quyÕt	Yªu cÇu danh väng 100 ®iÓm
+725	D­¬ng Gia ChiÕn §Şnh QuyÕt	T©m ph¸p trung cÊp, sõng s÷ng nh­ Th¸i S¬n gi÷a v¹n qu©n	Yªu cÇu ®¼ng cÊp: 24	Yªu cÇu luyÖn thµnh tÇng 6 D­¬ng Gia th­¬ng ph¸p tæng quyÕt	Yªu cÇu danh väng 180 ®iÓm
+726	D­¬ng Gia X¶o ChiÕn QuyÕt	Kş thuËt trung cÊp, nĞ tr¸nh cùc kú linh ho¹t	Yªu cÇu ®¼ng cÊp: 29	Yªu cÇu luyÖn thµnh tÇng 5 D­¬ng Gia Ngù M· ThuËt	Yªu cÇu danh väng 300 ®iÓm
+727	D­¬ng Gia Thiªn Hµnh Th­¬ng	Th­¬ng ph¸p trung cÊp, chuyÓn th­¬ng bay vßng khiÕn kÎ ®Şch bŞ chÊn ®éng	Yªu cÇu ®¼ng cÊp: 34	Yªu cÇu luyÖn thµnh tÇng 6 D­¬ng Gia Ph¸ Phong th­¬ng	Yªu cÇu danh väng 500 ®iÓm
+728	D­¬ng Gia Anh Hïng Khİ	T©m ph¸p trung cÊp, gióp ®ång ®éi håi phôc c¸c thuéc tİnh chiÕn ®Êu	Yªu cÇu ®¼ng cÊp: 38	Yªu cÇu luyÖn thµnh tÇng 4 D­¬ng Gia ChiÕn §Şnh quyÕt	Yªu cÇu danh väng 600 ®iÓm
+729	D­¬ng Gia §¶o H¶i Th­¬ng	Th­¬ng ph¸p cao cÊp, tÊn c«ng diÖn réng. Cã thÓ ph¸ gi¶i trËn h×nh	Yªu cÇu ®¼ng cÊp: 44	Yªu cÇu luyÖn thµnh tÇng 6 D­¬ng Gia B«n Lang Th­¬ng	Yªu cÇu danh väng 800 ®iÓm
+730	D­¬ng Gia Ngù M· ThuËt	Kş thuËt cao cÊp, m­în vã ngùa ph¸t ra k×nh lùc lµm chÊn ®éng xung quanh	Yªu cÇu ®¼ng cÊp: 48	Yªu cÇu luyÖn thµnh tÇng 4 D­¬ng Gia X¶o ChiÕn quyÕt hoÆc tÇng 2 D­¬ng Gia Anh hïng khİ	Yªu cÇu danh väng 1000 ®iÓm
+731	Bİch NguyÖt Phi Tinh Th­¬ng	Th­¬ng ph¸p cao cÊp, tÊn c«ng cïng lóc nhiÒu ®èi thñ	Yªu cÇu ®¼ng cÊp: 55	Yªu cÇu luyÖn thµnh tÇng 6 D­¬ng Gia Thiªn Hoµnh Th­¬ng hoÆc tÇng 3 D­¬ng Gia §¶o H¶i Th­¬ng	Yªu cÇu danh väng 3000 ®iÓm
+732	Liªn Hoµn Toµn Long th­¬ng	Th­¬ng ph¸p TrÊn Ph¸i, xuÊt th­¬ng liªn hoµn khiÕn kÎ ®Şch kh«ng kŞp trë tay	CÇn ph¶i ®¹t cÊp 80 	Ph¶i häc ®­îc tÊt c¶ vâ c«ng cÊp cao cña bæn ph¸i 	Ph¶i cã 10000 danh väng
+733	D­¬ng Gia Cung T©m Ph¸p	Cung kş binh t©m ph¸p c¬ b¶n, t¨ng c­êng kü n¨ng tÊn c«ng vµ kş thuËt			
+734	Cung Ph¸p Tæng quyÕt	D­¬ng M«n cung phÊp c¬ b¶n, n©ng cao kü x¶o vµ s¸t th­¬ng khi sö dông cung	Yªu cÇu ®¼ng cÊp: 10	Yªu cÇu luyÖn thµnh tÇng 1 D­¬ng Gia Cung T©m Ph¸p	
+735	D­¬ng Gia Liªn X¹ ThuËt	D­¬ng M«n cung ph¸p s¬ cÊp, liªn tiÕp b¾n tªn tÊn c«ng kÎ ®Şch tõ xa	Yªu cÇu ®¼ng cÊp: 12	Yªu cÇu luyÖn thµnh tÇng 1 D­¬ng Gia Cung ph¸p tæng quyÕt	Yªu cÇu danh väng: 30 ®iÓm
+736	D­¬ng Gia TrËn LiÖu ThuËt	Kü n¨ng S¬ cÊp, t¨ng kh¶ n¨ng kh¸ng ®éc	Yªu cÇu ®¼ng cÊp: 16	Yªu cÇu luyÖn thµnh tÇng 2 D­¬ng Gia Cung ph¸p tæng quyÕt	Yªu cÇu danh väng 50 ®iÓm
+737	D­¬ng Gia Håi Long TiÔn	Cung ph¸p S¬ cÊp, tÊn c«ng ®èi ph­¬ng ®¬n lÎ tõ xa	Yªu cÇu ®¼ng cÊp: 20	Yªu cÇu luyÖn thµnh tÇng 4 D­¬ng Gia Cung ph¸p tæng quyÕt	Yªu cÇu danh väng 100 ®iÓm
+738	D­¬ng Gia TriÒn V©n TiÔn	Cung ph¸p trung cÊp, b¾n tªn vµo ch©n ®èi ph­¬ng lµm gi¶m tèc ®é di chuyÓn	Yªu cÇu ®¼ng cÊp: 24	Yªu cÇu luyÖn thµnh tÇng 1 D­¬ng Gia Håi Long TiÔn	Yªu cÇu danh väng 180 ®iÓm
+739	D­¬ng Gia Kú M«n ThuÉn	Kü n¨ng trung cÊp, t¹o thµnh mét bøc t­êng phßng thñ ch¾c ch¾n	Yªu cÇu ®¼ng cÊp: 28	Yªu cÇu luyÖn thµnh tÇng 3 D­¬ng Gia TrËn LiÖu thuËt	Yªu cÇu danh väng 300 ®iÓm
+740	D­¬ng Gia Ch¸nh Khİ TiÔn	Cung ph¸p trung cÊp, chuyªn ®èi phã víi kÎ ®Şch tµ m«n	Yªu cÇu ®¼ng cÊp: 33	Yªu cÇu luyÖn thµnh tÇng 4 D­¬ng Gia Håi Long TiÔn	Yªu cÇu danh väng 500 ®iÓm
+741	D­¬ng Gia To¸i Kim TiÔn	Cung ph¸p trung cÊp, toµn lùc ph¸t ra mét mòi tªn uy lùc cùc ®¹i	Yªu cÇu ®¼ng cÊp: 38	Yªu cÇu luyÖn thµnh tÇng 6 D­¬ng Gia Liªn X¹ thuËt	Yªu cÇu danh väng 600 ®iÓm
+742	HuyÔn ThÇn quyÕt	T©m ph¸p cao cÊp, mang l¹i hiÖu qu¶ ®Æc biÖt cho cung tiÔn	Yªu cÇu ®¼ng cÊp: 44	Yªu cÇu luyÖn thµnh tÇng 4 Kú M«n ThuÉn	Yªu cÇu danh väng 800 ®iÓm
+743	D­¬ng Gia Tôc MÖnh QuyÕt	T©m ph¸p cao cÊp gióp b¶n th©n tr¸nh ®­îc s¸t th­¬ng chİ m¹ng	Yªu cÇu ®¼ng cÊp: 48	Yªu cÇu luyÖn thµnh tÇng 5 Kú M«n ThuÉn	Yªu cÇu danh väng 1000 ®iÓm
+744	L­u Quang TuyÖt ¶nh TiÔn	Cung ph¸p cao cÊp, b¾n ra phİa tr­íc vµ h­íng ngang v« sè cung tªn	Yªu cÇu ®¼ng cÊp: 55	Yªu cÇu luyÖn thµnh tÇng 6 D­¬ng Gia TriÒn V©n TiÔn, tÇng 6 D­¬ng Gia Chİnh Khİ TiÔn, tÇng 6 D­¬ng Gia To¸i Kim TiÔn	Yªu cÇu danh väng 3000 ®iÓm
+745	B¸ V­¬ng T­êng Phông TiÔn	Cung ph¸p D­¬ng m«n trÊn ph¸i, khã mµ tho¸t ®­îc	CÇn ph¶i ®¹t cÊp 80 	Ph¶i häc ®­îc tÊt c¶ vâ c«ng cÊp cao cña bæn ph¸i 	Ph¶i cã 10000 danh väng
+865	???	Kü n¨ng phu thª 1		???	
+866	???	Kü n¨ng phu thª 2		???	
+867	???	Kü n¨ng phu thª 3		???	
+868	???	Kü n¨ng phu thª 4		???	
+869	???	Kü n¨ng phu thª 5		???	

@@ -1,0 +1,55 @@
+ID	Name	EquipWorth	AttrGroup1	GrowStep1	GrowLvUp1	AttrGroup2	GrowStep2	GrowLvUp2	AttrGroup3	GrowStep3	GrowLvUp3
+ID duy nh t	unuse line(2~10)	Gi∏ trﬁ l≠Óng trang bﬁ mang theo tÊng th”									
+	unuse line(2~10)										
+	unuse line(2~10)										
+	unuse line(2~10)										
+	unuse line(2~10)										
+	unuse line(2~10)										
+	unuse line(2~10)										
+	unuse line(2~10)										
+	unuse line(2~10)										
+1	Ph∏t tri”n trang bﬁ xanh b◊nh th≠Íng	900	1	1	1	2	2	2			
+2	Ph∏t tri”n trang bﬁ lam b◊nh th≠Íng	1100	1	1	1	2	2	2			
+3	Ph∏t tri”n trang bﬁ t›m b◊nh th≠Íng	1200	1	1	1	2	2	2	2	3	3
+4	Ph∏t tri”n trang bﬁ t›m kim	1700	3	1	1	2	2	2	2	3	3
+5	Ph∏t tri”n trang bﬁ t›m mÈc	1700	4	1	1	2	2	2	2	3	3
+6	Ph∏t tri”n trang bﬁ t›m thÒy	1700	5	1	1	2	2	2	2	3	3
+7	Ph∏t tri”n trang bﬁ t›m h·a	1700	6	1	1	2	2	2	2	3	3
+8	Ph∏t tri”n trang bﬁ t›m thÊ	1700	7	1	1	2	2	2	2	3	3
+9	Ph∏t tri”n trang bﬁ t›m ©m	1800	8	1	1	2	2	2	2	3	3
+10	T≠Ìng Qu©n Trang	2000	14	1	1	14	1	1			
+11	Nguy™n So∏i Trang	2000	15	1	1	15	1	1			
+12	Thi™n Hπ V´ Song Kh´i	3000	24	0	0	27	0	0	28	0	0
+13	Thi™n Hπ V´ Song Gi∏p	3000	25	0	0	27	0	0	28	0	0
+14	Thi™n Hπ V´ Song Trang	3000	26	0	0	27	0	0	28	0	0
+15	∏o Choµng Du Hi÷p	5000	30	1	1	31	1	1			
+16	∏o Choµng Thi’t Huy’t	5000	36	1	1	37	1	1			
+17	∏o Choµng V©n Du	5000	42	1	1	43	1	1			
+18	Huy Ch≠¨ng Du Hi÷p	5000	30	1	1	31	1	1			
+19	Huy Ch≠¨ng Thi’t Huy’t	5000	36	1	1	37	1	1			
+20	Huy Ch≠¨ng V©n Du	5000	42	1	1	43	1	1			
+21	Tr≠Íng Hµi Du Hi÷p	5000	30	1	1	31	1	1			
+22	Chi’n Hµi Thi’t Huy’t	5000	36	1	1	37	1	1			
+23	ßπo Hµi V©n Du	5000	42	1	1	43	1	1			
+24	Linh ßÂ ß«u	6000	48	0	0	49	0	0	50	0	0
+25	Linh ßÂ Y	6000	51	0	0	52	0	0			
+26	Linh ßÂ KhË (S∏t th≠¨ng)	6000	53	0	0	54	0	0			
+27	Linh ßÂ KhË (Ngoπi c´ng)	6000	53	0	0	55	0	0			
+28	Linh ßÂ KhË (NÈi k›ch)	6000	53	0	0	56	0	0			
+29	VÚ Kh› Linh ßÂ (S∏t th≠¨ng)	6000	57	0	0	58	0	0			
+30	VÚ Kh› Linh ßÂ (Ngoπi c´ng)	6000	59	0	0	60	0	0			
+31	VÚ Kh› Linh ßÂ (NÈi k›ch)	6000	61	0	0	62	0	0			
+32	C«m Linh ßÂ Æ∆c bi÷t	6000	57	0	0	62	0	0			
+33	N„n Hµo Hi÷p (Ph’)	6000	73	0	0	73	0	0	73	0	0
+34	∏o Hµo Hi÷p (Ph’)	6000	74	0	0	74	0	0	74	0	0
+35	Qu«n Hµo Hi÷p (Ph’)	6000	75	0	0	75	0	0	75	0	0
+36	VÚ Kh› Hµo Hi÷p (Ph’)	6000	76	0	0	76	0	0	76	0	0
+37	Nh…n Hµo Hi÷p (Ph’)	6000	77	0	0	77	0	0	77	0	0
+38	Hµo Hi÷p ß«u	6000	78	0	0	79	0	0	80	0	0
+39	Hµo Hi÷p y	6000	81	0	0	82	0	0	83	0	0
+40	Qu«n Hµo Hi÷p	6000	84	0	0	85	0	0	86	0	0
+41	Nh…n Hµo Hi÷p	6000	99	0	0	100	0	0			
+42	VÚ Kh› Hµo Hi÷p (S∏t th≠¨ng)	6000	87	0	0	88	0	0	89	0	0
+43	VÚ Kh› Hµo Hi÷p (C«m)	6000	90	0	0	91	0	0	92	0	0
+44	VÚ Kh› Hµo Hi÷p (NÈi k›ch)	6000	93	0	0	94	0	0	95	0	0
+45	VÚ Kh› Hµo Hi÷p (Ngoπi c´ng)	6000	96	0	0	97	0	0	98	0	0

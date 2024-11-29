@@ -1,0 +1,111 @@
+Include("\\script\\vng\\lib\\vnglib_award.lua");
+Include("\\script\\vng\\weapon_upgrade\\chiencuong_head.lua");
+DIEUDUONG2CHIENCUONG_FILE = "\\script\\vng\\weapon_upgrade\\dieuduong2chiencuong.lua"
+BKVD2CHIENCUONG_FILE = "\\script\\vng\\weapon_upgrade\\bachkimviemde2chiencuong.lua"
+DIEUDUONG2CHIENCUONG_FILE2 = "\\script\\vng\\weapon_upgrade\\dieuduong2chiencuong_3.lua"
+
+LIB_Award.szLogTitle = "TRANG BI CHIEN CUONG"
+LIB_Award.szLogAction = "nhËn"
+
+tbRoute = {[2] = 1, [4] = 1, [3] = 1, [6] = 1, [8] = 1, [9] = 1, [11] = 1, [12] = 1, [14] = 1, [15] = 1, [17] = 1, [18] = 1, [20] = 1, [21] = 1, [23] = 1, [29] = 1,[30] = 1,}
+
+tbChienCuongNguyenLieu = {
+	[1] = {item={{gdp={2,95,204,14}, name="Thiªn Cang LÖnh"}, {gdp={2,1,30370,7}, name="Thiªn M«n Kim LÖnh"}}},
+	[2] = {item={{gdp={2,95,204,14}, name="Thiªn Cang LÖnh"}, {gdp={2,1,30370,7}, name="Thiªn M«n Kim LÖnh"}}},
+	[3] = {item={{gdp={2,95,204,14}, name="Thiªn Cang LÖnh"}, {gdp={2,1,30370,7}, name="Thiªn M«n Kim LÖnh"}}},
+	[4] = {item={{gdp={2,95,204,21}, name="Thiªn Cang LÖnh"}, {gdp={2,1,30370,7}, name="Thiªn M«n Kim LÖnh"}}},
+}
+
+function TrangBiChienCuong_Form()
+	local nDate = tonumber(date("%Y%m%d"))
+	local szTitle = "C¸c h¹ cã thÓ ®æi trang bÞ ChiÕn Cuång b»ng nhiÒu c¸ch:\n"
+	local tbSay = {}
+	tinsert(tbSay, "§æi b»ng Thiªn M«n Kim LÖnh vµ Thiªn Cang LÖnh/TrangBiChienCuong_CongThuc1")
+	tinsert(tbSay, "N©ng cÊp tõ trang bÞ DiÖu D­¬ng (+0)/TrangBiChienCuong_CongThuc2")
+	if nDate < 20140405 then
+		tinsert(tbSay, "N©ng cÊp tõ trang bÞ DiÖu D­¬ng (+10)/TrangBiChienCuong_CongThuc3")
+	end
+	tinsert(tbSay, "§æi b»ng trang bÞ B¹ch Kim Viªm §Õ/BKVD2ChienCuong_Form")
+	tinsert(tbSay, "Ta ch­a muèn n©ng cÊp/gf_DoNothing")
+	Say(szTitle, getn(tbSay), tbSay)
+end
+
+
+function TrangBiChienCuong_CongThuc1()
+	local szTitle = "§æi trang bÞ ChiÕn Cuång cÇn:\n- §Çu Qu¸n: 14 Thiªn Cang LÖnh + 7 Thiªn M«n Kim LÖnh\n- Th­îng Y: 14 Thiªn Cang LÖnh + 7 Thiªn M«n Kim LÖnh\n- H¹ Trang: 14 Thiªn Cang LÖnh + 7 Thiªn M«n Kim LÖnh\n- Vò khÝ: 21 Thiªn Cang LÖnh + 7 Thiªn M«n Kim LÖnh"
+	local tbSay = {
+		"Ta muèn lÊy §Çu Qu¸n/#ChienCuong_DoiTrangBi(1)",
+		"Ta muèn lÊy Th­îng Y/#ChienCuong_DoiTrangBi(2)",
+		"Ta muèn lÊy H¹ Trang/#ChienCuong_DoiTrangBi(3)",
+		"Ta muèn lÊy Vò KhÝ/#ChienCuong_DoiTrangBi(4)",
+		"Ta ®Õn xem th«i/gf_DoNothing",
+	}
+	Say(szTitle, getn(tbSay), tbSay)
+end
+
+
+function ChienCuong_DoiTrangBi(nOption)
+	local nRoute = GetPlayerRoute()
+	if tbRoute [nRoute] ~= 1 then
+		Talk(1,"","C¸c h¹ ch­a gia nhËp hÖ ph¸i, kh«ng thÓ ®æi trang bÞ ChiÕn Cuång.")
+		return 0
+	end
+	if tbChienCuongNguyenLieu[nOption] == nil then
+		print("NGUYEN LIEU KHONG DUNG")
+		return 0
+	end
+	if gf_Judge_Room_Weight(1, 250) == 0 then
+		Talk(1,"", "Søc lùc hoÆc hµnh trang kh«ng ®ñ, c¸c h¹ h·y s¾p xÕp l¹i nhÐ.")
+		return 0
+	end
+	local nCheck = 0
+	nCheck = LIB_Award:CheckMaterial(tbChienCuongNguyenLieu[nOption])
+	if nCheck ~= 1 then
+		return 0
+	end
+	LIB_Award:PayMaterial(tbChienCuongNguyenLieu[nOption])
+	local nBody = GetBody()
+	if nOption == 1 then
+		LIB_Award:AwardByRoute(tbTrangBiChienCuong[103][nBody])
+	elseif nOption == 2 then
+		LIB_Award:AwardByRoute(tbTrangBiChienCuong[100][nBody])
+	elseif nOption == 3 then
+		LIB_Award:AwardByRoute(tbTrangBiChienCuong[101][nBody])
+	elseif nOption == 4 then
+		LIB_Award:AwardByRoute(tbVuKhiChienCuong[nBody])
+	end
+end
+
+
+function TrangBiChienCuong_CongThuc2()
+	local nRoute = GetPlayerRoute()
+	if tbRoute [nRoute] ~= 1 then
+		Talk(1,"","C¸c h¹ ch­a gia nhËp hÖ ph¸i, kh«ng thÓ ®æi trang bÞ ChiÕn Cuång.")
+		return 0
+	end
+	PutinItemBox("N©ng cÊp trang bÞ" ,1 , "X¸c nhËn muèn thùc hiÖn n©ng cÊp?", DIEUDUONG2CHIENCUONG_FILE, 1)
+end
+
+
+function TrangBiChienCuong_CongThuc3()
+	local nDate = tonumber(date("%Y%m%d"))
+	if nDate > 20140405 then
+		return 0
+	end
+	local nRoute = GetPlayerRoute()
+	if tbRoute [nRoute] ~= 1 then
+		Talk(1,"","C¸c h¹ ch­a gia nhËp hÖ ph¸i, kh«ng thÓ ®æi trang bÞ ChiÕn Cuång.")
+		return 0
+	end
+	PutinItemBox("N©ng cÊp trang bÞ" ,1 , "X¸c nhËn muèn thùc hiÖn n©ng cÊp?", DIEUDUONG2CHIENCUONG_FILE2, 1)
+end
+
+
+function BKVD2ChienCuong_Form()
+	local nRoute = GetPlayerRoute()
+	if tbRoute [nRoute] ~= 1 then
+		Talk(1,"","C¸c h¹ ch­a gia nhËp hÖ ph¸i, kh«ng thÓ ®æi trang bÞ ChiÕn Cuång.")
+		return 0
+	end
+	PutinItemBox("N©ng cÊp trang bÞ" ,1 , "X¸c nhËn muèn thùc hiÖn n©ng cÊp?", BKVD2CHIENCUONG_FILE, 1)
+end

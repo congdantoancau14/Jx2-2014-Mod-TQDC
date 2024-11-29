@@ -1,0 +1,40 @@
+8
+
+dir
+100
+http://10.60.1.51/release/jx2/20140318_VNG_TraoThuong3ty_New_Update/server/script/online/viet_event
+http://10.60.1.51/release/jx2
+
+
+
+2014-03-18T11:08:35.541708Z
+99
+trungbt2
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+435922c8-a5a7-11e3-88e4-17c3071ef43c
+
+event_notify_pouch.lua
+file
+
+
+
+
+2014-03-18T11:06:38.000000Z
+b7d4def58c27b1db74079cd764c05cf4
+2014-03-18T11:08:35.541708Z
+99
+trungbt2
+

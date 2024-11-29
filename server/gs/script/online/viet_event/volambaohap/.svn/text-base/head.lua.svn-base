@@ -1,0 +1,205 @@
+Include("\\script\\lib\\globalfunctions.lua")
+
+MAX_KEY_EXP = 360000000 
+VLBH_MAX_DAY =  20
+VLBH_MAX_WEEK = 60
+
+tExpKeyAward =
+{
+	[1] = {"Ch×a Khãa Thanh §ång", 30135, 800000, 0, 0},
+	[2] = {"Ch×a Khãa B¹ch Ng©n", 30134, 10000000, 200, 1},
+	[3] = {"Ch×a Khãa Vµng", 30133, 120000000, 3000, 15},
+}
+
+function vlbh_exchange_key()
+	if GetLevel() < 79 then
+		Talk(1, "", "§¼ng cÊp 79 trë lªn míi cã thÓ sö dông chøc n¨ng nµy!")
+		return
+	end
+	local tSay = {}
+	local szHeader = "§¹i hiÖp muèn ®æi lo¹i ch×a khãa nµo?"
+	
+	tinsert(tSay, "§æi Ch×a Khãa Thanh §ång (cÇn 10 Vâ L©m B¶o H¹p vµ 10 vµng)/vlbh_exchange_bronzekey")
+	tinsert(tSay, "§æi Ch×a Khãa B¹ch Ng©n (cÇn 100 Vâ L©m B¶o H¹p vµ 100 vµng)/vlbh_exchange_silverkey")
+	tinsert(tSay, "§æi Ch×a Khãa Vµng (cÇn 1000 Vâ L©m B¶o H¹p vµ 1000 vµng)/vlbh_exchange_goldenkey")
+	tinsert(tSay, "T¹i h¹ sÏ quay l¹i sau/do_nothing")
+	
+	Say(szHeader, getn(tSay), tSay)
+end
+
+function vlbh_receive_key_prize()
+	if GetLevel() < 79 then
+		Talk(1, "", "§¼ng cÊp 79 trë lªn míi cã thÓ sö dông chøc n¨ng nµy!")
+		return
+	end
+	local tSay = {}
+	local szHeader = "§¹i hiÖp h·y chän lo¹i ch×a khãa ®Ó më th­ëng, l­u ý lµ chØ cã thÓ nhËn th­ëng tèi ®a 360 triÖu ®iÓm kinh nghiÖm tõ ch×a khãa:"
+	
+	tinsert(tSay, "NhËn th­ëng b»ng Ch×a Khãa Thanh §ång/#receive_keyprize(1)")
+	tinsert(tSay, "NhËn th­ëng b»ng Ch×a Khãa B¹ch Ng©n/#receive_keyprize(2)")
+	tinsert(tSay, "NhËn th­ëng b»ng Ch×a Khãa Vµng/#receive_keyprize(3)")
+	tinsert(tSay, "T¹i h¹ sÏ quay l¹i sau/do_nothing")
+	
+	Say(szHeader, getn(tSay), tSay)
+end
+
+function vlbh_exchange_bronzekey()
+	AskClientForNumber("confirm_exchange_bronzekey", 1, 10, "Ch×a Khãa §ång:")
+end
+
+function vlbh_exchange_silverkey()
+	AskClientForNumber("confirm_exchange_silverkey", 1, 10, "Ch×a Khãa B¹c:")
+end
+
+function vlbh_exchange_goldenkey()
+	AskClientForNumber("confirm_exchange_goldenkey", 1, 10, "Ch×a Khãa Vµng:")
+end
+
+function confirm_exchange_bronzekey(nCount)
+	local nQuantity = tonumber(nCount)
+	if check_quantity(nQuantity) == 0 then
+		return
+	end
+	
+     if GetItemCount(2, 1, 30132) < (10 * nQuantity) or GetCash() < (100000 * nQuantity) then
+		Talk(1, "", "§¹i hiÖp kh«ng mang ®ñ Vâ L©m B¶o H¹p hoÆc kh«ng ®ñ vµng ®Ó ®æi!")
+		return
+	end
+	if DelItem(2, 1, 30132, 10 * nQuantity) == 1 and Pay(100000 * nQuantity) == 1 then
+		gf_AddItemEx2({2, 1, 30135, nQuantity}, "Ch×a khãa Thanh §ång", "Vo Lam Bao Hap", "®æi Ch×a khãa Thanh §ång")
+	end
+end
+
+function confirm_exchange_silverkey(nCount)
+	local nQuantity = tonumber(nCount)
+	if check_quantity(nQuantity) == 0 then
+		return
+	end
+	
+     if GetItemCount(2, 1, 30132) < (100 * nQuantity) or GetCash() < (1000000 * nQuantity) then
+		Talk(1, "", "§¹i hiÖp kh«ng mang ®ñ Vâ L©m B¶o H¹p hoÆc kh«ng ®ñ vµng ®Ó ®æi!")
+		return
+	end
+	if DelItem(2, 1, 30132, 100 * nQuantity) == 1 and Pay(1000000 * nQuantity) == 1 then
+		gf_AddItemEx2({2, 1, 30134, nQuantity}, "Ch×a kho¸ B¹ch Ng©n", "Vo Lam Bao Hap", "®æi Ch×a kho¸ B¹ch Ng©n")
+	end	
+end
+
+function confirm_exchange_goldenkey(nCount)
+	local nQuantity = tonumber(nCount)
+	if check_quantity(nQuantity) == 0 then
+		return
+	end
+	
+	 if GetItemCount(2, 1, 30132) < (1000 * nQuantity) or GetCash() < (10000000 * nQuantity) then
+		Talk(1, "", "§¹i hiÖp kh«ng mang ®ñ Vâ L©m B¶o H¹p hoÆc kh«ng ®ñ vµng ®Ó ®æi!")
+		return
+	end
+	if DelItem(2, 1, 30132, 1000 * nQuantity) == 1 and Pay(10000000 * nQuantity) == 1 then
+		gf_AddItemEx2({2, 1, 30133, nQuantity}, "Ch×a Khãa Vµng", "Vo Lam Bao Hap", "®æi Ch×a Khãa Vµng")
+	end
+end
+
+function receive_keyprize(nType)
+	local nMonth = tonumber(date("%m"))
+	local nTaskVLBH = mod(GetTask(TSK_VLBH_EXP),100)
+	if nMonth ~= nTaskVLBH then
+		SetTask(TSK_VLBH_EXP,nMonth)
+	end
+ 	if GetItemCount(2, 1, tExpKeyAward[nType][2]) < 1 then
+		Talk(1, "", "Kh«ng cã "..tExpKeyAward[nType][1].." nªn kh«ng thÓ nhËn th­ëng!")
+		return
+	end
+	
+	local nExpReceived = floor(GetTask(TSK_VLBH_EXP)/100)*100
+	if nExpReceived >= MAX_KEY_EXP then
+		Talk(1, "", "§· nhËn ®­îc tèi ®a "..MAX_KEY_EXP.." ®iÓm kinh nghiÖm, kh«ng thÓ nhËn thªm n÷a!")
+		return
+	end
+	if DelItem(2, 1, tExpKeyAward[nType][2], 1) == 1 then
+		local nExp = tExpKeyAward[nType][3]
+		if (nExpReceived + tExpKeyAward[nType][3]) > MAX_KEY_EXP then
+			nExp = MAX_KEY_EXP - nExpReceived
+		end
+		ModifyExp(nExp)
+		Msg2Player("B¹n nhËn ®­îc "..nExp.." ®iÓm kinh nghiÖm!")
+		SetTask(TSK_VLBH_EXP, GetTask(TSK_VLBH_EXP) + nExp)
+		if nType > 1 then
+			local nPetLevel = mod(GetTask(TASK_VNG_PET), 100)
+			if GetTask(701) ~= 0 then
+				if GetTask(701) > 0 then
+					SetTask(701, GetTask(701) + tExpKeyAward[nType][4])
+				elseif GetTask(701) < 0 then
+					SetTask(701, GetTask(701) - tExpKeyAward[nType][4])
+				end
+				Msg2Player("B¹n nhËn ®­îc "..tExpKeyAward[nType][4].." ®iÓm qu©n c«ng!")
+			end
+			if nPetLevel >= 1  then
+				SetTask(TASK_VNG_PET, GetTask(TASK_VNG_PET) + (tExpKeyAward[nType][5] * 100))
+				Msg2Player("B¹n nhËn ®­îc "..tExpKeyAward[nType][5].." ®iÓm n©ng cÊp B¹n §ång Hµnh!")
+			end
+		end
+		WriteLogEx("Vo Lam Bao Hap", "nhËn th­ëng "..tExpKeyAward[nType][1])
+	end
+	vlbh_receive_key_prize()
+end
+
+function check_quantity(nQuantity)
+	if nQuantity == nil then
+		return 0
+	end
+	if nQuantity < 1 or nQuantity > 10 then
+		Talk(1, "", "Sè l­îng nhËp vµo kh«ng hîp lÖ, chØ cho phÐp nhËp sè tõ 1 ®Õn 10 xin vui lßng nhËp l¹i!")
+		return 0
+	end
+	if gf_Judge_Room_Weight(2, nQuantity + 100," ") ~= 1 then
+        	return 0
+     end
+     return 1
+end
+
+function Rec_VLBH()
+	local nDate = tonumber(date("%m%d"))
+	if nDate ~= floor(GetTask(TSK_VLBH_MARK)/1000000)  then
+			SetTask(TSK_VLBH_MARK, nDate*1000000 + floor(mod(GetTask(TSK_VLBH_MARK), 1000000) / 100)*100)
+	end
+	
+	local nWeek = tonumber(date("%W"))
+	if nWeek ~= mod(floor(GetTask(TSK_VLBH_MARK) / 10000), 100) then
+		SetTask(TSK_VLBH_MARK, floor(GetTask(TSK_VLBH_MARK) / 1000000) * 1000000 + nWeek*10000)
+	end
+	
+	local nTimePoint = GetTask(TSK_VLBH_TIME)
+	if (GetTime()  - nTimePoint ) < 180 then
+		Talk(1,"","Cßn "..(2 - floor((GetTime()  - nTimePoint )/60)).." phót "..(60 - mod((GetTime()  - nTimePoint ),60)).." gi©y n÷a míi cã thÓ ®æi Vâ L©m B¶o H¹p tiÕp.")
+		return
+	end
+	
+	local nVLBHWeek = mod(floor(GetTask(TSK_VLBH_MARK)/100),100)
+	if nVLBHWeek >= VLBH_MAX_WEEK then
+		Talk(1,"","TuÇn nµy ng­¬i ®· nhËn ".. VLBH_MAX_WEEK .." Vâ L©m B¶o H¹p råi!")
+		return
+	end
+	
+	local nVLBHDay = mod(GetTask(TSK_VLBH_MARK),100)
+	if nVLBHDay >= VLBH_MAX_DAY then
+		Talk(1,"","H«m nay ng­¬i ®· nhËn ".. VLBH_MAX_DAY.." Vâ L©m B¶o H¹p råi!")
+		return
+	end
+	
+	if gf_Judge_Room_Weight(1, 100,"") == 0 then
+		return
+	end
+	SetTask(TSK_VLBH_MARK,GetTask(TSK_VLBH_MARK)+101)
+	SetTask(TSK_VLBH_TIME,GetTime())
+	gf_AddItemEx2({2,1,30132,1}, "Vâ L©m B¶o H¹p", "Vo Lam Bao Hap", "nhËn")
+	Msg2Player("B¹n nhËn ®­îc 1 Vâ L©m B¶o H¹p!")
+end
+
+--function GetWeekDay()
+--	return tonumber(date("%w"))
+--end
+
+function do_nothing()
+
+end

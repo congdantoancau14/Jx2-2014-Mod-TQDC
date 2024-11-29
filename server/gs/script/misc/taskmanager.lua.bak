@@ -1,0 +1,407 @@
+Include("\\script\\lib\\globalfunctions.lua")
+
+local TaskGroup = {}
+TaskManager = {}
+TaskManager.tbUseGroup = {}
+TaskManager.tbTaskGroup = 
+{
+	[1] = 
+	{
+		nCurrentVersion = 18,
+		nVersionTask = 2761,
+		tbTaskSet = {2762,2763,2764,2765,2766,2767,2768,2769,2770,2771},
+	},
+	[2] = 
+	{
+		nCurrentVersion = 17,
+		nVersionTask = 2781,
+		tbTaskSet = {2782,2783,2784,2785,2786,2787,2788,2789,2790,2791},
+	},
+	[3] = 
+	{
+		nCurrentVersion = 14,
+		nVersionTask = 2801,
+		tbTaskSet = {2802,2803,2804,2805,2806,2807,2808,2809,2810,2811},
+	},
+	[4] = 
+	{
+		nCurrentVersion = 13,
+		nVersionTask = 2821,
+		tbTaskSet = {2822,2823,2824,2825,2826,2827,2828,2829,2830,2831},
+	},
+	[5] = 
+	{
+		nCurrentVersion = 11,
+		nVersionTask = 2841,
+		tbTaskSet = {2842,2843,2844,2845,2846,2847,2848,2849,2850,2851},
+	},
+	[6] = 
+	{
+		nCurrentVersion = 11,
+		nVersionTask = 2772,
+		tbTaskSet = {2777,2778,2779,2780,2792,2793,2794,2795,2796,2797},
+	},
+	[7] = 
+	{
+		nCurrentVersion = 10,
+		nVersionTask = 2773,
+		tbTaskSet = {2798,2799,2800,2812,2813,2814,2815,2816,2817,2818},
+	},
+	[8] = 
+	{
+		nCurrentVersion = 11,
+		nVersionTask = 2774,
+		tbTaskSet = {2819,2820,2832,2833,2834,2835,2836,2837,2838,2839},
+	},
+	[9] = 
+	{
+		nCurrentVersion = 11,
+		nVersionTask = 2775,
+		tbTaskSet = {2840,2852,2853,3051,3052,3053,3054,3055,3056,3057},
+	},
+	[10] = 
+	{
+		nCurrentVersion = 10,
+		nVersionTask = 2776,
+		tbTaskSet = {3058,3059,3060,3061,3062,3063,3064,3065,3066,3067},
+	},
+	[11] = --Mod
+	{
+		nCurrentVersion = 10,
+		nVersionTask = 1,
+		tbTaskSet = {
+			2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,
+			26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,
+			47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,
+			68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,
+			89,90,91,92,93,94,95,96,97,98,99
+		},
+	},
+}
+
+--底层接口，请勿使用，请用TaskGroup
+function TaskManager:GetTask(nGroupId, nIndex)
+	self:ResetTaskGroup(nGroupId)
+	return GetTask(self:GetTaskId(nGroupId, nIndex))
+end
+--底层接口，请勿使用，请用TaskGroup
+function TaskManager:SetTask(nGroupId, nIndex, nValue)
+	self:ResetTaskGroup(nGroupId)
+	return SetTask(self:GetTaskId(nGroupId, nIndex), nValue)
+end
+--底层接口，请勿使用，请用TaskGroup
+function TaskManager:AddTask(nGroupId, nIndex, nValue)
+	self:ResetTaskGroup(nGroupId)
+	local nTaskId = self:GetTaskId(nGroupId, nIndex)
+	return SetTask(nTaskId, GetTask(nTaskId) + nValue)
+end
+--底层接口，请勿使用，请用TaskGroup
+function TaskManager:GetDailyTask(nGroupId, nIndex)
+	self:ResetTaskGroup(nGroupId);
+	local nTaskValue =  GetTask(self:GetTaskId(nGroupId, nIndex));
+	local nCurDate = tonumber(date("%y%m%d"));
+	if floor(nTaskValue/256) ~= nCurDate then
+		nTaskValue = nCurDate * 256;
+		SetTask(self:GetTaskId(nGroupId, nIndex), nTaskValue);
+	end
+	return mod(nTaskValue, 256);
+end
+--底层接口，请勿使用，请用TaskGroup
+function TaskManager:SetDailyTask(nGroupId, nIndex, nValue)
+	self:ResetTaskGroup(nGroupId);
+	local nCurDate = tonumber(date("%y%m%d"));
+	local nTaskValue =  nCurDate * 256;
+	return SetTask(self:GetTaskId(nGroupId, nIndex), nTaskValue + nValue);
+end
+--底层接口，请勿使用，请用TaskGroup
+function TaskManager:AddDailyTask(nGroupId, nIndex, nValue)
+	self:ResetTaskGroup(nGroupId);
+	local nTaskValue =  GetTask(self:GetTaskId(nGroupId, nIndex));
+	local nCurDate = tonumber(date("%y%m%d"));
+	if floor(nTaskValue/256) ~= nCurDate then
+		nTaskValue = nCurDate * 256;
+		SetTask(self:GetTaskId(nGroupId, nIndex), nTaskValue);
+	end
+	return SetTask(self:GetTaskId(nGroupId, nIndex), nTaskValue + nValue);
+end
+--底层接口，请勿使用，请用TaskGroup
+function TaskManager:GetTaskBit(nGroupId, nIndex, nBitPos)
+	self:ResetTaskGroup(nGroupId)
+	local nTaskId = self:GetTaskId(nGroupId, nIndex);
+	return SafeGetBit(GetTask(nTaskId), nBitPos);
+end
+--底层接口，请勿使用，请用TaskGroup
+function TaskManager:SetTaskBit(nGroupId, nIndex, nBitPos, nValue)
+	self:ResetTaskGroup(nGroupId)
+	local nTaskId = self:GetTaskId(nGroupId, nIndex);
+	return SetTask(nTaskId, SafeSetBit(GetTask(nTaskId), nBitPos, nValue));
+end
+--底层接口，请勿使用，请用TaskGroup
+function TaskManager:GetTaskByte(nGroupId, nIndex, nByteIndex)
+	self:ResetTaskGroup(nGroupId)
+	local nTaskId = self:GetTaskId(nGroupId, nIndex);
+	return gf_GetTaskByte(nTaskId,nByteIndex);
+end
+--底层接口，请勿使用，请用TaskGroup
+function TaskManager:SetTaskByte(nGroupId, nIndex, nByteIndex, nValue)
+	self:ResetTaskGroup(nGroupId)
+	local nTaskId = self:GetTaskId(nGroupId, nIndex);
+	return gf_SetTaskByte(nTaskId,nByteIndex,nValue);
+end
+--底层接口，请勿使用，请用TaskGroup
+function TaskManager:GetMyTaskByte(nGroupId, nIndex, nByteIndex1, nByteIndex2)
+	self:ResetTaskGroup(nGroupId)
+	local nTaskId = self:GetTaskId(nGroupId, nIndex);
+	return gf_GetMyTaskByte(nTaskId,nByteIndex1,nByteIndex2);
+end
+--底层接口，请勿使用，请用TaskGroup
+function TaskManager:SetMyTaskByte(nGroupId, nIndex, nByteIndex1, nByteIndex2, nValue)
+	self:ResetTaskGroup(nGroupId)
+	local nTaskId = self:GetTaskId(nGroupId, nIndex);
+	return gf_SetMyTaskByte(nTaskId,nByteIndex1,nByteIndex2,nValue)
+end
+--底层接口，请勿使用，请用TaskGroup
+function TaskManager:GetMyTaskBit(nGroupId, nIndex, nBitIndex1, nBitIndex2)
+	self:ResetTaskGroup(nGroupId)
+	local nTaskId = self:GetTaskId(nGroupId, nIndex);
+	return gf_GetMyTaskBit(nTaskId,nBitIndex1,nBitIndex2);
+end
+--底层接口，请勿使用，请用TaskGroup
+function TaskManager:SetMyTaskBit(nGroupId, nIndex, nBitIndex1, nBitIndex2, nValue)
+	self:ResetTaskGroup(nGroupId)
+	local nTaskId = self:GetTaskId(nGroupId, nIndex);
+	return gf_SetMyTaskBit(nTaskId,nBitIndex1,nBitIndex2,nValue)
+end
+
+--获取某组任务变量里的任务变量Id
+function TaskManager:GetTaskId(nGroupId, nIndex)
+
+	if type(self:GetGroupTaskTable(nGroupId)[nIndex]) ~= "number" then
+		return error(format("tbTaskGroup[%s].tbTaskSet[%s] is not a number", nGroupId, nIndex))
+	end
+	
+	return self.tbTaskGroup[nGroupId].tbTaskSet[nIndex]
+end
+--获取组当前版本号
+function TaskManager:GetCurrentVersion(nGroupId)
+	if type(self.tbTaskGroup[nGroupId]) ~= "table" then
+		return error(format("tbTaskGroup[%s] is not a table", nGroupId))
+	end
+	
+	if type(self.tbTaskGroup[nGroupId].nCurrentVersion) ~= "number" then
+		return error(format("tbTaskGroup[%s].nCurrentVersion is not a number", nGroupId))
+	end
+	return self.tbTaskGroup[nGroupId].nCurrentVersion
+end
+
+
+--获得某组任务变量组的任务变量集合
+function TaskManager:GetGroupTaskTable(nGroupId)
+	if type(self.tbTaskGroup[nGroupId]) ~= "table" then
+		return error(format("tbTaskGroup[%s] is not a table", nGroupId))
+	end
+	if type(self.tbTaskGroup[nGroupId].tbTaskSet) ~= "table" then
+		return error(format("tbTaskGroup[%s].tbTaskSet is not a table", nGroupId))
+	end
+	return self.tbTaskGroup[nGroupId].tbTaskSet
+end
+
+
+
+
+--获得某组任务变量组的版本号任务变量Id
+function TaskManager:GetVersionTaskId(nGroupId)
+	if type(self.tbTaskGroup[nGroupId]) ~= "table" then
+		return error(format("tbTaskGroup[%s] is not a table", nGroupId))
+	end
+	
+	if type(self.tbTaskGroup[nGroupId].nVersionTask) ~= "number" then
+		return error(format("tbTaskGroup[%s].nVersionTask is not a number", nGroupId))
+	end
+	return self.tbTaskGroup[nGroupId].nVersionTask
+end
+
+--检查任务变量组的版本号是否一致
+function TaskManager:CheckTaskGroup(nGroupId)
+	if GetTask(self:GetVersionTaskId(nGroupId)) == self:GetCurrentVersion(nGroupId) then
+		return 1
+	end
+end
+
+--重置一组任务变量
+function TaskManager:ResetTaskGroup(nGroupId)
+	if self:CheckTaskGroup(nGroupId) ~= 1 then
+		SetTask(self:GetVersionTaskId(nGroupId), self:GetCurrentVersion(nGroupId))
+		for i=1, getn(self:GetGroupTaskTable(nGroupId)) do
+			SetTask(self:GetTaskId(nGroupId, i), 0)
+		end
+	end
+end
+
+--重置在使用表用的任务变量组
+function TaskManager:ResetUseGroup()
+	for nGroupId, bUse in self.tbUseGroup do
+		if bUse == 1 then
+			self:ResetTaskGroup(nGroupId)
+		end
+	end
+end
+
+--添加一组任务变量到使用组里
+function TaskManager:AddUseGroup(nGroupId)
+	if self.tbUseGroup[nGroupId] == 1 then
+		return
+	end
+	self.tbUseGroup[nGroupId] = 1
+end
+
+--测试检查有没有填写重复的TaskId
+function TaskManager:DebugCheck()
+	local tbFlag = {}
+	local tbGroup = TaskManager.tbTaskGroup
+	
+	for i=1, getn(tbGroup) do
+		local Group = tbGroup[i]
+		local nId = Group.nVersionTask
+		
+		if tbFlag[nId] then
+			error(format("%d, %d",i, nId))
+		else
+			tbFlag[nId] = 1
+		end
+		
+		for j=1, getn(Group.tbTaskSet) do 
+			local nId = Group.tbTaskSet[j]
+			if tbFlag[nId] then
+				error(format("%d, %d, %d",i, j, nId))
+			else
+				tbFlag[nId] = 1
+			end
+		end
+		
+	end
+end
+
+function TaskManager:Create(nGroupId, nVersion)
+	self:AddUseGroup(nGroupId)
+	local tb = {}
+	for key , value in %TaskGroup do
+		if type(value) == "function" then
+			tb[key] = value
+		end
+	end
+	tb:_init(nGroupId, nVersion)
+	tb.TaskManager = self
+	return tb
+end
+
+
+function TaskGroup:_init(nGroupId, nVersion)
+	self.nGroupId = nGroupId
+	self.nVersion = nVersion
+end
+
+function TaskGroup:GetTask(nIndex)
+	if self.TaskManager:GetCurrentVersion(self.nGroupId) ~= self.nVersion then
+		return error(format("not permission to access TaskGroupId %d by Version %d", self.nGroupId, self.nVersion))
+	end
+	return self.TaskManager:GetTask(self.nGroupId, nIndex)
+end
+
+function TaskGroup:SetTask(nIndex, nValue)
+	if self.TaskManager:GetCurrentVersion(self.nGroupId) ~= self.nVersion then
+		return error(format("not permission to access TaskGroupId %d by Version %d", self.nGroupId, self.nVersion))
+	end
+	return self.TaskManager:SetTask(self.nGroupId, nIndex, nValue)
+end
+
+function TaskGroup:AddTask(nIndex, nValue)
+	if self.TaskManager:GetCurrentVersion(self.nGroupId) ~= self.nVersion then
+		return error(format("not permission to access TaskGroupId %d by Version %d", self.nGroupId, self.nVersion))
+	end
+	return self.TaskManager:AddTask(self.nGroupId, nIndex, nValue)
+end
+
+function TaskGroup:GetDailyTask(nIndex)
+	if self.TaskManager:GetCurrentVersion(self.nGroupId) ~= self.nVersion then
+		return error(format("not permission to access TaskGroupId %d by Version %d", self.nGroupId, self.nVersion))
+	end
+	return self.TaskManager:GetDailyTask(self.nGroupId, nIndex)
+end
+
+function TaskGroup:SetDailyTask(nIndex, nValue)
+	if self.TaskManager:GetCurrentVersion(self.nGroupId) ~= self.nVersion then
+		return error(format("not permission to access TaskGroupId %d by Version %d", self.nGroupId, self.nVersion))
+	end
+	return self.TaskManager:SetDailyTask(self.nGroupId, nIndex, nValue)
+end
+
+function TaskGroup:AddDailyTask(nIndex, nValue)
+	if self.TaskManager:GetCurrentVersion(self.nGroupId) ~= self.nVersion then
+		return error(format("not permission to access TaskGroupId %d by Version %d", self.nGroupId, self.nVersion))
+	end
+	return self.TaskManager:AddDailyTask(self.nGroupId, nIndex, nValue)
+end
+
+function TaskGroup:GetTaskBit(nIndex, nBitPos)
+	if self.TaskManager:GetCurrentVersion(self.nGroupId) ~= self.nVersion then
+		return error(format("not permission to access TaskGroupId %d by Version %d", self.nGroupId, self.nVersion))
+	end
+	return self.TaskManager:GetTaskBit(self.nGroupId, nIndex, nBitPos)
+end
+
+function TaskGroup:SetTaskBit(nIndex, nBitPos, nValue)
+	if self.TaskManager:GetCurrentVersion(self.nGroupId) ~= self.nVersion then
+		return error(format("not permission to access TaskGroupId %d by Version %d", self.nGroupId, self.nVersion))
+	end
+	return self.TaskManager:SetTaskBit(self.nGroupId, nIndex, nBitPos, nValue)
+end
+
+function TaskGroup:GetTaskId(nIndex)
+	if self.TaskManager:GetCurrentVersion(self.nGroupId) ~= self.nVersion then
+		return error(format("not permission to access TaskGroupId %d by Version %d", self.nGroupId, self.nVersion))
+	end
+	return self.TaskManager:GetTaskId(self.nGroupId, nIndex);
+end
+
+function TaskGroup:GetTaskByte(nIndex, nByteIndex)
+	if self.TaskManager:GetCurrentVersion(self.nGroupId) ~= self.nVersion then
+		return error(format("not permission to access TaskGroupId %d by Version %d", self.nGroupId, self.nVersion))
+	end
+	return self.TaskManager:GetTaskByte(self.nGroupId, nIndex, nByteIndex)
+end
+
+function TaskGroup:SetTaskByte(nIndex, nByteIndex, nValue)
+	if self.TaskManager:GetCurrentVersion(self.nGroupId) ~= self.nVersion then
+		return error(format("not permission to access TaskGroupId %d by Version %d", self.nGroupId, self.nVersion))
+	end
+	return self.TaskManager:SetTaskByte(self.nGroupId, nIndex, nByteIndex, nValue)
+end
+
+function TaskGroup:GetMyTaskByte(nIndex, nByteIndex1, nByteIndex2)
+	if self.TaskManager:GetCurrentVersion(self.nGroupId) ~= self.nVersion then
+		return error(format("not permission to access TaskGroupId %d by Version %d", self.nGroupId, self.nVersion))
+	end
+	return self.TaskManager:GetMyTaskByte(self.nGroupId, nIndex, nByteIndex1, nByteIndex2)
+end
+
+function TaskGroup:SetMyTaskByte(nIndex, nByteIndex1, nByteIndex2, nValue)
+	if self.TaskManager:GetCurrentVersion(self.nGroupId) ~= self.nVersion then
+		return error(format("not permission to access TaskGroupId %d by Version %d", self.nGroupId, self.nVersion))
+	end
+	return self.TaskManager:SetMyTaskByte(self.nGroupId, nIndex, nByteIndex1, nByteIndex2, nValue)
+end
+
+function TaskGroup:GetMyTaskBit(nIndex, nBitIndex1, nBitIndex2)
+	if self.TaskManager:GetCurrentVersion(self.nGroupId) ~= self.nVersion then
+		return error(format("not permission to access TaskGroupId %d by Version %d", self.nGroupId, self.nVersion))
+	end
+	return self.TaskManager:GetMyTaskBit(self.nGroupId, nIndex, nBitIndex1, nBitIndex2)
+end
+
+function TaskGroup:SetMyTaskBit(nIndex, nBitIndex1, nBitIndex2, nValue)
+	if self.TaskManager:GetCurrentVersion(self.nGroupId) ~= self.nVersion then
+		return error(format("not permission to access TaskGroupId %d by Version %d", self.nGroupId, self.nVersion))
+	end
+	return self.TaskManager:SetMyTaskBit(self.nGroupId, nIndex, nBitIndex1, nBitIndex2, nValue)
+end

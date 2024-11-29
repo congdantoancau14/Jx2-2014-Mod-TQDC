@@ -1,0 +1,3 @@
+ID	Name	Mother
+1	Tung Hoµnh T©y Vùc	0
+2	ThÕ Lùc Ba Phe	1

@@ -1,0 +1,60 @@
+Include("\\script\\task\\faction\\faction_main_em.lua");
+Include("\\script\\online\\abluemoon\\abluemoon_item2exp.lua")
+
+function main ()
+
+local nTaskValue = FN_GetTaskState(FN_EM);
+
+	if (nTaskValue==1) then
+	
+		task_003();
+		return
+	
+	elseif (nTaskValue==2) then
+	
+		if (GetTask(EM_MANTALK_01)==1) and (GetTask(EM_MANTALK_02)==1) and (GetTask(EM_MANTALK_03)==1) and (GetTask(EM_MANTALK_04)==1) then
+			task_008();
+			return
+		else
+			Talk(1,"","Ta muèn ph¸t tiÒn ®Ó cøu tÕ nh­ng bän gia nh©n th× bËn gióp nÊu ch¸o. PhiÒn c« n­¬ng ®Õn th«ng b¸o cho N¹n d©n biÕt, b¶o hä ®Õn nhËn cøu tÕ.");
+			return
+		end
+	elseif (nTaskValue==4) then
+	
+		task_011();
+		return
+	
+	end
+
+
+	UWorld1506 = GetTask(1506)
+	if ( UWorld1506 == 0 and  GetLevel() > 1 )  then
+		Say("GÇn ®©y Thµnh §« phñ sao l¹i cã nhiÒu n¹n d©n, nh×n hä thËt ®¸ng th­¬ng! Ta quyÕt ®Şnh ph¸t tiÒn cøu tÕ, kh«ng biÕt thiÕu hiÖp cã thÓ gióp ®ì?",2,"§ång ı/yes1506","Ta cßn chót viÖc/no1506")
+	elseif ( UWorld1506  == 5 )  then
+		Talk(1,"","Nhê thiÕu hiÖp chuyÓn tin gÊp, cøu ng­êi nh­ cøu háa.")
+	elseif ( UWorld1506  == 9 )  then
+		Talk(1,"","Ta thay mÆt n¹n d©n ®a t¹ thiÕu hiÖp! §©y lµ mét chót lÔ män.")
+		SetTask(1506,10)
+		--AddItem(2,1,1,1)
+		Earn(200)
+		ModifyExp(150)
+		ModifyReputation(3,0)
+		--AddNote("°ïÖÜÉÆÈË¾È¼ÃÄÑÃñµÄÈÎÎñÍê³É")
+		TaskTip("Hoµn thµnh nhiÖm vô gióp Chu ThiÖn Nh©n cøu tÕ n¹n d©n")
+	else
+--		Talk(1,"","<color=green>ÖÜÉÆÈË<color>£ºÎãÒÔ¶ñĞ¡¶øÎªÖ®£¬ÎãÒÔÉÆĞ¡¶ø²»Îª¡£")
+		item_to_exp()  --ÓÃÁ¸Ê³»»¾­Ñé
+	end
+end;
+						
+function yes1506()
+	Talk(1,"","Ta muèn ph¸t tiÒn ®Ó cøu tÕ nh­ng bän gia nh©n th× bËn gióp nÊu ch¸o. PhiÒn thiÕu hiÖp ®Õn th«ng b¸o cho N¹n d©n ë cæng thµnh biÕt, b¶o hä ®Õn nhËn cøu tÕ.")
+	Talk(1,"","T¹i h¹ nghÜ nªn gãp chót søc män.")
+	SetTask(1506,5)
+	--AddNote("½Óµ½°ïÖÜÉÆÈËêâ¼ÃÄÑÃñµÄÈÎÎñ¡£")
+	TaskTip("NhËn nhiÖm vô gióp Chu ThiÖn Nh©n cøu tÕ n¹n d©n")
+end;
+function no1506()
+--	Talk(1,"","<color=green>ÖÜÉÆÈË<color>£º¼ÈÈ»ÉÙÏÀÃ¦²»Ì«¿ª£¬ÄÇÎÒÒ²²»±ØÇ¿ÈËËùÄÑÁË¡£")
+	item_to_exp()  --ÓÃÁ¸Ê³»»¾­Ñé
+end;

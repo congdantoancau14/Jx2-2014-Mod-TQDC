@@ -1,0 +1,128 @@
+Include("\\script\\function\\honor_tong\\ht_head.lua")
+
+function OnUse(nItem)
+	local nMapId, nX, nY = GetWorldPos();
+	if nMapId ~= 108 then
+		Talk(1,"","H·y ®Õn B¾c TuyÒn Ch©u dïng Vâ L©m HiÖu TriÖu LÖnh triÖu håi §«ng Ph­¬ng BÊt B¹i!");
+		return 0;
+	end
+	if GetTongDuty() ~= 1 then
+		Talk(1,"","ChØ cã bang chñ míi cã thÓ dïng Vâ L©m HiÖu TriÖu LÖnh!");
+		return 0;
+	end
+	if DelItemByIndex(nItem, 1) ~= 1 then
+		return 0;
+	end
+	local npcIndex = CreateNpc("§«ng Ph­¬ng BÊt B¹i", "§«ng Ph­¬ng BÊt B¹i", nMapId, nX, nY);
+	if npcIndex <= 0 then
+		return 0;
+	end
+	SetNpcLifeTime(npcIndex, 30*60);
+	SetNpcDeathScript(npcIndex, "\\script\\function\\honor_tong\\ht_extend.lua");
+	SetNpcTempData(npcIndex, 1, GetTongID()); --°ïÅÉ¹éÊô
+	SetNpcTempData(npcIndex, 2, gf_GetTaskByte(HT_TASK_1, 2));  --ÊÇ·ñÊÇµÚÒ»Ãû°ïÅÉ
+	Msg2Tong(format("Bang chñ %s ë B¾c TuyÒn Ch©u dïng Vâ L©m HiÖu TriÖu LÖnh triÖu håi BOSS §«ng Ph­¬ng BÊt B¹i, c¸c vÞ h·y nhanh chãng ®i khiªu chiÕn BOSS ®Ó nhËn phÇn th­ëng phong phó nµo!", GetName()));
+end
+
+function OnDeath(id, f, x)
+	local nTargetTong = GetNpcTempData(id, 1);
+	local bRankOne = GetNpcTempData(id, 2);
+	local nMapID, nX, nY = GetNpcWorldPos(id);
+	SetNpcLifeTime(id, 0);
+	local npcIndex = CreateNpc("jinbaoxiang", "R­¬ng Vµng Bang Ph¸i", nMapID, nX, nY);
+	SetNpcScript(npcIndex, "\\script\\function\\honor_tong\\ht_extend.lua");
+	SetNpcLifeTime(npcIndex, 10*60);
+	SetNpcTempData(npcIndex, 1, nTargetTong); --°ïÅÉ¹éÊô
+	SetNpcTempData(npcIndex, 2, bRankOne);  --ÊÇ·ñÊÇµÚÒ»Ãû°ïÅÉ
+end
+
+function main()
+	if gf_GetTaskByte(HT_TASK_1, 3) ~= 0 then
+		Talk(1,"",format("%s ®· nhËn phÇn th­ëng r­¬ng, kh«ng thÓ nhËn l¹i!", gf_GetPlayerSexName()));
+		return 0;
+	end
+	
+	local nTargetNpc = GetTargetNpc();
+	local nTargetTong = GetNpcTempData(nTargetNpc, 1);
+	if nTargetTong ~= GetTongID() then
+		Talk(1,"","ChØ cã thµnh viªn cña bang héi míi cã thÓ nhËn th­ëng!");
+		return 0;
+	end
+	local nJoinTime = GetJoinTongTime();
+	if nJoinTime <= 0 or GetTime() - nJoinTime < 7 * 24 * 3600 then
+		Talk(1,"",HT_NPC..format("%s ch­a gia nhËp bang héi hoÆc thêi gian gia nhËp kh«ng ®ñ %d ngµy", gf_GetPlayerSexName(), 7));
+		return 0;
+	end
+	
+	if gf_CheckBaseCondition(90) ~= 1 then
+		return 0;
+	end
+	
+	if gf_Check55HaveSkill() ~= 1 then
+		Talk(1,"",HT_NPC.."C¸c h¹ ch­a häc skill 55. Kh«ng thÓ nhËn th­ëng!")
+		return 0;
+	end
+	
+	local nRankone = GetNpcTempData(nTargetNpc, 2);
+	local nTongDuty = GetTongDuty();
+	if nTongDuty == 1 then --°ïÖ÷
+		if GetNpcTempData(nTargetNpc, 3) ~= 0 then
+			Talk(1,"","Bang chñ ®· nhËn th­ëng råi, kh«ng thÓ nhËn l¹i!");
+			return 0;
+		end
+		if gf_Judge_Room_Weight(15, 100,1) ~= 1 then
+			Talk(1,"",szMsgHead.."Hµnh trang cña ®¹i hiÖp kh«ng ®ñ chç trèng hoÆc søc lùc kh«ng ®ñ, xin h·y s¾p xÕp l¹i hµnh trang!");
+			return 0;
+		end
+		gf_SetTaskByte(HT_TASK_1, 3, 1, TASK_ACCESS_CODE_HONOR_TONG);
+		gf_ModifyExp(10000000);
+		gf_AddItemEx2({2, 1, 1210, 3}, "B¶o r­¬ng Tµi nguyªn", "Bang Héi Vinh Danh", "R­¬ng Vµng Bang Ph¸i", 3600 * 24, 1);
+		hte_RandBook();
+		gf_AddItemEx2({2, 1, 30844, 1, 4}, "R­¬ng Háa Phông", "Bang Héi Vinh Danh", "R­¬ng Vµng Bang Ph¸i", 0, 1);
+		if nRankone == 1 then --ÈÙÓþ°ïÖ÷
+			gf_AddItemEx2({0, 105, 10112, 1, 4, -1, -1, -1, -1, -1, -1}, "Tö Ngäc Tr­êng Phong", "Bang Héi Vinh Danh", "R­¬ng Vµng Bang Ph¸i", 7*24*3600, 1);
+			gf_AddItemEx2({2, 1, 1210, 5}, "B¶o r­¬ng Tµi nguyªn", "Bang Héi Vinh Danh", "R­¬ng Vµng Bang Ph¸i", 0, 1);
+			for i = 1, 2 do
+				hte_RandBook();
+			end
+			gf_AddItemEx2({2, 1, 30844, 2, 4}, "R­¬ng Háa Phông", "Bang Héi Vinh Danh", "R­¬ng Vµng Bang Ph¸i", 0, 1);
+		end
+		SetNpcTempData(nTargetNpc, 3, 1); --±ê¼Ç°ïÖ÷ÒÑÁì
+	else --°ïÖÚ
+		gf_SetTaskByte(HT_TASK_1, 3, 1, TASK_ACCESS_CODE_HONOR_TONG);
+		gf_ModifyExp(10000000);
+		gf_EventGiveCustomAward(5, 4*60, 1, "Bang Héi Vinh Danh", "R­¬ng Vµng Bang Ph¸i");
+		gf_EventGiveCustomAward(9, 4*60, 1, "Bang Héi Vinh Danh", "R­¬ng Vµng Bang Ph¸i");
+		gf_EventGiveCustomAward(12, 4*60, 1, "Bang Héi Vinh Danh", "R­¬ng Vµng Bang Ph¸i");
+		if nRankone == 1 then --ÈÙÓþ°ïÖÚ
+			gf_ModifyExp(10000000);
+			gf_EventGiveCustomAward(5, 4*60, 1, "Bang Héi Vinh Danh", "R­¬ng Vµng Bang Ph¸i");
+			gf_EventGiveCustomAward(9, 4*60, 1, "Bang Héi Vinh Danh", "R­¬ng Vµng Bang Ph¸i");
+			gf_EventGiveCustomAward(12, 4*60, 1, "Bang Héi Vinh Danh", "R­¬ng Vµng Bang Ph¸i");
+		end
+	end
+end
+
+function hte_RandBook()
+	local tAward = {
+		{0, 107, 30001, "Kim Cang B¸t Nh· Ch©n QuyÓn (Cao cÊp)"},
+		{0, 107, 30002, "TiÒm Long Tóc DiÖt Ch©n QuyÓn (Cao cÊp)"},
+		{0, 107, 30003, "V« TrÇn Bå §Ò Ch©n QuyÓn (Cao cÊp)"},
+		{0, 107, 30004, "Thiªn La Liªn Ch©u Ch©n QuyÓn (Cao cÊp)"},
+		{0, 107, 30005, "Nh­ ý Kim §Ønh Ch©n QuyÓn (Cao cÊp)"},
+		{0, 107, 30006, "BÝch H¶i TuyÖt ¢m Ch©n QuyÓn (Cao cÊp)"},
+		{0, 107, 30007, "Hçn §én TrÊn Nh¹c Ch©n QuyÓn (Cao cÊp)"},
+		{0, 107, 30008, "Quú Thiªn Du Long Ch©n QuyÓn (Cao cÊp)"},
+		{0, 107, 30009, "HuyÒn ¶nh Mª T«ng Ch©n QuyÓn (Cao cÊp)"},
+		{0, 107, 30010, "Qu©n Tö §íi Phong Ch©n QuyÓn (Cao cÊp)"},
+		{0, 107, 30011, "TrÊn Qu©n Phi Long Th­¬ng Ch©n QuyÓn (Cao cÊp)"},
+		{0, 107, 30012, "Xuyªn V©n L¹c Hång Ch©n QuyÓn (Cao cÊp)"},
+		{0, 107, 30013, "HuyÒn Minh Phong Ma Ch©n QuyÓn (Cao cÊp)"},
+		{0, 107, 30014, "Linh Cæ HuyÒn Tµ Ch©n QuyÓn (Cao cÊp)"},
+		{0, 107, 30015, "Cöu Thiªn Phong L«i Ch©n QuyÓn (Cao cÊp)"},
+		{0, 107, 30016, "Hång TrÇn Tóy Méng Ch©n QuyÓn (Cao cÊp)"},
+		{0, 107, 30017, "Phong Hoa Thiªn DiÖp Ch©n QuyÓn (Cao cÊp)"},
+	}
+	local nIndex = random(getn(tAward));
+	gf_AddItemEx2({tAward[nIndex][1], tAward[nIndex][2], tAward[nIndex][3], 1}, tAward[nIndex][4], "Bang Héi Vinh Danh", "R­¬ng Vµng Bang Ph¸i", 0, 1);
+end

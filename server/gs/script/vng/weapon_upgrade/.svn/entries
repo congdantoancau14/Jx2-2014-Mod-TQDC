@@ -1,0 +1,52 @@
+8
+
+dir
+72
+http://10.60.1.51/release/jx2/20140317_VNG_DieuDuong2ChienCuong/server/script/vng/weapon_upgrade
+http://10.60.1.51/release/jx2
+
+
+
+2014-03-18T06:56:09.230793Z
+72
+chimc
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+435922c8-a5a7-11e3-88e4-17c3071ef43c
+
+trangbichiencuong.lua
+file
+
+
+
+
+2014-03-18T06:53:48.000000Z
+2b082b1daf7070547e781dbe495a221e
+2014-03-18T06:56:09.230793Z
+72
+chimc
+
+dieuduong2chiencuong_3.lua
+file
+
+
+
+
+2014-03-18T06:53:48.000000Z
+722be08a44568ed43c1af24155f45ad2
+2014-03-18T03:45:49.429664Z
+58
+trungbt2
+

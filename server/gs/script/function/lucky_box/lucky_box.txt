@@ -1,0 +1,30 @@
+Name	G	D	P	Num	freePbby	freeExpire	freeBind	freeNotice	Pbby	Expire	Bind	Notice
+Tªn vËt phÈm:	id	id	id	Chän	Tû lÖ miÔn ph? (§i?n ngÉu nhiªn)	Thêi gian tån t¹i (Ngµy)	"Kh?a kh«ng (4 kh?a, 1 kh«ng kh?a)"	Th«ng b¸o kh«ng	Tû lÖ (§i?n ngÉu nhiªn)	Thêi gian tån t¹i (Ngµy)	Kh?a kh«ng	Th«ng b¸o kh«ng
+Hu©n Ch­¬ng Anh Hïng	2	1	30499	10	10000	0	1	0	1000	0	1	0
+Cæ Linh Ngäc	2	1	30369	10	10000	0	1	0	1000	0	1	0
+Cæ Linh Th¹ch	2	1	30368	10	10000	0	1	1	1000	0	1	1
+Thiªn M«n Kim LÖnh	2	1	30370	1	500	0	1	1	100	0	1	1
+Thiªn Cang LÖnh	2	95	204	1	500	0	1	0	100	0	1	0
+§Ünh H«ng Thiªn Th¹ch	2	1	1067	1	8000	0	1	1	800	0	1	1
+§¹i §Ünh Hån	2	1	1113	1	8000	0	1	0	800	0	1	0
+Thiªn Th¹ch Tinh Th¹ch	2	1	1009	5	8000	0	1	0	800	0	1	0
+S¸t Tinh Ngäc	2	1	50004	1	1	0	1	0	1	0	1	0
+Thiªn Th¹ch Linh Th¹ch	2	1	1068	1	8000	0	1	1	800	0	1	1
+ThiÕt Tinh CÊp 4	2	1	30612	1	7000	0	1	1	700	0	1	1
+S¸t Tinh Y	2	1	50001	1	1	0	1	0	1	0	1	0
+Háa Phông Hån	2	1	30769	1	1	0	1	1	1	0	1	1
+Háa Phông Tinh Hoa	2	1	30770	5	500	0	1	0	100	0	1	0
+M¶nh Thiªn M«n	2	1	30410	5	8000	0	1	0	800	0	1	0
+M¶nh Thiªn Cang	2	1	30390	5	8000	0	1	1	800	0	1	1
+Huy ch­¬ng HiÖp Cèt	0	152	29	1	200	0	1	1	50	0	1	1
+¸o choµng HiÖp Cèt	0	153	29	1	200	0	1	0	50	0	1	0
+Chi?n Hµi HiÖp Cèt	0	154	29	1	200	0	1	1	50	0	1	1
+Huy ch­¬ng Quû Phï	0	152	30	1	200	0	1	0	50	0	1	0
+¸o choµng Quû Phï	0	153	30	1	200	0	1	0	50	0	1	0
+Chi?n Hµi Quû Phï	0	154	30	1	200	0	1	0	50	0	1	0
+Huy ch­¬ng §»ng V©n	0	152	31	1	200	0	1	1	50	0	1	1
+¸o choµng §»ng V©n	0	153	31	1	200	0	1	1	50	0	1	1
+Chi?n Hµi §»ng V©n	0	154	31	1	200	0	1	0	50	0	1	0
+Th¸i NhÊt LÖnh	2	1	30687	10	500	0	1	1	100	0	1	1
+S¸t Tinh V? Kh?	2	1	50003	1	1	0	1	1	1	0	1	1
+Th«n NguyÖt LÖnh	2	1	31286	1	0	0	1	1	0	0	1	1
