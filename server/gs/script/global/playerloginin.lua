@@ -463,7 +463,7 @@ function main(ExchangeComing)
 	end
 
 	if GetTask(101) ~= 874 then
-		remove_oldquest()	-- 删除原世界任务
+		--remove_oldquest()	-- 删除原世界任务
 	end
 
 	if (IsInGatherMap() == 1) then
@@ -478,12 +478,12 @@ function main(ExchangeComing)
 	end;
 
 	if GetTask(111) > 0 and GetTask(111) < 100 then
-	    SetTask(111, 0);
+	    --SetTask(111, 0);
 	end;
 
 	if GetTask(121) > 0 and GetTask(121) < 100 then
-	    SetTask(121, 0);
-	    SetTask(122, 0);
+	    --SetTask(121, 0);
+	    --SetTask(122, 0);
 	end;
 	--================================================================
 	-- 辉煌之夜提示

@@ -309,7 +309,7 @@ function cheBien()
 	tbSay = {}
 	tinsert(tbSay, "N­íng b¸nh Trung Thu 2011/nuongBanh2011");
 	for i=1,getn(tCheBien) do
-		tinsert(tbSay, "N­íng "..tCheBien[i]["products"][1][1]..format("/#cook(%d)",i));
+		tinsert(tbSay, "NÊu n­íng "..tCheBien[i]["products"][1][1]..format("/#cook(%d)",i));
 	end
 	tinsert(tbSay, "\nTrang chÝnh/SayPage1");
 	tinsert(tbSay, "Tho¸t/nothing");
@@ -327,67 +327,13 @@ end;
 
 function cook()
 	tbSay = {}
-	for i=1, getn(tOvens) do
-		tinsert(tbSay, format("Thuª %s (tiªu %d vµng, søc chøa %d)/#createLoNuong(%d)", 
-			tOvens[i][2],tOvens[i][3]/10000,tOvens[i][4],i));
-	end
+	--tinsert(tbSay, "§Æt lß n­íng/createLoNuong()");
 	tinsert(tbSay, "Dùng löa tr¹i/createtLuaTrai");
 	tinsert(tbSay, "\nTrang chÝnh/SayPage1");
 	tinsert(tbSay, "Tho¸t/nothing");
-	Say("----- Chän vËt phÈm cÇn chÕt¹o -----",getn(tbSay),tbSay);
+	Say("----- Chän vËt phÈm cÇn chÕ biÕn -----",getn(tbSay),tbSay);
 end;
 
-function createtLuaTrai()
-	local tLuaTrai = tDecorators[1];
-	local nMax, tResult = countItems(tLuaTrai["mater"]);
-	if nMax > 0 then
-		if GetTime() - GetTask(TASK_BURNFIRETIME) < FIRELIFETIME and GetTask(TASK_BURNFIRETIME) ~= 0 then
-			Talk(1,"","B¹n ®· cã 1 ®èng löa råi, kh«ng cÇn l·ng phÝ cñi.");
-			return 0;
-		end;
-		local nDelResult, tDel = delItems(tLuaTrai["mater"]);
-		if nDelResult == 1 then
-			local map,x,y = GetWorldPos();
-			x = random(x-2,x+2)
-			y = random(y-2,y+2)
-			local npcFireIndex = CreateNpc("Löa tr¹i","§èng löa",map,x,y);
-			SetNpcScript(npcFireIndex,"\\script\\online_activites\\202007\\donglua.lua");
-			SetNpcLifeTime(npcFireIndex,FIRELIFETIME)
-			SetTask(TASK_FIREINDEX,npcFireIndex);
-			SetTask(TASK_BURNFIRETIME,GetTime());
-			
-			local nTimeLeftNeedWood = FIRELIFETIME-FIRELIFETIME*0.2;
-			StartTimeGuage("Thªm cñi",nTimeLeftNeedWood,0,npcFireIndex)
-			
-			local nOvenIndex = GetTask(TASK_OVENINDEX);
-			StopTimeGuage(nOvenIndex);		
-			StartTimeGuage("Lß n­íng",nTimeLeftNeedWood+OVENLIFETIME,0,nOvenIndex);
-			SetNpcLifeTime(nOvenIndex,nTimeLeftNeedWood+OVENLIFETIME)
-		else
-			Msg2Player("Cã vÊn ®Ò trong qu¸ tr×nh xö lÝ nguyªn liÖu.");
-		end
-	else
-		local szNguyenLieu = "";
-		for i=1, getn(tLuaTrai["mater"]) do
-			szNguyenLieu = szNguyenLieu..format("* %s %s",
-				colorize("green",tLuaTrai["mater"][i][1]),
-				"x"..colorize("yellow",tLuaTrai["mater"][i][3]))..enter;
-		end
-		Talk(1,"",gf_Colorize(tLuaTrai["desc"][1][1],"gray")..enter.."Kh«ng ®ñ nguyªn liÖu."..enter..szNguyenLieu);
-	end
-end;
-
-function createLoNuong(nType)
-	SetTask(TASK_OVENTYPE, nType)
-	Pay(tOvens[nType][3]);
-	local nIndex = CreateNpc(tOvens[nType][1], tOvens[nType][2], GetWorldPos());
-	SetNpcScript(nIndex,"\\script\\online_activites\\202007\\lonuong.lua");
-	SetTask(TASK_OVENINDEX,nIndex);
-	SetTask(TASK_HIREOVENTIME,GetTime());
-	SetNpcLifeTime(nIndex,OVENLIFETIME)
-	StartTimeGuage(tOvens[nType][2],OVENLIFETIME,0,nIndex)
-	
-end;
 
 function makeThings()
 	tbSay = {}

@@ -566,6 +566,7 @@ function CreateMonster(nZone, nType)
 		y = GetTabData(i, nZone * 2 + 2)
 		local npcIndex = CreateNpc(szMonsterMode, szMonsterName, nMapid, x, y)
 		AddGroupUnit(nZone + GROUP_OFFSET, npcIndex)
+		SetNpcDeathScript(npcIndex,"\\script\\太虚幻境\\npc_death.lua")
 	end
 	
 	-- 记录当前刷怪类型

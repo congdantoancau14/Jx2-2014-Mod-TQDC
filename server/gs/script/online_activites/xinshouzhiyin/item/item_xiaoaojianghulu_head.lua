@@ -5,6 +5,7 @@ space = " ";
 VET_201203_GONGLI_ID = 59
 VET_201302_VALENTINE = 82
 
+
 tHandMade = {
 	[1] = {
 		["mater"] = {
@@ -87,7 +88,6 @@ tKhaiThac = {
 		},
 	},
 }
-
 tExchange = {
 	[1] = {
 		["source"] = {
@@ -226,7 +226,7 @@ function countItems(tItems)
 				local nLoop = 0;
 				for j=1, getn(tItems[i][5]) do
 					local t = tItems[i][5];
-					nCount = GetItemCount(t[j][2][1],t[j][2][2],t[j][2][3]);
+					nCount = nCount + GetItemCount(t[j][2][1],t[j][2][2],t[j][2][3]);
 					if nCount >= t[j][3] then
 						break
 					end

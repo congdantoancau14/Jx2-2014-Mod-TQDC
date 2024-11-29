@@ -1,5 +1,5 @@
 CFG_NhiemVuLamGiau = 1		-- 0/1: BËt t¾t nhiÖm vô lµm giµu
-CFG_NhiemVuThuongHoi = 0	-- 0/1: BËt t¾t nhiÖm vô th­¬ng héi
+CFG_NhiemVuThuongHoi = 1	-- 0/1: BËt t¾t nhiÖm vô th­¬ng héi
 CFG_NhiemVuDongHanh = 1		-- 0/1: BËt t¾t nhiÖm vô ®ång hµnh
 CFG_VipCare = 1						-- 0/1: BËt t¾t ch­¬ng tr×nh VipCare
 EXT_VIPCARE = 0						-- EXT point dïng cho VipCare

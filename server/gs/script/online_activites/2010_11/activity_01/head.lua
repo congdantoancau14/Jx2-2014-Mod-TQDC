@@ -4,18 +4,19 @@ Include("\\script\\online_activites\\task_values.lua")
 NT_ActivityID = 16;
 
 NT_TitleTable = 
-{
-	{"", 0, 0, 76}, -- Original 0,0,76
+{	-- Title_name,title_type1,title_type2,chance_rate
 	{"C¶m", 65, 19, 2},
 	{"Sæ Mòi", 65, 20, 2},
 	{"Tiªu Ch¶y", 65, 21, 2},
 	{"Ho", 65, 22, 2},
 	{"Nhøc §Çu", 65, 23, 2},
 	{"§au Bông", 65, 24, 2},
-	{"Chãng MÆt", 65, 25, 2},
-	{"Th©n ThÓ C­êng Tr¸ng", 65, 26, 6},
-	{"Tinh ThÇn Ho¹t B¸t", 65, 27, 6},
-	{"Tinh ThÇn Ho¹t B¸t", 65, 28, 6},
+	{"Th©n ThÓ C­êng Tr¸ng", 65, 26, 2},
+	{"Tinh ThÇn Ho¹t B¸t", 65, 27, 2},
+	{"Tø chi linh ho¹t", 65, 28, 2},
+	{"Søc sèng trµn ®Çy", 65, 29, 2},
+	{"B×nh th­êng", 0, 0, 79}, -- Original 0,0,76
+	{"Chãng MÆt", 65, 25, 1},
 };
 
 NT_ItemTable = 
@@ -102,27 +103,36 @@ function NT_OnPlayer1stLoginToday()
 		return
 	end
 	--WriteLog("NT_OnPlayer1stLoginToday::called");
-	-- print("NT_OnPlayer1stLoginToday::called");
+	print("NT_OnPlayer1stLoginToday::called");
 	
 	local chance = random(1, 100);
 	--WriteLog("NT_OnPlayer1stLoginToday::chance: "..chance);
-	-- print("NT_OnPlayer1stLoginToday::chance: "..chance);
+	print("NT_OnPlayer1stLoginToday::chance: "..chance);
 	local tmp = 0;
 	local type1 = 0;
 	local type2 = 0;
-	for i=1, getn(NT_TitleTable) do
+	-- for i=1, getn(NT_TitleTable) do
 		-- print("NT_OnPlayer1stLoginToday::tmp: "..tmp);
 		-- print("NT_OnPlayer1stLoginToday::tmp+: "..tmp + NT_TitleTable[i][4]);
-		if tmp < chance and chance <= tmp + NT_TitleTable[i][4] then
-			type1 = NT_TitleTable[i][2];
-			type2 = NT_TitleTable[i][3];
-			break;
-		else
-			tmp = tmp + NT_TitleTable[i][4];
-		end
+		-- if tmp < chance and chance <= tmp + NT_TitleTable[i][4] then
+			-- type1 = NT_TitleTable[i][2];
+			-- type2 = NT_TitleTable[i][3];
+			-- break;
+		-- else
+			-- tmp = tmp + NT_TitleTable[i][4];
+		-- end
 		
+	-- end
+	if chance <= 79 then
+	elseif chance == 80 then
+		type1 = NT_TitleTable[12][2];
+		type2 = NT_TitleTable[12][3];
+	else
+		local rand = random(10);
+		type1 = NT_TitleTable[rand][2];
+		type2 = NT_TitleTable[rand][3];
 	end
-	-- print("NT_OnPlayer1stLoginToday::checktype",type1,type2);
+	print("NT_OnPlayer1stLoginToday::checktype",type1,type2);
 	if type1 == 0 and type2 == 0 then	
 		return
 	end

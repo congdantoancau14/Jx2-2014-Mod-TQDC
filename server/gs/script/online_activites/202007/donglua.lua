@@ -14,7 +14,7 @@ function main()
 	local nNpcFireIndex = GetTargetNpc();
 	
 	if bJudgeByName == 0 then
-		if GetTime() - GetTask(TASK_BURNFIRETIME) > FIRELIFETIME or GetTask(TASK_BURNFIRETIME) == 0 
+		if GetTime() - GetTask(TASK_BONFIRE_CREATEDTIME) > FIRE_LIFETIME or GetTask(TASK_BONFIRE_CREATEDTIME) == 0 
 			or nNpcFireIndex ~= GetTask(TASK_FIREINDEX) then
 			--Talk(1,"","§èng löa cña ai ®©y?");
 			Say("§èng löa cña ai ®©y",2,"Thªm cñi gióp ng­êi/givewood","Th«i kÖ/nothing");
@@ -22,21 +22,21 @@ function main()
 		end;
 	end;
 
-	local nTimePassed = GetTime() - GetTask(TASK_BURNFIRETIME);
+	local nTimePassed = GetTime() - GetTask(TASK_BONFIRE_CREATEDTIME);
 	local nTimeLeft = 0; -- Time left need to burn
 	
-	if GetTask(TASK_NEWFIRELIFETIME) ~= 0 then
-		nTimeLeft = GetTask(TASK_NEWFIRELIFETIME) - nTimePassed;
+	if GetTask(TASK_NEWFIRE_LIFETIME) ~= 0 then
+		nTimeLeft = GetTask(TASK_NEWFIRE_LIFETIME) - nTimePassed;
 	else
-		nTimeLeft = FIRELIFETIME - nTimePassed;
+		nTimeLeft = FIRE_LIFETIME - nTimePassed;
 	end
 	
-	local nDisplayTimeLeft = nTimeLeft - FIRELIFETIME/5;
-	if nTimeLeft ~= 0 and nTimeLeft > MAXFIRELIFETIME then
+	local nDisplayTimeLeft = nTimeLeft - FIRE_LIFETIME/5;
+	if nTimeLeft ~= 0 and nTimeLeft > MAXFIRE_LIFETIME then
 		Talk(1,"","§èng löa ®ang ch¸y ná, t¹m thêi kh«ng cÇn thªm cñi, tr¸nh l·ng phÝ. "
 			.."NÕu sau <color=yellow>"..Get_Time_String(nDisplayTimeLeft)
 			.."<color> sau kh«ng thªm cñi, ®èng löa sÏ lôi tµn mµ t¾t ®i. Thêi gian thªm cñi lÇn sau cßn <color=yellow>"
-			..Get_Time_String(nDisplayTimeLeft - (FIRELIFETIME + (FIRELIFETIME-FIRELIFETIME/5))).."<color>.");
+			..Get_Time_String(nDisplayTimeLeft - (FIRE_LIFETIME + (FIRE_LIFETIME-FIRE_LIFETIME/5))).."<color>.");
 		return 0;
 	end;
 
@@ -69,38 +69,38 @@ function givewood()
 		return 0;
 	end;
 	
-	--SetNpcLifeTime(nNpcFireIndex,MAXFIRELIFETIME);
-	--SetTask(TASK_BURNFIRETIME,GetTime());
+	--SetNpcLifeTime(nNpcFireIndex,MAXFIRE_LIFETIME);
+	--SetTask(TASK_BONFIRE_CREATEDTIME,GetTime());
 	
-	local nTimePassed = GetTime() - GetTask(TASK_BURNFIRETIME);
-	local nFireLifeTime = 0; -- New firelifetime
-	-- if GetTask(TASK_NEWFIRELIFETIME) == 0 then
-		-- nFireLifeTime = FIRELIFETIME-nTimePassed + FIRELIFETIME/5;
+	local nTimePassed = GetTime() - GetTask(TASK_BONFIRE_CREATEDTIME);
+	local nFIRE_LIFETIME = 0; -- New FIRE_LIFETIME
+	-- if GetTask(TASK_NEWFIRE_LIFETIME) == 0 then
+		-- nFIRE_LIFETIME = FIRE_LIFETIME-nTimePassed + FIRE_LIFETIME/5;
 	-- else
-		-- nFireLifeTime = GetTask(TASK_NEWFIRELIFETIME) - nTimePassed + FIRELIFETIME/5;
+		-- nFIRE_LIFETIME = GetTask(TASK_NEWFIRE_LIFETIME) - nTimePassed + FIRE_LIFETIME/5;
 	-- end
 	Msg2Player("nTimePassed: "..nTimePassed);
-	if GetTask(TASK_NEWFIRELIFETIME) ~= 0 then
-		nTimeLeft = GetTask(TASK_NEWFIRELIFETIME) - nTimePassed;
-		nFireLifeTime = GetTask(TASK_NEWFIRELIFETIME) + FIRELIFETIME/5;
+	if GetTask(TASK_NEWFIRE_LIFETIME) ~= 0 then
+		nTimeLeft = GetTask(TASK_NEWFIRE_LIFETIME) - nTimePassed;
+		nFIRE_LIFETIME = GetTask(TASK_NEWFIRE_LIFETIME) + FIRE_LIFETIME/5;
 	else
-		nTimeLeft = FIRELIFETIME - nTimePassed;
-		nFireLifeTime = FIRELIFETIME + FIRELIFETIME/5;
+		nTimeLeft = FIRE_LIFETIME - nTimePassed;
+		nFIRE_LIFETIME = FIRE_LIFETIME + FIRE_LIFETIME/5;
 	end
 	
 	
 	
 	StopTimeGuage(nNpcFireIndex);
-	StartTimeGuage("Thªm cñi",nFireLifeTime-FIRELIFETIME/5,0,nNpcFireIndex);
-	SetTask(TASK_NEWFIRELIFETIME,nFireLifeTime);
-	SetNpcLifeTime(nNpcFireIndex,nFireLifeTime);
-	--SetTask(TASK_BURNFIRETIME,GetTime());	
+	StartTimeGuage("Thªm cñi",nFIRE_LIFETIME-FIRE_LIFETIME/5,0,nNpcFireIndex);
+	SetTask(TASK_NEWFIRE_LIFETIME,nFIRE_LIFETIME);
+	SetNpcLifeTime(nNpcFireIndex,nFIRE_LIFETIME);
+	--SetTask(TASK_BONFIRE_CREATEDTIME,GetTime());	
 	
 	-- Lß n­íng
 	local nOvenIndex = GetTask(TASK_OVENINDEX);
 	StopTimeGuage(nOvenIndex);
-	StartTimeGuage("Lß n­íng",nFireLifeTime+OVENLIFETIME,0,nOvenIndex);
-	SetNpcLifeTime(nOvenIndex,nFireLifeTime+OVENLIFETIME);
+	StartTimeGuage("Lß n­íng",nFIRE_LIFETIME+OVEN_LIFETIME,0,nOvenIndex);
+	SetNpcLifeTime(nOvenIndex,nFIRE_LIFETIME+OVEN_LIFETIME);
 end;
 
 function nothing()

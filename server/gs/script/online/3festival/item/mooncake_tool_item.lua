@@ -4,9 +4,20 @@
 --Author:yanjun
 Include("\\script\\online\\3festival\\3festival_head.lua")
 Include("\\script\\lib\\time.lua")
+Include("\\script\\online_activites\\202007\\head.lua")
 
 function OnUse()
-	if tonumber(date("%y%m%d")) > 481007 then
+	local nType = GetTask(TASK_OVENTYPE);
+	if nType ~= nil and nType ~= 0 and isOvenExpire() == 0 then
+		createLoNuong(nType);
+		return 0;
+	end
+	local nDate = tonumber(date("%m%d"))
+	if nDate < 0801 then
+		Talk(1,"","TÕt Trung Thu ch­a ®Õn, lµm b¸nh còng cã ý nghÜa g×");
+		return 0;
+	end;
+	if nDate > 1007 then
 		Talk(1,"","TÕt Trung Thu ®· qua, tiÕp tôc lµm b¸nh còng ch¼ng cßn ý nghÜa");
 		return 0;
 	end;

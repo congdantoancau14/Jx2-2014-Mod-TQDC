@@ -71,7 +71,8 @@ function Get_TrangBi()
 		"Trang bŞ ChiÕn Tr­êng/GetCT",
 		"Trang bŞ Minh Tinh V« Cùc/Get_NgocBoi",
 		"Trang bŞ Thiªn §Şa huyÒn hoµng/Get_TDHH",
-		"NhËn Lôc Du ngäc béi/Get_LDNB",
+		"NhËn Phi D­¬ng chØ hoµn/Get_LDNB",
+		"NhËn KhuÊt Nguyªn béi/Get_KNB",
 		"NhËn trang bŞ Ngo¹i Trang/Get_NgoaiTrang",
 		"NhËn thó c­ìi/Get_horse",
 	};
@@ -86,7 +87,11 @@ function Get_TrangBi()
 end
 
 function Get_LDNB()
-	AddItem(0,102,6,1,1,7,406);
+	AddItem(0,102,25,1,1,7,406,7,14881)		-- Phi duong  -- khang trang thai xau
+end
+
+function Get_KNB()
+	AddItem(0,102,27,1,1,-1,-1,-1,-1,-1,-1) -- khuat nguyen boi
 end
 
 function Get_TDHH()
@@ -1317,13 +1322,16 @@ function reborn(nType)
 	if nType ~= 0 then 
 		SetTask(1538,SetByte(GetTask(1538),1,GetByte(GetTask(1538),1)+1),0);
 		SetTask(1538,SetByte(GetTask(1538),2,nType),0);
+		Msg2Player("§· chuyÓn sinh!");
 	else
+		PlayerReborn(0, 0);			--ChuyÓn sinh
 		SetTask(1538,SetByte(GetTask(1538),1,0),0);
+		Msg2Player("Hçn nguyªn c«ng ®· hoµn toµn bŞ phÕ!");
 	end
-	Msg2Player("§· chuyÓn sinh!");
+	
 	SetCurrentNpcSFX(PIdx2NpcIdx(PlayerIndex),901,1,1);
 	SetCurrentNpcSFX(PIdx2NpcIdx(),917,1,1)
-	-- Say("§· chuyÓn sinh! §¨ng nhËp l¹i ®Ó cã hiÖu lùc.",1,"Tho¸t/exitgame");
+	Say("§· chuyÓn sinh! §¨ng nhËp l¹i ®Ó cã hiÖu lùc.",1,"Tho¸t/exitgame");
 end;
 
 function exitgame()

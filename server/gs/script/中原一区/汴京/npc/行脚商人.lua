@@ -196,9 +196,10 @@ function main()
 	if checkCollectNpc(nMap, strName) ==1 then
 		if time_h >= 18 then
 		Say("§õng hái ta sao cø b«n ba kh¾p n¬i! Tuy ta kh«ng ph¶i lµ ng­êi xuÊt gia nh­ng lóc nµo còng tiªu diªu tù t¹i, kÎ phµm phu tôc tö sao cã thÓ hiÓu ®­îc?",
-			3,
+			4,
 			"Ta ®Õn nhËn nhiÖm vô thu thËp/#createCollectTalk(\"Hµnh C­íc Th­¬ng Nh©n\")",
 			"Ta ®Õn ®æi Bİ kiÕp/Dialog_main",
+			"Ta cã mét İt Tiªu kiÕp t¸n kh«ng dïng ®Õn, muèn ®æi lÊy ThÇn n«ng ®¬n/AskExchangeTKT",
 			"Rêi khái/Zgc_dialog_end"
 		)
 		elseif checkCollectNpc(nMap, strName) ==1 then
@@ -212,6 +213,46 @@ function main()
 		Talk(2,"","§õng hái ta sao cø b«n ba kh¾p n¬i! Tuy ta kh«ng ph¶i lµ ng­êi xuÊt gia nh­ng lóc nµo còng tiªu diªu tù t¹i, kÎ phµm phu tôc tö sao cã thÓ hiÓu ®­îc?","X­a cã c©u: §i mét ngµy ®µng häc mét sµng kh«n.")
 	end	
 end
+---------------------------------------------------------------------
+function AskExchangeTKT()
+	Say("Tiªu kiÕp t¸n lµ vËt tÈy trõ ¸c nghiÖp. NÕu ng­¬i kh«ng cÇn dïng ®Õn còng cã thÓ coi lµ thÕ gian ®¹i thiÖn nh©n! §­îc, ta cã thÓ ®æi cho ng­¬i. Ng­¬i muèn ®æi bao nhiªu?",
+			4,
+			"Ta chØ cã mét viªn th«i/#ExchangeTKT(1)",
+			"Ta muèn ®æi vµi viªn/GetNumberTKT",
+			"Ta muèn ®æi hÕt sè l­îng ta cã/#ExchangeTKT(-1)",
+			"Rêi khái/Zgc_dialog_end"
+		)
+end;
+
+function GetNumberTKT()
+	AskClientForNumber("ExchangeTKT",1,GetItemCount(2,0,141),"NhËp sè l­îng muèn ®æi");
+end;
+
+function ExchangeTKT(nNumber)
+	if nNumber == 0 then
+		Talk(1,"","Ng­¬i kh«ng cã viªn nµo th× muèn ®æi g×?!");
+		return 0;
+	end
+	local nCount = GetItemCount(2,0,141);
+	if nNumber == -1 then
+		if nCount > 0 then
+			nNumber = nCount;
+		else
+			Talk(1,"","Ng­¬i kh«ng cã viªn nµo th× muèn ®æi g×?!");
+			return 0;
+		end
+	end
+	if DelItem(2,0,141,nNumber) == 1 then
+		Msg2Player("Giao dŞch thµnh c«ng!");
+		Talk(1,"","ThiÖn tai! Lµnh thay!");
+		AddItem(2,1,343,nNumber);
+		return 1;
+	else
+		Msg2Player("Giao dŞch thÊt b¹i!");
+		Talk(1,"","Sè l­îng kh«ng ®ñ råi!");
+		return 0;
+	end
+end;
 --*********************************Ö÷¶Ô»°º¯Êı************************
 function Dialog_main()
 	Say("GÇn ®©y vâ l©m loan tin bİ kiÕp tuyÖt häc cña c¸c m«n ph¸i ®ét nhiªn biÕn mÊt mét c¸ch kú l¹, nghe nãi Minh Chñ Kim S¬n sî r¬i vµo tay kÎ xÊu, hËu qu¶ kh«n l­êng do ®ã ®Ó ®æi bİ kiÕp ph¶i cã LÖnh bµi s­ m«n, l·o phu ®­îc giao träng tr¸ch gióp ®ì c¸c hiÖp kh¸ch, xin hái b»ng h÷u t×m l·o phu cã chuyÖn g×?",

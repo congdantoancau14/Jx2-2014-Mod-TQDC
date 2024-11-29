@@ -364,7 +364,8 @@ function AddWaterWells()
 		-- {model,npc1,500,1601,3155,script},	-- c鑙 xay
 		{model,npc1,500,1718,3011,script},
 		-- {model,npc1,504,1302,3149,script},	-- c鑙 xay
-		{model,"V騨g nc b萵",504,1352,2841,script},
+		{model,"V騨g nc m璦",504,1352,2841,script},
+		{model,"V騨g nc m璦",507,1830,3162,script},
 		{model,npc1,505,1453,2994,script},
 		--{model,npc1,507,1658,3403,script},	--c鑙 xay
 		--{model,npc1,507,1730,3384,script},	--c鑙 xay
@@ -863,8 +864,8 @@ function AddTrapSanGuo()
 		AddMapTrap(507, i * 32, 3254 * 32, "\\script\\西北区\\龙门镇\\trap\\龙门镇to凤翔府北.lua")
 	end
 	
-	for i = 1873, 1881 do -- Long M玭 tr蕁 - Ph鬾g Tng
-		AddMapTrap(507, i * 32, 3460 * 32, "\\script\\西北区\\龙门镇\\trap\\龙门镇to凤翔府.lua")
+	for i = 1886, 1892 do -- Long M玭 tr蕁 - Ph鬾g Tng
+		AddMapTrap(507, i * 32, 3470 * 32, "\\script\\西北区\\龙门镇\\trap\\龙门镇to凤翔府.lua")
 	end
 	
 	for i = 1794, 1800 do -- Long M玭 tr蕁 - H璶g Kh竛h

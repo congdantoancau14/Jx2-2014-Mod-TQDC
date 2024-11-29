@@ -103,6 +103,8 @@ Sort	Page	X	Y	Description	Information	GiveItem1Type	GiveItem1Genre	GiveItem1Deta
 5	2	1	1	Tö quang bµi	<color=Gray>60 Xu<enter><color=Gold>50 Xu	6	2	0	762	1	10				50	30	
 5	2	1	2	Tµng KiÕm anh hïng thiÕp	<color=Gray>60 Xu<enter><color=Gold>50 Xu	6	2	0	31	1	10				50	30	
 5	2	1	3	Th¸i H­ §a MËt Qu¶	<color=Gray>60 Xu<enter><color=Gold>50 Xu	6	2	1	387	1	10				50	30	
+5	2	1	4	Xuyªn V©n TiÔn Nhá	<color=Gray>6 Xu<enter><color=Gold>5 Xu	6	2	1	30388	1	10				50	30	
+5	2	2	1	Xuyªn V©n TiÔn Lín	<color=Gray>60 Xu<enter><color=Gold>50 Xu	6	2	1	30389	1	10				50	30	
 6	1	1	1	Qu©n c«ng ch­¬ng	<color=Gray>40 Xu<enter><color=Gold>29 Xu	6	2	1	9999	1	10				29	30	
 6	1	1	2	Huy hiÖu chiÕn c«ng (®¹i)	<color=Gray>350 Xu<enter><color=Gold>120 Xu	6	2	1	9998	1	10				120	30	
 6	1	1	3	Qu©n C«ng Huy Hoµng	<color=Gray>1000 Xu<enter><color=Gold>600 Xu	6	2	1	9977	1	10				600	30	
@@ -155,16 +157,17 @@ Sort	Page	X	Y	Description	Information	GiveItem1Type	GiveItem1Genre	GiveItem1Deta
 12	1	2	1	Khiªm Vò Ngo¹i Trang Bao	<color=Gray>200 Xu<enter><color=Gold>200 Xu	6	2	1	3384	1	10				200	30	
 12	1	2	2	Hép T©n Nguyªn ngo¹i trang	<color=Gray>200 Xu<enter><color=Gold>200 Xu	6	2	1	3226	1	10				200	30	
 12	1	2	3	Hép TriÒu Hoa ngo¹i trang	<color=Gray>200 Xu<enter><color=Gold>200 Xu	6	2	1	3227	1	10				200	30	
-13	1	1	1	GiÊy gãi hoa	<color=Gray>6 Xu<enter><color=Gold>5 Xu	6	2	1	30251	1	10				5	30	
-13	1	1	2	Phôc nguyªn thuËt	<color=Gray>6 Xu<enter><color=Gold>5 Xu	6	2	1	30089	1	10				5	30	
-13	1	1	3	Ngò th¸i thÇn th¹ch	<color=Gray>6 Xu<enter><color=Gold>5 Xu	6	2	1	30403	1	10				5	30	
-13	1	1	4	Ngò s¾c chi tinh	<color=Gray>6 Xu<enter><color=Gold>5 Xu	6	2	1	30900	1	10				5	30	
-13	1	2	1	Bæ Kim Th¹ch bao nhá	<color=Gray>100 Xu<enter><color=Gold>50 Xu	6	2	1	30440	1	10				50	30	
-13	1	2	2	Bæ Kim Th¹ch bao lín	<color=Gray>500 Xu<enter><color=Gold>250 Xu	6	2	1	30441	1	10				250	30	
-13	1	2	3	Ch×a khãa vµng L­¬ng S¬n	<color=Gray>6 Xu<enter><color=Gold>5 Xu	6	2	1	30385	1	10				5	30	
-13	1	2	4	Ch×a khãa vµng	<color=Gray>6 Xu<enter><color=Gold>5 Xu	6	2	1	30069	1	10				5	30	
-13	1	3	1	Tói h­¬ng liÖu	<color=Gray>6 Xu<enter><color=Gold>5 Xu	6	2	1	30101	1	10				5	30	
-13	1	3	2	Gãi §¹i néi thanh ®ång khÝ	<color=Gray>120 Xu<enter><color=Gold>100 Xu	6	2	1	3209	1	10				100	30	
+10	1	1	1	Gãi §¹i néi thanh ®ång khÝ	<color=Gray>120 Xu<enter><color=Gold>100 Xu	6	2	1	3209	1	10				100	30	
+10	1	1	2	GiÊy gãi kÑo	<color=Gray>6 Xu<enter><color=Gold>5 Xu	6	2	1	30065	1	10				5	30	
+10	1	1	3	Ch×a khãa vµng	<color=Gray>6 Xu<enter><color=Gold>5 Xu	6	2	1	30069	1	10				5	30	
+10	1	1	4	Phôc nguyªn thuËt	<color=Gray>6 Xu<enter><color=Gold>5 Xu	6	2	1	30089	1	10				5	30	
+10	1	2	1	Tói h­¬ng liÖu	<color=Gray>6 Xu<enter><color=Gold>5 Xu	6	2	1	30101	1	10				5	30	
+10	1	2	2	GiÊy gãi hoa	<color=Gray>6 Xu<enter><color=Gold>5 Xu	6	2	1	30251	1	10				5	30	
+10	1	2	3	Ch×a khãa vµng L­¬ng S¬n	<color=Gray>6 Xu<enter><color=Gold>5 Xu	6	2	1	30385	1	10				5	30	
+10	1	2	4	Ngò th¸i thÇn th¹ch	<color=Gray>6 Xu<enter><color=Gold>5 Xu	6	2	1	30403	1	10				5	30	
+10	1	3	1	Bæ Kim Th¹ch bao nhá	<color=Gray>100 Xu<enter><color=Gold>50 Xu	6	2	1	30440	1	10				50	30	
+10	1	3	2	Bæ Kim Th¹ch bao lín	<color=Gray>500 Xu<enter><color=Gold>250 Xu	6	2	1	30441	1	10				250	30	
+10	1	3	3	Ngò s¾c chi tinh	<color=Gray>6 Xu<enter><color=Gold>5 Xu	6	2	1	30900	1	10				5	30	
 11	1	1	1	NhÊt §¹i §¹i HiÖp	<color=White>700 Xu<enter><color=Gold>350 Xu	6	2	1	1041	1	10				350	30	
 11	1	1	2	Vip Phong HiÖu Du HiÖp	<color=Gray>1200 Xu<enter><color=Gold>1200 Xu	6	2	1	30560	1	10				1200	30	
 11	1	1	3	Vip Phong HiÖu ¦ng D­¬ng	<color=Gray>1200 Xu<enter><color=Gold>1200 Xu	6	2	1	30561	1	10				1200	30	

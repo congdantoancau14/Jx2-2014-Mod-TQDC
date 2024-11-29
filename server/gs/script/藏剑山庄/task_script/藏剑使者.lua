@@ -687,7 +687,7 @@ function checkWuxingJian(nIndex)
 	-- GetItemCount(tWuxingJian[nIndex][2][1],tWuxingJian[nIndex][2][2],tWuxingJian[nIndex][2][3]);
 	local nDel = DelItem(tWuxingJian[nIndex][2][1],tWuxingJian[nIndex][2][2],tWuxingJian[nIndex][2][3],1);
 	if nDel == 1 then
-		gf_Msg2Team(format("%s sö dông %s dÉn hån, rót kiÕm thµnh c«ng!",GetName(),tWuxingJian[1][1]));
+		gf_Msg2Team(format("%s sö dông %s dÉn hån, rót kiÕm thµnh c«ng!",GetName(),tWuxingJian[nIndex][1]));
 		result = 1;
 	end
 	return result;

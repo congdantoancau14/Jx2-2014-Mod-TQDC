@@ -1,0 +1,54 @@
+<?php include('server.php') ?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tạo Tài Khoản</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="scripts.js"></script>
+</head>
+<body>
+
+	<?php if($_SESSION["username"]) {?>
+		header("location:index.php");
+	<?php } else { ?>
+	<nav>
+		<ul>
+		  <li><a class="active" href="index.php">Home</a></li>
+		  <li style="float: right;"><a href="login.php">Login</a></li>
+		</ul>
+	</nav>
+	<div class="header">
+		<font style="background: url(&quot;https://loliteam.net/src/chopnhay.gif&quot;) 
+		repeat scroll 0% 0% transparent; color:white;text-shadow: 0 0 0.2em #241D1B,0 0 0.2em #241D1B">
+		<h2>Tạo Tài Khoản Võ Lâm 2 LoLi</h2><br>
+		<h3>www.loliteam.net</h3><br>
+		<h3>facebook.com/thuong.eopi</h3></font>
+	</div>
+
+	<form method="post" action="server.php">
+		<?php include('errors.php'); ?>
+		<div class="input-group">
+			<label>Tài khoản</label>
+			<input type="text" name="username" value="<?php echo $username; ?>">
+		</div>
+		<div class="input-group">
+			<label>Mật khẩu</label>
+			<input type="password" name="password_1">
+		</div>
+		<div class="input-group">
+			<label>Nhập lại mật khẩu</label>
+			<input type="password" name="password_2">
+		</div>
+		<div class="input-group">
+			<button type="submit" class="btn" name="btn_regis">Đăng ký</button>
+		</div>
+	</form>
+	<center>
+	<?php } ?>
+	<footer>
+	<font size="4" style="background: url(&quot;https://loliteam.net/src/chopnhay.gif&quot;) 
+	repeat scroll 0% 0% transparent; color:white;text-shadow: 0 0 0.2em #241D1B,0 0 0.2em #241D1B">	
+	<br>Copyright © <a href="https://www.facebook.com/Thuong.EoPi" target="_blank">Thuong EoPi</a></font>
+	</footer>
+</body>
+</html>

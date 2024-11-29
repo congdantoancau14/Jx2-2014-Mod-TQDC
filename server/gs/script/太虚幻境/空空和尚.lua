@@ -36,7 +36,7 @@ function main()
 	end
 	tinsert(tbSay, "Th¸i H­ HuyÔn C¶nh lµ sao?/Hewei");
 	tinsert(tbSay, "Lµm sao vµo ®­îc Th¸i H­ HuyÔn C¶nh?/Ruhe");
-	tinsert(tbSay, "\n>> Xin ch©n nh©n ®­a vµo Th¸i H­ HuyÔn C¶nh\n/EnterTx");
+	tinsert(tbSay, "\n>> Xin ch©n nh©n ®­a vµo Th¸i H­ HuyÔn C¶nh\n\n/EnterTx");
 --	tinsert(tbSay, "ÁìÈ¡Ì«Ğé°ãÈôÊ÷ÖÖ/WantSeed");	
 	tinsert(tbSay, "Sö dông Th¸i H­ B¸t Qu¸i bµi ®æi phÇn th­ëng/GetAwardPai");
 	tinsert(tbSay, "Ta muèn t¨ng cÊp Trang søc Th¸i H­/taixu_jwl_up_inf");		

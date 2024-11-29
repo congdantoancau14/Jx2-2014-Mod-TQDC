@@ -152,7 +152,7 @@ Chæi quĞt	2	0	165	1	256	999												\image\item\other\coll_126a1.spr	\image\i
 Lång ®Ìn l­u ly	2	0	166	1	666	999												\image\item\other\coll_127a1.spr	\image\item\other\coll_127a0.spr	<color=gold>Lång ®Ìn l­u ly<color><enter>Lång ®Ìn s¸ng rùc, cã thÓ chèng ®­îc n­íc m­a.		Thu thËp		1	0	0		
 Ch×a khãa cò	2	0	167	1	456	999												\image\item\other\coll_128a1.spr	\image\item\other\coll_128a0.spr	<color=gold>Ch×a khãa cò<color><enter>Ch×a khãa cò kü kh«ng thÓ sö dông.		Thu thËp		1	0	0		
 Hép gÊm	2	0	168	1	5000	999												\image\item\other\coll_057a1.spr	\image\item\other\coll_057a0.spr	<color=gold>Hép gÊm<color><enter>Bªn trong chøa nhiÒu gÊm ®Ñp vµ b¸u vËt quı hiÕm.		Thu thËp	\script\item\jinhe.lua	1	0	0		
-TÈu ®ång	2	0	169	1	2000	999												\image\item\other\quest_012a1.spr	\image\item\other\quest_012a0.spr	<color=gold>TÈu ®ång<color><enter>Dµi h¬n 1 mĞt, lµ lo¹i kú m«n binh khİ.		Thu thËp		1	0	0		
+TÈu ®ång	2	0	169	1	2000	999												\image\item\other\ÑÌÇ¹a1.spr	\image\item\other\ÑÌÇ¹a0.spr	<color=gold>TÈu ®ång<color><enter>Dµi h¬n 1 mĞt, lµ lo¹i kú m«n binh khİ.		Thu thËp		1	0	0		
 §¸ löa	2	0	170	1	1000	999												\image\item\other\secr_029a1.spr	\image\item\other\secr_029a0.spr	<color=gold>§¸ löa<color><enter>§¸ löa th­êng gÆp ®­îc gãi trong v¶i dÇu.		Thu thËp		1	0	0		
 ThiÕt Kú	2	0	171	1	1000	999												\image\item\other\coll_129a1.spr	\image\item\other\coll_129a0.spr	<color=gold>ThiÕt Kú<color><enter>Cê b»ng s¾t cã hai mÆt tr¾ng ®en.		Thu thËp		1	0	0		
 Bµn ThiÕt Kú	2	0	172	1	2000	999												\image\item\other\coll_130a1.spr	\image\item\other\coll_130a0.spr	<color=gold>Bµn ThiÕt Kú<color><enter>Bµn cê s¾t mµu ®en tuyÒn lµm tõ s¾t nam ch©m.		Thu thËp		1	0	0		

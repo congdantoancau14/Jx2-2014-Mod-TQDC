@@ -31,6 +31,7 @@ Include("\\settings\\static_script\\cheat\\includes\\destroy_item.lua");
 Include("\\script\\online_activites\\task_values.lua");
 Include("\\script\\mod\\item\\punish_bad.lua");
 Include("\\script\\online\\eating\\eating_head.lua");
+Include("\\script\\online_activites\\2010_11\\activity_01\\head.lua");
 
 -- Variables Declaration
 THIS_FILE = "\\settings\\static_script\\cheat\\thiencolenh.lua";
@@ -95,6 +96,7 @@ tCastState = {
 	{"state_m_attack_point_add","Néi kÝch t¨ng",1000000,5},
 	{"state_damage_point","S¸t th­¬ng t¨ng",1000000,5},
 	{"state_max_carry_point_add","Søc lùc t¨ng",20000,60},
+	{"state_immune","Kh¸ng tr¹ng th¸i xÊu",120,5},
 	
 }
 
@@ -111,10 +113,12 @@ function changeState()
 		"T¨ng néi kÝch/#increase_attack(2)",
 		"T¨ng s¸t th­¬ng/#increase_attack(3)",
 		"T¨ng søc lùc/#increase_attack(4)",
+		"Kh¸ng tr¹ng th¸i xÊu/#increase_attack(5)",
 		"BËt hiÖu øng quang/ask_effect_number",
 		"T¾t hiÖu øng quang/turn_off_effect",
 		"Håi sinh t¹i vÞ/revive_player",
 		"Xãa hiÖu øng ®ãi kh¸t ngñ/ET_ClearAllState",
+		"KÝch ho¹t hiÖu øng tr¹ng th¸i ngÉu nhiªn/NT_OnPlayer1stLoginToday",
 	}
 	tinsert(tSay, "\nTrang chÝnh/OpenThienCo");
 	tinsert(tSay, "Tho¸t/nothing");
@@ -240,7 +244,7 @@ end;
 
 function getCommonItems()
 	local tSay = {}
-	tinsert(tSay, "\nGet consum items/getDebugItems")
+	tinsert(tSay, "\nGet consum items/getConsumItems")
 	tinsert(tSay, "\nGet debug items/getDebugItems")
 	tinsert(tSay, "\nTrang chÝnh/OpenThienCo")
 	tinsert(tSay, "Tho¸t/nothing")
@@ -251,7 +255,7 @@ end;
 function getConsumItems()
 	local tSay = {}
 	for i=1, getn(tTieuHao) do
-		tinsert(tSay, format("NhËn %d %s/#addItem(1,%d)",tTieuHao[i][3],tTieuHao[i][1],1,i));
+		tinsert(tSay, format("NhËn %d %s/#addItem(1,%d)",tTieuHao[i][3],tTieuHao[i][1],i));
 	end
 	tinsert(tSay, "\nTrang tr­íc/getCommonItems")
 	tinsert(tSay, "Tho¸t/nothing")
@@ -276,6 +280,7 @@ function addItem(nTableIndex, nItemIndex)
 		t = tDebugs;
 	end
 	local id = nItemIndex;
+	print(id);
 	AddItem(t[id][2][1],t[id][2][2],t[id][2][3],t[id][3]);
 end;
 

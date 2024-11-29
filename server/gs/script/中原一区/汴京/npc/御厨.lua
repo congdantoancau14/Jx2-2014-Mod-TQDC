@@ -6,6 +6,7 @@
 Include("\\script\\task\\WeekEnd\\weekend_switch.lua");
 Include("\\script\\task\\lifeskill\\lifeskill_task_head.lua");
 Include("\\script\\task\\lifeskill\\skill_lvlup.lua")
+Include("\\script\\online_activites\\202007\\head.lua")
 
 --*****************************************¶¨Òå³£Á¿¼°Ô¤´¦Àí***************************************
 ID_LEARNLIFESKILL		= 1925		
@@ -39,10 +40,11 @@ function main()
     
  ---------------------------------------------Ö÷¶Ô»°-------------------------------------------
 	Say (strTitle.."Ta lµ ®Çu bÕp næi tiÕng trong thiªn h¹, ng­êi b¹n trÎ cÇn gióp g× kh«ng?",
-	4,
+	5,
 	"Häc kü n¨ng nÊu n­íng/luaLearnLifeSkill",
 	"Häc c¸ch phèi chÕ hoÆc lµm nhiÖm vô phèi chÕ/learn_all_recipe",
 	"Bá kü n¨ng nÊu n­íng/forget_life_skill",
+	"Ta muèn thuª mét lß n­íng/rent_oven",
 	"Rêi khái/SayHello11")
 end;
 

@@ -30,6 +30,7 @@ tbCheck_Award = {
 	[3] = {9, 20000, 3},
 }
 -- Ä¬ÈÏÈë¿Úº¯Êı
+szNPCName = "<color=green>Chñ th­¬ng héi<color>: "
 function business_entrance()
 	--µÈ¼¶¼ì²â	
 	local nDate = tonumber(date("%Y%m%d"))
@@ -54,20 +55,26 @@ function business_entrance()
 		tinsert(strTalkTab,"Giíi thiÖu tØ mØ nhiÖm vô th­¬ng héi/intro_new_task")
 		tinsert(strTalkTab,"Xem t×nh h×nh nhiÖm vô th­¬ng héi ®· hoµn thµnh/query_cur_week_info")
 		tinsert(strTalkTab,"§­a ta ®Õn n¬i lµm nhiÖm vô/goto_mission_pos")
+		tinsert(strTalkTab,"Ta ®Õn nhËn thö th¸ch lµm giµu/viewThuThachLamGiau")
+		
 		-- ÕıÔÚÈÎÎñÖĞ
 		if (nTaskState == 1) then
 			if (nTaskCurType == 2) then
-				Say(strTalkTab[2], 5, strTalkTab[5], strTalkTab[10], strTalkTab[7], strTalkTab[9], strTalkTab[6])
+				Say(szNPCName..strTalkTab[2], 6, strTalkTab[5], strTalkTab[11], strTalkTab[10], strTalkTab[7], strTalkTab[9], strTalkTab[6])
 			else
-				Say(strTalkTab[2], 4, strTalkTab[5], strTalkTab[9], strTalkTab[6], strTalkTab[7])
+				Say(szNPCName..strTalkTab[2], 5, strTalkTab[5], strTalkTab[11], strTalkTab[9], strTalkTab[6], strTalkTab[7])
 			end
 		-- Ã»ÓĞ¿ªÊ¼×ö»òÕßÒÑ¾­×öÍêÁËÉÏÒ»¸öÁË
 		else
-			Say(strTalkTab[1], 4, strTalkTab[3], strTalkTab[9], strTalkTab[8], strTalkTab[4])
+			Say(szNPCName..strTalkTab[1], 5, strTalkTab[3], strTalkTab[11], strTalkTab[9], strTalkTab[8], strTalkTab[4])
 		end
 	end
 
 --================ Nhiem Vu Lam Giau =========================
+	
+end;
+
+function viewThuThachLamGiau()
 	if CFG_NhiemVuLamGiau == 1 then
 		local szSay = "ChØ cÇn cã mét İt b¶n lÜnh hoµn thµnh c¸c thö th¸ch cña ta, ng­¬i sÏ nhËn ®­îc v« vµn tµi léc, sÏ kh«ng khã ®Ó trë thµnh phó hé. Ng­¬i cã muèn thö kh«ng?"
 		local tbSay = {}
@@ -75,19 +82,21 @@ function business_entrance()
 		tinsert(tbSay, "Xem tiÕn ®é thùc hiÖn nhiÖm vô./NhiemVuLamGiau_Xem")
 		tinsert(tbSay, "NhËn tµi léc./NhiemVuLamGiau_Thuong")
 		tinsert(tbSay, "Ta ch­a muèn giµu cã./gf_DoNothing")
-		Say(szSay, getn(tbSay), tbSay)
+		Say(szNPCName..szSay, getn(tbSay), tbSay)
+	else
+		Talk(1,"",szNPCName.."C¬ héi cña ng­¬i hÕt råi!")
 	end
 end;
 
 -- ÍË³ö¶Ô»°µÄÄ¬ÈÏ¶Ô»°
 function exit_dialog()
-	Say("Ng­¬i v× n­íc x¶ th©n, v× d©n cøu n¹n thËt lµ ®¹i ©n ®¹i ®øc!", 0)
+	Say(szNPCName.."Ng­¬i v× n­íc x¶ th©n, v× d©n cøu n¹n thËt lµ ®¹i ©n ®¹i ®øc!", 0)
 end;
 
 -- ½éÉÜĞÂµÄÉÌ»áÈÎÎñµÄ¶Ô»°
 function intro_new_task()
---	Say("µ±½ñÊ¥ÉÏÓ¢Ã÷£¬ÔçÔÚ¿ªÕ½Ö®Ç°¾ÍÊÕ¼¯ÁË×ã¹»¶àµÄÕ½ÂÔÎï×Ê£¬²ÅÓĞÁË¼¸¸ö´óÊ¤µÄ±£ÕÏ°¡£¡ÎªÁË¸ĞĞ»½­ºşÏÀÊ¿ÃÇµÄ´óÁ¦Ğ­Öú£¬Ê¥ÉÏÌØÃü³¯Í¢ÄÃ³öÕ½ÀûÆ·êûÉÍ´ó¼Ò£¬Ö»ÒªÍê³ÉÒ»Ğ©´«ĞÅºÍÇå³ı¸÷µØÎ£º¦°ÙĞÕµÄÃÍÊŞ»òÕß·Ë°ï£¬¾ÍÄÜµÃµ½·áºñµÄ±¨³¥¡£²»¹ı»ú»áÓĞÏŞ£¬Ã¿ÈËÃ¿ÈÕÖ»ÓĞÒ»°Ù´Î»ú»á£¬´ó¼Ò¿ÉÒª×¥×¡»ú»á°¡¡£ÈôÊÇ½ñÈÕÎŞ·¨Íê³É£¬µÚ¶şÈÕÒ²²»»áÔÙ±£ÁôÇ°ÈÕ¹¦¼¨£¬¶øÊÇÖØĞÂ¿ªÊ¼¼ÆÊı¡£", 0)
-	Say("Hoµng th­îng võa ban chiÕu: Nh©n sÜ nµo gióp søc TriÒu ®×nh sÏ ®­îc träng th­ëng! Mçi ngµy cã thÓ nhËn tèi ®a 60 lÇn nhiÖm vô. NÕu trong ngµy kh«ng hoµn thµnh th× h«m sau sÏ ®­îc tİnh l¹i tõ ®Çu!", 0)
+--	Say(szNPCName.."µ±½ñÊ¥ÉÏÓ¢Ã÷£¬ÔçÔÚ¿ªÕ½Ö®Ç°¾ÍÊÕ¼¯ÁË×ã¹»¶àµÄÕ½ÂÔÎï×Ê£¬²ÅÓĞÁË¼¸¸ö´óÊ¤µÄ±£ÕÏ°¡£¡ÎªÁË¸ĞĞ»½­ºşÏÀÊ¿ÃÇµÄ´óÁ¦Ğ­Öú£¬Ê¥ÉÏÌØÃü³¯Í¢ÄÃ³öÕ½ÀûÆ·êûÉÍ´ó¼Ò£¬Ö»ÒªÍê³ÉÒ»Ğ©´«ĞÅºÍÇå³ı¸÷µØÎ£º¦°ÙĞÕµÄÃÍÊŞ»òÕß·Ë°ï£¬¾ÍÄÜµÃµ½·áºñµÄ±¨³¥¡£²»¹ı»ú»áÓĞÏŞ£¬Ã¿ÈËÃ¿ÈÕÖ»ÓĞÒ»°Ù´Î»ú»á£¬´ó¼Ò¿ÉÒª×¥×¡»ú»á°¡¡£ÈôÊÇ½ñÈÕÎŞ·¨Íê³É£¬µÚ¶şÈÕÒ²²»»áÔÙ±£ÁôÇ°ÈÕ¹¦¼¨£¬¶øÊÇÖØĞÂ¿ªÊ¼¼ÆÊı¡£", 0)
+	Say(szNPCName.."Hoµng th­îng võa ban chiÕu: Nh©n sÜ nµo gióp søc TriÒu ®×nh sÏ ®­îc träng th­ëng! Mçi ngµy cã thÓ nhËn tèi ®a 60 lÇn nhiÖm vô. NÕu trong ngµy kh«ng hoµn thµnh th× h«m sau sÏ ®­îc tİnh l¹i tõ ®Çu!", 0)
 end;
 --¿ÉÒÔ½ÓÈÎÎñµÄÊ±¼ä¶Î
 --13£º00-14£º30
@@ -108,19 +117,19 @@ end;
 function accept_new_task()
 
 --	if check_accept_task_time() == 0 then
---		Talk(1,"","<color=green>ÉÌ»áÀÏ°å<color>£º×î½üÉúÒâÉõÎª·±Ã¦£¬ÈËÊÖÊµÔÚÊÇ²»¹»£¬Ã¦²»¹ıÀ´°¡£¬ÏÖÔÚÖ»ÔÚÃ¿ÈÕµÄ<color=red>13£º00-14£º30£¬16£º00-17£º00£¬21£º00-22£º00<color>ÎÒÕâÀï²Å×ö¸÷Î»µÄÉúÒâ£¬ÒªÀ´Çë¿´ºÃÊ±¼ä°¡£¡");
+--		Talk(1,"",szNPCName.."<color=green>ÉÌ»áÀÏ°å<color>£º×î½üÉúÒâÉõÎª·±Ã¦£¬ÈËÊÖÊµÔÚÊÇ²»¹»£¬Ã¦²»¹ıÀ´°¡£¬ÏÖÔÚÖ»ÔÚÃ¿ÈÕµÄ<color=red>13£º00-14£º30£¬16£º00-17£º00£¬21£º00-22£º00<color>ÎÒÕâÀï²Å×ö¸÷Î»µÄÉúÒâ£¬ÒªÀ´Çë¿´ºÃÊ±¼ä°¡£¡");
 --		return 0;
 --	end;
 	local nReput, nFaction = 0,0
 --	if GetCreateTime() < 1306861186 then --chØnh l¹i thêi gian lµ done
---		Say("Nh©n vËt ®­îc t¹o sau ngµy 01/06/2011 míi tham gia ®­îc.", 0)
+--		Say(szNPCName.."Nh©n vËt ®­îc t¹o sau ngµy 01/06/2011 míi tham gia ®­îc.", 0)
 --		return
 --	end
 	nReput = 3000
 	nFaction = 4000	
 
 	if GetLevel() < 73 or GetReputation() < nReput or GetTask(336) < nFaction or GetPlayerRoute() == 0 then
-		Say("N¨ng lùc cña ng­¬i cßn kĞm l¾m, ®îi ®Õn <color=yellow>cÊp 73, gia nhËp hÖ ph¸i, cã ®ñ ®iÓm danh väng vµ s­ m«n <color>h·y quay l¹i cèng hiÕn søc lùc còng ch­a muén.", 0)
+		Say(szNPCName.."N¨ng lùc cña ng­¬i cßn kĞm l¾m, ®îi ®Õn <color=yellow>cÊp 73, gia nhËp hÖ ph¸i, cã ®ñ ®iÓm danh väng vµ s­ m«n <color>h·y quay l¹i cèng hiÕn søc lùc còng ch­a muén.", 0)
 		return
 	end
 	local nDate = tonumber(date("%y%m%d"))
@@ -131,7 +140,7 @@ function accept_new_task()
 
 	local nType = check_type()
 	if GetItemCount(2,1,30154) < tbCheck_Award[nType][1] and mod(GetTask(TSK_CHECK_BAOHAP),100) == 0 then
-	    Talk(1,"","§¹i hiÖp kh«ng mang theo ®ñ sè l­îng N÷ Oa B¶o H¹p ®Ó nhËn nhiÖm vô !!!")
+	    Talk(1,"",szNPCName.."§¹i hiÖp kh«ng mang theo ®ñ sè l­îng N÷ Oa B¶o H¹p ®Ó nhËn nhiÖm vô !!!")
 	    	return
 	end
     
@@ -155,15 +164,15 @@ function accept_new_task()
 		local nTaskCurType = GetTaskType(11)
 		gf_WriteLogEx("Nhiem vu Thuong Hoi", "tham gia")
 		if (nTaskCurType == 2) then
-			Say("<color=green>Chñ th­¬ng héi<color>:"..myText.."\n Cã cÇn ta ®­a ®Õn n¬i lµm nhiÖm vô kh«ng?",
+			Say(szNPCName..myText.."\n Cã cÇn ta ®­a ®Õn n¬i lµm nhiÖm vô kh«ng?",
 				2,
 				"PhiÒn ®­a ta ®i mét chuyÕn/goto_mission_pos",
 				"Kh«ng cÇn ®©u/exit_dialog")
 		else
-			Say("<color=green>Chñ th­¬ng héi<color>:"..myText.."\n", 0)
+			Say(szNPCName..myText.."\n", 0)
 		end
 	else
-		Say("H«m nay ng­¬i ®· lµm ®ñ nhiÖm vô råi, ngµy mai l¹i ®Õn nhĞ!", 0)
+		Say(szNPCName.."H«m nay ng­¬i ®· lµm ®ñ nhiÖm vô råi, ngµy mai l¹i ®Õn nhĞ!", 0)
 	end
 end;
 
@@ -309,7 +318,7 @@ function hand_up_task()
 			end
 		end
 	else
-		Say("Ng­¬i ch­a hoµn thµnh nhiÖm vô ta giao! TiÕp tôc cè g¾ng nhĞ!", 0)
+		Say(szNPCName.."Ng­¬i ch­a hoµn thµnh nhiÖm vô ta giao! TiÕp tôc cè g¾ng nhĞ!", 0)
 	end
 end;
 
@@ -334,8 +343,8 @@ end;
 
 -- È¡ÏûÕıÔÚ×öµÄÈÎÎñ
 function cancel_cur_task()
---	Say("<color=green>ÉÌ»áÀÏ°å<color>£º<color=yellow>È¡ÏûÈÎÎñ<color>½«ºÄ·ÑÒ»´ÎÁìÈ¡ÈÎÎñ½±ÀøµÄ»ú»á£¬ÄãÈ·¶¨ÒªÈ¡Ïû´Ë´ÎÈÎÎñÂğ£¿",
-	Say("<color=yellow>Hñy nhiÖm vô lÇn nµy<color> sÏ bŞ trõ ®i <color=yellow>5 ®iÓm danh väng<color>! B»ng h÷u h·y suy nghÜ kü nhĞ!",
+--	Say(szNPCName.."<color=green>ÉÌ»áÀÏ°å<color>£º<color=yellow>È¡ÏûÈÎÎñ<color>½«ºÄ·ÑÒ»´ÎÁìÈ¡ÈÎÎñ½±ÀøµÄ»ú»á£¬ÄãÈ·¶¨ÒªÈ¡Ïû´Ë´ÎÈÎÎñÂğ£¿",
+	Say(szNPCName.."<color=yellow>Hñy nhiÖm vô lÇn nµy<color> sÏ bŞ trõ ®i <color=yellow>5 ®iÓm danh väng<color>! B»ng h÷u h·y suy nghÜ kü nhĞ!",
 		2,
 		"Hñy bá nhiÖm vô/confirm_cancel_task",
 		"§Ó ta suy nghÜ l¹i/exit_dialog")
@@ -355,7 +364,7 @@ end;
 --	SetTask(CURWEEK_DONE_TIMES, nCurWeekDoneTimes + 1)
 --	
 --	-- ÌáÊ¾Íæ¼Ò
---	Say("<color=green>ÉÌ»áÀÏ°å<color>£ºÄãÒÑ¾­³É¹¦µÄÈ¡ÏûÁË±¾´ÎÈÎÎñ£¬µ«ÊÇÒ²ºÄ·ÑÁËÒ»´ÎÁìÈ¡ÈÎÎñ½±ÀøµÄ»ú»á£¡", 0)
+--	Say(szNPCName.."<color=green>ÉÌ»áÀÏ°å<color>£ºÄãÒÑ¾­³É¹¦µÄÈ¡ÏûÁË±¾´ÎÈÎÎñ£¬µ«ÊÇÒ²ºÄ·ÑÁËÒ»´ÎÁìÈ¡ÈÎÎñ½±ÀøµÄ»ú»á£¡", 0)
 --end;
 
 -- Íæ¼ÒÈ·ÈÏÈ¡ÏûÈÎÎñ
@@ -379,11 +388,11 @@ function confirm_cancel_task()
 
 		do_cancel_task();  -- Çå¿ÕÈÎÎñ
 
-		Say("Xong råi! b©y giê b»ng h÷u cã thÓ nhËn nhiÖm vô míi!",0);
+		Say(szNPCName.."Xong råi! b©y giê b»ng h÷u cã thÓ nhËn nhiÖm vô míi!",0);
 		Msg2Player("B¹n bŞ trõ 5 ®iÓm danh väng v× hñy nhiÖm vô!");
 		TaskTip("B¹n bŞ trõ 5 ®iÓm danh väng v× hñy nhiÖm vô!");
 	else
-		Say("<color=yellow>§iÓm danh väng hiÖn t¹i<color> cña ng­¬i qu¸ thÊp, kh«ng thÓ hñy nhiÖm vô lÇn nµy!",0);
+		Say(szNPCName.."<color=yellow>§iÓm danh väng hiÖn t¹i<color> cña ng­¬i qu¸ thÊp, kh«ng thÓ hñy nhiÖm vô lÇn nµy!",0);
 		Msg2Player("§iÓm danh väng qu¸ thÊp, kh«ng thÓ hñy nhiÖm vô!");
 		TaskTip("§iÓm danh väng qu¸ thÊp, kh«ng thÓ hñy nhiÖm vô!");
 		return
@@ -433,7 +442,7 @@ function query_cur_week_info()
 	--	nDayCanDoTimes = nWeekCanDoTimes
 	--end
 	
-	Say("H«m nay ®· hoµn thµnh <color=yellow>"..nHaveDoneCurDay.."<color> lÇn nhiÖm vô. Cßn cã thÓ nhËn <color=yellow>"..nDayCanDoTimes.."<color> lÇn! ", 0)
+	Say(szNPCName.."H«m nay ®· hoµn thµnh <color=yellow>"..nHaveDoneCurDay.."<color> lÇn nhiÖm vô. Cßn cã thÓ nhËn <color=yellow>"..nDayCanDoTimes.."<color> lÇn! ", 0)
 end;
 
 -- Ë¢ĞÂÈÕÆÚĞÅÏ¢
@@ -533,7 +542,7 @@ end
 
 	-- Kh«ng cho nhËn nv Th­¬ng héi
 function no_accept_new_task()
-	Talk(1,"","B¹n ®· nhËn nhiÖm vô råi, h·y hoµn thµnh ®Ó nhËn phÇn th­ëng!!!")
+	Talk(1,"",szNPCName.."B¹n ®· nhËn nhiÖm vô råi, h·y hoµn thµnh ®Ó nhËn phÇn th­ëng!!!")
 	return
 end
 

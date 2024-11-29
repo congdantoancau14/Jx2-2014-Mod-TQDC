@@ -1,6 +1,6 @@
 Include("\\script\\lib\\globalfunctions.lua");
 Include("\\script\\online_activites\\202007\\head.lua");
-Include("\\script\\online_activites\\xinshouzhiyin\\item\\item_xiaoaojianghulu_head.lua");
+Include("\\script\\online_activites\\xinshouzhiyin\\item\\item_xiaoaojianghulu_head.lua"); -- countItems
 
 nOvenType = 0;
 
@@ -8,12 +8,12 @@ function main()
 	-- Talk(1,"","Lß n­íng ®ang chê. Kh«ng co'ngän löa tr¹i duy tr×, lß n­íng sÏ dÔ bi. t¾t. Thêi gian cßn l¹i...");
 	nOvenType = GetTask(TASK_OVENTYPE);
 	local nFireTime = 0;
-	if GetTask(TASK_NEWFIRELIFETIME) then
-		nFireTime = GetTask(TASK_NEWFIRELIFETIME)
-	elseif GetTask(TASK_BURNFIRETIME) then
-		nFireTime = GetTask(TASK_BURNFIRETIME)
+	if GetTask(TASK_NEWFIRE_LIFETIME) then
+		nFireTime = GetTask(TASK_NEWFIRE_LIFETIME)
+	elseif GetTask(TASK_BONFIRE_CREATEDTIME) then
+		nFireTime = GetTask(TASK_BONFIRE_CREATEDTIME)
 	end
-	local nTimeLeft = GetTime() - GetTask(TASK_HIREOVENTIME) + nFireTime;
+	local nTimeLeft = OVEN_LIFETIME - (GetTime() - GetTask(TASK_OVEN_CREATEDTIME)) + nFireTime;
 	local szNpcName = GetTargetNpcName();
 	local szHeader = format("---- %s ----\n",gf_FixColor(szNpcName,2))
 		.."NÕu kh«ng cã ngän löa duy tr× th× sÏ bÞ t¾t.\n"
@@ -21,8 +21,9 @@ function main()
 		.."Thêi gian cßn l¹i: "..gf_FixColor(Get_Time_String(nTimeLeft),4);
 	
 	local tSay = {
-		format("N­íng %d b¸nh Trung Thu/#nuong(1)",tOvens[nOvenType][4]*tCheBien[1]["products"][1][3]),
-		format("N­íng %d kÑo s÷a/#nuong(2)",tOvens[nOvenType][4]*tCheBien[2]["products"][1][3]),
+		format("N­íng %d b¸nh Trung Thu/#nuong(1)",tOvenSizes[nOvenType][4]*tCheBien[1]["products"][1][3]),
+		format("NÊu %d kÑo s÷a/#nuong(2)",tOvenSizes[nOvenType][4]*tCheBien[2]["products"][1][3]),
+		format("Lµm %d ®Üa m¨ng xµo/#nuong(3)",tOvenSizes[nOvenType][4]*tCheBien[3]["products"][1][3]),
 		"ChuÈn bÞ thªm ®·/nothing"
 	}
 	Say(szHeader,getn(tSay),tSay);
@@ -33,8 +34,8 @@ function nuong(nProductType)
 	local nMax, tCount = countItems(tItem["mater"]);
 	
 	if nMax > 0 then
-		if nMax > tOvens[nOvenType][4] then
-			nMax = tOvens[nOvenType][4];
+		if nMax > tOvenSizes[nOvenType][4] then
+			nMax = tOvenSizes[nOvenType][4];
 		end
 		Msg2Player("nMax: "..nMax);
 		local nDel, tDel = delItems(tItem["mater"], nMax);

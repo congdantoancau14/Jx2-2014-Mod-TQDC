@@ -13,6 +13,7 @@ TE_TASK_EAT_VOLUME		= 3077
 TE_TASK_DRINK_VOLUME	= 3078
 TE_TASK_SLEEP_VOLUME	= 3079
 FULL_VOLUME = 30		-- Full volume of eating and drinking	Default: 10
+MAX_EAT_ITEM_COUNT = 30	-- Max item count OnUse
 FULL_VOLUME_SLEEP = 60*1	-- Full volume of sleeping (minute*hours)		Default: 60*5
 MEAL_SPACING = 5		-- Hours
 
@@ -24,6 +25,7 @@ ET_TitleTable =
 	{"Say r­îu",65,33},
 	{"Béi thùc",65,34},
 	{"Phï thòng",65,35},
+	{"Chãng MÆt", 65, 25},
 };
 
 ET_ItemsTable = {
@@ -58,9 +60,14 @@ ET_ItemsTable = {
 TYPE_FOODS = 1
 TYPE_DRINKS = 2
 
+g_nEatItemUsedCount = 0;
+g_nDrkItemUsedCount = 0;
+g_nWineItemUsedCount	= 0;
+
 function ET_OnItemUse(nItemIndex)
 --print("eating_head.lua>>ET_OnItemUse is called!");
-	ET_OnTimerReset()
+	--ET_OnTimerReset()
+	--ET_OnItemUseCallback()
 
 	local g,d,p = GetItemInfoByIndex(nItemIndex);
 	local szItemName = GetItemInfoByIndex(g,d,p);
@@ -86,6 +93,7 @@ function ET_OnItemUse(nItemIndex)
 	
 	if nType == TYPE_FOODS then
 		if 1 == DelItemByIndex(nItemIndex, 1) then
+			g_nEatItemUsedCount = g_nEatItemUsedCount+1;
 			local nVolumeAte = GetTask(TE_TASK_EAT_VOLUME);
 			if nVolumeAte == FULL_VOLUME then
 				Msg2Player("D­êng nh­ lµ ®· ¨n no tõ lóc nµo råi.");
@@ -111,6 +119,10 @@ function ET_OnItemUse(nItemIndex)
 					local g,d,p = GetItemInfoByIndex(nItemIdx);
 					if g ~= 1 or d~= 1 or p ~=1 then -- B¸nh ng«
 						Msg2Player(format("Ch­a ®ãi c¬m kh«ng nªn ¨n qu¸ nhiÒu thøc ¨n. (%d/%d)",nNewVolume,FULL_VOLUME))
+						print("g_nEatItemUsedCount",g_nEatItemUsedCount);
+						if g_nEatItemUsedCount > MAX_EAT_ITEM_COUNT then
+							ET_AddTitle(65,34)
+						end
 					end
 				end
 				
@@ -120,6 +132,14 @@ function ET_OnItemUse(nItemIndex)
 		end
 	elseif nType == TYPE_DRINKS then
 		if 1 == DelItemByIndex(nItemIndex, 1) then
+			g_nDrkItemUsedCount = g_nDrkItemUsedCount+1;
+			
+			if strfind(strlower(szItemName), "töu") or strfind(strlower(szItemName), "r­îu") then
+				g_nWineItemUsedCount = g_nWineItemUsedCount+1;
+				if g_nWineItemUsedCount > MAX_EAT_ITEM_COUNT then
+					ET_AddTitle(65,33);
+				end
+			end
 			
 			if nInTableItemIndex ~= nil and nInTableItemIndex ~= 0 
 				and ET_ItemsTable[nInTableItemIndex][5] ~= nil 
@@ -154,6 +174,9 @@ function ET_OnItemUse(nItemIndex)
 					Msg2Player(format("§· uèng chót Ýt mµ d­êng nh­ ch­a ®· c¬n kh¸t. (%d/%d)",nNewVolume,FULL_VOLUME));
 				else
 					Msg2Player(format("Ch­a kh¸t n­íc kh«ng nªn uèng qu¸ nhiÒu n­íc. (%d/%d)",nNewVolume,FULL_VOLUME));
+					if g_nDrkItemUsedCount > MAX_EAT_ITEM_COUNT then
+						ET_AddTitle(65,35)
+					end
 				end
 			end
 		else
@@ -165,10 +188,13 @@ end;
 function ET_ClearAllState()
 	
 	for i=1, getn(ET_TitleTable) do
-		RemoveTitle(ET_TitleTable[i][2],ET_TitleTable[i][3]);
-		Msg2Player("§· xãa bá tr¹ng th¸i "..ET_TitleTable[i][1]);
+		if IsTitleExist(ET_TitleTable[i][2],ET_TitleTable[i][3]) == 1 then
+			RemoveTitle(ET_TitleTable[i][2],ET_TitleTable[i][3]);
+			Msg2Player("§· xãa bá tr¹ng th¸i "..ET_TitleTable[i][1]);
+		end
 	end
 end;
+
 
 function ET_OnTimerReset()
 	if GetTask(TE_TASK_EAT_VOLUME) == nil then
@@ -182,11 +208,16 @@ function ET_OnTimerReset()
 	nVolume = GetTask(TE_TASK_EAT_VOLUME) or 0;
 	if nVolume < FULL_VOLUME then 
 		SetTask(TE_TASK_STATE_ATE,0);
+		RemoveTitle(65,34)
+		g_nEatItemUsedCount = 0;
 	end
 	
 	nVolume = GetTask(TE_TASK_DRINK_VOLUME) or 0;
 	if nVolume < FULL_VOLUME then 
 		SetTask(TE_TASK_STATE_DRUNK,0);
+		RemoveTitle(65,35)
+		RemoveTitle(65,33)
+		g_nDrkItemUsedCount = 0;
 	end
 
 end;
@@ -250,6 +281,17 @@ function ET_OnGetup()
 		local type1, type2 = 65, 32;
 		RemoveTitle(type1, type2);
 		Msg2Player("C¸c h¹ ®· ngñ ®ñ giÊc, c¶m gi¸c "..ET_GetTitleName(type1, type2).." ®· tan biÕn");
+		type1, type2 = 65, 33;
+		if 1 == IsTitleExist(type1, type2) then
+			RemoveTitle(type1, type2);
+			Msg2Player("Sau mét giÊc ngñ, c¶m gi¸c "..ET_GetTitleName(type1, type2).." ®· tan biÕn");
+			g_nWineItemUsedCount = 0;
+		end
+		type1, type2 = 65, 25;
+		if 1 == IsTitleExist(type1, type2) then
+			RemoveTitle(type1, type2);
+			Msg2Player("Sau mét giÊc ngñ, c¶m gi¸c "..ET_GetTitleName(type1, type2).." ®· tan biÕn");
+		end
 	else
 		SetTask(TE_TASK_SLEEP_VOLUME, nTotalVolume )
 		nVolume = floor(nVolume);
@@ -262,6 +304,7 @@ function ET_OnGetup()
 	end
 	
 end;
+
 
 function ET_RemoveTitle(type1, type2, nItemIdx, nActionType)	
 	--print("ET_RemoveTitle::called")
@@ -317,13 +360,13 @@ end
 
 
 function check_slept()
-	return GetTask(TE_TASK_STATE_SLEPT);
+	return GetTask(TE_TASK_STATE_SLEPT) or 0;
 end;
 
 function check_drunk()
-	local nTime = GetTask(TE_TASK_TIME_DRINK);
+	local nTime = GetTask(TE_TASK_TIME_DRINK) or 0;
 	local nNowTime = GetTime();
-	local nState = GetTask(TE_TASK_STATE_DRUNK);
+	local nState = GetTask(TE_TASK_STATE_DRUNK) or 0;
 	if (nNowTime - nTime)/3600 >= MEAL_SPACING and nState == 0 then 
 		return 0;
 	end
@@ -331,9 +374,9 @@ function check_drunk()
 end;
 
 function check_ate()
-	local nTime = GetTask(TE_TASK_TIME_EATING);
+	local nTime = GetTask(TE_TASK_TIME_EATING) or 0;
 	local nNowTime = GetTime();
-	local nState = GetTask(TE_TASK_STATE_ATE);
+	local nState = GetTask(TE_TASK_STATE_ATE) or 0;
 	if (nNowTime - nTime)/3600 >= MEAL_SPACING and nState == 0 then 
 		return 0;
 	end

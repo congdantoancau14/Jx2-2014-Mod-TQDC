@@ -1820,9 +1820,9 @@ function _65_30_(nType, stateID)
 	-- Msg2Player("_65_30_ hungry")
 	if nType == 1 then
 		CastState("state_life_max_percent_add", -50, -1, 1, stateID);
-		Msg2Player("HiÖu øng:  Sinh mÖnh gi¶m 15%");
+		Msg2Player("HiÖu øng:  Sinh mÖnh gi¶m 50%");
 		CastState("state_physical_parmor_poi_add", -50, -1, 1, stateID+1);
-		Msg2Player("HiÖu øng:  Ngo¹i phßng gi¶m 15%");	
+		Msg2Player("HiÖu øng:  Ngo¹i phßng gi¶m 50%");	
 	end
 end
 
@@ -1830,9 +1830,9 @@ function _65_31_(nType, stateID)
 	-- Msg2Player("_65_31_ thirsty")
 	if nType == 1 then
 		CastState("state_neili_max_percent_add", -50, -1, 1, stateID);
-		Msg2Player("HiÖu øng:  Néi lùc gi¶m 15%");
+		Msg2Player("HiÖu øng:  Néi lùc gi¶m 50%");
 		CastState("state_magic_parmor_poi_add", -50, -1, 1, stateID+1);
-		Msg2Player("HiÖu øng:  Néi phßng gi¶m 15%");	
+		Msg2Player("HiÖu øng:  Néi phßng gi¶m 50%");	
 	end
 end
 
@@ -1845,6 +1845,39 @@ function _65_32_(nType, stateID)
 		Msg2Player("HiÖu øng:  Tèc ®é xuÊt chiªu gi¶m 50%");
 		CastState("state_slow", 20, -1, 1, stateID+2);
 		Msg2Player("HiÖu øng:  Tèc ®é di chuyÓn gi¶m 20%");
+	end
+end
+
+
+function _65_33_(nType, stateID)
+	-- Msg2Player("_65_33_ drunken")
+	if nType == 1 then
+		CastState("state_poison_damage", 1, -1, 1, stateID);
+		Msg2Player("HiÖu øng:  Ngé ®éc r­îu");
+		CastState("state_add_dexterity", -50, -1, 1, stateID);
+		Msg2Player("HiÖu øng:  Th©n ph¸p gi¶m 50 ®iÓm");
+	end
+end
+
+
+function _65_34_(nType, stateID)
+	-- Msg2Player("_65_34_ indigestion")
+	if nType == 1 then
+		CastState("state_add_strength", -50, -1, 1, stateID);
+		Msg2Player("HiÖu øng:  Søc m¹nh gi¶m 50 ®iÓm");
+		CastState("state_add_vitality", -50, -1, 1, stateID+1);
+		Msg2Player("HiÖu øng:  G©n cèt gi¶m 50 ®iÓm");	
+	end
+end
+
+
+function _65_35_(nType, stateID)
+	-- Msg2Player("_65_35_ Oedema ")
+	if nType == 1 then
+		CastState("state_add_energy", -50, -1, 1, stateID);
+		Msg2Player("HiÖu øng:  Néi lùc gi¶m 50 ®iÓm");
+		CastState("state_add_observe", -50, -1, 1, stateID+1);
+		Msg2Player("HiÖu øng:  Linh ho¹t 50 ®iÓm");	
 	end
 end
 
