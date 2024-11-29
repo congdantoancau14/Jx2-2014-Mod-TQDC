@@ -9,101 +9,6 @@ Include("\\settings\\static_script\\cheat\\kimxa.lua");
 g_szTitle = "<color=green>GM: <color>"
 
 
--- Route	equip	tran phai	first skills	last skills
-tSkills = {
-	[2] = {3,32,21,31},
-	[3] = {6,57,45,56},
-	[4] = {2,44,33,43},
-	[6] = {7,74,58,73},
-	[8] = {4,89,75,88},
-	[9] = {10,102,90,101},
-	[11] = {2,113,103,112},
-	[12] = {5,124,114,123},
-	[14] = {4,146,125,145},
-	[15] = {5,159,147,158},
-	[17] = {11,732,720,731},
-	[18] = {12,745,733,744},
-	[20] = {13,775,364,377},
-	[21] = {14,774,347,363},
-	[23] = {4,1032,1017,1031},
-	[25] = {3,1066,1053,1065},
-	[26] = {8,1096,1083,1095},
-	[27] = {14,1213,1131,1143},
-	[29] = {15,1196,1165,1176},
-	[30] = {16,1230,1217,1229},
-	[31] = {17,1883,1872,1882},
-	[32] = {4,1897,1885,1896},
-}
-
-tFactions = {
-	"ThiÕu L©m",
-	"Vâ §ang",
-	"Nga Mi",
-	"C¸i Bang",
-	"§­êng M«n",
-	"D­¬ng M«n",
-	"Ngò §éc",
-	"C«n L«n",
-	"Minh Gi¸o",
-	"Thóy Yªn",
-}
-
--- [route] = {route_name,faction_belong}
-tRoutes = {
-	[0] = {"V« m«n ph¸i",0},
-	[1] = {"ThiÕu L©m",-1},
-	[2] = {"ThiÕu L©m tôc gia",1},
-	[3] = {"ThiÕu L©m thiÒn t¨ng",1},
-	[4] = {"ThiÕu L©m vâ t¨ng",1},
-	[5] = {"§­êng M«n",-1},
-	[6] = {"§­êng M«n hiÖp kh¸ch",5},
-	[7] = {"Nga Mi",-1},
-	[8] = {"Nga Mi phËt gia",7},
-	[9] = {"Nga Mi tôc gia",7},
-	[10] = {"C¸i Bang",-1},
-	[11] = {"C¸i Bang tÜnh y",1-1},
-	[12] = {"C¸i Bang « y",1-1},
-	[13] = {"Vâ §ang",-1},
-	[14] = {"Vâ §ang ®¹o gia",13},
-	[15] = {"Vâ §ang tôc gia",13},
-	[16] = {"D­¬ng M«n",-1},
-	[17] = {"D­¬ng M«n th­¬ng kÞ",16},
-	[18] = {"D­¬ng M«n cung kÞ",16},
-	[19] = {"Ngò §éc",-1},
-	[20] = {"Ngò §éc tµ hiÖp",19},
-	[21] = {"Ngò §éc cæ s­",19},
-	[22] = {"C«n L«n",-1},
-	[23] = {"C«n L«n thiªn s­",22},
-	[24] = {"Minh Gi¸o",-1},
-	[25] = {"Minh Gi¸o th¸nh chiÕn",24},
-	[26] = {"Minh Gi¸o trËn binh",24},
-	[27] = {"Minh Gi¸o huyÕt nh©n",24},
-	[28] = {"Thóy Yªn",-1},
-	[29] = {"Thóy Yªn vò tiªn",28},
-	[30] = {"Thóy Yªn linh n÷",28},
-	[31] = {"§­êng M«n nhËm hiÖp",5},
-	[32] = {"C«n L«n kiÕm t«n",22},
-
-}
-
-tFengMing = {
-	{"Phông Minh chñy",{0,14,32131}},
-	{"Phông Minh kiÕm",{0,2,32135}},
-	{"§«ng Hoµng Phông Minh chñy",{0,14,32137}},
-	{"§«ng Hoµng Phông Minh kiÕm",{0,2,32141}},
-	{"Phông Minh chñy 2",{0,14,32149}},
-	{"Phông Minh kiÕm 2",{0,2,32153}},
-	{"§«ng Hoµng Phông Minh chñy",{0,14,32155}},
-	{"§«ng Hoµng Phông Minh kiÕm",{0,2,32159}},
-}
-
-tLieYu = {
-	{"LiÖt Vò chñy",0,14,32119},
-	{"LiÖt Vò kiÕm",0,2,32123},
-	{"Quang Chiªu LiÖt Vò chñy",0,14,32125},
-	{"Quang Chiªu LiÖt Vò kiÕm",0,2,32129},
-}
-
 function OnUse(nItem)	
 	--print(GetPlayerRebornParam(0))
 	--print(GetTranslifeCount())
@@ -131,8 +36,8 @@ function Open()
 	else
 		tSay = {
 			-- "Reload Thiªn c¬ lÖnh/reloadFile",
-			"NhËn trang bÞ /GetTB",
-			"NhËn vËt phÈm kh¸c/Get_TieuDung",
+			"NhËn trang bÞ/Get_TrangBi",
+			"NhËn vËt phÈm/Get_TieuDung",
 			"Chøc n¨ng më réng\n\n/Get_Other",
 			"NhËn 10 ®Êu hån/getDauHon",
 			format("%s/getTiLi", "Håi thÓ lùc"),
@@ -150,17 +55,8 @@ function reloadFile()
 	Msg2Player("Reloaded thiencolenh");
 end
 
-function getBanhNgo()
-	AddItem(1,1,1,999);
-end
-
-function getDauHon()
-	AddItem(2,1,1157,10);
-end
-
-
 --TRANG BI THONG THUONG
-function GetTB()
+function Get_TrangBi()
 	local tSay = {
 		g_szTitle.."Lùa chän",
 		"Trang bÞ Kim xµ/showKX",
@@ -198,6 +94,8 @@ function showKX()
 		"Trang bÞ Kim xµ 5 (ngÉu nhiªn)/showKX5",
 		"Trang bÞ Kim xµ 6 (ngÉu nhiªn)/showKX6",
 		"Trang bÞ Kim xµ 7 (ngÉu nhiªn)/showKX7",
+		"Trang bÞ Kim xµ 3/getKX3",
+		"Trang bÞ Kim xµ 4/getKX4",
 	}
 	tinsert(tSay,"Ra khái/nothing");
 	SelectSay(tSay);	
@@ -209,6 +107,25 @@ function Get_TDHH()
 	AddItem(2,0,1057,1)
 	AddItem(2,0,1058,1)
 end;
+
+
+tFengMing = {
+	{"Phông Minh chñy",{0,14,32131}},
+	{"Phông Minh kiÕm",{0,2,32135}},
+	{"§«ng Hoµng Phông Minh chñy",{0,14,32137}},
+	{"§«ng Hoµng Phông Minh kiÕm",{0,2,32141}},
+	{"Phông Minh chñy 2",{0,14,32149}},
+	{"Phông Minh kiÕm 2",{0,2,32153}},
+	{"§«ng Hoµng Phông Minh chñy",{0,14,32155}},
+	{"§«ng Hoµng Phông Minh kiÕm",{0,2,32159}},
+}
+
+tLieYu = {
+	{"LiÖt Vò chñy",0,14,32119},
+	{"LiÖt Vò kiÕm",0,2,32123},
+	{"Quang Chiªu LiÖt Vò chñy",0,14,32125},
+	{"Quang Chiªu LiÖt Vò kiÕm",0,2,32129},
+}
 
 function getFengMing()
 	local nBody = GetBody();
@@ -914,6 +831,15 @@ function getXiaoYaoYu()
 	AddItem(2,1,30605,1);
 end;
 
+function getBanhNgo()
+	AddItem(1,1,1,999);
+end
+
+function getDauHon()
+	AddItem(2,1,1157,10);
+end
+
+
 function GetYaoPin()
 	-- for i = 30005,30011 do
 		-- if i ~= 30008 then
@@ -1274,6 +1200,85 @@ function joinFaction(nFaction)
 	end
 end
 
+
+-- Route	equip	tran phai	first skills	last skills
+tSkills = {
+	[2] = {3,32,21,31},
+	[3] = {6,57,45,56},
+	[4] = {2,44,33,43},
+	[6] = {7,74,58,73},
+	[8] = {4,89,75,88},
+	[9] = {10,102,90,101},
+	[11] = {2,113,103,112},
+	[12] = {5,124,114,123},
+	[14] = {4,146,125,145},
+	[15] = {5,159,147,158},
+	[17] = {11,732,720,731},
+	[18] = {12,745,733,744},
+	[20] = {13,775,364,377},
+	[21] = {14,774,347,363},
+	[23] = {4,1032,1017,1031},
+	[25] = {3,1066,1053,1065},
+	[26] = {8,1096,1083,1095},
+	[27] = {14,1213,1131,1143},
+	[29] = {15,1196,1165,1176},
+	[30] = {16,1230,1217,1229},
+	[31] = {17,1883,1872,1882},
+	[32] = {4,1897,1885,1896},
+}
+
+tFactions = {
+	"ThiÕu L©m",
+	"Vâ §ang",
+	"Nga Mi",
+	"C¸i Bang",
+	"§­êng M«n",
+	"D­¬ng M«n",
+	"Ngò §éc",
+	"C«n L«n",
+	"Minh Gi¸o",
+	"Thóy Yªn",
+}
+
+-- [route] = {route_name,faction_belong}
+tRoutes = {
+	[0] = {"V« m«n ph¸i",0},
+	[1] = {"ThiÕu L©m",-1},
+	[2] = {"ThiÕu L©m tôc gia",1},
+	[3] = {"ThiÕu L©m thiÒn t¨ng",1},
+	[4] = {"ThiÕu L©m vâ t¨ng",1},
+	[5] = {"§­êng M«n",-1},
+	[6] = {"§­êng M«n hiÖp kh¸ch",5},
+	[7] = {"Nga Mi",-1},
+	[8] = {"Nga Mi phËt gia",7},
+	[9] = {"Nga Mi tôc gia",7},
+	[10] = {"C¸i Bang",-1},
+	[11] = {"C¸i Bang tÜnh y",1-1},
+	[12] = {"C¸i Bang « y",1-1},
+	[13] = {"Vâ §ang",-1},
+	[14] = {"Vâ §ang ®¹o gia",13},
+	[15] = {"Vâ §ang tôc gia",13},
+	[16] = {"D­¬ng M«n",-1},
+	[17] = {"D­¬ng M«n th­¬ng kÞ",16},
+	[18] = {"D­¬ng M«n cung kÞ",16},
+	[19] = {"Ngò §éc",-1},
+	[20] = {"Ngò §éc tµ hiÖp",19},
+	[21] = {"Ngò §éc cæ s­",19},
+	[22] = {"C«n L«n",-1},
+	[23] = {"C«n L«n thiªn s­",22},
+	[24] = {"Minh Gi¸o",-1},
+	[25] = {"Minh Gi¸o th¸nh chiÕn",24},
+	[26] = {"Minh Gi¸o trËn binh",24},
+	[27] = {"Minh Gi¸o huyÕt nh©n",24},
+	[28] = {"Thóy Yªn",-1},
+	[29] = {"Thóy Yªn vò tiªn",28},
+	[30] = {"Thóy Yªn linh n÷",28},
+	[31] = {"§­êng M«n nhËm hiÖp",5},
+	[32] = {"C«n L«n kiÕm t«n",22},
+
+}
+
+
 -- Gia nhËp hÖ ph¸i
 function JoinRoute_UpdateLevel()
 	
@@ -1446,7 +1451,7 @@ function MatTichMonPhai20_Done(nIndex)
 	if tbMatTich[nIndex][4] == 1 then
 		SetBookInfo(nItemID, nil, 3, 1, 20, 20, 20)
 	else
-		SetBookInfo(nItemID, nil, 3, 20, 1, 20, 20)
+		SetBookInfo(nItemID, nil, 5, 120, 1, 120, 120)
 	end
 end
 

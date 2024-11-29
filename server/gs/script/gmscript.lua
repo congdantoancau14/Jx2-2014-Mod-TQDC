@@ -163,7 +163,7 @@ function CollectionTaskStart(nMapId, nNpcId, nObjId, nObjType)
 end
 
 function CollectionTaskClose(nMapId, nNpcId, nObjId, nObjType)
-	print(format("GlobaleValue(%d):%d", 100, GetGlbValue(100)));
+	print(format("GlobleValue(%d):%d", 100, GetGlbValue(100)));
 end
 
 
@@ -192,8 +192,9 @@ function createBoss(Random1,Random2,Random3)
 	npcIndex = CreateNpc(Boss[1][1],Boss[1][2],Pos[Random1][2],Pos[Random1][x+2][1],Pos[Random1][x+2][2],-1,1,1,30)
 	msg="Nghe nãi minh chñ lôc l©m x­ng b¸ s¬n tr¹i phÝa b¾c ®ang ë "..Pos[Random1][Pos[Random1][1]+3].." hiÖn th©n, ch¾c ®ang cã ©m m­u!"
 		for i=1,3 do
-		AddGlobalNews(msg)
-		AddLocalNews(mgs);
+		AddGlobalNews(msg,1)
+		-- AddGlobalNews(msg)
+		-- AddLocalNews(mgs);
 		end
 	SetNpcLifeTime(npcIndex, 7200)
 	SetNpcScript(npcIndex, "\\script\\task\\boss\\boss_ondeath.lua")
@@ -203,8 +204,9 @@ function createBoss(Random1,Random2,Random3)
 	npcIndex = CreateNpc(Boss[2][1],Boss[2][2],Pos[Random2][2],Pos[Random2][y+2][1],Pos[Random2][y+2][2],-1,1,1,30)
 	msg="Nghe nãi thÞ vÖ th©n tÝn cña TÇn Thñy Hoµng lµ Th­¬ng ThÇn Doanh Thiªn ®· xuÊt hiÖn t¹i "..Pos[Random2][Pos[Random2][1]+3].." vâ l©m s¾p cã mét trËn hµo kiÕp!"
 		for i=1,3 do
-		AddGlobalNews(msg)
-		AddLocalNews(mgs);
+		AddGlobalNews(msg,1)
+		-- AddGlobalNews(msg)
+		-- AddLocalNews(mgs);
 		end
 	SetNpcLifeTime(npcIndex, 7200)
 	SetNpcScript(npcIndex, "\\script\\task\\boss\\boss_ondeath.lua")
@@ -216,8 +218,9 @@ function createBoss(Random1,Random2,Random3)
 	npcIndex = CreateNpc(Boss[3][1],Boss[3][2],Pos[Random3][2],Pos[Random3][z+2][1],Pos[Random3][z+2][2],-1,1,1,30)
 	msg="Nghe nãi hån ma L·nh H­¬ng L¨ng 10 n¨m tr­íc tõng lµ hoa kh«i Giang T©n Th«n nay xuÊt hiÖn t¹i"..Pos[Random3][Pos[Random3][1]+3].."mau ®Õn ®ã xem thö dung nhan kiÒu diÔm cña nµng!"
 		for i=1,3 do
-		AddGlobalNews(msg)
-		AddLocalNews(mgs);
+		AddGlobalNews(msg,1)
+		-- AddGlobalNews(msg)
+		-- AddLocalNews(mgs);
 		end
 	SetNpcLifeTime(npcIndex, 7200)
 	SetNpcScript(npcIndex, "\\script\\task\\boss\\boss_ondeath.lua")
@@ -364,6 +367,7 @@ function ShinyNight_Start(system, multiple, szVoteName)
 	else
 		msg = "§ªm huy h«m h«m nay ®· ®­îc quyÕt ®Þnh! Néi dung cô thÓ:"..strTaskName[system]
 	end
+	AddGlobalNews(msg,1)
 	AddGlobalNews(msg)
 end
 
@@ -415,6 +419,7 @@ function call_faction_bt_boss(nPos1, nPos2, nPos3)
 		end
 		local msg = "Cao thñ cña c¸c ®¹i ph¸i hiÖn ®ang tËp trung bªn ngoµi, vÞ b»ng h÷u nµo ®· b¸o danh mau nhanh chãng ®Õn ®ã!"
 		AddGlobalNews(msg)
+		AddGlobalNews(msg,1)
 	end
 
 	-- ÕÐµÚÒ»¸öboss
@@ -586,6 +591,7 @@ function north_west_task()
 end
 --ÔÂÁÁÍÃ»î¶¯
 function abluemoon_start(nMapID)
+	print("gmscript >> abluemoon_start::ran");
 	abluemoon_init(nMapID)
 end
 -- ¸üÐÂÕ½³¡¾ü¹¦ÅÅÃû
@@ -740,6 +746,7 @@ function MikeDai2(route)
 	AddItemOnce(0, 105, 1,  1, 1)	-- ¼ÓÂí
 end
 function create_lanhua_boss_viet(nIndex)
+	print("gmscript >> create_lanhua_boss_viet::ran");
 	local nWeek = tonumber(date("%w"))
 	local nHour = tonumber(date("%H"))
 	if (nWeek >= 1 and nWeek <= 4 and nHour == 18) or nHour == 22 then
@@ -791,7 +798,7 @@ function create_npcs(nDay)
 end
 
 function call_faction_boss(nTime)	
-	do return end
+	-- do return end
 	local tBossMapPos = {
 										[0] = {"ThiÕu L©m", {204, 1526, 3269}},
 										[1] = {"Nga My", {303, 1554, 3235}},
@@ -803,7 +810,8 @@ function call_faction_boss(nTime)
 									}
 	local nDay = tonumber(date("%w"));
 	local msg = "Cã ng­êi thÊy c¸c cao thñ m«n ph¸i ®· xuÊt hiÖn t¹i "..tBossMapPos[nDay][1]..", c¸c vÞ b»ng h÷u h·y mau ®Õn tû thÝ!"
-	AddGlobalNews(msg)
+	-- AddGlobalNews(msg)
+	AddGlobalNews(msg,1)
 	SetGlbValue(GLB_TSK_BOSS,0)
 	call_faction_boss_new(nTime,tBossMapPos[nDay][2][1],tBossMapPos[nDay][2][2],tBossMapPos[nDay][2][3])
 end
@@ -837,7 +845,8 @@ function call_niansou()
 	SetNpcLifeTime(nNpcIndex, nNpcLifeTime);
 	SetNpcDeathScript(nNpcIndex, "\\script\\online\\viet_event\\200909\\2\\death_niansou.lua");	
 	local szMsg = "Cã ng­êi thÊy Niªn Thó xuÊt hiÖn t¹i ["..t_niansou_set[nDay][1].."]. C¸c vÞ b»ng h÷u h·y mau thu phôc!"
-	AddGlobalNews(szMsg);
+	-- AddGlobalNews(szMsg);
+	AddGlobalNews(szMsg,1)
 	Msg2Global(szMsg)
 end
 
@@ -1002,3 +1011,31 @@ function ibc_CallBoss(nRandomSeed)
 	nRandomSeed = nRandomSeed or tonumber(date("%Y%m%d%H"));
 	SendScript2VM("\\script\\online\\item_buchang\\ibc_head.lua", format("ibc_RelayCallBoss(%d)", tonumber(nRandomSeed)));	
 end
+
+--º®±ùÎ×Å®
+function oly_hanbingwunv(nRandomSeed)
+	nRandomSeed = nRandomSeed or tonumber(date("%Y%m%d%H"));
+	SendScript2VM("\\script\\online\\olympic\\npc\\hanbinwunv.lua", format("call_hanbingwunv(%d)", tonumber(nRandomSeed)));	
+end
+
+--ÐÂÄêBOSS
+function Yb_CreateBoss(nRandomSeed)
+	nRandomSeed = nRandomSeed or tonumber(date("%Y%m%d%H"));
+	SendScript2VM("\\script\\online_activites\\201502\\year_boss.lua", format("yb_RelayCallBoss(%d)", tonumber(nRandomSeed)));	
+end
+
+function Ws_CreateWushiNpc(nRandomSeed)
+	do return 0 end
+	nRandomSeed = nRandomSeed or tonumber(date("%Y%m%d%H"));
+	SendScript2VM("\\script\\online_activites\\201502\\wushi.lua", format("Ws_RelayCallNpc(%d)", tonumber(nRandomSeed)));	
+end
+
+function yp_write_data()
+	if SubWorldID2Idx(425) ~= -1 then --ÎäÁÖÃË·þÎñÆ÷
+		SendScript2VM("\\script\\missions\\yp\\dhx_npc.lua", "dhx_writeData()")
+	end
+end
+
+function mooncake_08_viet()
+	print("gmscript >> mooncake_08_viet::called");
+end;

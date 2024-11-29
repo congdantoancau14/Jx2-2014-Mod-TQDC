@@ -1,7 +1,7 @@
 AKCD_TABLE = {
 	[121] = {
 		nAcitvityID = 121,
-		tTaskGroup = {3, 12},
+		tTaskGroup = {3, 16},
 		szTaskName = "phôc long – h¾c b¹ch song kú ",
 		szStartName = "Ngò Hµnh T«n Gi¶",
 		nDaySeq = 1, --ÈÎÎñ±äÁ¿ÖØÖÃ±ê¼Ç

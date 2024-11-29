@@ -11,6 +11,7 @@ Include("\\script\\online\\spring2014\\sp_npc.lua")
 Include("\\script\\function\\lucky_box\\lb_head.lua")
 Include("\\script\\function\\invite_code\\ic_head.lua")
 Include("\\script\\function\\cdkey\\ck_head.lua")
+Include("\\script\\online_activites\\xinshouzhiyin\\item\\item_xiaoaojianghulu.lua")
 
 function main()
 	g_Act_Count = 0;
@@ -132,8 +133,9 @@ function main()
 	else
 		local tbSay = {};
 		for i = 1, getn(g_Act_Select) do
-			tinsert(tbSay, format("\n%s/#aa_SayDialog(%d)", g_Act_Select[i], i));
+			tinsert(tbSay, format("%s\n/#aa_SayDialog(%d)", g_Act_Select[i], i));
 		end
+		tbSay = getExtendActivities(tbSay);
 		tinsert(tbSay, "\nTho¸t/nothing");
 		Say("<color=green>§¹i Sø ho¹t ®éng: <color>"..format("%s muèn tham gia ho¹t ®éng g×!", gf_GetPlayerSexName()), getn(tbSay), tbSay);
 	end

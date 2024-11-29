@@ -6,32 +6,34 @@ Include("\\script\\online\\viet_event\\mooncake_08\\mooncake_head.lua")
 Include("\\script\\lib\\globalfunctions.lua")
 
 g_szLogTitle = "Ho¹t ®éng trung thu : ".."TiÓu ®ång"		--´Ë´¦·ÖÎª2¶ÎÖ»ÊÇÎªÁË²»Ôö¼ÓĞÂµÄ·­Òë
-g_szInfoHead = "<color=green>§øa bĞ<color>: "
+g_szInfoHead = "<color=green>TiÓu ®ång<color>: "
+szSexName = ""
 
 function main()
 	if is_mooncake_viet_open() == 0 then
 		return
 	end
+	szSexName = getSex();
 	local selTab = {
 				"Ta sÏ “l× x×” cho muéi, muéi ®æi cho ta 1 c©y NÕn Vµng nhĞ!/bug_candle",
 				"Ta sÏ quay l¹i sau.!/no",
 				}
-	Say(g_szInfoHead.."Ho¹t ®éng \"Truy t×m lång ®Ìn may m¾n\" diÔn ra tõ 05-09-2008 ®Õn 24:00 ngµy 05-10-2008. Lång §Ìn sÏ xuÊt hiÖn Tõ 11:00 ®Õn 14:00 vµ tõ 21:00 ®Õn 24:00 vµo c¸c ngµy Thø 6, Thø 7 vµ Chñ nhËt h»ng tuÇn. Trong thêi gian nµy, ng­êi ch¬i ®Õn NPC TiÓu §ång ®Ó nhËn “NÕn vµng”. ë tr¹ng th¸i chiÕn ®Êu, ng­êi ch¬i mang NÕn Vµng ®Õn c¸c b¶n ®å ®Ó th¾p s¸ng Lång §Ìn May M¾n, sÏ cã c¬ héi nhËn ®­îc phÇn th­ëng ®iÓm kinh nghiÖm vµ c¸c vËt phÈm cã gi¸ trŞ.",getn(selTab),selTab);
+	Say(g_szInfoHead..szSexName.." cã chuyÖn g× vËy?",getn(selTab),selTab);
 end
 
 function bug_candle()
 	if GetCash() < 1000 then
-		Say(g_szInfoHead.."Muéi kh«ng ®æi ®©u v× s­ huynh (tû tû) ch­a l× x× cho muéi.",1,"¤i! Ta quªn mÊt./no")
+		Say(g_szInfoHead..format("Muéi kh«ng ®æi ®©u v× %s ch­a l× x× cho muéi.",szSexName),1,"¤i! Ta quªn mÊt./no")
 		return
 	end
 	if gf_Judge_Room_Weight(1,20) == 0 then
-		Talk(1,"",g_szInfoHead.."Kho¶ng trèng hµnh trang hoÆc søc lùc kh«ng ®ñ, xin kiÓm tra l¹i!")
+		Talk(1,"",g_szInfoHead..szSexName.." tay c¾p n¸ch mang thÕ kia th× c¶ 1 c©y nÕn còng ch¼ng cÇm thªm ®­îc ®©u!")
 		return
 	end
 	if pay_ex(1000) == 1 then
 		add_item_ex("NÕn vµng",2,1,30029,1)
 	else
-		Say(g_szInfoHead.."Muéi kh«ng ®æi ®©u v× s­ huynh (tû tû) ch­a l× x× cho muéi.",1,"¤i! Ta quªn mÊt./no")
+		Say(g_szInfoHead..format("Muéi kh«ng ®æi ®©u v× %s ch­a l× x× cho muéi.",szSexName),1,"¤i! Ta quªn mÊt./no")
 		return
 	end
 end
@@ -57,6 +59,19 @@ function pay_ex(nNum)
 		return 0
 	end
 end
+
+
+function getSex()
+	local sex = GetSex();
+	if sex == 1 then 
+		return "®¹i ca";
+	elseif sex == 2 then
+		return "®¹i tû";
+	else
+		return "®¹i hiÖp";
+	end
+end;
+
 
 function no()
 end

@@ -15,7 +15,7 @@ function wxfls_AddItemPlayerlogin()
 	if gf_CheckEventDateEx(WXFLS_ID) ~= 1 then
 		return
 	end
-	if GetItemCount(2,1,30643) < 1 and GetFreeItemRoom() > 0 then
+	if BigGetItemCount(2,1,30643) < 1 and GetFreeItemRoom() > 0 then
 		AddItem(2,1,30643,1)
 	end
 end

@@ -641,10 +641,10 @@ function newyear08_bai()
 end
 
 function is_qingming_opened()	
-	local nDate = tonumber(date("%Y%m%d"));
-	if nDate < 20080403 then
+	local nDate = tonumber(date("%m%d"));
+	if nDate < 0403 then
 		return -1;--如果还未到时间
-	elseif nDate > 20080412 then
+	elseif nDate > 0412 then
 		return 0;--已过期
 	else
 		return 1;

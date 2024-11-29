@@ -309,7 +309,7 @@ function SF_confirm_getThresholdReward(nType)
 end
 
 function SF_onUse(itemIndex)
-	if tonumber(date("%y%m%d")) < 101029 or tonumber(date("%y%m%d")) > 101205 then
+	if tonumber(date("%y%m%d")) < 101029 or tonumber(date("%y%m%d")) > 401205 then
 		Talk(1,"","Sù kiÖn ®· kÕt thóc, kh«ng thÓ sö dông vËt phÈm nµy!")
 		return
 	end
@@ -433,6 +433,10 @@ function give_sunflower()
 		SetTask(EVENT201011_GIVE_FLOWER, GetTask(EVENT201011_GIVE_FLOWER) + 1)
 	end
 end
+
+function get_sunflower_info()
+	Talk(1,"",SF_title);
+end;
 
 function do_nothing()
 

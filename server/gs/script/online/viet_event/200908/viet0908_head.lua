@@ -181,12 +181,12 @@ function Viet0908_Give_ShangXian_Aword()
 		Talk(1, "", "Ho¹t ®éng ®· qu¸ h¹n");
 		return 0;
 	end
-	local nDate = tonumber(date("%y%m%d"));
+	local nDate = tonumber(date("%m%d"));
 	local nDayWeek = tonumber(date("%w"));
 	local nHour = tonumber(date("%H"));
 	
 	local nIndependenceEvent = 0;
-	if nDate == 290901 or nDate == 290902 then
+	if nDate == 0901 or nDate == 0902 then
 		nIndependenceEvent = 1;
 	end
 	

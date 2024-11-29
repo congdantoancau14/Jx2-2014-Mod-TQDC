@@ -17,23 +17,24 @@ Include("\\script\\vng\\lib\\vnglib_function.lua")
 Include("\\script\\vng\\award\\traothuong3ty.lua")
 
 TASK_BUCHANG = 1781
-
 compensate_taskID = 1225
+NPC_NAME = ""
 
 function main()
+	NPC_NAME = format("<color=green>%s<color>: ",GetNpcName(GetTargetNpc()));
 	local nMapID = GetWorldPos();
 	local nDate = tonumber(date("%Y%m%d"));
 	local SayTable = {};
 	local nCount = 0;
 -- Trao gi¶i nhµ 3 tû
-	if nDate >= 20140318 and nDate <= 20140319 then
+	if nDate >= 20140318 and nDate <= 20440319 then
 		tinsert(SayTable, "Trao gi¶i nhµ 3 tû/TraoThuong2Ty_Menu")
 	end
 --	if nDate >= 2010102900 and nDate <= 2010121524 and GetGlbValue(GLB_TSK_SERVER_ID) == 2 then
 --		tinsert(SayTable, "Ta ®Õn nhËn th­ëng bang héi ®o¹t gi¶i tuÇn Cuéc ChiÕn Hoa Hång/GiveRoseWarWeeklyAward")		
 --	end
 
-	if nDate >= 20131227 and nDate <= 20131231 then
+	if nDate >= 20131227 and nDate <= 20431231 then
 		tinsert(SayTable, "NhËn phÇn th­ëng vinh danh game thñ tham gia §¹i Héi ViÖt Trung/Viet_Trung_2013")	
 	end
 	
@@ -42,14 +43,19 @@ function main()
 	tinsert(SayTable, "NhËn phÇn th­ëng chèng giÆc Man/RequestWeekEnd")
 	tinsert(SayTable, "KÕt thóc ®èi tho¹i/no")
 	
-	Say("N¨m míi ®Õn ch­ëng m«n Kim S¬n quyÕt ®Þnh ban ph¸t mét sè quµ ®Ó mäi ng­êi ¨n TÕt vui vÎ!",
+	Say(NPC_NAME.."N¨m míi ®Õn ch­ëng m«n Kim S¬n quyÕt ®Þnh ban ph¸t mét sè quµ ®Ó mäi ng­êi ¨n TÕt vui vÎ!",
 		getn(SayTable),
 		SayTable
 	);
 end;
 
 function goHuangGongXiaoChang()
-	NewWorld(6068,200*8,200*16+2);
+	
+	if GetTask(704) < 6 then
+		Talk(1,"",NPC_NAME.."Ng­¬i d¸m c¶ gan m¹o danh nguyªn so¸i. Ng­êi ®©u, mau b¾t h¾n l¹i!!!");
+	else
+		NewWorld(6068,200*8,200*16+2);
+	end
 end;
 
 function goZiJinDian()

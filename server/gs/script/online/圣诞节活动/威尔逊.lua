@@ -4,14 +4,26 @@
 --=============================================
 Include("\\script\\online\\Ê¥µ®½Ú»î¶¯\\christmas_head.lua")
 
+tItems = {
+	{"ChØ t¬",{2,2,62}},
+	{"Ngäc n÷ thoa",{0,200,21}},
+	{"L«ng thá",{2,9,1}},
+	{"§u«i thá",{2,1,2}},
+	{"H¾c cÈm",{2,2,21}},
+	{"L«ng sãi",{2,1,5}},
+	{"Chu sa",{2,2,30}},
+	{"Hå b× mao",{2,1,155}},
+}
+
 function main()
 	if GetTrigger(3000) == 0 then
-		local nTemp = random(1,2)
-		if nTemp == 1 then
-			Say("Chóa sÏ ban ph­íc lµnh cho ng­¬i.",0)
-		else
-			Say("ThËt ra tªn cña ta lµ Wilson.",0)
-		end
+		local nTemp = random(3);
+		local tSay = {
+			"Sù gi¸o hãa cña chóa khiÕn ta ®Õn ®©y,sù chØ dÉn cña chóa khiÕn ng­¬i ®Õn ®©y?",
+			"Chóa sÏ ban ph­íc lµnh cho ng­¬i.",
+			"ThËt ra tªn cña ta lµ Wilson.",
+		}
+		Say(tSay[nTemp],0);
 		return 0
 	end
 	SelTab = {
@@ -41,6 +53,8 @@ function get_hat_box()
 		Say("Xin lçi! Quý kh¸ch ch­a ®¹t ®Õn cÊp <color=red>10<color> ch­a thÓ nhËn quµ.",0)
 		return 0
 	end
+	
+	
 	if GetItemCount(2,2,62) >= 10 and GetItemCount(0,200,21) >= 1 and GetItemCount(2,9,1) >= 10 
 		and GetItemCount(2,1,2) >= 10 and GetItemCount(2,2,21) >= 10 and GetItemCount(2,1,5) >= 10 
 		and GetItemCount(2,2,30) >= 10 and GetItemCount(2,1,155) >= 10 then
@@ -63,7 +77,7 @@ function get_hat_box()
 					if DelItem(2,1,208,10) == 1 then 
 						nRetCode = AddItem(2,1,209,1,1)
 					end
-					strPresent = " 1 hép quµ gi¸ng sinh"
+					strPresent = "1 hép quµ gi¸ng sinh"
 				end
 			elseif nBody == 2 then
 				if GetTask(TASK_GOT_HAT) == 0 then 
@@ -74,7 +88,7 @@ function get_hat_box()
 					if DelItem(2,1,208,10) == 1 then
 						nRetCode = AddItem(2,1,209,1,1)
 					end
-					strPresent = " 1 hép quµ gi¸ng sinh"
+					strPresent = "1 hép quµ gi¸ng sinh"
 				end
 			elseif nBody == 3 then
 				if GetTask(TASK_GOT_HAT) == 0 then 
@@ -118,9 +132,13 @@ function get_hat_box()
 		else
 			strSex = "¤ng/Bµ"
 		end
-		Say("Xin lçi, h×nh nh­"..strSex.." vÉn ch­a ®ñ nguyªn liÖu lµm quµ Gi¸ng Sinh. CÇn cã: <color=red>10<color> <color=yellow>sîi ny l«ng<color>, <color=red>1<color> <color=yellow>Ngäc n÷ thoa<color>, <color=red>10<color> <color=yellow>L«ng thá<color>, <color=red>10<color> <color=yellow>§u«i thá<color>, <color=red>10<color> <color=yellow>V¶i ®en<color>, <color=red>10<color> <color=yellow>L«ng sãi<color>, <color=red>10<color> <color=yellow>Chu sa<color>, <color=red>10<color> <color=yellow>Hå b× mao<color>.",0)
+		Say("Xin lçi, h×nh nh­ "..strSex.." vÉn ch­a ®ñ nguyªn liÖu lµm quµ Gi¸ng Sinh. CÇn cã: <color=red>10<color> <color=yellow>sîi ny l«ng<color>, <color=red>1<color> <color=yellow>Ngäc n÷ thoa<color>, <color=red>10<color> <color=yellow>L«ng thá<color>, <color=red>10<color> <color=yellow>§u«i thá<color>, <color=red>10<color> <color=yellow>V¶i ®en<color>, <color=red>10<color> <color=yellow>L«ng sãi<color>, <color=red>10<color> <color=yellow>Chu sa<color>, <color=red>10<color> <color=yellow>Hå b× mao<color>.",0)
 	end		
 end
+
+function countNeedItems()
+	
+end;
 
 function no()
 

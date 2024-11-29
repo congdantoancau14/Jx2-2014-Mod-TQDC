@@ -4,7 +4,7 @@ Include("\\script\\master_prentice\\some_op.lua")
 Include("\\script\\online\\zgc_public_fun.lua")		--村长的公共函数
 
 function main()
-	do return end
+	-- do return end
 	if MPUpdate("\\script\\master_prentice\\国子监学官.lua", "main_cb", 0) == 0 then
 		main_cb()
 	end

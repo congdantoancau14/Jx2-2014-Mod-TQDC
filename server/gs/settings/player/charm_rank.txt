@@ -1,0 +1,13 @@
+Type	Record	RecordParam	CallbackFile	CallbackFunc	MaxRankCount	UpdateInterval
+0	CHARM_RANK_DATA	0;0	\script\global\charm_rank_callback.lua	OnDataArriveGS	50	900
+1	CHARM_RANK_DATA	0;1	\script\global\charm_rank_callback.lua	OnDataArriveGS	50	900
+2	CHARM_RANK_DATA	0;2	\script\global\charm_rank_callback.lua	OnDataArriveGS	50	900
+3	CHARM_RANK_DATA	0;3	\script\global\charm_rank_callback.lua	OnDataArriveGS	50	900
+4	CHARM_RANK_DATA	0;4	\script\global\charm_rank_callback.lua	OnDataArriveGS	50	900
+5	CHARM_RANK_DATA	0;5	\script\global\charm_rank_callback.lua	OnDataArriveGS	50	900
+6	CHARM_RANK_DATA	0;6	\script\global\charm_rank_callback.lua	OnDataArriveGS	50	900
+7	CHARM_RANK_DATA	0;7	\script\global\charm_rank_callback.lua	OnDataArriveGS	50	900
+8	OFFICIAL_RANK_DATA	0;8	\script\misc\official\official_rank_callback.lua	OnDataArriveGS	50	900
+9	OFFICIAL_RANK_DATA	0;9	\script\misc\official\official_rank_callback.lua	OnDataArriveGS	50	900
+10	FAIR_RANK_DATA	0;10	\script\misc\fair\fair_rank_callback.lua	OnDataArriveGS	10	900
+11	FAIR_RANK_DATA	0;11	\script\misc\fair\fair_rank_callback.lua	OnDataArriveGS	10	900

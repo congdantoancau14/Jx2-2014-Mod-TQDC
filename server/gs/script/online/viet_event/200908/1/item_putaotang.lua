@@ -6,7 +6,7 @@ Include("\\script\\online\\viet_event\\200908\\viet0908_head.lua");
 Include("\\script\\lib\\writelog.lua");
 
 function OnUse(nItemIdx)
-	if tonumber(date("%y%m%d")) >= 090914 then return end
+	if tonumber(date("%y%m%d")) >= 490914 then return end
 	if gf_Judge_Room_Weight(5, 10, " ") ~= 1 then return end
 	if GetTask(VIET_0908_TASK_ALREADY_GET_EXP) >= VIET_0908_CONST_MAX_EXP then return end
 	if DelItem(2, 1, 30102, 1) == 1  then

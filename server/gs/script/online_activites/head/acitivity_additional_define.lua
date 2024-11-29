@@ -6,7 +6,7 @@ VET_ACITIVUTY_ADDITIONAL_TABLE = {
 		nActivityID = 93,
 		nActivityName = "QuХc Tу Thiуu Nhi",
 		--й╧сц╣дхннЯ╠Да©вИ
-		tTaskGroup = {3, 14},
+		tTaskGroup = {3, 16},
 		--ртобtable╢Сп║пХ╤тс╕--------------------
 		--йЩвжсКtCostр╩р╩╤тс╕
 		tSayDialog = {

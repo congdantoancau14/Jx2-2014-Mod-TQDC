@@ -450,7 +450,7 @@ function queryinfor(npcNo)
 				"Trang tr­íc./main",
 				"KÕt thóc ®èi tho¹i/nothing",
 				}
-	Say("<color=green>"..tNpcName[npcNo]..":<color> B¹n ®· giao nép"..g_TotalItemNum.."<color=yellow>"..GetTask(ITEMNUM).."<color> lo¹i vËt thu thËp.",getn(selTab),selTab);
+	Say("<color=green>"..tNpcName[npcNo]..":<color> B¹n ®· giao nép <color=yellow>"..GetTask(ITEMNUM).."<color>\/"..g_TotalItemNum.." lo¹i vËt thu thËp.",getn(selTab),selTab);
 end;
 
 function seemoreinfo(npcNo,nType)

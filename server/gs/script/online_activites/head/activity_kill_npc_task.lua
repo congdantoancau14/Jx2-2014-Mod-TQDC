@@ -14,7 +14,7 @@ function g_online_npc_main(tbSay, id, bTag)
 		return nil
 	end
 	akct_DailyReset(nActivityID)
-	tinsert(tbSay, format("nhËn %s nhiÖm vô /#akct_GetTask(%d)", tAkcd.szTaskName, nActivityID))
+	tinsert(tbSay, format("NhËn %s nhiÖm vô /#akct_GetTask(%d)", tAkcd.szTaskName, nActivityID))
 	tinsert(tbSay, format("NhËn phÇn th­ëng nhiÖm vô/#akct_GetAward(%d)\n", nActivityID))
 	return 1
 end
@@ -30,9 +30,9 @@ function g_akct_ShowDialog(id, bTag)
 	end
 	akct_DailyReset(nActivityID)
 	local tSay = {
-		format("nhËn %s nhiÖm vô /#akct_GetTask(%d)", tAkcd.szTaskName, nActivityID),	
+		format("NhËn %s nhiÖm vô /#akct_GetTask(%d)", tAkcd.szTaskName, nActivityID),	
 		format("NhËn phÇn th­ëng nhiÖm vô/#akct_GetAward(%d)", nActivityID),	
-		format("\n t«i ph¶i gi¶i quyÕt nh÷ng viÖc kh¸c /#main(%d)", 1),
+		format("Ta ph¶i gi¶i quyÕt nh÷ng viÖc kh¸c/#main(%d)", 1),
 		"T¹i h¹ chØ xem qua th«i/nothing",
 	}
 	Say(format("<color=green>%s:<color> %s xin hái cã viÖc g×?",GetNpcName(GetTargetNpc()), gf_GetPlayerSexName()), getn(tSay), tSay)
@@ -107,7 +107,7 @@ function g_akct_GetTaskStep(bTag)
 		local nextStep = tAkcd.tTaskStep[tg:GetTask(tAkcd.nTaskStatus)]
 		if not nextStep then
 			Talk(1, "", tTaskStep.szTargetNpcTitle.."\n"..format("<color=green>NhiÖm vô ®· kÕt thóc<color>, h·y vÒ t×m<color=gold>%s<color> ®æi phÇn th­ëng!", tAkcd.szStartName))
-			Msg2Player(format("  nhiÖm vô ®· kÕt thóc #mau chãng ®i  t×m %s ®æi phÇn th­ëng th«i !", tAkcd.szStartName))
+			Msg2Player(format("nhiÖm vô ®· kÕt thóc #mau chãng ®i  t×m %s ®æi phÇn th­ëng th«i !", tAkcd.szStartName))
 			return 1
 		else
 			Talk(1, "", tTaskStep.szTargetNpcTitle.."\n"..format("nhiÖm vô ®· hoµn thµnh, mau ®i <color=green>%s<color> t×m <color=gold>%s<color> T×m hiÓu t×nh h×nh ®i !", 
@@ -142,7 +142,7 @@ function g_akct_GetTaskStep(bTag)
 		end
 	end
 	local tSay = {
-		format("\n t«i ph¶i gi¶i quyÕt nh÷ng viÖc kh¸c /#main(%d)", 1),
+		format("Ta ph¶i gi¶i quyÕt nh÷ng viÖc kh¸c /#main(%d)", 1),
 		"T¹i h¹ chØ xem qua th«i/nothing",
 	}
 	Say(msg, getn(tSay), tSay)
@@ -290,9 +290,9 @@ function akct_GetTask(id)
 	if tAkcd.szSayWhat then
 		szMsg = tAkcd.szSayWhat.."\n"
 	end
-	Talk(1, "", szMsg..format("nhËn nhiÖm vô, mau chãng ®i  <color=green>%s<color> t×m <color=gold>%s<color> hiÓu t×nh h×nh ®i !", 
+	Talk(1, "", szMsg..format("NhËn nhiÖm vô, mau chãng ®i  <color=green>%s<color> t×m <color=gold>%s<color> hiÓu t×nh h×nh ®i !", 
 		tAkcd.tTaskStep[1].szNpcPosName, tAkcd.tTaskStep[1].szTargetNpcName))
-	TaskTip(format("nhËn nhiÖm vô, mau chãng %s t×m %sT×m hiÓu t×nh h×nh ®i !", tAkcd.tTaskStep[1].szNpcPosName, tAkcd.tTaskStep[1].szTargetNpcName))
+	TaskTip(format("NhËn nhiÖm vô, mau chãng %s t×m %sT×m hiÓu t×nh h×nh ®i !", tAkcd.tTaskStep[1].szNpcPosName, tAkcd.tTaskStep[1].szTargetNpcName))
 end
 
 function akct_GetAward(id)
@@ -513,12 +513,12 @@ function Vet_Update_Pet_DanhQuai(nPoint)
 	--do something
 	if nPoint == 20 then
 		SetTask(TASK_VNG_PET, GetTask(TASK_VNG_PET) + (20 * 100)) --®iÓm n©ng cÊp
-		WriteLogEx(EVENT_LOG_TITLE, "nhËn th­ëng sö dông vËt phÈm event ", 1, "20 ®iÓm n©ng cÊp")
+		WriteLogEx(EVENT_LOG_TITLE, "NhËn th­ëng sö dông vËt phÈm event ", 1, "20 ®iÓm n©ng cÊp")
 		Msg2Player("B¹n nhËn ®­îc 20 §iÓm N©ng CÊp B¹n §ång Hµnh")
 	end
 	if nPoint == 5 then
 		Pet_AddGP(5)
-		WriteLogEx(EVENT_LOG_TITLE, "nhËn th­ëng sö dông vËt phÈm event ", 1, "5 ®iÓm linh lùc")
+		WriteLogEx(EVENT_LOG_TITLE, "NhËn th­ëng sö dông vËt phÈm event ", 1, "5 ®iÓm linh lùc")
 		Msg2Player("B¹n nhËn ®­îc 5 §iÓm Linh Lùc B¹n §ång Hµnh")
 	end
 end

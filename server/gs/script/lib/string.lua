@@ -293,4 +293,68 @@ function Val2Str(value, ind)
 		return tostring(value);
 	end
 end
-end
+end -- THE HEADDER END
+
+arrstrMarkedChars = "µ¸¶·¹¨»¾¼½Æ©ÇÊÈÉËÌĞÎÏÑªÒÕÓÔÖ×İ×ÜŞßãáâä«åèæçé¬êíëìîïóñòô­õøö÷ùúıûüş®§¡¢£¤¥¦"
+arrstrUnmarkedChars = "aaaaaaaaaaaaaaaaaeeeeeeeeeeeiiiiiooooooooooooooooouuuuuuuuuuuyyyyydDAAEOOU"
+
+function unmarks(string)
+	local s = "";
+	for i=1, strlen(string) do
+		local flag = 0;
+		for j=1, strlen(arrstrMarkedChars) do
+			if strsub(arrstrMarkedChars,j,j) == strsub(string,i,i) then 
+				s = s..strsub(arrstrUnmarkedChars,j,j);
+				flag = 1;
+				break
+			end
+		end
+		if flag == 0 then 
+			s = s..strsub(string,i,i);
+		end
+	end
+	return s;
+end;
+
+TCVN3 = "µ¸¶·¹¨»¾¼½Æ©ÇÊÈÉËÌĞÎÏÑªÒÕÓÔÖ×İ×ÜŞßãáâä«åèæçé¬êíëìîïóñòô­õøö÷ùúıûüş®§¡¢£¤¥¦";
+TELEX = "af,as,ar,ax,aj,aw,awf,aws,awr,awx,awj,aa,aaf,aas,aar,aax,aaj,ef,es,er,ex,ej,eef,ees,eer,eex,eej,ee,if,is,ir,ix,ij,of,os,or,ox,oj,oo,oof,oos,oor,oox,ooj,ow,owf,ows,owr,owx,owj,uf,us,ur,ux,uj,uw,uwf,uws,uwr,uwx,uwj,yf,ys,yr,yx,yj,dd,DD,AW,AA,EE,OO,OW,UW";
+TBTELEX = {'af','as','ar','ax','aj','aw','awf','aws','awr','awx','awj','aa','aaf','aas','aar','aax','aaj','ef','es','er','ex','ej','eef','ees','eer','eex','eej','ee','if','is','ir','ix','ij','of','os','or','ox','oj','oo','oof','oos','oor','oox','ooj','ow','owf','ows','owr','owx','owj','uf','us','ur','ux','uj','uw','uwf','uws','uwr','uwx','uwj','yf','ys','yr','yx','yj','dd','DD','AW','AA','EE','OO','OW','UW'}
+VNI = "a1,a2,a3,a4,a5,a8,a81,a82,a83,a84,a85,a6,a61,a62,a63,a64,a65,e1,e2,e3,e4,e5,e61,e62,e63,e64,e65,e6,i1,i2,i3,i4,i5,o1,o2,o3,o4,o5,o6,o61,o62,o63,o64,o65,o7,o71,o72,o73,o74,o75,u1,u2,u3,u4,u5,u7,u71,u72,u73,u74,u75,y1,y2,y3,y4,y5,d9,D9,A8,A6,E6,O6,O7,U7";
+TBVNI = {'a1','a2','a3','a4','a5','a8','a81','a82','a83','a84','a85','a6','a61','a62','a63','a64','a65','e1','e2','e3','e4','e5','e61','e62','e63','e64','e65','e6','i1','i2','i3','i4','i5','o1','o2','o3','o4','o5','o6','o61','o62','o63','o64','o65','o7','o71','o72','o73','o74','o75','u1','u2','u3','u4','u5','u7','u71','u72','u73','u74','u75','y1','y2','y3','y4','y5','d9','D9','A8','A6','E6','O6','O7','U7'}
+
+function totelex(string)
+	local s = "";
+	for i=1, strlen(string) do
+		local flag = 0;
+		for j=1, strlen(TCVN3) do
+			if strsub(TCVN3,j,j) == strsub(string,i,i) then 
+				s = s..TBTELEX[j];
+				flag = 1;
+				break
+			end
+		end
+		if flag == 0 then 
+			s = s..strsub(string,i,i);
+		end
+	end
+	return s;
+end;
+
+
+function tovni(string)
+	local s = "";
+	for i=1, strlen(string) do
+		local flag = 0;
+		for j=1, strlen(TCVN3) do
+			if strsub(TCVN3,j,j) == strsub(string,i,i) then 
+				s = s..TBVNI[j];
+				flag = 1;
+				break
+			end
+		end
+		if flag == 0 then 
+			s = s..strsub(string,i,i);
+		end
+	end
+	return s;
+end;

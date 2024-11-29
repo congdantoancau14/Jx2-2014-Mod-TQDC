@@ -151,9 +151,7 @@ end;
 -- 								SINGLE NPC VIEW
 -------------------------------------------------------------------------------
 function init_npclist()
-	print("jgiofdgjiofpgf");
 	tNpcs, MAX_NPC = getListFromFile();
-	print(getn(tNpcs));
 end;
 
 function showSingle()
@@ -250,7 +248,7 @@ function showNpcList(nBegin,nEnd)
 	tinsert(tSay,format("next page/#showNpcList(%d)",nBegin+40));
 	tinsert(tSay,format("prev page/#showNpcList(%d)",nBegin-40));
 	for i = nBegin, nEnd do 
-		tinsert(tSay,format("[*] %s/#showNpcByIndex(%d)",tNpcs[i][1],i));
+		tinsert(tSay,format("[%d] %s/#showNpcByIndex(%d)",i,tNpcs[i][1],i));
 	end
 	tinsert(tSay,format("next page/#showNpcList(%d)",nBegin+40));
 	tinsert(tSay,format("prev page/#showNpcList(%d)",nBegin-40));

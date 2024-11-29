@@ -1039,7 +1039,7 @@ function add_0906and07_aword()
 	if EventOpen0906() == 0 then
 		return
 	end
-	if tonumber(date("%y%m%d%H")) >= 09061900 and tonumber(date("%y%m%d%H")) < 09071924 then
+	if tonumber(date("%y%m%d%H")) >= 09061900 and tonumber(date("%y%m%d%H")) < 49071924 then
 		local nCount = tb_shimen_aword[floor(GetLevel() / 10)][2];
 		if GetTask(TASK_GET_MIBEN_DATE) < tonumber(date("%y%m%d")) then
 			SetTask(TASK_GET_MIBEN_COUNT_TODAY, 0);
@@ -1059,7 +1059,7 @@ end
 
 function add_0908_aword()
 	local nDate = tonumber(date("%y%m%d"));
-	if nDate >= 090807 and nDate < 090907 then
+	if nDate >= 090807 and nDate < 490907 then
 		local nCount = tVIET_SHIMEN_PUTAO[floor(GetLevel() / 10)];
 		if GetTask(VIET_0908_TASK_SHIMEN_GET_PUTAO_DATE) < nDate then
 			SetTask(VIET_0908_TASK_SHIMEN_GET_PUTAO_COUNT, 0);
@@ -1084,7 +1084,7 @@ end
 
 function add_0909_aword()
 	local nDate = tonumber(date("%y%m%d"));
-	if nDate >= 090918 and nDate < 091026 then
+	if nDate >= 090918 and nDate < 491026 then
 		local nCount = tVIET_SHIMEN_BAIMIANBAO[floor(GetLevel() / 10)];
 		if GetTask(VIET_0909_TASK_SHIMENG_DATE) < nDate then
 			SetTask(VIET_0909_TASK_SHIMENG_NUM, 0);
@@ -1105,7 +1105,7 @@ end
 
 function add_0911_aword()
 	local nDate = tonumber(date("%y%m%d"));
-	if nDate >= 091106 and nDate <= 091206 then
+	if nDate >= 091106 and nDate <= 491206 then
 		local nCount = tVIET_0911_SHIMEN_JUHUA[floor(GetLevel() / 10)];
 		if GetTask(VIET_0911_TASK_SHIMENG_DATE) < nDate then
 			SetTask(VIET_0911_TASK_SHIMENG_NUM, 0);

@@ -25,24 +25,25 @@ function main()
 		tinsert(tSay, "NhËn nu«i thªm B¹n §ång Hµnh (tiªu hao 490 vµng)/#get_more_pet(2)")
 	end
 	tinsert(tSay, "Ta muèn thay ®æi h­íng chuyÓn sinh/change_chuyensinh")
-	--if GetTask(TSK_CS6_TULINH) < 1 then
-	--	tinsert(tSay, "Ta muèn cã bİ kİp Phôc Sinh ®Ó ®¹t c¶nh giíi cao h¬n trong §¶ Th«ng Kinh M¹ch/cs6_infor")		
-	--elseif GetTask(TSK_CS6_TULINH) >= 1 then
-	--	tinsert(tSay, "Ta muèn häc bİ kİp Phôc Sinh ®Ó ®¹t c¶nh giíi cao h¬n trong §¶ Th«ng Kinh M¹ch/cs6_npc1_infor2")			
-	--end
---	tinsert(tSay, "Ta muèn ®æi ®iÓm ch©n khİ (1 ®iÓm ch©n khİ tiªu hao 2.000.000 ®iÓm kinh nghiÖm)/exchange_chankhi")
---	tinsert(tSay, "Ta muèn ®æi 1 ®iÓm ch©n khİ (tiªu hao 10 vµng)/#exchange_chankhi_bygold(1)")	
---	tinsert(tSay, "Ta muèn ®æi 10 ®iÓm ch©n khİ (tiªu hao 100 vµng)/#exchange_chankhi_bygold(2)")	
---	tinsert(tSay, "NhËn hç trî hoµn thµnh nhiÖm vô §¶ Th«ng Kinh M¹ch (tiªu hao 10 Xu vËt phÈm)/get_item_kinhmach")	
+	if GetTask(TSK_CS6_TULINH) < 1 then
+		tinsert(tSay, "Ta muèn cã bİ kİp Phôc Sinh ®Ó ®¹t c¶nh giíi cao h¬n trong §¶ Th«ng Kinh M¹ch/cs6_infor")		
+	elseif GetTask(TSK_CS6_TULINH) >= 1 then
+		tinsert(tSay, "Ta muèn häc bİ kİp Phôc Sinh ®Ó ®¹t c¶nh giíi cao h¬n trong §¶ Th«ng Kinh M¹ch/cs6_npc1_infor2")			
+	end
+	tinsert(tSay, "Ta muèn ®æi ®iÓm ch©n khİ (1 ®iÓm ch©n khİ tiªu hao 2.000.000 ®iÓm kinh nghiÖm)/exchange_chankhi")
+	tinsert(tSay, "Ta muèn ®æi 1 ®iÓm ch©n khİ (tiªu hao 10 vµng)/#exchange_chankhi_bygold(1)")	
+	tinsert(tSay, "Ta muèn ®æi 10 ®iÓm ch©n khİ (tiªu hao 100 vµng)/#exchange_chankhi_bygold(2)")	
+	tinsert(tSay, "NhËn hç trî hoµn thµnh nhiÖm vô §¶ Th«ng Kinh M¹ch (tiªu hao 10 Xu vËt phÈm)/get_item_kinhmach")	
 	tinsert(tSay, "NhËn vËt phÈm hç trî lµm nhiÖm vô Tø Linh DiÖt Ph¸p TrËn (tiªu hao 10 Xu vËt phÈm)/get_item_tulinh")	
---	tinsert(tSay, "Ta cã İt ®Æc s¶n, nhê tiÒn bèi gióp luyÖn ch©n khİ/GetQiByFruit")
---	tinsert(tSay, "Ta cã İt cña c¶i, nhê tiÒn bèi gióp luyÖn ch©n khİ/GetQiByGold")
-	--tinsert(tSay, "Sö dông ChuyÓn Sinh §¬n/use_chuyensinhdon")	
+	tinsert(tSay, "Ta cã İt ®Æc s¶n, nhê tiÒn bèi gióp luyÖn ch©n khİ/GetQiByFruit")
+	tinsert(tSay, "Ta cã İt cña c¶i, nhê tiÒn bèi gióp luyÖn ch©n khİ/GetQiByGold")
+	tinsert(tSay, "Sö dông ChuyÓn Sinh §¬n/use_chuyensinhdon")	
 	tinsert(tSay, "Ta muèn luyÖn B¾c §Èu Ngù Linh ThÇn ThuËt (B¹n §ång Hµnh)/learn_subskill_1")
---	tinsert(tSay, "Ta muèn luyÖn B¾c §Èu Gi¶ Kim ThuËt/learn_subskill_2")
-	--tinsert(tSay, "Ta muèn luyÖn B¾c §Èu Phôc Nguyªn ThuËt/learn_subskill_3")
---	tinsert(tSay, "Ta muèn luyÖn B¾c §Èu TruyÒn C«ng ThuËt/transfer_neili")
---	tinsert(tSay, "Ta muèn luyÖn B¾c §Èu D­ìng Sinh ThuËt/pratice_neili")
+	tinsert(tSay, "Ta muèn luyÖn B¾c §Èu Gi¶ Kim ThuËt/learn_subskill_2")
+	tinsert(tSay, "Ta muèn luyÖn B¾c §Èu Phôc Nguyªn ThuËt/learn_subskill_3")
+	tinsert(tSay, "Ta muèn luyÖn B¾c §Èu TruyÒn C«ng ThuËt/transfer_neili")
+	tinsert(tSay, "Ta muèn luyÖn B¾c §Èu D­ìng Sinh ThuËt/pratice_neili")
+	tinsert(tSay, "Ta muèn d©ng hoa cho ng­êi/give_sunflower"); -- Added at 07/11/2020
 	tinsert(tSay, "T¹m thêi ta ch­a muèn luyÖn/do_nothing")
 	Say(tHeader, getn(tSay), tSay)
 end
@@ -680,7 +681,7 @@ function select_trend(nCSLoai)
 							"V·n bèi muèn tu luyÖn theo h­íng Hæ Tö!/#select_translife(2, "..nLoai..")",
 							"V·n bèi muèn tu luyÖn theo h­íng ¦ng Tö!/#select_translife(3, "..nLoai..")",
 							"V·n bèi muèn tu luyÖn theo h­íng Phông Tö!/#select_translife(4, "..nLoai..")",
-						--	"Giíi thiÖu c¸c h­íng tu luyÖn/view_info",
+							"Giíi thiÖu c¸c h­íng tu luyÖn/view_info",
 							"V·n bèi suy nghÜ l¹i ®·./nothing",
 						}
 	Say(szNpcName.."<color=yellow>Hçn Tôc Hßa Quang<color> hÊp thu linh khİ ©m d­¬ng, v¹n vËt sinh diÖt ®Òu cã thÓ khèng chÕ, ng­¬i muèn tu luyÖn theo h­íng nµo?",getn(tSay),tSay)

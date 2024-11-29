@@ -86,7 +86,7 @@ end
 
 function ClearBagAllItem(bTag)
 	if not bTag or tonumber(bTag) ~= 1 then
-		Say(g_szTitle.."Ng­¬i muèn thanh lý tói?", 2, "§ång ý/#ClearBagAllItem(1)", "Ra khái/nothing")
+		Say("X¸c nhËn thanh lý tói", 2, "§ång ý/#ClearBagAllItem(1)", "Ra khái/nothing")
 		return
 	end
 	ClearItemInPos();

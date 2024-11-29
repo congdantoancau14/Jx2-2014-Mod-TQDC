@@ -8,7 +8,7 @@ Include("\\script\\online\\viet_event\\mooncake_08\\mooncake_head.lua")
 
 g_szLogTitle = "Ho¹t ®éng trung thu : ".."Lß n­íng b¸nh Trung Thu"		--´Ë´¦·ÖÎª2¶ÎÖ»ÊÇÎªÁË²»Ôö¼ÓĞÂµÄ·­Òë
 
-g_VietMoonCake08End = 2008100600				--Ä¾²ñµÄÊ¹ÓÃ½ØÖ¹ÈÕÆÚ
+g_VietMoonCake08End = 2048100600				--Ä¾²ñµÄÊ¹ÓÃ½ØÖ¹ÈÕÆÚ
 
 function OnUse(nItemIdx)
 	local nDate = tonumber(date("%Y%m%d%H"))

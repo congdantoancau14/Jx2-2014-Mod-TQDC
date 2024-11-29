@@ -29,6 +29,17 @@ function Zgc_pub_goods_add_chk(goods_num,goods_weight)
 			return 1
 		end
 end
+function Zgc_pub_goods_add_chk_mod(goods_num,goods_weight)
+		if GetFreeItemRoom() < goods_num then
+			-- Talk (1,"end_dialog","<color=red>kho秐g tr鑞g<color> trong h祅h trang kh玭g !")
+			return 0
+		elseif (GetMaxItemWeight() - GetCurItemWeight()) < goods_weight then			--判断玩家负重和空间
+			-- Talk (1,"end_dialog","<color=red>S鴆 l鵦<color> c馻 b筺 kh玭g !")
+			return 2
+		else 
+			return 1
+		end
+end
 --功能函数：数字按位返回
 --功        能：将数字按位返回,位置计算：......3<--2<--1<--
 function Zgc_pub_num_apart(num,num_att)

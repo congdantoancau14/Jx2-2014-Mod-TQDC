@@ -10,7 +10,7 @@ Include("\\script\\online\\viet_event\\mooncake_08\\mooncake_head.lua")
 
 --=========================================================================================
 g_szLogTitle = "Ho箃 ng trung thu : ".."B竛h ch璦 ch輓 thng"		--此处分为2段只是为了不增加新的翻译
-g_nVietUseMoonCakeEnd = 2008101300					--月饼的使用截止日期
+g_nVietUseMoonCakeEnd = 2048101300					--月饼的使用截止日期
 g_nExpNum = 10000									--使用一个月饼获得的经验值
 
 --=========================================================================================

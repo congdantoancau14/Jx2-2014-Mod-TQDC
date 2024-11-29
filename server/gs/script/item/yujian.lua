@@ -5,6 +5,8 @@
 --开发时间：2010-05-11
 --代码修改记录
 
+Include("\\script\\item\\horse_head.lua");
+
 g_tInfo = {
 	[138] = {
 		tItem		= {0, 105, 138},
@@ -230,6 +232,8 @@ g_tInfo = {
 function OnEquip(nItemIndex)
 	local nG, nD, nP	= GetItemInfoByIndex(nItemIndex);
 	local tInfo		= g_tInfo[nP];
+	
+	OnEquipCallBack(nItemIndex, 1);
 
 	if not tInfo then
 		return 0;
@@ -259,6 +263,8 @@ end
 
 function OnUnEquip(nItemIndex)
 	SetHorseEffect(0);
+	
+	OnUnEquipCallBack(nItemIndex, -1);
 
 	local nG, nD, nP	= GetItemInfoByIndex(nItemIndex);
 	local tInfo		= g_tInfo[nP];

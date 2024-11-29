@@ -1,21 +1,25 @@
 --ÀÊª˙…˙≥…Õ√–°—æNPCΩ≈±æ,À≥±„¥Úø™“ª∏ˆMISSION
+
 tMap = {
-	{"»™÷›", 100, 1459, 2811},
-	{"„Íæ©", 200, 1169, 2845},
-	{"≥…∂º", 300, 1653, 3559},
-	{"œÂ—Ù", 350, 1436, 2808},
-	{"—Ô÷›", 150, 1680, 3118},
-	{"¥Û¿Ì", 400, 1485, 3018},
+	{"Tuy“n Ch©u", 100, 1459, 2811},
+	{"Bi÷n Kinh", 200, 1169, 2845},
+	{"Thµnh ß´", 300, 1653, 3559},
+	{"T≠¨ng D≠¨ng", 350, 1436, 2808},
+	{"D≠¨ng Ch©u", 150, 1680, 3118},
+	{"ßπi L˝", 400, 1485, 3018},
 }
 
 function abluemoon_init(nMapID)
 	SubWorld = SubWorldID2Idx(tMap[nMapID][2]);
-	AddGlobalNews("ø∆øºπŸÕ√–°—æ“—æ≠‘⁄"..tMap[nMapID][1].."…Ëœ¬øº≥°£¨¥Ûº“∏œøÏ«∞»•≤Œº”Ω£Õ¯2µ⁄“ªΩÏø∆æŸøº ‘£°")
-	Msg2Global("ø∆øºπŸÕ√–°—æ“—æ≠‘⁄"..tMap[nMapID][1].."…Ëœ¬øº≥°£¨¥Ûº“∏œøÏ«∞»•≤Œº”Ω£Õ¯2µ⁄“ªΩÏø∆æŸøº ‘£°")	
+	local szMes = "Khoa cˆ kh∂o quan ThË Ti”u Nha Æ∑ xu t hi÷n tπi "..tMap[nMapID][1].." chu»n bﬁ tr≠Íng thi, thanh ni™n nam n˜ h∑y nhanh ch©n Æ’n d˘ thi!";
+	AddGlobalNews(szMes)
+	AddGlobalNews(szMes,1)
+	AddLocalNews(szMes)
+	Msg2Global(szMes)
 	if SubWorld >= 0 then
 		OpenMission(33);  
-		npcIndex = CreateNpc("Õ√–°—æ","Õ√–°—æ",tMap[nMapID][2],tMap[nMapID][3],tMap[nMapID][4]);
-		SetNpcLifeTime(npcIndex,1*60*60);  --NPC…˙¥Ê ±º‰1–° ±
+		npcIndex = CreateNpc("ThË ti”u nha","ThË Ti”u Nha",tMap[nMapID][2],tMap[nMapID][3],tMap[nMapID][4]);
+		SetNpcLifeTime(npcIndex,1*60*60);  --NPC????1??
 		SetNpcScript(npcIndex,"\\script\\online\\abluemoon\\abluemoon_npc.lua");
 		SetMissionV(10,npcIndex)
 	end

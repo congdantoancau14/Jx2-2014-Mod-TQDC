@@ -2,7 +2,7 @@
 --Describe:ÇåÃ÷½Ú»î¶¯½Å±¾Í·ÎÄ¼ş
 --Create Date:2006-3-15(315Ïû·ÑÕßµÄ½ÚÈÕ)
 --Author:yanjun
-
+Include("\\script\\online\\zgc_public_fun.lua")		--´å³¤µÄ¹«¹²º¯Êı
 --È«¾Ö³£Á¿
 FALSE = 0;	--ÏàĞÅ¶¨ÒåÕâÑùµÄ³£Á¿»áÊ¹´úÂëÈİÒ×Àí½âÒ»µã°É
 TRUE = 1;
@@ -71,3 +71,11 @@ end;
 function Get_Task_Byte(TaskID,Byte)	
 	return GetByte(GetTask(TaskID),Byte);
 end;
+
+function get_qingming_info()
+	Talk(4,"","Ho¹t ®éng TiÕt Thanh Minh diÔn ra vµo <color=yellow>30/3 - 8/4<color>, ng­êi ch¬i <color=yellow>cÊp 11<color> cã thÓ tham gia b»ng c¸ch ®i t¶o mé c¸c ®¹i hiÖp.",
+				"Cóng b¸i mé phÇn c¸c vŞ nh­ <color=yellow>Chu ®¹i hiÖp, Hµn ®¹i hiÖp, Hiªn Viªn ®¹i hiÖp<color>. Thêi gian diÔn ra ho¹t ®éng chØ cÇn cóng b¸i bÊt kú mé phÇn cña mét vŞ ®¹i hiÖp b»ng c¸ch <color=yellow>v¸i l¹y<color> lµ ®­îc.",
+				"Do "..Zgc_pub_sex_name().."thµnh t©m cóng b¸i nhËn ®­îc mËt ®å nhiÖm vô cña thñ l¨ng nh©n, lµm xong ®Õn <color=yellow>thñ l¨ng nh©n<color> nhËn th­ëng.",
+				"<color=green>MËt ®å Thanh Minh<color> ghi l¹i mçi ngµy chØ lµm ®­îc <color=yellow>1<color> lÇn, nh­ng cã thÓ dïng <color=yellow>giÊy cóng tÕ<color> t¨ng sè lÇn hoµn thµnh nhiÖm vô, <color=yellow>giÊy cóng tÕ<color> mçi ngµy chØ dïng ®­îc <color=yellow>2<color> lÇn!"
+			);
+end

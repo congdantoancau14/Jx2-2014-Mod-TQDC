@@ -7,6 +7,7 @@ Include("\\script\\vng\\lib\\vnglib_award.lua")
 Include("\\script\\vng\\config\\vng_feature.lua")
 Include("\\script\\vng\\nhiemvudonghanh\\donghanh_head.lua")
 Include("\\script\\vng\\award\\feature_award.lua")
+szNpcName = "";
 
 function main()
 	local szName = ""
@@ -18,14 +19,15 @@ function main()
 		end
 	end
 	
-	local szNpcName = "<color=green>"..szName.." :<color>"
+	if szName == "" then szName = GetNpcName(GetTargetNpc()) end
+	szNpcName = "<color=green>"..szName.." :<color>";
 	local tSay = {}
 	local szHeader = szNpcName.."Anh hïng t×m ta cã viÖc g× kh«ng?"
 	
 	local nDate = tonumber(date("%y%m%d"));		
 	-- Ho¹t ®éng t¹o m©m ngò qu¶ n¨m 2012
 	if nDate >= 120113 and nDate <= 420201 then
-		tinsert(tSay,"Nhê ThÇn Thó ghÐp gióp ta M©m Ngò Qu¶/blag_blessing")		
+		tinsert(tSay,"[*]Nhê ThÇn Thó ghÐp gióp ta M©m Ngò Qu¶/blag_blessing")		
 	end
 	
 	local nSelfIndex = GetTargetNpc()
@@ -45,17 +47,17 @@ function main()
 	
 	-- NhiÖm vô ChuyÓn Sinh 4
 	if GetTask(TRANSLIFE_MISSION_ID) == 28 and gf_GetTaskByte(TRANSLIFE_TASK_ID, TRANSLIFE_BYTE_COUNT) == 3 then
-		tinsert(tSay, "Ta muèn nhËn thö th¸ch ®Ó luyÖn thµnh Hçn Nguyªn C«ng thµnh thø 8/trans_talk_28")
+		tinsert(tSay, "[*]Ta muèn nhËn thö th¸ch ®Ó luyÖn thµnh Hçn Nguyªn C«ng thµnh thø 8/trans_talk_28")
 	end
 	
 	if GetTask(TRANSLIFE_MISSION_ID) == 29 and gf_GetTaskByte(TRANSLIFE_TASK_ID, TRANSLIFE_BYTE_COUNT) == 3 then
-		tinsert(tSay, "Ta ®· hoµn thµnh nhiÖm vô ®Ó luyÖn Hçn Nguyªn C«ng thµnh thø 8/trans_talk_29")
+		tinsert(tSay, "[*]Ta ®· hoµn thµnh nhiÖm vô ®Ó luyÖn Hçn Nguyªn C«ng thµnh thø 8/trans_talk_29")
 	end
-	tinsert(tSay, "Ta muèn nhËn phÇn th­ëng Cóng TÕ (Tiªu hao 5 N÷ Oa B¶o H¹p vµ 1 Ng«i sao may m¾n)/#confirm_get_award(1)")	
-	tinsert(tSay, "Ta muèn nhËn phÇn th­ëng TrÞ An (Tiªu hao 1 Qu©n C«ng Ch­¬ng, 1 Qu©n C«ng §¹i, 1 Qu©n C«ng Huy Hoµng)/#confirm_get_award(2)")	
-	tinsert(tSay, "Ta muèn nhËn phÇn th­ëng Thñy Lîi (Tiªu hao 1 B¸t Nh· nhá, 1 B¸t Nh· lín, 1 c©y Tø Linh)/#confirm_get_award(3)")	
-	tinsert(tSay, "Ta muèn nhËn phÇn th­ëng LuyÖn §¬n (Tiªu hao 1 Båi Nguyªn §¬n, 1 Tø Linh Quy Nguyªn §¬n, 6 §¹i Ng©n PhiÕu)/#confirm_get_award(4)")	
-	tinsert(tSay, "HiÖn t¹i ch­a muèn lµm g× c¶/do_nothing")
+	tinsert(tSay, "[*]Ta muèn nhËn phÇn th­ëng Cóng TÕ (Tiªu hao 5 N÷ Oa B¶o H¹p vµ 1 Ng«i sao may m¾n)/#confirm_get_award(1)")	
+	tinsert(tSay, "[*]Ta muèn nhËn phÇn th­ëng TrÞ An (Tiªu hao 1 Qu©n C«ng Ch­¬ng, 1 Qu©n C«ng §¹i, 1 Qu©n C«ng Huy Hoµng)/#confirm_get_award(2)")	
+	tinsert(tSay, "[*]Ta muèn nhËn phÇn th­ëng Thñy Lîi (Tiªu hao 1 B¸t Nh· nhá, 1 B¸t Nh· lín, 1 c©y Tø Linh)/#confirm_get_award(3)")	
+	tinsert(tSay, "[*]Ta muèn nhËn phÇn th­ëng LuyÖn §¬n (Tiªu hao 1 Båi Nguyªn §¬n, 1 Tø Linh Quy Nguyªn §¬n, 6 §¹i Ng©n PhiÕu)/#confirm_get_award(4)")	
+	tinsert(tSay, "\nHiÖn t¹i ch­a muèn lµm g× c¶/do_nothing")
 	
 	Say(szHeader, getn(tSay), tSay)
 end

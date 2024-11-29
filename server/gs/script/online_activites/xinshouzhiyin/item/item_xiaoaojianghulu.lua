@@ -6,6 +6,7 @@ Include("\\script\\online\\viet_event\\volambaohap\\head.lua")
 Include("\\script\\online_activites\\2010_11\\activity_01\\head.lua")
 Include("\\script\\task\\faction_boss\\wulinmeng_teshi.lua")
 Include("\\script\\online\\viet_event\\firework_10\\award_csm_5.lua")
+Include("\\script\\online_activites\\2010_11\\activity_02\\head.lua") -- Added at 07/11/2020
 Include("\\script\\online_activites\\2011_10\\activity_03\\teacher_day.lua")
 Include("\\script\\online_activites\\xinshouzhiyin\\head.lua")
 Include("\\script\\online_activites\\201203\\gongli\\gongli.lua")
@@ -19,7 +20,7 @@ Include("\\script\\online_activites\\2014_01\\spring2.lua")
 Include("\\script\\online_activites\\xinshouzhiyin\\item\\item_xiaoaojianghulu_head.lua")
 Include("\\script\\online_activites\\2011_08\\activity_02\\baked_cakes_main.lua");
 Include("\\script\\online_activites\\202007\\head.lua");
-
+Include("\\script\\online\\viet_event\\200908\\viet0908_head.lua");
 
 
 szNPCName = "<color=green>Long Hæ Sø<color>: "
@@ -35,55 +36,64 @@ function SayPage1()
 
 	local nDate = tonumber(date("%y%m%d"))
 	local nHour = tonumber(date("%H%M"))
-	local tSay = {}
+	local tbSay = {}
 
 	local szHeader = "Vâ l©m lôc quyÓn, ghi l¹i mäi sù biÕn ®éng trªn giang hå. TiÕu ng¹o phiªu du, tù do tù t¹i!"	 
 	-----------
-	tinsert(tSay, "ChÕ t¹o mét sè vËt phÈm/makeThings"); 
-	tinsert(tSay, "ChÕ biÕn mét sè vËt phÈm/cheBien"); 
-	tinsert(tSay, "Khai th¸c mét sè vËt phÈm/showListKhaiThac"); 
-	tinsert(tSay, "Tham gia tÝnh n¨ng Vâ L©m B¶o H¹p/vlbh_active")
-	if nDate >= 121012 then
-		if (nHour >= 0800 and nHour <= 1000) or (nHour >= 1530 and nHour <= 1730) or (nHour >= 2000 and nHour <= 2200) then
-			tinsert(tSay, "NhËn Vâ L©m B¶o H¹p/Rec_VLBH")
-			tinsert(tSay, "NhËn Vâ L©m B¶o H¹p tiÖn lîi (20 c¸i - tiªu hao 20 vµng)/Rec_VLBH_2")
-		end
-	end
-	tinsert(tSay, "Tham gia ho¹t ®éng T«n s­ träng ®¹o/showEventTonSu")
+	tinsert(tbSay, "ChÕ t¹o mét sè vËt phÈm/makeThings"); 
+	tinsert(tbSay, "ChÕ biÕn mét sè vËt phÈm/cheBien"); 
+	tinsert(tbSay, "Khai th¸c mét sè vËt phÈm/showListKhaiThac"); 
 	
-	tinsert(tSay, "Ta muèn nhËn nhiÖm vô TiÕu Ng¹o Giang Hå!/accept_tngh_task")	;
-	tinsert(tSay, "Më tiÖm trao ®æi mét sè vËt phÈm/exchangeItems");
-	tinsert(tSay, "Danh s¸ch c¸c ho¹t ®éng/showActivities"); 
-	tinsert(tSay, "\n§ãng cÈm nang/do_nothing");
+	-- Because the following is unreal so moved it to activity_ambassador (§¹i sø ho¹t ®éng)
+	-- if nDate >= 121012 then 
+		-- if (nHour >= 0800 and nHour <= 1000) or (nHour >= 1530 and nHour <= 1730) or (nHour >= 2000 and nHour <= 2200) then
+			-- tinsert(tbSay, "NhËn Vâ L©m B¶o H¹p/Rec_VLBH")
+			-- tinsert(tbSay, "NhËn Vâ L©m B¶o H¹p tiÖn lîi (20 c¸i - tiªu hao 20 vµng)/Rec_VLBH_2")
+		-- end
+	-- end
+	-- tbSay = getExtendActivities(tbSay);
 	
-	Say(szHeader, getn(tSay), tSay)
+	tinsert(tbSay, "\n§ãng cÈm nang/do_nothing");
+	
+	Say(szHeader, getn(tbSay), tbSay)
 end
 
+function getExtendActivities(tbSay)
+
+	tinsert(tbSay, "Tham gia tÝnh n¨ng Vâ L©m B¶o H¹p/vlbh_active")
+	tinsert(tbSay, "Tham gia ho¹t ®éng T«n s­ träng ®¹o/showEventTonSu")
+	tinsert(tbSay, "Ta muèn nhËn nhiÖm vô TiÕu Ng¹o Giang Hå!/accept_tngh_task")
+	tinsert(tbSay, "Më tiÖm trao ®æi mét sè vËt phÈm/exchangeItems");
+	tinsert(tbSay, "Danh s¸ch c¸c ho¹t ®éng kh¸c/showActivities");
+	return tbSay;
+end;
+
 function showEventTonSu()
-	local tSay = {}
+	local tbSay = {}
 	local szHeader = "---- T«n s­ träng ®¹o ---";
 	local nDate = tonumber(date("%y%m%d"))
 	if nDate >= 111111 and nDate <= 411212 then
-		tinsert(tSay,VET_201009_00_TB_XIAOAOJIANGHULU_TALK_LIST[153].."/check_onlinetime")
-		tinsert(tSay,VET_201009_00_TB_XIAOAOJIANGHULU_TALK_LIST[154].."/exchang_chip")
-		tinsert(tSay,VET_201009_00_TB_XIAOAOJIANGHULU_TALK_LIST[155].."/exchang_zhienbaoxiang")
+		tinsert(tbSay,VET_201009_00_TB_XIAOAOJIANGHULU_TALK_LIST[153].."/check_onlinetime")
+		tinsert(tbSay,VET_201009_00_TB_XIAOAOJIANGHULU_TALK_LIST[154].."/exchang_chip")
+		tinsert(tbSay,VET_201009_00_TB_XIAOAOJIANGHULU_TALK_LIST[155].."/exchang_zhienbaoxiang")
 	end
-	tinsert(tSay, "Trang tr­íc/SayPage1");
-	tinsert(tSay, "\n§ãng cÈm nang/do_nothing");
+	-- tinsert(tbSay, "Trang tr­íc/SayPage1");
+	-- tinsert(tbSay, "\n§ãng cÈm nang/do_nothing");
+	tinsert(tbSay, "\nTho¸t/do_nothing");
 	
-	Say(szHeader, getn(tSay), tSay)
+	Say(szHeader, getn(tbSay), tbSay)
 end;
 
 function showListKhaiThac()
-	tSay = {}
+	tbSay = {}
 	szHeader = "----- Danh s¸ch kÜ n¨ng ----- ";
 	for i=1, getn(tKhaiThac) do
-		tinsert(tSay,format("Khai th¸c mét Ýt %s/#khaithac(%d)",tKhaiThac[i]["target_item"][1][1],i));
+		tinsert(tbSay,format("Khai th¸c mét Ýt %s/#khaithac(%d)",tKhaiThac[i]["target_item"][1][1],i));
 	end
 	
-	tinsert(tSay, "\nTrang tr­íc/SayPage1");
-	tinsert(tSay, "§ãng cÈm nang/do_nothing");
-	Say(szHeader, getn(tSay), tSay);
+	tinsert(tbSay, "\nTrang tr­íc/SayPage1");
+	tinsert(tbSay, "§ãng cÈm nang/do_nothing");
+	Say(szHeader, getn(tbSay), tbSay);
 end;
 
 function khaithac(id)
@@ -133,29 +143,30 @@ end;
 
 
 function exchangeItems()
-	tSay = {}
+	tbSay = {}
 	szHeader = "----- TiÖm trao ®æi mua b¸n di ®éng IOT 4.0 ----- ";
-	tinsert(tSay,"§æi tiÒn/exchangeMoney")
-	tinsert(tSay,"Mua 10 Lé Thñy = 1 vµng/BuyWater")
-	tinsert(tSay,"Mua thuèc trÞ bÖnh/NT_Dialog2")
-	tinsert(tSay,"Ta muèn mua mÆt n¹ S¸t Thñ §­êng (60 vµng)/buy_mask")
-	tinsert(tSay,"NhËn th­ëng ®iÓm ch©n khÝ khi sö dông ch×a khãa vµng trong tuÇn/get_chankhi")
-	tinsert(tSay,"§æi vËt phÈm C«ng Thµnh/exchange_citywar")
-	tinsert(tSay,"Chuéc l¹i qu©n c«ng tæn thÊt trong ngµy (1 ®iÓm = 2 b¹c)/take_jungong_back")
-	tinsert(tSay,"T¹i h¹ muèn mua 1 Hoµng Kim LÖnh Bµi/get_golden_card")	
-	tinsert(tSay,"Ta muèn ®æi 1 M¶nh B¹ch Kim (tiªu hao 1 ch×a khãa Vµng + 599 vµng)/#exchang_Item(1)")
-	tinsert(tSay,"Ta muèn ®æi 4 M¶nh B¹ch Kim (tiªu hao 1 ThÇn Tµi B¶o R­¬ng + 199 vµng/#exchang_Item(2)")
-	tinsert(tSay, "\nTrang tr­íc/SayPage1");
-	tinsert(tSay, "§ãng cÈm nang/do_nothing");
-	Say(szHeader, getn(tSay), tSay);
+	tinsert(tbSay,"§æi tiÒn/exchangeMoney")
+	tinsert(tbSay,"Mua 10 Lé Thñy = 1 vµng/BuyWater")
+	tinsert(tbSay,"Mua thuèc trÞ bÖnh/NT_Dialog2")
+	tinsert(tbSay,"Ta muèn mua mÆt n¹ S¸t Thñ §­êng (60 vµng)/buy_mask")
+	tinsert(tbSay,"NhËn th­ëng ®iÓm ch©n khÝ khi sö dông ch×a khãa vµng trong tuÇn/get_chankhi")
+	tinsert(tbSay,"§æi vËt phÈm C«ng Thµnh/exchange_citywar")
+	tinsert(tbSay,"Chuéc l¹i qu©n c«ng tæn thÊt trong ngµy (1 ®iÓm = 2 b¹c)/take_jungong_back")
+	tinsert(tbSay,"T¹i h¹ muèn mua 1 Hoµng Kim LÖnh Bµi/get_golden_card")	
+	tinsert(tbSay,"Ta muèn ®æi 1 M¶nh B¹ch Kim (tiªu hao 1 ch×a khãa Vµng + 599 vµng)/#exchang_Item(1)")
+	tinsert(tbSay,"Ta muèn ®æi 4 M¶nh B¹ch Kim (tiªu hao 1 ThÇn Tµi B¶o R­¬ng + 199 vµng/#exchang_Item(2)")
+	-- tinsert(tbSay, "\nTrang tr­íc/SayPage1");
+	-- tinsert(tbSay, "§ãng cÈm nang/do_nothing");
+	tinsert(tbSay, "Tho¸t/do_nothing");
+	Say(szHeader, getn(tbSay), tbSay);
 end;
 
 function exchangeMoney()
-	tSay = {}
+	tbSay = {}
 	szHeader = "----- §æi tiÒn ----- ";
 	for i=1, getn(tExchange) do
 		for j=1, getn(tExchange[i]["source"]) do
-			tinsert(tSay, format("§æi %d %s lÊy %d %s/#exchangeWithRate(%d,%d,%d,%d)",
+			tinsert(tbSay, format("§æi %d %s lÊy %d %s/#exchangeWithRate(%d,%d,%d,%d)",
 					tExchange[i]["source"][j][3],
 					tExchange[i]["source"][j][1],
 					tExchange[i]["source"][j][4],
@@ -167,9 +178,9 @@ function exchangeMoney()
 					);
 		end
 	end
-	tinsert(tSay, "\nTrang tr­íc/SayPage1");
-	tinsert(tSay, "§ãng cÈm nang/do_nothing");
-	Say(szHeader, getn(tSay), tSay);
+	-- tinsert(tbSay, "\nTrang tr­íc/SayPage1");
+	tinsert(tbSay, "Tho¸t/do_nothing");
+	Say(szHeader, getn(tbSay), tbSay);
 end;
 
 function exchangeWithRate(nExId, nSourceId, nSourceRate, nTargetRate)
@@ -211,7 +222,7 @@ function _request_number_call_back(nInputed)
 			nInputed
 			);
 	if nDel ~= 1 then
-		Talk("Cã sù gian lËn nµo ë ®©y");
+		Talk("Cã sù gian lËn nµo ë ®©y?!!");
 	else
 		AddItem(
 			tItem["target"][1][2][1],
@@ -219,7 +230,7 @@ function _request_number_call_back(nInputed)
 			tItem["target"][1][2][3],
 			nCount
 			);
-		Msg2Player("Giao di.ch thµnh c«ng!");
+		Msg2Player("Giao dÞch thµnh c«ng!");
 	end
 end;
 
@@ -230,55 +241,70 @@ end;
 
 function showActivities()
 	local nDate = tonumber(date("%y%m%d"));
-	tSay = {}
+	tbSay = {}
 	szHeader = "----- Danh s¸ch ho¹t ®éng -----";
-	tSay = get_tbJNDialog_info(VET_XA_ACTIVITY_TABLE);
+	tbSay = get_tbJNDialog_info(VET_XA_ACTIVITY_TABLE);
+	
+	tinsert(tbSay, "Ho¹t ®éng Quèc kh¸nh 09\/2009/regainDialog");
+	
+	tinsert(tbSay, "Ho¹t ®éng Hoa h­íng d­¬ng 10\/2011/sunflower_main");
 	
 	if gf_CheckEventDateEx(VET_201401_SPRING1_ACTIVITYID) ==  1 then
-		tinsert(tSay,VET_201401_SPRING1_MAIN);
+		tinsert(tbSay,VET_201401_SPRING1_MAIN);
 	end
 	if gf_CheckEventDateEx(VET_201401_VALENTINE_ACTIVITYID) ==  1 then
-		tinsert(tSay,VET_201401_VALENTINE_MAIN);
+		tinsert(tbSay,VET_201401_VALENTINE_MAIN);
 	end
 	if gf_CheckEventDateEx(VET_201401_SPRING2_ACTIVITYID) ==  1 then
-		tinsert(tSay,VET_201401_SPRING2_MAIN);
+		tinsert(tbSay,VET_201401_SPRING2_MAIN);
 	end
 	---------
 	if gf_CheckEventDateEx(VET_201203_GONGLI_ID) == 1 then
-		tinsert(tSay,VET_201203_KuiZheng_tbMain)
+		tinsert(tbSay,VET_201203_KuiZheng_tbMain)
 	end	
 	if GetGlbValue(1023) == 80 and nDate <= 430811 then
-		tinsert(tSay,"Hç trî C«n L«n §iÖn/VLBH_HotroConLon")
+		tinsert(tbSay,"Hç trî C«n L«n §iÖn/VLBH_HotroConLon")
 	end
 	
 	if gf_CheckEventDateEx(VET_201302_VALENTINE) == 1 then
-		tinsert(tSay,"Event LÔ T×nh Nh©n/get_tinhnhan")
+		tinsert(tbSay,"Event LÔ T×nh Nh©n/get_tinhnhan")
 	end	
 	if nDate >= 120120 and nDate <= 420122 and GetGlbValue(GLB_TSK_SERVER_ID) == 70 then
-		tinsert(tSay, "NhËn ®Òn bï ®iÓm kinh nghiÖm m¸y chñ Thµnh Long/award_give_500_mil")
+		tinsert(tbSay, "NhËn ®Òn bï ®iÓm kinh nghiÖm m¸y chñ Thµnh Long/award_give_500_mil")
 	end
 	if nDate >= 110705 and nDate <= 410805 then
-		tinsert(tSay, "NhËn th­ëng ch­¬ng tr×nh CSM 5.0/award_CSM5")
+		tinsert(tbSay, "NhËn th­ëng ch­¬ng tr×nh CSM 5.0/award_CSM5")
 	end
 --	NhËn th­ëng TTGC
 	if nDate >= 111213 and nDate <= 420102 then
-		tinsert(tSay, "NhËn th­ëng ThÇn Tµi Gâ Cöa/GiveAwardTTGS")
+		tinsert(tbSay, "NhËn th­ëng ThÇn Tµi Gâ Cöa/GiveAwardTTGS")
 	end	
 -------------	
-	tinsert(tSay, "\nTrang tr­íc/SayPage1");
-	tinsert(tSay, "§ãng cÈm nang/do_nothing");
-	Say(szHeader, getn(tSay), tSay);
+	-- tinsert(tbSay, "\nTrang tr­íc/SayPage1");
+	-- tinsert(tbSay, "§ãng cÈm nang/do_nothing");
+	tinsert(tbSay, "Tho¸i/do_nothing");
+	Say(szHeader, getn(tbSay), tbSay);
+end;
+
+function sunflower_main()
+	local tbSay = {}
+	local szHeader;
+	tbSay, szHeader = SF_dialog(tbSay, szHeader);
+	tinsert(tbSay, "\nTrang tr­íc/showActivities");
+	-- tinsert(tbSay, "§ãng cÈm nang/do_nothing");
+	tinsert(tbSay, "Tho¸t/nothing");
+	Say(szHeader,getn(tbSay),tbSay);
 end;
 
 function cheBien()
-	tSay = {}
-	tinsert(tSay, "N­íng b¸nh Trung Thu 2011/nuongBanh2011");
+	tbSay = {}
+	tinsert(tbSay, "N­íng b¸nh Trung Thu 2011/nuongBanh2011");
 	for i=1,getn(tCheBien) do
-		tinsert(tSay, "N­íng "..tCheBien[i]["products"][1][1]..format("/#cook(%d)",i));
+		tinsert(tbSay, "N­íng "..tCheBien[i]["products"][1][1]..format("/#cook(%d)",i));
 	end
-	tinsert(tSay, "\nTrang chÝnh/SayPage1");
-	tinsert(tSay, "Tho¸t/nothing");
-	Say("----- Chän vËt phÈm cÇn chÕ biÕn -----",getn(tSay),tSay);
+	tinsert(tbSay, "\nTrang chÝnh/SayPage1");
+	tinsert(tbSay, "Tho¸t/nothing");
+	Say("----- Chän vËt phÈm cÇn chÕ biÕn -----",getn(tbSay),tbSay);
 end;
 
 function nuongBanh2011()
@@ -291,15 +317,15 @@ function nuongBanh2011()
 end;
 
 function cook()
-	tSay = {}
+	tbSay = {}
 	for i=1, getn(tOvens) do
-		tinsert(tSay, format("Thuª %s (tiªu %d vµng, søc chøa %d)/#createLoNuong(%d)", 
+		tinsert(tbSay, format("Thuª %s (tiªu %d vµng, søc chøa %d)/#createLoNuong(%d)", 
 			tOvens[i][2],tOvens[i][3]/10000,tOvens[i][4],i));
 	end
-	tinsert(tSay, "Dùng löa tr¹i/createtLuaTrai");
-	tinsert(tSay, "\nTrang chÝnh/SayPage1");
-	tinsert(tSay, "Tho¸t/nothing");
-	Say("----- Chän vËt phÈm cÇn chÕt¹o -----",getn(tSay),tSay);
+	tinsert(tbSay, "Dùng löa tr¹i/createtLuaTrai");
+	tinsert(tbSay, "\nTrang chÝnh/SayPage1");
+	tinsert(tbSay, "Tho¸t/nothing");
+	Say("----- Chän vËt phÈm cÇn chÕt¹o -----",getn(tbSay),tbSay);
 end;
 
 function createtLuaTrai()
@@ -355,13 +381,13 @@ function createLoNuong(nType)
 end;
 
 function makeThings()
-	tSay = {}
+	tbSay = {}
 	for i=1,getn(tHandMade) do
-		tinsert(tSay, "ChÕ t¹o "..tHandMade[i]["target_item"][1][1]..format("/#makeThing(%d)",i));
+		tinsert(tbSay, "ChÕ t¹o "..tHandMade[i]["target_item"][1][1]..format("/#makeThing(%d)",i));
 	end
-	tinsert(tSay, "\nTrang chÝnh/SayPage1");
-	tinsert(tSay, "Tho¸t/nothing");
-	Say("----- Chän vËt phÈm cÇn chÕt¹o -----",getn(tSay),tSay);
+	tinsert(tbSay, "\nTrang chÝnh/SayPage1");
+	tinsert(tbSay, "Tho¸t/nothing");
+	Say("----- Chän vËt phÈm cÇn chÕt¹o -----",getn(tbSay),tbSay);
 end;
 
 function makeThing(nIndex)
@@ -437,16 +463,16 @@ function makeThing(nIndex)
 end;
 
 function get_chankhi()
-	local tSay = {}
+	local tbSay = {}
 	local szHeader = "NhËn th­ëng ®iÓm Ch©n KhÝ khi sö dông Ch×a Khãa Vµng "
 	.."(<color=green>Quý ®ång ®¹o chØ ®­îc nhËn 1 lÇn trong tuÇn.<color>)"
 	
-	--tinsert(tSay, "Sö dông 5-9 ch×a khãa nhËn 600 ®iÓm ch©n khÝ (tiªu hao 33 Xu vËt phÈm)/#confirm_get_chankhi(1)")
-	--tinsert(tSay, "Sö dông 10-14 ch×a khãa nhËn 1200 ®iÓm ch©n khÝ (tiªu hao 66 Xu vËt phÈm)/#confirm_get_chankhi(2)")
-	tinsert(tSay, "Sö dông 15 ch×a khãa nhËn 2500 ®iÓm ch©n khÝ (tiªu hao 99 Xu vËt phÈm)/#confirm_get_chankhi(3)")
-	tinsert(tSay, "T¹i h¹ sÏ quay l¹i sau/do_nothing")
+	--tinsert(tbSay, "Sö dông 5-9 ch×a khãa nhËn 600 ®iÓm ch©n khÝ (tiªu hao 33 Xu vËt phÈm)/#confirm_get_chankhi(1)")
+	--tinsert(tbSay, "Sö dông 10-14 ch×a khãa nhËn 1200 ®iÓm ch©n khÝ (tiªu hao 66 Xu vËt phÈm)/#confirm_get_chankhi(2)")
+	tinsert(tbSay, "Sö dông 15 ch×a khãa nhËn 2500 ®iÓm ch©n khÝ (tiªu hao 99 Xu vËt phÈm)/#confirm_get_chankhi(3)")
+	tinsert(tbSay, "T¹i h¹ sÏ quay l¹i sau/do_nothing")
 	
-	Say(szHeader, getn(tSay), tSay)
+	Say(szHeader, getn(tbSay), tbSay)
 end
 
 function accept_tngh_task()
@@ -467,12 +493,12 @@ function BuyWater()
 end
 
 function exchange_citywar()
-	local tSay = {
+	local tbSay = {
 		"§æi 8 Dòng SÜ LÖnh (cÇn 1 Th­ tiÕn cö)/exchange_warriorling",
 		"§æi 6 C«ng thµnh Tiªn Phong (cÇn 1 Th­ tiÕn cö)/exchange_citywarling",
 		"KÕt thóc ®èi tho¹i/do_nothing",
 	}
-	Say("C¸c h¹ muèn ®æi vËt phÈm nµo?",getn(tSay),tSay)
+	Say("C¸c h¹ muèn ®æi vËt phÈm nµo?",getn(tbSay),tbSay)
 end
 
 function exchange_warriorling()
@@ -572,26 +598,26 @@ function vlbh_active()
 --		Talk(1,"","Max Skill 55 míi cã thÓ tham gia ho¹t ®éng  ")
 --		return
 --	end
-	local tSay = {}
+	local tbSay = {}
 	local szHeader = "Ho¹t ®éng Vâ L©m B¶o H¹p!\n"
 			.. "Vâ l©m b¶o h¹p cã thÓ nhËn vµo c¸c khung giê: 08:00 - 10:00, 15:30 - 17:30, 20:00 - 22:00.";
 	--if (nHour >= 0800 and nHour <= 1000) or (nHour >= 1530 and nHour <= 1730) or (nHour >= 2000 and nHour <= 2200) then
-		tinsert(tSay, "NhËn Vâ L©m B¶o H¹p/Rec_VLBH")
-		--tinsert(tSay, "NhËn Vâ L©m B¶o H¹p/CloseFeature")
-		tinsert(tSay, "NhËn Vâ L©m B¶o H¹p tiÖn lîi (20 c¸i - tiªu hao 20 vµng)/Rec_VLBH_2")
-		tinsert(tSay, "Dïng vµng ®æi c¸c lo¹i ch×a khãa/vlbh_exchange_key_gold")
-		tinsert(tSay, "Dïng xu vËt phÈm ®æi c¸c lo¹i ch×a khãa/vlbh_exchange_key_xu")
-		tinsert(tSay, "NhËn th­ëng c¸c lo¹i ch×a khãa/vlbh_receive_key_prize")
+		tinsert(tbSay, "NhËn Vâ L©m B¶o H¹p/Rec_VLBH")
+		--tinsert(tbSay, "NhËn Vâ L©m B¶o H¹p/CloseFeature")
+		tinsert(tbSay, "NhËn Vâ L©m B¶o H¹p tiÖn lîi (20 c¸i - tiªu hao 20 vµng)/Rec_VLBH_2")
+		tinsert(tbSay, "Dïng vµng ®æi c¸c lo¹i ch×a khãa/vlbh_exchange_key_gold")
+		tinsert(tbSay, "Dïng xu vËt phÈm ®æi c¸c lo¹i ch×a khãa/vlbh_exchange_key_xu")
+		tinsert(tbSay, "NhËn th­ëng c¸c lo¹i ch×a khãa/vlbh_receive_key_prize")
 
-		tinsert(tSay, "\nTrang tr­íc/SayPage1");
-		tinsert(tSay, "T¹i h¹ sÏ quay l¹i sau/do_nothing")
+		-- tinsert(tbSay, "\nTrang tr­íc/SayPage1");
+		tinsert(tbSay, "T¹i h¹ sÏ quay l¹i sau/do_nothing")
 	--else
 		--Talk(1,"","Ch­a ®Õn giê nhËn b¶o h¹p, c¸c h¹ vui lßng quay l¹i sau");
 		--return
 	--end
---	tinsert(tSay, "Shop ch×a khãa vµng/gold_key_shop")	
+--	tinsert(tbSay, "Shop ch×a khãa vµng/gold_key_shop")	
 
-	Say(szHeader, getn(tSay), tSay)
+	Say(szHeader, getn(tbSay), tbSay)
 end
 function CloseFeature()
 	Talk(1, "", "TÝnh n¨ng Vâ L©m B¶o H¹p ®ang t¹m ®ãng, ®¹i hiÖp h·y quay l¹i sau !!!")

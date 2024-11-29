@@ -691,6 +691,7 @@ end;
 function handleString(szInputted)
 	
 	local t = split(szInputted);
+	
 	local nTableLen = getn(t);
 	local na = -1; -- Not applicate
 	-- print("nTableLen: "..nTableLen);
@@ -746,6 +747,7 @@ function handleString(szInputted)
 			nCoorX = handleCoorX(t[2]);
 			nCoorY = handleCoorY(t[3]);
 		else
+			Talk(1,"",format("Tham sè ®· nhËp: [%s] [%s] [%s]",t[1],t[2],t[3]));
 			Talk(1,"",szException);
 			return 0;
 		end
@@ -900,7 +902,7 @@ function trimAndLowerString(str)
 end;
 
 function isNummeric(str)
-	return str == tostring(tonumber(str));
+	return trim(str) == tostring(tonumber(str));
 end
 
 function nothing()

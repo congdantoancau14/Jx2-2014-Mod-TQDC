@@ -3428,3 +3428,51 @@ function gf_StrSplit(src, sep)
 	--gf_PrintTable(fields)
 	return fields;
 end
+
+-------------------------------------------------------------------------------
+--							MODIFIED FUNCTIONS
+-------------------------------------------------------------------------------
+
+function tablesplit(table,nBegin,nEnd)
+	local TABLEEND = getn(table);
+	if nBegin == 1 and nEnd == TABLEEND then 
+		print("The table are trying to splited is the same size with the original.");
+		return table;
+	end
+
+	if nEnd > TABLEEND then 
+		print("error: tablesplit >> globalfunctions >> The end point is larger than the table length.");
+		return 0;
+	end
+	local tItemsTake = {}
+	local tItemsLeft = {}
+	local tItemsLeftHeadPart = {}
+	local tItemsLeftEndPart = {}
+	
+	if nBegin == 1 then 
+		for i=nBegin, nEnd do 
+			tinsert(tItemsTake,table[i]);
+		end
+		for i=nEnd+1, TABLEEND do 
+			tinsert(tItemsLeft,table[i]);
+		end
+	elseif nEnd == TABLEEND then
+		for i=nBegin, nEnd do 
+			tinsert(tItemsLeft,table[i]);
+		end
+		for i=nEnd+1, TABLEEND do 
+			tinsert(tItemsTake,table[i]);
+		end
+	else
+		for i=1, nBegin-1 do 
+			tinsert(tItemsLeftHeadPart,table[i]);
+		end	
+		for i=nBegin, nEnd do 
+			tinsert(tItemsTake,table[i]);
+		end
+		for i=nEnd+1, TABLEEND do 
+			tinsert(tItemsLeftEndPart,table[i]);
+		end	
+	end	
+	return tItemsTake, tItemsLeft or tItemsLeftHeadPart, tItemsLeftEndPart;
+end;

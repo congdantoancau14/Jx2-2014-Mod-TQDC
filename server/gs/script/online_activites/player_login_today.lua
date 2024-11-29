@@ -7,6 +7,8 @@ function PLT_OnPlayerLogin()
 	local curDay = tonumber(date("%d"));
 	--WriteLog("lastLoginYear: "..lastLoginYear..", lastLoginMonth: "..lastLoginMonth..", lastLoginDay: "..lastLoginDay..", lastLoginHour: "..lastLoginHour);
 	--WriteLog("curYear: "..curYear..", curMonth: "..curMonth..", curDay: "..curDay);
+	-- print("lastLoginYear: "..lastLoginYear..", lastLoginMonth: "..lastLoginMonth..", lastLoginDay: "..lastLoginDay..", lastLoginHour: "..lastLoginHour);
+	-- print("curYear: "..curYear..", curMonth: "..curMonth..", curDay: "..curDay);
 	if lastLoginYear ~= curYear or lastLoginMonth ~= curMonth or lastLoginDay ~= curDay then
 		PLT_OnPlayer1stLoginToday();
 	end
@@ -14,5 +16,6 @@ end
 
 function PLT_OnPlayer1stLoginToday()
 	--WriteLog("PLT_OnPlayer1stLoginToday::called");
+	-- print("PLT_OnPlayer1stLoginToday::called");
 	NT_OnPlayer1stLoginToday();
 end

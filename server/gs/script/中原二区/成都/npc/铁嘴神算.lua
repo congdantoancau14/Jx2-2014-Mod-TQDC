@@ -12,14 +12,18 @@ Include("\\script\\task\\teach\\teach_main.lua");
 
 function main()
 
-	local nState = TE_GetTeachState()
-	local nLevel = GetLevel()
+	-- local nState = TE_GetTeachState()
+	-- local nLevel = GetLevel()
 	
-	if (nState==11) then
-		task_011();
-		return
+	-- if (nState==11) then
+		-- task_011();
+		-- return
+	-- else
+	if random(3) == 1 then
+		Talk(1,"","Nh×n c¸c h¹ Ên ®­êng ph¸t s¸ng, kh«ng cÇn tÝnh còng biÕt lµ tiÒn ®å v« l­îng!");
 	else
 		Talk(1,"","Gi¸p th©n mïng 5 th¸ng 1, kinh trËp, trêi l¹nh, cã ng­êi d­íi quª lªn, thÝch hîp c­íi hái, kþ thæ méc, h­íng ®«ng nam tèt!");
-	end;
+	end
+	-- end;
 	
 end;

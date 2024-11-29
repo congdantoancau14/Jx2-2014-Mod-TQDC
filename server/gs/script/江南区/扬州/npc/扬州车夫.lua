@@ -10,6 +10,8 @@
 --Include("\\script\\task\\teach\\teach_main.lua");
 
 Include("\\script\\lib\\transport_head.lua")
+Include("\\script\\lib\\npccmdhead.lua");
+Include("\\script\\mod\\carriage\\carriage_head.lua");
 
 function main()
 
@@ -45,13 +47,15 @@ function main()
 		"Kh«ng ®i ®©u c¶/no")
 	else
 		Say("Lé phÝ chØ cã <color=yellow>"..szTransportPrice.." l­îng<color> th«i, ng­¬i muèn ®i ®©u?",
-		7,
+		9,
 		"Thµnh §« ("..szTransportPrice.." l­îng)/chengdu",
 		"TuyÒn Ch©u ("..szTransportPrice.." l­îng)/quanzhou",
 		"BiÖn Kinh ("..szTransportPrice.." l­îng b¹c)/bianjing",
 		"T­¬ng D­¬ng ("..szTransportPrice.." l­îng)/xiangyang",
 		"§¹i Lý ("..szTransportPrice.." l­îng)/dali",
 		"Phông T­êng ("..szTransportPrice.." l­îng b¹c)/fengxiang",
+		"Ta muèn thuª xe ngùa/rentCarriage",
+		"Ta muèn tr¶ xe ngùa/returnCarriage",
 		"Kh«ng ®i ®©u c¶/no")
 	return
 	end	

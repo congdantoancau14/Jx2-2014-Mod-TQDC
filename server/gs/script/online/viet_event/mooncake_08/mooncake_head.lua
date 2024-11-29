@@ -36,3 +36,6 @@ function is_mooncake_viet_open()
 	end
 end
 
+function get_mooncake_info()
+	Talk(1,"","Ho¹t ®éng \"Truy t×m lång ®Ìn may m¾n\" diÔn ra tõ 05-09-2008 ®Õn 24:00 ngµy 05-10-2008. Lång §Ìn sÏ xuÊt hiÖn Tõ 11:00 ®Õn 14:00 vµ tõ 21:00 ®Õn 24:00 vµo c¸c ngµy Thø 6, Thø 7 vµ Chñ nhËt h»ng tuÇn. Trong thêi gian nµy, ng­êi ch¬i ®Õn NPC TiÓu §ång ®Ó nhËn “NÕn vµng”. ë tr¹ng th¸i chiÕn ®Êu, ng­êi ch¬i mang NÕn Vµng ®Õn c¸c b¶n ®å ®Ó th¾p s¸ng Lång §Ìn May M¾n, sÏ cã c¬ héi nhËn ®­îc phÇn th­ëng ®iÓm kinh nghiÖm vµ c¸c vËt phÈm cã gi¸ trŞ.");
+end;

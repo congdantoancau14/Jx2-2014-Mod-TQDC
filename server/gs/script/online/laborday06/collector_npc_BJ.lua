@@ -14,7 +14,7 @@ function main()
 			"§æi lÊy phÇn th­ëng./handin",
 			"Lµm sao ®Ó b¸n vËt phÈm?/knowhow",
 			"Xem néi dung ho¹t ®éng./#knowdetail(1)",
-			"tra xem vËt liÖu ®· nép./#queryinfor(1)",
+			"Tra xem vËt liÖu ®· nép./#queryinfor(1)",
 			"NhËn s¸ch c«ng lao Tô B¶o Trai./#getbook(1)",
 			"KÕt thóc ®èi tho¹i/nothing",
 			};

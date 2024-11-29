@@ -5,16 +5,17 @@ NT_ActivityID = 16;
 
 NT_TitleTable = 
 {
-	{"", 0, 0, 76},
+	{"", 0, 0, 50}, -- Original 0,0,76
 	{"C¶m", 65, 19, 2},
 	{"Sæ Mòi", 65, 20, 2},
 	{"Tiªu Ch¶y", 65, 21, 2},
 	{"Ho", 65, 22, 2},
 	{"Nhøc §Çu", 65, 23, 2},
 	{"§au Bông", 65, 24, 2},
---	{"Chãng MÆt", 65, 25, 2},
+	{"Chãng MÆt", 65, 25, 2},
 	{"Th©n ThÓ C­êng Tr¸ng", 65, 26, 6},
 	{"Tinh ThÇn Ho¹t B¸t", 65, 27, 6},
+	{"Tinh ThÇn Ho¹t B¸t", 65, 28, 6},
 };
 
 NT_ItemTable = 
@@ -70,10 +71,11 @@ function NT_GetTitleName(type1, type2)
 end
 
 function NT_AddTitle(type1, type2)
+	-- print("NT_AddTitle");
 	local name = NT_GetTitleName(type1, type2);
 	if 0 ~= type1 and 0 ~= type2 then
 		--WriteLog("NT_AddTitle::add title{"..type1..", "..type2.."}");	
-		Msg2Player("C¸c h¹ c¶m thÊy"..name..", nhËn ®­îc"..name.."hiÖu øng");		
+		Msg2Player("C¸c h¹ c¶m thÊy "..name..", nhËn ®­îc "..name.." hiÖu øng");		
 		AddTitle(type1, type2);
 		SetCurTitle(type1, type2);
 		
@@ -95,16 +97,22 @@ end
 
 function NT_OnPlayer1stLoginToday()
 	local nDate = tonumber(date("%y%m%d"))
+	-- print("NT_OnPlayer1stLoginToday::checking date . . .");
 	if nDate == GetTask(VET_201009_00_TASK_FLAG_TITLE) then
 		return
 	end
 	--WriteLog("NT_OnPlayer1stLoginToday::called");
+	-- print("NT_OnPlayer1stLoginToday::called");
+	
 	local chance = random(1, 100);
 	--WriteLog("NT_OnPlayer1stLoginToday::chance: "..chance);
+	-- print("NT_OnPlayer1stLoginToday::chance: "..chance);
 	local tmp = 0;
 	local type1 = 0;
 	local type2 = 0;
 	for i=1, getn(NT_TitleTable) do
+		-- print("NT_OnPlayer1stLoginToday::tmp: "..tmp);
+		-- print("NT_OnPlayer1stLoginToday::tmp+: "..tmp + NT_TitleTable[i][4]);
 		if tmp < chance and chance <= tmp + NT_TitleTable[i][4] then
 			type1 = NT_TitleTable[i][2];
 			type2 = NT_TitleTable[i][3];
@@ -112,7 +120,9 @@ function NT_OnPlayer1stLoginToday()
 		else
 			tmp = tmp + NT_TitleTable[i][4];
 		end
+		
 	end
+	-- print("NT_OnPlayer1stLoginToday::checktype",type1,type2);
 	if type1 == 0 and type2 == 0 then	
 		return
 	end

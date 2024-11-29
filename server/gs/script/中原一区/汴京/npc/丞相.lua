@@ -6,7 +6,6 @@ Include("\\script\\lib\\time.lua");
 Include("\\script\\online\\viet_event\\nationality\\head.lua");
 Include("\\script\\online\\viet_event\\vng_task_control.lua");
 Include("\\script\\vng\\config\\newserver.lua");
-Include("\\script\\online\\zgc_npc_dialog.lua");
 
 THIS_RELAY_CALLBACK_SCRIPT = "\\script\\ÖÐÔ­Ò»Çø\\ãê¾©\\npc\\Ø©Ïà.lua";
 g_szInfoHeader = "<color=green>TriÖu Phæ<color>:";
@@ -208,11 +207,11 @@ function main()
 	tinsert(selTab, "Ta muèn b¶o toµn qu©n c«ng khi chuyÓn server/apply_jungong_save")	
 	--tinsert(selTab, "Hñy bá kÝch ho¹t sö dông §Çu Thµnh TÝn, §Çu Thµnh Th­, §Çu Thµnh BiÓu/turn_off")
 
+	
 	--local nYear,nMonth,nDay,nHour = get_date(g_nBuChangEndDate);
 	--if g_nBuChangEndDate ~= 0 and nDate >= g_nBuChangBeginDate and nDate <= g_nBuChangEndDate then
 	--	tinsert(selTab,format("Ta muèn nhËn båi th­êng (KÕt thóc: N¨m %d Th¸ng %d Ngµy %d %d giê)/get_compensation",nYear,nMonth,nDay,nHour));
 	--end;
-	tinsert(selTab,"Ta muèn röa tay g¸c kiÕm, tho¸i Èn giang hå/actor_deldialog");
 	tinsert(selTab,"Kh«ng cã g×/nothing");
 	Say("L·o phu lµ thõa t­íng cña triÒu ®×nh, t×m ta cã viÖc g× kh«ng?",getn(selTab),selTab);
 end

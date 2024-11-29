@@ -1335,9 +1335,9 @@ function know_detail()
 				"h¹ng/know_detail_3",
 				"§iÓm/know_detail_4",
 				--"½±Àø/know_detail_5",
-				"Kh«ng cÇn/nothing",
+				"T¹m thêi kh«ng cÇn/nothing",
 				}
-	Say(g_szInfoHead.."B¹n muèn biÕt ph­¬ng diÖn nµo?",getn(selTab),selTab);
+	Say(g_szInfoHead.."C¸c h¹ muèn biÕt ph­¬ng diÖn nµo?",getn(selTab),selTab);
 end;
 
 function know_detail_1()

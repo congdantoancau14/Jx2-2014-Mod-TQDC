@@ -15,7 +15,7 @@ TYPE_CMD = 3;	--命令
 
 --=========================================================================================
 g_szLogTitle = "Ho箃 ng trung thu : ".."B竛h Trung thu c bi謙"		--此处分为2段只是为了不增加新的翻译
-g_nVietUseMoonCakeEnd = 2008101300				--月饼的使用截止日期
+g_nVietUseMoonCakeEnd = 2048101300				--月饼的使用截止日期
 g_nNeedRoom = 1;
 g_nNeedWeight = 20;	
 g_nDenominator = 1000000						--分母，表示概率的单位是x分之1

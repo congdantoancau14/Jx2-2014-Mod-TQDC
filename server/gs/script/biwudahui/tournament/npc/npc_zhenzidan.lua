@@ -247,12 +247,11 @@ function xunzhang_award()
 				"§æi phÇn th­ëng s­ m«n/xz_award_shimen",
 				"§æi phÇn th­ëng Linh th¹ch/xz_award_lingshi",
 				"§æi phÇn th­ëng kinh nghiÖm/xz_award_jingyan",
-				"\nT¹m thêi kh«ng ®æi/nothing",
 				}
 if _JX2WZ ~= 1 then
 	tinsert(selTab, "§æi phÇn th­ëng chiÕn trËn/xz_award_battle");
 end
-
+	tinsert(selTab, "\nT¹m thêi kh«ng ®æi/nothing");
 	Say(g_szInfoHead.."Ng­¬i muèn ®æi phÇn th­ëng g×?",getn(selTab),selTab);
 end;
 
@@ -394,12 +393,12 @@ function give_lingshi(nCount)
 	local szString = "";
 	for i=1,getn(tbNum) do
 		if tbNum[i] ~= 0 then
-			szString = szString.."B¹n nhËn ®­îc "..i.." (cÊp) Linh Th¹ch"..tbNum[i].." viªn,";
+			szString = szString.."B¹n nhËn ®­îc "..i.." (cÊp) Linh Th¹ch x"..tbNum[i].." viªn; ";
 			lspf_AddLingShiInBottle(i,tbNum[i]);
 		end;
 	end;
 	Msg2Player(szString.." ®· cho vµo Tô Linh ®Ønh");
-	WriteLog("[PhÇn th­ëng §¹i héi tû vâ]:"..GetName().."NhËn ®­îc"..nCount.." viªn Linh th¹ch: "..szString);
+	WriteLog("[PhÇn th­ëng §¹i héi tû vâ]:"..GetName().." nhËn ®­îc "..nCount.." viªn Linh th¹ch: "..szString);
 end;
 --¾­Ñé½±Àø================================================================================
 function xz_award_jingyan()

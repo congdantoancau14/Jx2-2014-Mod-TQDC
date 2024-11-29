@@ -7,7 +7,7 @@
 Include("\\script\\lib\\writelog.lua")
 szLogTrungThuName = "Hoat Dong Trung Thu"
 
-g_VietMoonCake08End = 2008100600				--原料包的使用截止日期
+g_VietMoonCake08End = 2048100600				--原料包的使用截止日期
 
 g_YuanLiaoList = 
 {

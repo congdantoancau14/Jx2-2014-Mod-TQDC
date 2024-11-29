@@ -1734,6 +1734,89 @@ end
 --	end
 --end
 
+function _65_19_(type, stateID)
+	if 2 == type then
+		CastState("state_life_max_percent_add", -15, -1, 1, stateID);
+		Msg2Player("HiÖu øng:  Sinh mÖnh gi¶m 15%");		
+	end
+end
+
+function _65_20_(type, stateID)
+	if 2 == type then
+		CastState("state_neili_max_percent_add", -15, -1, 1, stateID);
+		Msg2Player("HiÖu øng:  Néi lùc gi¶m 15%");		
+	end
+end
+
+function _65_21_(type, stateID)
+	if 2 == type then
+		CastState("state_physical_parmor_poi_dec", -15, -1, 1, stateID);
+		Msg2Player("HiÖu øng:  Ngo¹i phßng gi¶m 15%");		
+	end
+end
+
+function _65_22_(type, stateID)
+	if 2 == type then
+		CastState("state_magic_parmor_poi_dec", -15, -1, 1, stateID);
+		Msg2Player("HiÖu øng:  Néi phßng gi¶m 15%");		
+	end
+end
+
+function _65_23_(type, stateID)
+	if 2 == type then
+		CastState("state_attack_speed_dec", -50, -1, 1, stateID);
+		Msg2Player("HiÖu øng:  Tèc ®é tÊn c«ng gi¶m 50%");		
+	end
+end
+
+function _65_24_(type, stateID)
+	if 2 == type then
+		CastState("state_burst_enhance_rate", -50, -1, 1, stateID);
+		Msg2Player("HiÖu øng:  Tèc ®é xuÊt chiªu 50%");		
+	end
+end
+
+function _65_25_(type, stateID)
+	if 2 == type then
+		CastState("state_slow", 20, -1, 1, stateID);
+		Msg2Player("HiÖu øng:  Tèc ®é di chuyÓn gi¶m 20%");
+	end
+end
+
+function _65_29_(type, stateID)
+	if 2 == type then
+		CastState("state_add_allability", 25, -1, 1, stateID);
+		Msg2Player("HiÖu øng:  Kh¸ng tÊt c¶ t¨ng 25 ®iÓm");
+	end
+end
+
+function _65_26_(type, stateID)
+	if 2 == type then
+		CastState("state_add_strength", 50, -1, 1, stateID);
+		CastState("state_add_vitality", 50, -1, 1, stateID);
+		CastState("state_add_energy", 50, -1, 1, stateID);
+		Msg2Player("HiÖu øng:   Søc m¹nh t¨ng 50, G©n cèt t¨ng 50, Néi khÝ t¨ng 50");
+	end
+end
+
+function _65_27_(type, stateID)
+	if 2 == type then
+		CastState("state_add_dexterity", 50, -1, 1, stateID);
+		CastState("state_add_observe", 50, -1, 1, stateID);
+		CastState("state_add_energy", 50, -1, 1, stateID);
+
+		Msg2Player("HiÖu øng:  Th©n ph¸p t¨ng 50, Linh ho¹t t¨ng 50, Néi khÝ t¨ng 50");
+	end
+end
+
+function _65_28_(type, stateID)
+	if 2 == type then
+		CastState("state_move_speed_percent_add", 20, -1, 1, stateID);
+		Msg2Player("HiÖu øng:  Tèc ®é di chuyÓn t¨ng 20%");
+	end
+end
+
+
 --------------------------------------------------------------------------------------
 -- ¹¥³ÇÕ½³ÆºÅ
 
@@ -1743,7 +1826,7 @@ function CityWarEquip(nGeren, nDetail, nType)
 	if nType == 1 then
 		local nYear, nMonth, nDay, nHour, nMin, nSec = AddTitleTime(nGeren, nDetail, 0)
 		if nYear ~= 1970 then
-			Msg2Player("X­ng hiÖu cña b¹n hÕt h¹n vµo"..nYear.."niªn"..nMonth.."NguyÖt"..nDay.."NhËt"..nHour.." giê "..nMin.." Phót "..nSec.." gi©y")
+			Msg2Player("X­ng hiÖu cña b¹n hÕt h¹n vµo "..nYear.." Niªn "..nMonth.." NguyÖt "..nDay.." NhËt - "..nHour.." giê "..nMin.." phót "..nSec.." gi©y.")
 		end
 	end
 end

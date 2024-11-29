@@ -65,7 +65,7 @@ function main()
 
 ---------------------------------------------Ö÷¶Ô»°-------------------------------------------
 	Say(strTitle.."T×m ®­îc Thiªn Tµm Ti lµ lı t­ëng duy nhÊt cña cuéc ®êi ta, ®¸ng tiªc ta ®· giµ råi kh«ng thÓ trÌo ®Ìo v­ît suèi, chØ cã thÓ göi g¾m tr¸ch nhiÖm nµy cho bän trÎ c¸c ng­¬i, muèn häc c¸ch kĞo t¬ kh«ng?",
-		7,
+		8,
 		"§ång ı/luaLearnLifeSkill",
 		"Muèn häc kü n¨ng cao cÊp h¬n/update_max_skill_level",
 		"§Õn Kh«ng Tang s¬n (s¬ cÊp)/GotoWorld_Confirm1",
@@ -73,9 +73,28 @@ function main()
 		"§Õn Tö Tang s¬n (cao cÊp)/GotoWorld_Confirm3",
 		--"ÒÅÍü³éË¿¼¼ÄÜ/forget_life_skill",
 		"T×m hiÓu kĞo t¬/Info",
+		"Ch¼ng hay ®¹i thÈm cã b¸n Ngäc N÷ thoa kh«ng?/buy_chucnuthoa",
     	"Rêi khái/Main_Exit")
 end;
 
+function buy_chucnuthoa()
+	Say(strTitle.."Ngäc N÷ thoa th× ta cã nh­ng kh«ng b¸n. NÕu b¹n trÎ muèn th× ta sÏ tÆng ng­¬i nh­ng ta còng cÇn cã 10 khóc <color=yellow>Ch­¬ng méc<color>. Kh«ng biÕt c¸c h¹ cã thÓ kiÕm ®­îc kh«ng?",2,
+		"Cã chø, ta cã s½n thø ®¹i thÈm cÇn ®©y råi/check_materials",
+		"T¹m thêi ch­a cã, ®Ó ta kiÕm råi gÆp ®¹i thÈm sau/Main_Exit"
+	)
+end;
+
+function check_materials()
+	if DelItem(2,7,2,10) == 1 then 
+		Talk(1,"",strTitle.."Hay qu¸! Kh«ng ngê ng­¬i còng t×m ®­îc lo¹i gç nµy. Ngäc n÷ thoa cña ng­¬i ®©y!");
+		AddItem(0,200,21,1);
+		Talk(1,"",format("<color=green>%s<color>: §a t¹ ®¹i thÈm! Khi cÇn ta sÏ tíi nhê ®¹i thÈm n÷a nhĞ!",GetName()));
+		return 1;
+	else
+		Talk(1,"",strTitle.."H×nh nh­ ng­¬i ch­a chuÈn bŞ ®ñ! Nhí lµ ph¶i ®óng Ch­¬ng méc ®Êy nhĞ. Lo¹i ®ã míi thİch hîp dïng lµm thoi.");
+		return 0;
+	end
+end;
 
 -- ÒÅÍüÉú»î¼¼ÄÜ
 function forget_life_skill()

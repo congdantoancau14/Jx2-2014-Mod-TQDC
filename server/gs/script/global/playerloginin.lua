@@ -148,7 +148,7 @@ function main(ExchangeComing)
 	PLT_OnPlayerLogin();
 	--PLC_OnPlayerLogin();
 	-->
---	SB_OnPlayerLogin();
+	SB_OnPlayerLogin();
 	FG_OnPlayerLogin();
 	-->
 
@@ -319,7 +319,7 @@ function main(ExchangeComing)
 	--================================================================
 
 	--08ÄêÇåÃ÷½Ú»î¶¯
-	if nDate <= 20080412 then
+	if nDate <= 20480412 then
 		Msg2Player("Ho¹t ®éng tiÕt Thanh Minh ®· b¾t ®Çu, c¸c hiÖp kh¸ch h·y ®Õn DÉn Lé nh©n gÇn D· TÈu ®Ó biÕt th«ng tin chi tiÕt!");
 	else	--·ÇÇåÃ÷½Ú»î¶¯ÆÚ¼äÉÏÏßµ½°Ý¼ÀµØÍ¼Ê±£¬×Ô¶¯´«ËÍÍæ¼Ò³öÈ¥
 		local Map_Pos_QM = {
@@ -735,7 +735,7 @@ function main(ExchangeComing)
 --	end
 	
 -- Add TiÕu Ng¹o Giang Hå Lôc nÕu ch­a cã
-	if GetItemCount(2, 1, 30240) < 1 then
+	if BigGetItemCount(2, 1, 30240) < 1 then
 		AddItem(2, 1, 30240, 1)
 		Msg2Player("B¹n nhËn ®­îc 1 quyÓn TiÕu Ng¹o Giang Hå Lôc!")
 	end	
@@ -926,7 +926,7 @@ function main(ExchangeComing)
 	--2015Äê2ÔÂÎåÅÌ¹û
 	SendScript2VM("\\script\\online_activites\\201502\\wupanguo.lua", "_wpg_playerlogin()")
 	-------------------------------------------------------
-	thamgiatinhnang3phe()
+	-- thamgiatinhnang3phe()
 
 
 end;

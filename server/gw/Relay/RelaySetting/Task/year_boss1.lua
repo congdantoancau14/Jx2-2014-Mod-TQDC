@@ -1,0 +1,19 @@
+--√øÃÏ12:30,21:30◊º ±À¢–¬
+
+function TaskShedule()
+	TaskName("BOSS N®m MÌi");	
+
+	-- “ªÃÏ“ª¥Œ
+	TaskInterval(1440);
+	-- …Ë÷√¥•∑¢ ±º‰
+	TaskTime(12,30);
+	OutputMsg(format("BOSS N®m MÌi sœ xu t hi÷n Î %s...", "12:30"));
+	-- ÷¥––Œﬁœﬁ¥Œ
+	TaskCountLimit(0);
+
+end
+
+function TaskContent()
+	local nDate = tonumber(date("%Y%m%d")) + random(10000);
+	GlobalExecute(format("dw Yb_CreateBoss(%d)", tonumber(nDate)));
+end

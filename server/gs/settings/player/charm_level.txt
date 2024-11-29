@@ -1,0 +1,10 @@
+Level	NeedPoint	MaleTitle	FemaleTitle
+1	0	ThiÕu niªn Tæng Gi¸c	§Ëu KhÊu Niªn Hoa
+2	5000	Phiªn Phiªn Qu©n Tö	YÓu §iÖu Thôc N÷
+3	15000	H¹c LËp Kª QuÇn	Doanh Doanh Thu Thñy
+4	30000	Ngäc Thô L©m Phong	L­u Phong Håi TuyÕt
+5	55000	M¹o Th»ng Phan An	TrÇm Ng­ L¹c Nh¹n
+6	95000	TuyÖt ThÕ Phong L­u	Khuynh Quèc Khuynh Thµnh
+7	150000	Tóy Ngäc §åi S¬n	Quèc S¾c Thiªn H­¬ng
+8	220000	Di ThÕ §éc LËp	Di ThÕ §éc LËp
+9	305000	Duy Ng· §éc T«n	Duy Ng· §éc T«n

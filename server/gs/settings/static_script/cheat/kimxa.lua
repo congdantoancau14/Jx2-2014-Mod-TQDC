@@ -1,3 +1,11 @@
+function getKX3()
+	AddItem(2,1,30544,3);
+	AddItem(2,1,30599,3);
+end;
+
+function getKX4()
+	AddItem(2,1,31231,3);
+end;
 
 function getRandomKX4(nSet)
 	KXDH = {
