@@ -193,6 +193,7 @@ function createBoss(Random1,Random2,Random3)
 	msg="Nghe nãi minh chñ lôc l©m x­ng b¸ s¬n tr¹i phİa b¾c ®ang ë "..Pos[Random1][Pos[Random1][1]+3].." hiÖn th©n, ch¾c ®ang cã ©m m­u!"
 		for i=1,3 do
 		AddGlobalNews(msg)
+		AddLocalNews(mgs);
 		end
 	SetNpcLifeTime(npcIndex, 7200)
 	SetNpcScript(npcIndex, "\\script\\task\\boss\\boss_ondeath.lua")
@@ -203,6 +204,7 @@ function createBoss(Random1,Random2,Random3)
 	msg="Nghe nãi thŞ vÖ th©n tİn cña TÇn Thñy Hoµng lµ Th­¬ng ThÇn Doanh Thiªn ®· xuÊt hiÖn t¹i "..Pos[Random2][Pos[Random2][1]+3].." vâ l©m s¾p cã mét trËn hµo kiÕp!"
 		for i=1,3 do
 		AddGlobalNews(msg)
+		AddLocalNews(mgs);
 		end
 	SetNpcLifeTime(npcIndex, 7200)
 	SetNpcScript(npcIndex, "\\script\\task\\boss\\boss_ondeath.lua")
@@ -215,12 +217,14 @@ function createBoss(Random1,Random2,Random3)
 	msg="Nghe nãi hån ma L·nh H­¬ng L¨ng 10 n¨m tr­íc tõng lµ hoa kh«i Giang T©n Th«n nay xuÊt hiÖn t¹i"..Pos[Random3][Pos[Random3][1]+3].."mau ®Õn ®ã xem thö dung nhan kiÒu diÔm cña nµng!"
 		for i=1,3 do
 		AddGlobalNews(msg)
+		AddLocalNews(mgs);
 		end
 	SetNpcLifeTime(npcIndex, 7200)
 	SetNpcScript(npcIndex, "\\script\\task\\boss\\boss_ondeath.lua")
     	end
 end
 function createNewResBoss(nBossType,nPosType)
+	print("gmscript >> createNewResBoss >> Tµi nguyªn chiÕn");
 	local tbMapID = 
 		{
 			{606,1363,3074,"Tµi nguyªn chiÕn"},

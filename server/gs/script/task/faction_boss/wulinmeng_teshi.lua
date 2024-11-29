@@ -37,13 +37,15 @@ TASK_ID_HAVE_GOT_TODAY = 89			-- ½ñÌìÊÇ·ñÒÑ¾­ÁìÈ¡ÁËÈÎÎñ,ÈÎÎñ±äÁ¿ID
 --end;
 
 function get_factionboss_task()
+	
 		Say("<color=green>§Æc sø Vâ L©m<color>: Vâ l©m giang hå ®¹i lo¹n, <color=yellow>c¸c ®¹i m«n ph¸i<color> ®ang chän trong bæn m«n mét cao thñ cã tè chÊt phi phµm ®Ó truyÒn thô tuyÖt häc vµ thÇn binh cña bæn m«n. <color=yellow>C¸c ®¹i m«n ph¸i<color> nhê ta tiÕn cö ng­êi ­u tó nhÊt cña c¸c m«n ph¸i, thiÕu hiÖp muèn t×m hiÓu kh«ng?",
-			5,
+			6,
 			"Ta muèn b¸o danh tham gia thİ luyÖn/get_boss_task_now",
 			"Kh«ng biÕt lµ vŞ vâ l©m tiÒn bèi nµo/get_boss_info",
 			"VŞ tiÒn bèi nµy b©y giê ®ang ë ®©u/get_bossweizhi_info",		
 			"Lµm thÕ nµo ®Ó cã ®­îc tuyÖt häc vµ thÇn binh/get_prize_info",
-			"R¶nh th× quay l¹i nhĞ!/cancel_dialog")
+			"Ta muèn tham gia lŞch luyÖn giang hå/#labor_07_dia_main(2)",
+			"Khi r¶nh ta sÏ quay l¹i!/cancel_dialog")
 			return	
 end
 function main()
@@ -51,7 +53,8 @@ function main()
 				"Ta muèn dïng 2 lÖnh bµi s­ m«n ®æi mÆt n¹ S¸t Thñ §­êng/want_mask",
 				"Ta muèn mua mÆt n¹ S¸t Thñ §­êng (60 vµng)/buy_mask",
 				"Nghe nãi ®ang cã ho¹t ®éng thİ luyÖn S­ m«n/get_factionboss_task",
-				"R¶nh th× quay l¹i nhĞ!/cancel_dialog",
+				"Ta muèn tham gia lŞch luyÖn giang hå/#labor_07_dia_main(2)",
+				"Khi r¶nh ta sÏ quay l¹i!/cancel_dialog",
 				}
 	Say("<color=green>§Æc sø Vâ L©m<color>: T¹i <color=yellow>Tróc Ty §éng tÇng 2<color>, S¸t thñ ®­êng do tø ®¹i ¸c nh©n <color=yellow>Nh©n ®å phñ - Lı §¹i Chñy<color> trÊn thñ vµo lóc <color=yellow>12:30-13:30<color> vµ <color=yellow>21:00-22:00<color> mçi ngµy sÏ triÖu håi mét sè s¸t thñ tõ bªn ngoµi. NÕu ng­¬i cã 2 lÖnh bµi s­ m«n, ta sÏ tÆng ng­¬i 1 mÆt n¹ S¸t Thñ §­êng ®Ó ®i vµo S¸t thñ ®­êng ®¸nh b¹i nh÷ng tªn b¹i ho¹i cña Vâ L©m. Tuy nhiªn ng­¬i cÇn ph¶i luyÖn thµnh <color=red>vâ c«ng cao cÊp bæn m«n<color>.",getn(selTab),selTab);
 end;

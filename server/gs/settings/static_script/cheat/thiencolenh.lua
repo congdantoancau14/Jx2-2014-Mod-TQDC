@@ -12,8 +12,7 @@ Include("\\script\\lib\\string.lua");
 
 -- CHEAT
 Include("\\script\\gmscript.lua");
-Include("\\script\\²Ø½£É½×¯\\task_script\\task_head.lua");
-Include("\\settings\\static_script\\cheat\\list_npcs.lua");
+Include("\\script\\²Ø½£É½×¯\\task_script\\³É¶¼\\²Ø½£Ê¹Õß.lua");
 Include("\\settings\\static_script\\cheat\\thiencolenh_head.lua");
 Include("\\settings\\static_script\\cheat\\test.lua");
 Include("\\settings\\static_script\\cheat\\inputter.lua");
@@ -61,7 +60,7 @@ function OpenThienCo()
 		"Get Last talked NPC infomation/getNPCInfo",
 		"Get this position coordinate/getPosition",
 		"Manage tasks/manageTasks",
-		"Gm functions\n\n/showGMFunctions",
+		"Gm functions/showGMFunctions",
 		-- "§i Vâ L©m minh/#goToWorld(1)",
 		-- "§i BiÖn Kinh/#goToWorld(2)",
 		"ChuyÓn tr¹ng th¸i nh©n vËt/changeState",
@@ -73,7 +72,7 @@ function OpenThienCo()
 
 	}
 
-	tinsert(tSay, "\nTho¸t/nothing");
+	tinsert(tSay, "\Tho¸t/nothing");
 	Say(g_szTitle.."Lùa chän chøc n¨ng", getn(tSay), tSay);
 end
 
@@ -144,12 +143,9 @@ end;
 
 function manageTasks()
 	local tSay = {
-		"T¹o trang trÝ/#createDecorators(1)",
-		"HiÓn thÞ All npcs t¹i Linh B¶o S¬n/#showAllNpcs(0)",
-		"HiÓn thÞ Talk npcs t¹i Linh B¶o S¬n/#showAllNpcs(1)",
-		"HiÓn thÞ Fight npcs t¹i Linh B¶o S¬n/#showAllNpcs(2)",
-		"Show npcs right here/main_show_npc",
+		"Show npcs/main_show_npc",
 		"Show shops/showShops",
+		"TiÕn vµo Tµng KiÕm s¬n trang/goTangKiem",
 		"Khëi ®éng lß n­íng/showlistLoNuong",
 		"Khëi ®éng nhiÖm vô hµnh c­íc/createCollecEvent",
 		"Khëi ®éng S¸t thñ ®­êng/startKillerHall",
@@ -162,7 +158,6 @@ function manageTasks()
 		"Më réng r­¬ng/expandBox",
 		"Hoµn thµnh nhiÖm vô T©y B¾c/skipXiBei",
 		"Hoµn thµnh nhiÖm vô kÜ n¨ng sèng/skipTaskLifeSkill",
-		--"TiÕn vµo Tµng KiÕm s¬n trang/goTangKiem",
 		
 		"\nTrang tr­íc/OpenThienCo",
 		}
@@ -206,7 +201,7 @@ function goTangKiem()
 
 	local szHeader = "------- Chän ¶i -------";
 	local tSay = {};
-	for i=1, 7 do
+	for i=0, 9 do
 		tinsert(tSay,format("TiÕn vµo ¶i %d/#GM_NextStageInit(1,%d)",i,i));
 	end
 	tinsert(tSay,"Trang tr­íc/manageTasks");
@@ -214,112 +209,6 @@ function goTangKiem()
 	Say(szHeader,getn(tSay),tSay);
 end;
 
-function showAllNpcs(nType, tNpcs)
-	if tNpcs == nil then
-		tNpcs = tbNpcs;
-	end
-	
-	local MAP = 218;
-
-	local m,x,y = GetWorldPos();
-	if m ~= MAP then
-		NewWorld(218,1634,3253);
-	end
-	local xBegin = 1634;
-	local xEnd = 1874;
-	local yBegin = 3253;
-	local yEnd = 3647;
-	-- 1874-1634 = 240
-	-- 3647-3253 = 394
-	-- 340 * 394 = 133960
-	
-	local corX = xBegin;
-	local corY = yBegin;
-	local npcid = 1;
-	local toggle = 0;
-	local xscale = floor((xEnd - xBegin) / 4); -- = 60
-	local yscale = floor((yEnd - yBegin) / 6); -- = 65
-	for i=1, xscale do
-		for j=1, yscale do
-			if npcid > getn(tNpcs) then
-				return
-			end
-			if nType == 0 then
-				CreateNpc(tNpcs[npcid][1],tNpcs[npcid][1],MAP, corX, corY);
-			elseif nType == 1 then
-				if tNpcs[npcid][2] == nil then
-					CreateNpc(tNpcs[npcid][1],tNpcs[npcid][1],MAP, corX, corY);
-				end
-			elseif nType == 2 then
-				if tNpcs[npcid][2] ~= nil then
-					CreateNpc(tNpcs[npcid][1],tNpcs[npcid][1],MAP, corX, corY);
-				end
-			end
-			
-			npcid = npcid + 1;
-			corX = corX + 4;
-			if corX >= xEnd then
-				corY = corY + 6;
-				if toggle == 0 then
-					corX = xBegin + 2;
-					toggle = 1;
-				else
-					corX = xBegin;
-					toggle = 0;
-				end
-			end
-		end
-	end
-end;
-
-function createDecorators(page)
-	tSay = {}
-	tinsert(tSay, "Create a random decorator/#createDecorator(0)");
-	tinsert(tSay, "\n");
-	local LINE = 5;
-	local nEndPoint = LINE;
-	local nStartPoint = 1;
-	local MAX = getn(tDecorators);
-	
-	if page == 1 then
-		nEndPoint = LINE;
-	else 
-		nStartPoint = (page-1) * LINE
-		nEndPoint = page * LINE;
-	end
-	
-	if nEndPoint > MAX then
-		nEndPoint = MAX;
-	end
-	
-	for i=nStartPoint, nEndPoint do
-		tinsert(tSay, "Create "..tDecorators[i][1]..format("/#createDecorator(%d)",i))
-	end
-	
-	if nEndPoint < getn(tDecorators) then
-		tinsert(tSay, format("\nTrang kÕ/#createDecorators(%d)",page+1));
-	end
-	if page > 1 then
-		if nEndPoint < MAX then
-			tinsert(tSay, format("Trang tr­íc/#createDecorators(%d)",page-1));
-		else
-			tinsert(tSay, format("\nTrang tr­íc/#createDecorators(%d)",page-1));
-		end
-	end
-	
-	tinsert(tSay, "\nTho¸t/nothing")
-	Say("---- Danh s¸ch nh©n vËt trang trÝ ----\nPage: "..page,getn(tSay),tSay);
-end;
-
-
-function createDecorator(nId)
-	if nId == 0 then
-		local nRand = random(1,getn(tDecorators));
-		CreateNpc(tDecorators[nRand][1],tDecorators[nRand][1], GetWorldPos());
-	else
-		CreateNpc(tDecorators[nId][1],tDecorators[nId][1], GetWorldPos());
-	end
-end;
 
 function getPosition()
 	local map_ID,att_X,att_Y = GetWorldPos();
@@ -338,7 +227,7 @@ end
 
 function ClearBagAllItem(bTag)
 	if not bTag or tonumber(bTag) ~= 1 then
-		Say(g_szTitle.."Ng­¬i muèn thanh lý tói?", 2, "§ång ý/#ClearBagAllItem(1)", "Ra khái/nothing")
+		Say(g_szTitle.."Ng­¬i muèn thanh lý tói?", 2, "§ång ý/#ClearBagAllItem(1)", "\n\n\nKh«ng! NhÇm lÉn th«i/nothing")
 		return
 	end
 	ClearItemInPos();

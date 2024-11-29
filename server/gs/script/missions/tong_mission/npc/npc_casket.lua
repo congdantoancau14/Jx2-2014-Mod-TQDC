@@ -68,19 +68,21 @@ function open_casket(nCasketID,nStage)
 	local nLowValue = ceil(nMidValue*0.8);	--µÍÖµ
 	local nHighValue = ceil(nMidValue*1.2);	--¸ßÖµ
 	local tbNum = get_num_table(nLowValue,nHighValue,5);	--È¡5¸öÊý×Ö
-	local nGotNum = 1;
-	--local nTotalNum = BigGetItemCount(2,0,1091);
-	--if nTotalNum + nGotNum > MAX_XIEKEHUIZHANG then
-	--	TaskTip("Sè l­îng HiÖp kh¸ch ch­¬ng ®· ®¹t tèi ®a "..MAX_XIEKEHUIZHANG.." , h·y mau dïng HiÖp kh¸ch ch­¬ng ®æi phÇn th­ëng");
-	--	Msg2Player("Sè l­îng HiÖp kh¸ch ch­¬ng ®· ®¹t tèi ®a "..MAX_XIEKEHUIZHANG.." , h·y mau dïng HiÖp kh¸ch ch­¬ng ®æi phÇn th­ëng");
-	--	nGotNum = MAX_XIEKEHUIZHANG - nTotalNum;
-	--end;
-	Msg2Player("Trong tuÇn nµy ®¹i hiÖp ®©y lµ lÇn thø "..nOpenTimes.." më hép may m¾n ë ¶i  "..nStage.." , ®­îc "..nGotNum.." Háa Phông Tinh Hoa");
+	local nGotNum = tbNum[nCasketID];
+	local nTotalNum = BigGetItemCount(2,0,1091);
+	if nTotalNum + nGotNum > MAX_XIEKEHUIZHANG then
+		TaskTip("Sè l­îng HiÖp kh¸ch ch­¬ng ®· ®¹t tèi ®a "..MAX_XIEKEHUIZHANG.." , h·y mau dïng HiÖp kh¸ch ch­¬ng ®æi phÇn th­ëng");
+		Msg2Player("Sè l­îng HiÖp kh¸ch ch­¬ng ®· ®¹t tèi ®a "..MAX_XIEKEHUIZHANG.." , h·y mau dïng HiÖp kh¸ch ch­¬ng ®æi phÇn th­ëng");
+		nGotNum = MAX_XIEKEHUIZHANG - nTotalNum;
+	end;
+	Msg2Player("Trong tuÇn nµy ®¹i hiÖp ®©y lµ lÇn thø "..nOpenTimes.." më hép may m¾n ë ¶i  "..nStage.." , ®­îc "..nGotNum.." HiÖp kh¸ch ch­¬ng");
 	SetTask(TSK_CASKET_HASH_CODE,0);
 	SetTask(TSK_CASKET_STAGE_1+nStage-1,nOpenTimes);
-	AddItem(2,1,30770,nGotNum);
-	Say("B¹n ®· chän Hép nhá sè <color=yellow>"..nCasketID.."<color>, nhËn ®­îc <color=yellow>"..nGotNum.."<color> Háa Phông Tinh Hoa.\nHép nhá sè 1: "..tbNum[1].." c¸i\nHép nhá sè 2: "..tbNum[2].." c¸i\nHép nhá sè 3: "..tbNum[3].." c¸i\nHép nhá sè 4: "..tbNum[4].." c¸i\nHép nhá sè 5: "..tbNum[5].."c¸i",0);
-	gf_WriteLog("Tö Quang C¸c","TuÇn nµy ë ¶i sè "..nOpenTimes.." më hép may m¾n ë ¶i  "..nStage.." më Hép may m¾n, ®­îc "..nGotNum.." Háa Phông Tinh Hoa");
+	if nGotNum > 0 then
+		AddItem(2,0,1091,nGotNum);
+	end;
+	Say("B¹n ®· chän Hép nhá sè <color=yellow>"..nCasketID.."<color>, nhËn ®­îc <color=yellow>"..nGotNum.."<color> HiÖp kh¸ch ch­¬ng.\nHép nhá sè 1: "..tbNum[1].." c¸i\nHép nhá sè 2: "..tbNum[2].." c¸i\nHép nhá sè 3: "..tbNum[3].." c¸i\nHép nhá sè 4: "..tbNum[4].." c¸i\nHép nhá sè 5: "..tbNum[5].."c¸i",0);
+	gf_WriteLog("Tö Quang C¸c","TuÇn nµy ë ¶i sè "..nOpenTimes.." më hép may m¾n ë ¶i  "..nStage.." më Hép may m¾n, ®­îc "..nGotNum.." HiÖp kh¸ch ch­¬ng");
 end;
 
 function get_num_table(nLowValue,nHighValue,nNum)

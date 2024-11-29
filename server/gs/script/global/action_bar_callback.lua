@@ -1013,7 +1013,8 @@ function uminhhoa_suc()
 end
 
 function uminhhoa_fail()
-	Msg2Player("NhËn th­ëng bŞ gi¸n ®o¹n. H·y thùc hiÖn l¹i!")
+	-- Msg2Player("NhËn th­ëng bŞ gi¸n ®o¹n. H·y thùc hiÖn l¹i!")
+	Msg2Player("U Minh hoa rÊt mong manh. ChØ mét ch¹m nhÑ lµ tan biÕn mÊt.")
 end
 
 function yp1_tree_steal_suc()

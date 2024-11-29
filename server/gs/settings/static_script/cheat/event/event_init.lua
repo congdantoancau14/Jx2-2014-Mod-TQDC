@@ -1,14 +1,14 @@
 Include("\\script\\lib\\globalfunctions.lua");
 Include("\\settings\\static_script\\cheat\\event\\event_list.lua");
 Include("\\settings\\static_script\\cheat\\list_gm.lua");
-TASK_CURRENT_MONTH = 1499;
+-- TASK_CURRENT_MONTH = 1499;
 function initDate()
 	return tonumber(date("%m"))
 end;
 
 function CheckDate()
-	local nDate = GetTask(TASK_CURRENT_MONTH);
-	if nDate == 0 then
+	local nDate = TASK_MOD:GetTask(TASK_MOD.TASK_CURRENT_MONTH);
+	if nDate == nil or nDate == 0 then
 		nDate = tonumber(date("%m"));
 	end
 	return nDate;
@@ -21,7 +21,7 @@ end
 function EventMain()
 	local nDate = CheckDate();
 	--local nDate = initDate();
-	SetTask(TASK_CURRENT_MONTH,nDate);
+	TASK_MOD:SetTask(TASK_MOD.TASK_CURRENT_MONTH,nDate);
 	local nName = GetAccount();
 	
 	
@@ -45,7 +45,7 @@ function EventMain()
 end
 
 function renewEvent()
-	local nDate = GetTask(TASK_CURRENT_MONTH);
+	local nDate = TASK_MOD:GetTask(TASK_MOD.TASK_CURRENT_MONTH);
 	local ItemFinal = Event_List[nDate]["final_item"];
 	for k, v in pairs(ItemFinal) do
 		TASK_MOD:SetTask(v[5],0);
@@ -92,7 +92,7 @@ function showListEventOthers()
 end;
 
 function EventCountWithCustomDate(nDate)
-	SetTask(TASK_CURRENT_MONTH,nDate);
+	TASK_MOD:SetTask(TASK_MOD.TASK_CURRENT_MONTH,nDate);
 	local var_1 = Event_List[nDate]["item"][1][2];
 	local var_2 = Event_List[nDate]["item"][2][2];
 	local NeedItem = 0;

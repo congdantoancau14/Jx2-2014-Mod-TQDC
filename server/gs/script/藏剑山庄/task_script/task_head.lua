@@ -9,8 +9,11 @@ Include("\\script\\online\\award_head.lua")
 Include("\\script\\misc\\observer\\observer_head.lua")
 
 --============================================================================================== HEAD ====
-NEEDED_ANHHUNGTHIEP = 1;
-MIN_TEAM_MEMBER = 1;
+NEEDED_YINGXIONGTIE = 1;	-- = 1 by default
+MIN_TEAM_MEMBER = 1;	-- = 5 by default
+MAX_ENTRY_CHANCE = 5;	-- = 5 by default
+MAX_ENTRY_CHANCE2 = 70;	-- = 7 by default
+
 tMaps = { -- map_id, map_name, open_state
 	{100, "TuyÒn Ch©u",	0},
 	{150, "D­¬ng Ch©u",	0},
@@ -18,6 +21,7 @@ tMaps = { -- map_id, map_name, open_state
 	{300, "Thµnh §«",	1},
 	{350, "T­¬ng D­¬ng",0},
 }
+OPEN_MAPS = 1;	-- = 5 by default
 		
 
 SF_FILE_SVR =
@@ -566,7 +570,7 @@ function GT_NewBossDrop(name)
 	local nChestIndex = CreateNpc(tDrop[name][1], tDrop[name][2], nMapID, nX - 2, nY - 2)
 	SetNpcDeathScript(nChestIndex, tDrop[name][3])
 	SetNpcLifeTime(nChestIndex, 5 * 60)		-- Í³Ò»NPC´æ»îÊ±¼äÎª5·ÖÖÓ
-	WriteLog("[Tµng KiÕm s¬n trang] boss : "..name.."Sau khi ®¸nh b¹i CALL ra NPC:"..tDrop[name][1])
+	WriteLog("[Tµng KiÕm s¬n trang] boss : "..name.."Sau khi ®¸nh b¹i CALL ra NPC: "..tDrop[name][1])
 end
 
 function GT_GoodDrop(name, level)
@@ -1730,15 +1734,15 @@ end
 --============================================================================================== GAME STAGES ====
 -- Game Stages
 GS_STAGE_START = {					-- ²Ø½£Ê¹Õß¿ªÊ¼¶Ô»°µÄÄÚÈÝ
-	MU_GetColoredText("Tµng KiÕm s¬n trang. S¬n M«n", "gold").."\n §Õn Tµng KiÕm s¬n trang ®Òu lµ nh÷ng anh tµi kú n÷ trong giang hå, cã g× thÊt lÔ xin l­îng thø. \n Trang chñ muèn thö tµi c¸c vÞ. \n §¸nh b¹i 25"..MU_GetColoredText("Gia ®inh", "green").."\n. §¸nh b¹i"..MU_GetColoredText("Tæng qu¶n ngo¹i viÖn", "green"),
-	MU_GetColoredText("§¹i ViÖn. Tµng KiÕm s¬n trang", "gold").."\n §¹i viÖn do Tæng qu¶n néi viÖn phô tr¸ch, cã g× cÇn xin ch­ vÞ cø tù nhiªn. \n. "..MU_GetColoredText("????", "green").."\n. §¸nh b¹i"..MU_GetColoredText("Tæng qu¶n néi viÖn", "green"),
-	MU_GetColoredText("HËu Hoa Viªn. Tµng KiÕm s¬n trang", "gold").."\n HËu Hoa viªn kh«ng cho phÐp ng­êi ngoµi ra vµo. C¸c vÞ ®õng chäc giËn §¹i TiÓu Th­. \n §¹i tiÓu th­ xinh ®Ñp nh­ng do tõ nhá ®· theo cha häc vâ nªn tÝnh khÝ h¬i ngç ng­îc. \n. §¸nh b¹i 8"..MU_GetColoredText("L·o béc", "green").."\n. §¸nh b¹i"..MU_GetColoredText("§¹i tiÓu th­", "green"),
-	MU_GetColoredText("Liªn Hoµn Sµo. Tµng KiÕm s¬n trang", "gold").."\n Trong Cöu Cung ®Æt 9 ®Ønh l­ h­¬ng cã ch¹m træ Tam s¾c kú th¹ch, tr·i qua nhiÒu ®êi ®­îc ng­ng kÕt bëi tia löa vµ khãi ®óc kiÕm ë s¬n trang. §õng nh×n vÎ ngoµi mµ xem th­êng! ChØ cÇn cã ng­êi ngang nhiªn ®ét nhËp vµo, Tam s¾c kú th¹ch sÏ ph¸t huy ma lùc. \n . Lµm bÓ"..MU_GetColoredText("L­ h­¬ng", "green").."\n. §¸nh b¹i"..MU_GetColoredText("???", "green"),
-	MU_GetColoredText("Tµng KiÕm C¸c. Tµng KiÕm s¬n trang", "gold").."\n N¬i ®©y ®· tµng gi÷ v« sè ®ao kiÕm cã gi¸ trÞ liªn thµnh. \n §Æc biÖt lµ c¸c lo¹i vò khÝ thuéc hÖ ngò hµnh. \n Rót vò khÝ ra ®¸nh b¹i"..MU_GetColoredText("B¶o vÖ ngò hµnh", "green").."\n VÞ huynh ®Ö nµo cã thÓ thö søc \n ®¸nh b¹i"..MU_GetColoredText("Tr­ëng l·o Tµng KiÕm C¸c", "green"),
-	MU_GetColoredText("Tµng KiÕm s¬n trang. Tö Tróc L©m", "gold").."\n Nghe nãi chèn nµy vèn lµ n¬i tró ngô cña mét vÞ tiªn nh©n, tæng céng 16 ph­¬ng vÞ, ®Òu cã Kh¾c Ên phï, dÔ vµo khã ra. \n NÕu c¸c vÞ cã thÓ ra ®­îc, l·o phu sÏ dÉn ®­êng ®Õn KiÕm Trñng. \n ®i t×m vµ"..MU_GetColoredText("Sø gi¶ Tµng KiÕm", "green").." ®èi tho¹i .",
-	MU_GetColoredText("Tµng KiÕm s¬n trang. Tö Tróc L©m", "gold").."\n Nghe nãi chèn nµy vèn lµ n¬i tró ngô cña mét vÞ tiªn nh©n, tæng céng 16 ph­¬ng vÞ, ®Òu cã Kh¾c Ên phï, dÔ vµo khã ra. \n NÕu c¸c vÞ cã thÓ ra ®­îc, l·o phu sÏ dÉn ®­êng ®Õn KiÕm Trñng. \n ®i t×m vµ"..MU_GetColoredText("Sø gi¶ Tµng KiÕm", "green").." ®èi tho¹i .",
-	MU_GetColoredText("Tµng KiÕm s¬n trang. Tö Tróc L©m", "gold").."\n Nghe nãi chèn nµy vèn lµ n¬i tró ngô cña mét vÞ tiªn nh©n, tæng céng 16 ph­¬ng vÞ, ®Òu cã Kh¾c Ên phï, dÔ vµo khã ra. \n NÕu c¸c vÞ cã thÓ ra ®­îc, l·o phu sÏ dÉn ®­êng ®Õn KiÕm Trñng. \n ®i t×m vµ"..MU_GetColoredText("Sø gi¶ Tµng KiÕm", "green").." ®èi tho¹i .",
-	MU_GetColoredText("Tµng KiÕm s¬n trang. KiÕm Chñng", "gold").."\n KiÕm Chñng ®­îc xem lµ vïng cÊm mËt cña Tµng KiÕm S¬n Trang, bëi n¬i ®©y ®­îc cÊt nhiÒu thanh kiÕm quý. \n . Th¸o 5 c©y"..MU_GetColoredText("Ngò Hµnh kiÕm", "green").."\n. §¸nh b¹i"..MU_GetColoredText("Cöu TuyÖt KiÕm Ma", "green")}
+	MU_GetColoredText("Tµng KiÕm s¬n trang. S¬n M«n", "gold").."\n §Õn Tµng KiÕm s¬n trang ®Òu lµ nh÷ng anh tµi kú n÷ trong giang hå, cã g× thÊt lÔ xin l­îng thø. \n Trang chñ muèn thö tµi c¸c vÞ. \n* §¸nh b¹i 25 "..MU_GetColoredText("Gia ®inh", "green").."\n* §¸nh b¹i "..MU_GetColoredText("Tæng qu¶n ngo¹i viÖn", "green"),
+	MU_GetColoredText("§¹i ViÖn. Tµng KiÕm s¬n trang", "gold").."\n §¹i viÖn do Tæng qu¶n néi viÖn phô tr¸ch, cã g× cÇn xin ch­ vÞ cø tù nhiªn. \n* §¸nh b¹i "..MU_GetColoredText("Tæng qu¶n néi viÖn", "green"),
+	MU_GetColoredText("HËu Hoa Viªn. Tµng KiÕm s¬n trang", "gold").."\n HËu Hoa viªn kh«ng cho phÐp ng­êi ngoµi ra vµo. C¸c vÞ ®õng chäc giËn §¹i TiÓu Th­. \n §¹i tiÓu th­ xinh ®Ñp nh­ng do tõ nhá ®· theo cha häc vâ nªn tÝnh khÝ h¬i ngç ng­îc. \n* §¸nh b¹i 8 "..MU_GetColoredText("L·o béc", "green").."\n* §¸nh b¹i "..MU_GetColoredText("§¹i tiÓu th­", "green"),
+	MU_GetColoredText("Liªn Hoµn Sµo. Tµng KiÕm s¬n trang", "gold").."\n Trong Cöu Cung ®Æt 9 ®Ønh l­ h­¬ng cã ch¹m træ Tam s¾c kú th¹ch, tr·i qua nhiÒu ®êi ®­îc ng­ng kÕt bëi tia löa vµ khãi ®óc kiÕm ë s¬n trang. §õng nh×n vÎ ngoµi mµ xem th­êng! ChØ cÇn cã ng­êi ngang nhiªn ®ét nhËp vµo, Tam s¾c kú th¹ch sÏ ph¸t huy ma lùc. \n* Lµm bÓ "..MU_GetColoredText("L­ h­¬ng", "green").."\n* §¸nh b¹i "..MU_GetColoredText("§¹i trang chñ", "green"),
+	MU_GetColoredText("Tµng KiÕm C¸c. Tµng KiÕm s¬n trang", "gold").."\n N¬i ®©y ®· tµng gi÷ v« sè ®ao kiÕm cã gi¸ trÞ liªn thµnh. \n §Æc biÖt lµ c¸c lo¹i vò khÝ thuéc hÖ ngò hµnh. \n* Rót vò khÝ ra ®¸nh b¹i "..MU_GetColoredText("B¶o vÖ ngò hµnh", "green").."\n* VÞ huynh ®Ö nµo cã thÓ thö søc ®¸nh b¹i "..MU_GetColoredText("Tr­ëng l·o Tµng KiÕm C¸c", "green"),
+	MU_GetColoredText("Tµng KiÕm s¬n trang. Tö Tróc L©m", "gold").."\n Nghe nãi chèn nµy vèn lµ n¬i tró ngô cña mét vÞ tiªn nh©n, tæng céng 16 ph­¬ng vÞ, ®Òu cã Kh¾c Ên phï, dÔ vµo khã ra. \n NÕu c¸c vÞ cã thÓ ra ®­îc, l·o phu sÏ dÉn ®­êng ®Õn KiÕm Trñng. \n* §i t×m "..MU_GetColoredText("Sø gi¶ Tµng KiÕm", "green").." ®èi tho¹i qua ¶i.",
+	MU_GetColoredText("Tµng KiÕm s¬n trang. Tö Tróc L©m", "gold").."\n Nghe nãi chèn nµy vèn lµ n¬i tró ngô cña mét vÞ tiªn nh©n, tæng céng 16 ph­¬ng vÞ, ®Òu cã Kh¾c Ên phï, dÔ vµo khã ra. \n NÕu c¸c vÞ cã thÓ ra ®­îc, l·o phu sÏ dÉn ®­êng ®Õn KiÕm Trñng. \n* §i t×m "..MU_GetColoredText("Sø gi¶ Tµng KiÕm", "green").." ®èi tho¹i qua ¶i.",
+	MU_GetColoredText("Tµng KiÕm s¬n trang. Tö Tróc L©m", "gold").."\n Nghe nãi chèn nµy vèn lµ n¬i tró ngô cña mét vÞ tiªn nh©n, tæng céng 16 ph­¬ng vÞ, ®Òu cã Kh¾c Ên phï, dÔ vµo khã ra. \n NÕu c¸c vÞ cã thÓ ra ®­îc, l·o phu sÏ dÉn ®­êng ®Õn KiÕm Trñng. \n* §i t×m "..MU_GetColoredText("Sø gi¶ Tµng KiÕm", "green").." ®èi tho¹i qua ¶i.",
+	MU_GetColoredText("Tµng KiÕm s¬n trang. KiÕm Chñng", "gold").."\n KiÕm Chñng ®­îc xem lµ vïng cÊm mËt cña Tµng KiÕm S¬n Trang, bëi n¬i ®©y ®­îc cÊt nhiÒu thanh kiÕm quý. \n* Th¸o 5 c©y "..MU_GetColoredText("Ngò Hµnh kiÕm", "green").."\n* §¸nh b¹i "..MU_GetColoredText("Cöu TuyÖt KiÕm Ma", "green")}
 GS_STAGE_END = {					-- ²Ø½£Ê¹Õß½áÊø¶Ô»°µÄÄÚÈÝ
 	MU_GetColoredText("Tµng KiÕm s¬n trang. S¬n M«n", "gold").."\n Chóc mõng c¸c vÞ ®· v­ît qua thö th¸ch ®Çu tiªn, xin chuÈn bÞ cho thö th¸ch tiÕp theo!",
 	MU_GetColoredText("§¹i ViÖn. Tµng KiÕm s¬n trang", "gold").."\n Chóc mõng c¸c vÞ ®· v­ît qua thö th¸ch thø 2, xin chuÈn bÞ cho thö th¸ch tiÕp theo!",
@@ -1750,13 +1754,13 @@ GS_STAGE_END = {					-- ²Ø½£Ê¹Õß½áÊø¶Ô»°µÄÄÚÈÝ
 	MU_GetColoredText("Tµng KiÕm s¬n trang. Tö Tróc L©m", "gold").."\n Chóc mõng c¸c vÞ ®· v­ît qua thö th¸ch thø 8, xin chuÈn bÞ cho thö th¸ch tiÕp theo!",
 	MU_GetColoredText("Tµng KiÕm s¬n trang. KiÕm Chñng", "gold").."\n Chóc mõng c¸c anh hïng v­ît ¶i thµnh c«ng! X­a nay, nhiÒu anh hïng h¶o h¸n còng khã lßng qua næi. C¸c vÞ xuÊt s¾c v­ît ¶i, lËp nªn ®¹i nghiÖp, danh chÊn giang hå! L·o phu hÕt lßng kÝnh phôc!!!"}
 GS_FORSELECT = {					-- Óë²Ø½£Ê¹Õß¶Ô»°µÄÑ¡Ïî
-"b¾t ®Çu thö th¸ch/GS_StartStage",
-"vµo ¶i kÕ tiÕp./GS_NextStage",
-"nhËn phÇn th­ëng ®éi tr­ëng.",
+"\nB¾t ®Çu thö th¸ch/GS_StartStage",
+"Vµo ¶i kÕ tiÕp./GS_NextStage",
+"NhËn phÇn th­ëng ®éi tr­ëng.",
 "§iÒu chØnh mua b¸n. (CÇn 1 anh hïng thiÕp cho c¶ ®éi cïng mua b¸n)/GS_Trade",
 "§iÒu kiÖn mua b¸n./GS_Trade",
-"nghØ ng¬i mét l¸t./GS_ExitSay",
-"më r­¬ng chøa ®å. ( cÇn 1 Anh Hïng thiÕp)/GS_OpenBox",
+"NghØ ng¬i mét l¸t./GS_ExitSay",
+"Më r­¬ng chøa ®å. ( cÇn 1 Anh Hïng thiÕp)/GS_OpenBox",
 "\nRêi khái tµng kiÕm/",
 }
 GS_ERRORMSG = {
@@ -1833,7 +1837,7 @@ end
 function GS_DateCheck()
 	local nTeamSize = 0
 	local nDateDay = tonumber(date("%m%d"))
-	local nChance = 5	--½øÈë´ÎÊýÏÞÖÆ
+	local nChance = MAX_ENTRY_CHANCE	--½øÈë´ÎÊýÏÞÖÆ
 	local nOldIndex = PlayerIndex
 	for i=1, GetTeamSize() do
 		PlayerIndex = GetTeamMember(i)
@@ -1853,7 +1857,7 @@ function GS_DateCheck()
 			end
 		end
 		if (GetTask(GS_RECORD_DATE) ~= nDateDay) or (GetTask(GS_RECORD_CHANCE) >= nChance) then
-			MU_Msg2Team(GetName().."Kh«ng thÓ vµo Tµng KiÕm s¬n trang (H«m nay ®· vµo 5 lÇn råi ). ["..GetTask(GS_RECORD_CHANCE).."/5]")
+			MU_Msg2Team(GetName().."Kh«ng thÓ vµo Tµng KiÕm s¬n trang (H«m nay ®· vµo "..nChance.." lÇn råi ). ["..GetTask(GS_RECORD_CHANCE).."/5]")
 		end
 	end
 	PlayerIndex = nOldIndex
@@ -1865,7 +1869,7 @@ function GS_DateCheck()
 end
 
 function CalcYingXiongTie(nShowMsg)
-	local nNeedCount = NEEDED_ANHHUNGTHIEP;
+	local nNeedCount = NEEDED_YINGXIONGTIE;
 	local nDateDay = tonumber(date("%m%d"))
 	local nOldIndex = PlayerIndex
 	local MaxCount = 1
@@ -1935,7 +1939,7 @@ function GS_EnterCheck()
 	local nTeamSize = GetTeamSize()
 	if ((nTeamSize >= MIN_TEAM_MEMBER) and (GS_AreaCheck() == 1)) and (GS_CheckRoute() >= MIN_TEAM_MEMBER) then
 		nCheckPoint[2] = 1
-		GS_TeamSizeTxt = "<color=green>"..MIN_TEAM_MEMBER.." ng­êi trë lªn (®éi viªn ë"..SF_TOWNNAME..")<color> "
+		GS_TeamSizeTxt = "<color=green>"..MIN_TEAM_MEMBER.." ng­êi trë lªn (®éi viªn ë "..SF_TOWNNAME..")<color> "
 	else
 		GS_TeamSizeTxt = "<color=red>Tèi thiÓu cã "..MIN_TEAM_MEMBER.." hÖ ph¸i kh¸c nhau cïng ë ("..SF_TOWNNAME..")<color>"
 	end
@@ -1982,7 +1986,7 @@ function GS_EnterCheck()
 	if (nCheckPoint[1] == 1) and (nCheckPoint[2] == 1) and (nCheckPoint[3] == 1) and (nCheckPoint[4] == 1) then
 		return 2
 	else
-		local GS_COMMONTALK = "ChØ cã tæ chøc "..GS_TeamSizeTxt.."; "..GS_TeamLevelTxt.." ®· lËp tæ ®éi, do "..GS_TeamLeaderTxt.." dÉn ®éi vµ mang theo "..GS_TeamItemTxt.."míi gÆp ®­îc trang chñ"..GS_TeamDateTxt..". \n \n<color=gray>(Ch÷ ®á biÓu thÞ ®éi ch­a ®ñ ®iÒu kiÖn, ch÷ xanh biÓu thÞ ®éi ®· ®ñ ®iÒu kiÖn)<color>"
+		local GS_COMMONTALK = "ChØ cã tæ chøc "..GS_TeamSizeTxt.."; "..GS_TeamLevelTxt.." ®· lËp tæ ®éi, do "..GS_TeamLeaderTxt.." dÉn ®éi vµ mang theo "..GS_TeamItemTxt.." míi gÆp ®­îc trang chñ "..GS_TeamDateTxt..". \n \n<color=gray>(Ch÷ ®á biÓu thÞ ®éi ch­a ®ñ ®iÒu kiÖn, ch÷ xanh biÓu thÞ ®éi ®· ®ñ ®iÒu kiÖn)<color>"
 		Talk(1, "", GS_COMMONTALK)
 		return nCheckPoint[1], nCheckPoint[2], nCheckPoint[3], nCheckPoint[4], nCheckPoint[5]
 	end
@@ -1991,16 +1995,24 @@ end
 function GS_EnterTaskTalk()
 	local GS_ENTERTASKTALK = "Ta theo lÖnh trang chñ ®Õn ®©y nghªnh tiÕp c¸c vÞ anh hïng, xin hái cã cÇn trî gióp g× kh«ng?"
 			--GS_ENTERTASKTALK = GS_ENTERTASKTALK.." Ta cã 1 quyÓn <Tµng KiÕm ChÝ>."
-	Say(GS_ENTERTASKTALK, 10, "Liªn quan Tµng KiÕm s¬n trang/GS_EnterTaskTalk_1", 
-				 			 "Liªn quan Anh Hïng thiÕp/GS_EnterTaskTalk_2", 
-							 "Liªn quan Tµng KiÕm thÊt ¶i/GS_EnterTaskTalk_3", 
-							 "Liªn quan §iÒu kiÖn v­ît ¶i/GS_EnterTaskTalk_4", 
-							 "Ta muèn nhËn 1 quyÓn <Tµng KiÕm ChÝ>/getCamNang",
-							 "\nTa muèn ®­a ng­êi v­ît ¶i \n /GS_EnterTaskTalk_5",  -- DongTinhNang
-							 "NhËn thuëng tham gia 7 lÇn/get_Award7", 
-							 "Ta muèn mua 1  Tµng KiÕm Anh Hïng ThiÕp ( 20 xu vËt phÈm )/GS_ChangeAHL",
-							 "Ta muèn ®æi ®iÓm tÝch lòy Tµng KiÕm lÊy phÇn th­ëng/GS_EnterTaskTalk_6",
-							 "V·n sinh nghe uy danh cña Sø gi¶ Tµng KiÕm nªn ®Æc biÖt ®Õn th¨m!/GS_EnterTaskTalk_7")	
+	local szEntry = "\nTa muèn ®­a ng­êi v­ît ¶i\n\n/GS_EnterTaskTalk_5";  -- DongTinhNang
+	if GetTeamSize() == 1 then 
+		szEntry = "\nTa muèn mét m×nh x«ng vµo trËn ®Þa\n\n/GS_EnterTaskTalk_5";
+	end
+	
+	local tSay = {
+		"Liªn quan Tµng KiÕm s¬n trang/GS_EnterTaskTalk_1", 
+		"Liªn quan Anh Hïng thiÕp/GS_EnterTaskTalk_2", 
+		"Liªn quan Tµng KiÕm thÊt ¶i/GS_EnterTaskTalk_3", 
+		"Liªn quan §iÒu kiÖn v­ît ¶i/GS_EnterTaskTalk_4", 
+		"Ta muèn nhËn 1 quyÓn <Tµng KiÕm ChÝ>/getCamNang",
+		szEntry,
+		"NhËn thuëng tham gia 7 lÇn/get_Award7", 
+		"Ta muèn mua 1  Tµng KiÕm Anh Hïng ThiÕp ( 20 xu vËt phÈm )/GS_ChangeAHL",
+		"Ta muèn ®æi ®iÓm tÝch lòy Tµng KiÕm lÊy phÇn th­ëng/GS_EnterTaskTalk_6",
+		"V·n sinh nghe uy danh cña Sø gi¶ Tµng KiÕm nªn ®Æc biÖt ®Õn th¨m!/GS_EnterTaskTalk_7",
+	}
+	Say(GS_ENTERTASKTALK, getn(tSay),tSay)	
 end
 	function getCamNang()
 		if (GetItemCount(2,0,333) == 0) then
@@ -2023,7 +2035,7 @@ end
 		Say("Tµng KiÕm ThÊt ¶i lµ 7 ¶i lín ®­îc x©y theo ®Þa h×nh cña S¬n Trang, néi hîp b¸t qu¸i, ©m chøa ngò hµnh, c¹m bÉy trïng trïng. Ng­êi ngoµi r¬i vµo cÇm ch¾c cöu tö nhÊt sinh. Ta thÊy ng­¬i hîp nh·n nªn cã chót høng thó. CÇn ta gióp g× n÷a kh«ng?",2,"Ta muèn hái th¨m c¸i kh¸c/GS_EnterTaskTalk","KÕt thóc ®èi tho¹i/GS_EnterTaskTalk_7")
 	end
 	function GS_EnterTaskTalk_4()
-		Say("X©m nhËp Tµng KiÕm s¬n trang cÇn 5 chiÕn h÷u ®¼ng cÊp"..SF_TOWNNAME.."lín h¬n hoÆc b»ng cÊp 50, ®­îc ®éi tr­ëng xuÊt tr×nh Anh Hïng thiÕp. Mçi ngµy, chØ nhËn ®­îc 5 lÇn lêi mêi cña Tµng KiÕm s¬n trang trang chñ!",2,"Ta muèn hái th¨m c¸i kh¸c/GS_EnterTaskTalk","KÕt thóc ®èi tho¹i/GS_EnterTaskTalk_7")
+		Say("X©m nhËp Tµng KiÕm s¬n trang cÇn "..MIN_TEAM_MEMBER.." chiÕn h÷u ®¼ng cÊp"..SF_TOWNNAME.."lín h¬n hoÆc b»ng cÊp 50, ®­îc ®éi tr­ëng xuÊt tr×nh Anh Hïng thiÕp. Mçi ngµy, chØ nhËn ®­îc "..MAX_ENTRY_CHANCE.." lÇn lêi mêi cña Tµng KiÕm s¬n trang trang chñ!",2,"Ta muèn hái th¨m c¸i kh¸c/GS_EnterTaskTalk","KÕt thóc ®èi tho¹i/GS_EnterTaskTalk_7")
 	end
 	function GS_EnterTaskTalk_5()
 		local nMap = GetWorldPos()
@@ -2034,7 +2046,7 @@ end
 		local isMapOpened, nOpenedMaps, szOpenedMaps = checkOpenedMaps(nMap);
 		
 		if nOpenedMaps == 0 then 
-			Talk(1,"","RÊt tiÕc, Tµng KiÕm s¬n trang hiÖn kh«ng hoan nghªnh ng­êi ngoµi. PhiÒn b»ng h÷u ®i cho.");
+			Talk(1,"","RÊt tiÕc, Tµng KiÕm s¬n trang hiÖn kh«ng hoan nghªnh ng­êi ngoµi. PhiÒn b»ng h÷u vÒ cho.");
 			return
 		end
 		
@@ -2053,8 +2065,8 @@ end
 				SetTask(GS_RECORD_DATE, nCurDate)
 			end
 			
-			if GetTask(GS_RECORD_CHANCE) >= 7 then
-				gf_Msg2Team("H«m nay "..GetName().." ®· ®i 7 lÇn.")
+			if GetTask(GS_RECORD_CHANCE) >= MAX_ENTRY_CHANCE2 then
+				gf_Msg2Team("H«m nay "..GetName().." ®· ®i "..MAX_ENTRY_CHANCE2.." lÇn.")
 				return
 			end
 		end
@@ -2194,11 +2206,26 @@ end
 
 -- Ìõ¼þÂú×ãºóÈÃÍæ¼ÒÑ¡Ôñ³¡µØµÄ½çÃæºÍ¿ØÖÆ²¿·Ö
 function GS_EnterTask()
-	local sInfo1 = "VÞ anh hïng nµy muèn vµo trËn ®Þa nµo? \n"..SF_TOWNNAME..", xin hái c¸c anh hïng muèn vµo trËn ®Þa nµo? \n".."[TrËn ®Þa]     TrËn ®Þa 1 TrËn ®Þa 2 TrËn ®Þa 3 TrËn ®Þa 4 TrËn ®Þa 5 \n"
-	local sInfo2 = "[Tr¹ng th¸i]       "..GS_USEDNOTE_IMG[GS_STAGE_USED[1]+1].."          "..GS_USEDNOTE_IMG[GS_STAGE_USED[2]+1].."          "..GS_USEDNOTE_IMG[GS_STAGE_USED[3]+1].."          "..GS_USEDNOTE_IMG[GS_STAGE_USED[4]+1].."          "..GS_USEDNOTE_IMG[GS_STAGE_USED[5]+1].."\n"
+	
+	local sInfo1 = "VÞ anh hïng nµy muèn vµo trËn ®Þa nµo? \n"..SF_TOWNNAME..", xin hái c¸c anh hïng muèn vµo trËn ®Þa nµo? \n".."[TrËn ®Þa]     TrËn ®Þa 1 TrËn ®Þa 2 TrËn ®Þa 3 TrËn ®Þa 4 TrËn ®Þa 5";
+	-- local sInfo2 = "[Tr¹ng th¸i]       "..GS_USEDNOTE_IMG[GS_STAGE_USED[1]+1].."          "..GS_USEDNOTE_IMG[GS_STAGE_USED[2]+1].."          "..GS_USEDNOTE_IMG[GS_STAGE_USED[3]+1].."          "..GS_USEDNOTE_IMG[GS_STAGE_USED[4]+1].."          "..GS_USEDNOTE_IMG[GS_STAGE_USED[5]+1].."\n"
+	local sInfo2 = "[Tr¹ng th¸i]       ";
+	for i=1,OPEN_MAPS do 
+		sInfo2 = sInfo2..GS_USEDNOTE_IMG[GS_STAGE_USED[1]+1].."          ";
+	end
+	
+	if OPEN_MAPS == 1 then
+		if GetTeamSize() == 1 then  
+			sInfo1 = "Hoan nghªnh anh hïng ®· ®Õn víi s¬n trang. §Ó tr¸nh khái c¸c xung ®ét kh«ng ®¸ng cã gi÷a c¸c nhãm ®Õn th¨m viÕng s¬n trang, chóng ta sÏ chØ ®ãn tiÕp lÇn l­ît. NÕu trËn ®Þa cßn trèng th× ng­¬i cã thÓ tiÕn vµo ngay.";
+		else
+			sInfo1 = "Hoan nghªnh c¸c anh hïng ®· h¹ cè s¬n trang. §Ó tr¸nh khái c¸c xung ®ét kh«ng ®¸ng cã gi÷a c¸c nhãm ®Õn th¨m viÕng s¬n trang, chóng ta sÏ chØ ®ãn tiÕp lÇn l­ît. NÕu trËn ®Þa cßn trèng th× c¸c ng­¬i cã thÓ tiÕn vµo ngay.";
+		end
+	end
+	
 	local GS_USEDNOTE_COT = {}
-	for i=1, 5 do
+	for i=1, OPEN_MAPS do
 		local sStage = TC_STAGE_Index[i]
+		
 		if sStage < 1 then
 			sStage = "<color=gold>?<color>"
 		else
@@ -2216,15 +2243,26 @@ function GS_EnterTask()
 		end		
 		GS_USEDNOTE_COT[i] = sStage..". "..sTurn
 	end
-	local sInfo3 = "[TiÕn ®é]     "..GS_USEDNOTE_COT[1].."      "..GS_USEDNOTE_COT[2].."      "..GS_USEDNOTE_COT[3].."      "..GS_USEDNOTE_COT[4].."      "..GS_USEDNOTE_COT[5]
-	GS_ENTERTALK = sInfo1..sInfo2..sInfo3
+	-- local sInfo3 = "[TiÕn ®é]     "..GS_USEDNOTE_COT[1].."      "..GS_USEDNOTE_COT[2].."      "..GS_USEDNOTE_COT[3].."      "..GS_USEDNOTE_COT[4].."      "..GS_USEDNOTE_COT[5]
+	local sInfo3 = "[TiÕn ®é]     ";
+	for i=1,OPEN_MAPS do 
+		sInfo3 = sInfo3..GS_USEDNOTE_COT[i].."      ";
+	end
+	local endl = "\n";
+	GS_ENTERTALK = sInfo1..endl..sInfo2..endl..sInfo3;
 	if (GS_EnterCheck() == 2) then
-		Say(GS_ENTERTALK, 6, "TrËn ®Þa nhãm thø 1"..GS_USEDNOTE_TXT[GS_STAGE_USED[1]+1].."/GS_ZoneSelect_1", 
-					 		 "TrËn ®Þa nhãm thø 2"..GS_USEDNOTE_TXT[GS_STAGE_USED[2]+1].."/GS_ZoneSelect_2", 
-							 "TrËn ®Þa nhãm thø 3"..GS_USEDNOTE_TXT[GS_STAGE_USED[3]+1].."/GS_ZoneSelect_3", 
-							 "TrËn ®Þa nhãm thø 4"..GS_USEDNOTE_TXT[GS_STAGE_USED[4]+1].."/GS_ZoneSelect_4", 
-							 "TrËn ®Þa nhãm thø 5"..GS_USEDNOTE_TXT[GS_STAGE_USED[5]+1].."/GS_ZoneSelect_5",
-							 "lÇn sau quay l¹i nhÐ!/GS_ExitSay")
+	local tSay = {}
+	if OPEN_MAPS == 1 then
+		local i=1;
+		tinsert(tSay,"TiÕn vµo trËn ®Þa "..GS_USEDNOTE_TXT[GS_STAGE_USED[i]+1].."/GS_ZoneSelect_"..i)
+	else
+		for i=1, OPEN_MAPS do 
+			tinsert(tSay,"TrËn ®Þa nhãm thø "..i..GS_USEDNOTE_TXT[GS_STAGE_USED[i]+1].."/GS_ZoneSelect_"..i)
+		end	
+	end
+	
+	tinsert(tSay, "HÑn ngµy t¸i ngé!/GS_ExitSay");
+		Say(GS_ENTERTALK, getn(tSay), tSay)
 --		Say(GS_ENTERTALK, 9, "µÚÒ»¹Ø³¡µØ"..GS_USEDNOTE_TXT[GS_STAGE_USED[1]+1].."/GS_ZoneSelect_1", 
 --					 		 "µÚ¶þ¹Ø³¡µØ"..GS_USEDNOTE_TXT[GS_STAGE_USED[1]+1].."/GS_ZoneSelect_12", 
 --							 "µÚÈý¹Ø³¡µØ"..GS_USEDNOTE_TXT[GS_STAGE_USED[1]+1].."/GS_ZoneSelect_13", 
@@ -2459,7 +2497,7 @@ end
 			Temp = "<color=red>"..Temp.."<color>"	
 		end
 		Temp = SB_Div(Temp, 1)
-		local sLine7 = "                         §iÓm v­ît ¶i:  "..Temp.." (Sè l­îng ®¸nh b¹i:"..Temp2..")"
+		local sLine7 = "                         §iÓm v­ît ¶i:  "..Temp.." (Sè l­îng ®¸nh b¹i: "..Temp2..")"
 		local sLine8 = ""				
 		Say(sLine1..sLine2..sLine3..sLine4..sLine5..sLine6..sLine7, 0)
 	end
@@ -2792,6 +2830,7 @@ function GS_StartStage()
 		TC_TASK_Conditions[nZone][3] = TC_TIMER_LIMIT_TABLE[nStage]	-- ¿ªÆô»ú¹ØµÄÊ±¼äÏÞÖÆ
 	elseif TC_STAGE_Index[nZone] == 5 then				-- ACT V
 		ACT5_CreateSword()
+		ACT5_CreateNpc()
 		TC_TASK_EventCount[nZone][1] = 0	-- ¼ÇÂ¼°Î½£µÄ¸öÊý
 		TC_TASK_EventCount[nZone][2] = 1	-- ¼ÇÂ¼²å½£µÄ¸öÊý
 		TC_TASK_Conditions[nZone][2] = 6	-- ³öÏÖBOSSµÄ²å½£¸öÊý
@@ -3210,6 +3249,12 @@ function ACT5_GetDefFlag(nIndex, nZone)
 	end
 	return 0
 end
+
+function ACT5_CreateNpc()
+	local nMapID = GetWorldPos()
+	local nNpcIndex = CreateNpc("Tæng qu¶n", "Tæng Qu¶n Tµng KiÕm C¸c", nMapID, 1563,3163)
+	SetNpcScript(nNpcIndex, "\\script\\²Ø½£É½×¯\\task_script\\²Ø½£¸ó×Ü¹Ü.lua");
+end;
 function ACT5_CreateSword(nZone)
 	if nZone == nil then
 		nZone = TC_GetTeamZone()

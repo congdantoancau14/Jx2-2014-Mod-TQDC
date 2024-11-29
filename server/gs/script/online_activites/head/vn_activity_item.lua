@@ -34,6 +34,7 @@ ListGif_1 = {
 	{"Linh th¹ch nguyªn th¹ch cÊp 5",10,{2,1,30417,1},0},
 	{"Linh th¹ch nguyªn th¹ch cÊp 6",10,{2,1,30418,1},0},
 	{"Linh th¹ch nguyªn th¹ch cÊp 7",10,{2,1,30419,1},0},
+	{"V¹n B¶o ®å",10,{2,1,2643,1},0},
 };
 
 ListGif_2 = {

@@ -7,8 +7,7 @@ TASK_NPC_INDEX = 1234;
 
 
 function runTest()
-	addExpireItem()
-	-- local r,i=AddItem(2,1,3,1);SetItemExpireTime(i,3600*24*7);
+
 end;
 
 
@@ -23,6 +22,9 @@ function old()
 	--move()
 	--OnTimer();
 	-- SummonNpc("pet_lanxiongmao","GÊu l­ng xanh");
+	
+	-- addExpireItem()
+	-- local r,i=AddItem(2,1,3,1);SetItemExpireTime(i,3600*24*7);
 end;
 
 

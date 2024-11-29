@@ -27,7 +27,7 @@ function OnDeath(nNpcIndex)
     for i = 1, 99 do
 	nAddX = random(-60, 60)
 	nAddY = random(-60, 60)
-	nTargetNpc = CreateNpc(VET_201008_02_TB_NPC_LIST[3][1], VET_201008_02_TB_NPC_LIST[3][2], nMapID, nWx + nAddX, nWy + nAddY)
+	nTargetNpc = CreateNpc(VET_201008_02_TB_NPC_LIST[3][1], format(VET_201008_02_TB_NPC_LIST[3][2],szPlayerName), nMapID, nWx + nAddX, nWy + nAddY)
 	SetNpcLifeTime(nTargetNpc, 180)
 	SetNpcScript(nTargetNpc, VET_201008_02_TB_NPC_LIST[3][3])
     end

@@ -9,7 +9,7 @@ function OnUse(nItemIdx)
 	local nDate = tonumber(date("%y%m%d%H"));
 	local nDay = tonumber(date("%w"));
 	local nHour = tonumber(date("%H"));
-	if nDate < 09061900 or nDate >= 09071924 then
+	if nDate < 09061900 or nDate >= 49071924 then
 		Talk(1, "", "Ho¹t ®éng lÇn nµy ®· kÕt thóc");
 		return
 	end

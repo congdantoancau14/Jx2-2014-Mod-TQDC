@@ -5678,9 +5678,7 @@ ID	Title	AwrdItem	NeedSex	NeedBody	NeedRoute	AwardTimes	GlobalMsg	ExchangeMode	T
 60093	V« Song ChiÕn ThÇn Trang	0;101;30654;1	2	4				60093		
 										
 61000	L­u V©n Kú L©n Thó	0;105;38;1						61000		
-61061	PhÊt HiÓu (D­¬ng M«n)	0;105;30098;1						61061		
-61062	Phi HiÓu (D­¬ng M«n)	0;105;30099;1						61062		
-61001	Thi?u D­¬ng ThÊt Tinh KiÕm	0;105;10107;1						61001		
+61001	ThiÕu D­¬ng ThÊt Tinh KiÕm	0;105;10107;1						61001		
 61002	V¨n Sö ThÊt Qu©n KiÕm	0;105;10108;1						61002		
 61003	C«n H­ Ngäc Dao KiÕm	0;105;10109;1						61003		
 61004	Tiªn Du KiÕm	0;105;10110;1						61004		

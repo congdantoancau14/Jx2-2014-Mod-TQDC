@@ -4,7 +4,6 @@
 Include("\\script\\missions\\tong_mission\\main_function.lua");
 g_THIS_FILE = "\\script\\missions\\tong_mission\\npc\\npc_stage_manager.lua";
 g_szInfoHeader = "<color=green>Tö Quang C¸c L·o Nh©n<color>: ";
-
 function main()
 	load_stage(GetMissionS(MS_TONG_NAME));
 end;
@@ -364,6 +363,9 @@ function load_stage_callback(szKey, nKey1, nKey2, nCount)
 	else
 		tinsert(selTab,"LËp tøc b¾t ®Çu v­ît ¶i/run_mission");
 	end;
+	if DEBUG_VERSION == 1 then
+		tinsert(selTab,"KÕt thóc ¶i (test)/close_mission");
+	end;
 	tinsert(selTab,"Giíi thiÖu Èn sÜ Tö Quang C¸c/know_boss_info");
 	tinsert(selTab,"Më r­¬ng	/open_box");
 	tinsert(selTab,"Ta muèn rêi khái n¬i ®©y/ask_reason");
@@ -403,8 +405,6 @@ function run_mission_confirm()
 		Talk(1,"",g_szInfoHeader.."Thao t¸c nµy ph¶i ®­îc thùc hiÖn bëi bang chñ, phã bang chñ hoÆc tr­ëng l·o.");
 		return 0;
 	end;
-
-	
 	if GetMissionV(MV_STAGE_OVER) == MS_STATE_READY then
 		RunMission(MISSION_ID);
 		Talk(1,"",g_szInfoHeader.."B©y giê ng­¬i cã thÓ b¾t ®Çu vµo khu vùc ®Ó v­ît ¶i ®­îc råi ®ã.");

@@ -14,6 +14,8 @@ Include("\\script\\task\\world\\xibei\\task_head.lua");
 Include("\\script\\task\\world\\task_award.lua");
 Include("\\script\\task\\world\\xibei\\xibei_task_award.lua");
 
+Include("\\script\\lib\\globalfunctions.lua");
+
 --½â³ı÷¼÷ÃÍõ·âÓ¡µÄÖäÓï
 KULOUWANG_CURSE = {
 	[1] = "NhÊt viÕt thiªn chi, nhŞ viÕt ®Şa chi, tam viÕt nh©n chi; tø ph­¬ng th­îng h¹, t¶ h÷u tiÒn hËu, xuÊt yÓu yÓu, nhËp minh minh, hµ thÇn bÊt phôc, hµ quû c¶m ®­¬ng.",
@@ -45,11 +47,13 @@ YIPINGTANG_TITLE = {
 --µ½¿Ü×¼´¦ÁìÈ¡¡°Î÷±±Çø01Î÷ÏÄ°µÓ¿¡±ÈÎÎñ
 function task_001_01_0()
 
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 local strTalk = {
-		"GÇn ®©y ta nhËn ®­îc tin b¸o, T©y H¹ ®ang liªn hÖ mËt thiÕt víi n­íc Liªu. T©y H¹ nhê s¸ch l­îc v¨n trŞ vâ c«ng cña Lı Nguyªn H¹o ngµy mét lín m¹nh, tuy ngoµi mÆt thÇn phôc ®¹i Tèng, nh­ng sù thËt ®· ba n­íc Tèng, Liªu, T©y H¹ ®· h×nh thµnh thÕ kiÒng ba ch©n. T©y H¹ tr­íc nay hµnh sù cÈn träng, lÇn nµy d¸m c«ng nhiªn liªn hÖ víi n­íc Liªu, e sÏ bÊt lîi cho ®¹i Tèng ta.",
-		"T©y H¹ dßm ngã giang s¬n ®¹i Tèng chuyÖn ®ã ai còng biÕt, nh­ng ®ång thêi còng rÊt nghi ng¹i n­íc Liªu. NÕu b¾t tay nhau th× T©y H¹ ®­îc lîi g× chø?",
-		"T©y H¹ còng hiÓu râ ®¹o lı m«i hë r¨ng l¹nh, nªn ®· ©m thÇm ®iÒu ®éng thµnh viªn NhÊt PhÈm §­êng ë Trung Nguyªn ®èi phã víi ®¹i Tèng. NÕu chiÕm ®­îc Trung Nguyªn lµm c¨n cø, T©y H¹ sÏ ®ñ søc ®èi kh¸ng víi n­íc Liªu.",
-		"Nãi vËy, T©y H¹ muèn m­în tay n­íc Liªu ®Ó chiÕm l·nh thæ ®¹i Tèng?",
+		npc.."GÇn ®©y ta nhËn ®­îc tin b¸o, T©y H¹ ®ang liªn hÖ mËt thiÕt víi n­íc Liªu. T©y H¹ nhê s¸ch l­îc v¨n trŞ vâ c«ng cña Lı Nguyªn H¹o ngµy mét lín m¹nh, tuy ngoµi mÆt thÇn phôc ®¹i Tèng, nh­ng sù thËt ®· ba n­íc Tèng, Liªu, T©y H¹ ®· h×nh thµnh thÕ kiÒng ba ch©n. T©y H¹ tr­íc nay hµnh sù cÈn träng, lÇn nµy d¸m c«ng nhiªn liªn hÖ víi n­íc Liªu, e sÏ bÊt lîi cho ®¹i Tèng ta.",
+		plr.."T©y H¹ dßm ngã giang s¬n ®¹i Tèng chuyÖn ®ã ai còng biÕt, nh­ng ®ång thêi còng rÊt nghi ng¹i n­íc Liªu. NÕu b¾t tay nhau th× T©y H¹ ®­îc lîi g× chø?",
+		npc.."T©y H¹ còng hiÓu râ ®¹o lı m«i hë r¨ng l¹nh, nªn ®· ©m thÇm ®iÒu ®éng thµnh viªn NhÊt PhÈm §­êng ë Trung Nguyªn ®èi phã víi ®¹i Tèng. NÕu chiÕm ®­îc Trung Nguyªn lµm c¨n cø, T©y H¹ sÏ ®ñ søc ®èi kh¸ng víi n­íc Liªu.",
+		plr.."Nãi vËy, T©y H¹ muèn m­în tay n­íc Liªu ®Ó chiÕm l·nh thæ ®¹i Tèng?",
 		}
 
 	TalkEx("task_001_01_0_1",strTalk);
@@ -59,11 +63,13 @@ end;
 --Ğø¶Ô»°
 function task_001_01_0_1()
 
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 local strTalk = {
-	"RÊt cã thÓ. ë T©y H¹ phİa t©y Hµ T©y TÈu Lang lµ vïng hoang m¹c réng lín, nªn chóng rÊt thÌm muèn c¸c m¶nh ®Êt mµu mì. Qu©n ®éi ®¹i Tèng hiÖn ®ang tËp trung chiÕn lùc ë Nh¹n M«n Quan ®¸nh qu©n Liªu, mai nµy ¾t sÏ r¬i vµo thÕ gäng k×m, hai mÆt gi¸p ®Şch.",
-	"Hµnh ®éng cña T©y H¹ thËt hiÓm ¸c, T©y H¹ vèn quen hµnh ®éng ngÇm, nay l¹i ®Ó th«ng tin bŞ rß rØ th× thËt ®¸ng nghi. KhÊu ®¹i nh©n, kh«ng biÕt ta cã thÓ gióp ®­îc g× cho «ng?",
-	"<sex> trung qu©n ¸i quèc, lµ r­êng cét cña ®¹i Tèng ta. Nh­ng chØ víi søc cña mét m×nh <sex>, e lµ kh«ng ®ñ vµ còng rÊt nguy hiÓm. Tr­êng Ca M«n ¾t ®· n¾m th«ng tin vÒ ®éng th¸i cña T©y H¹, ng­¬i h·y tíi gÆp B¸ch HiÓu Sinh ë BiÖn Kinh, hái xem Tr­êng Ca M«n cã ®ång ı gióp ®iÒu tra viÖc nµy. Sù viÖc liªn quan ®Õn an nguy cña ®¹i Tèng, ng­¬i h·y khëi hµnh ngay.",
-	"Cã sù trî gióp cña Tr­êng Ca M«n, ta ¾t sÏ ®iÒu ra râ ngän ngµnh."
+	npc.."RÊt cã thÓ. ë T©y H¹ phİa t©y Hµ T©y TÈu Lang lµ vïng hoang m¹c réng lín, nªn chóng rÊt thÌm muèn c¸c m¶nh ®Êt mµu mì. Qu©n ®éi ®¹i Tèng hiÖn ®ang tËp trung chiÕn lùc ë Nh¹n M«n Quan ®¸nh qu©n Liªu, mai nµy ¾t sÏ r¬i vµo thÕ gäng k×m, hai mÆt gi¸p ®Şch.",
+	plr.."Hµnh ®éng cña T©y H¹ thËt hiÓm ¸c, T©y H¹ vèn quen hµnh ®éng ngÇm, nay l¹i ®Ó th«ng tin bŞ rß rØ th× thËt ®¸ng nghi. KhÊu ®¹i nh©n, kh«ng biÕt ta cã thÓ gióp ®­îc g× cho «ng?",
+	npc.."<sex> trung qu©n ¸i quèc, lµ r­êng cét cña ®¹i Tèng ta. Nh­ng chØ víi søc cña mét m×nh <sex>, e lµ kh«ng ®ñ vµ còng rÊt nguy hiÓm. Tr­êng Ca M«n ¾t ®· n¾m th«ng tin vÒ ®éng th¸i cña T©y H¹, ng­¬i h·y tíi gÆp B¸ch HiÓu Sinh ë BiÖn Kinh, hái xem Tr­êng Ca M«n cã ®ång ı gióp ®iÒu tra viÖc nµy. Sù viÖc liªn quan ®Õn an nguy cña ®¹i Tèng, ng­¬i h·y khëi hµnh ngay.",
+	plr.."Cã sù trî gióp cña Tr­êng Ca M«n, ta ¾t sÏ ®iÒu ra râ ngän ngµnh."
 	}
 
 	TalkEx("",strTalk);
@@ -76,9 +82,11 @@ end
 --ÕÒ°ÙÏşÉúÖ®Ç°Óë¿Ü×¼¶Ô»°
 function task_001_01_1()
 
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 local strTalk = {
-	"<sex> trung qu©n ¸i quèc, lµ r­êng cét cña ®¹i Tèng ta. Nh­ng chØ víi søc cña mét m×nh <sex>, e lµ kh«ng ®ñ vµ còng rÊt nguy hiÓm. Tr­êng Ca M«n ¾t ®· n¾m th«ng tin vÒ ®éng th¸i cña T©y H¹, ng­¬i h·y tíi gÆp B¸ch HiÓu Sinh ë BiÖn Kinh, hái xem Tr­êng Ca M«n cã ®ång ı gióp ®iÒu tra viÖc nµy. Sù viÖc liªn quan ®Õn an nguy cña ®¹i Tèng, ng­¬i h·y khëi hµnh ngay.",
-	"Cã sù trî gióp cña Tr­êng Ca M«n, ta ¾t sÏ ®iÒu ra râ ngän ngµnh."
+	npc.."<sex> trung qu©n ¸i quèc, lµ r­êng cét cña ®¹i Tèng ta. Nh­ng chØ víi søc cña mét m×nh <sex>, e lµ kh«ng ®ñ vµ còng rÊt nguy hiÓm. Tr­êng Ca M«n ¾t ®· n¾m th«ng tin vÒ ®éng th¸i cña T©y H¹, ng­¬i h·y tíi gÆp B¸ch HiÓu Sinh ë BiÖn Kinh, hái xem Tr­êng Ca M«n cã ®ång ı gióp ®iÒu tra viÖc nµy. Sù viÖc liªn quan ®Õn an nguy cña ®¹i Tèng, ng­¬i h·y khëi hµnh ngay.",
+	plr.."Cã sù trî gióp cña Tr­êng Ca M«n, ta ¾t sÏ ®iÒu ra râ ngän ngµnh."
 	}
 
 	TalkEx("",strTalk);
@@ -87,14 +95,15 @@ end
 
 --Óë°ÙÏşÉú¶Ô»°
 function task_001_02_0()
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 local strTalk = {
-	"<sex> ¸nh m¾t ho¶ng hèt... kh«ng biÕt cã chuyÖn g×?",
-	"T¹i h¹ biÕt ®­îc th«ng tin tõ KhÊu ChuÈn, T©y H¹ gÇn ®©y nhiÒu lÇn bİ mËt liªn hÖ víi Liªu Quèc, h×nh nh­ dù ®Şnh liªn minh x©m l­îc Tèng, nÕu lµ thËt th× §¹i Tèng sÏ bŞ tÊn c«ng tõ hai phİa, giang s¬n sÏ gÆp nguy c¬ trong mét sím mét chiÒu.",
-	"ChuyÖn nµy Tr­êng Ca M«n ta còng cã nghe qua, vµ ë Phông T­êng dß th¸m ®­îc cã ng­êi T©y H¹ ®ang Èn nÊp, T©y H¹ hµnh sù bİ mËt thËn träng, nh­ng ta còng kh«ng ®o¸n ®­îc chóng l¹i ©m m­u víi Liªu Quèc, cã ı ®å quÊy rèi.",
-	"T©y H¹ lÇn nµy nghi ngê bè trİ, t¹i h¹ sî m×nh c« thÕ kh«ng thÓ øng phã. Kh«ng biÕt Tr­êng Ca M«n cã thÓ gióp ®ì ®iÒu tra kh«ng?",
-	"§¹i Tèng gÆp n¹n, Tr­êng Ca M«n ta lÏ nµo l¹i ngåi yªn sao? <sex> lßng ®Çy nhiÖt huyÕt, anh hïng thiÕu nªn, b¸ch HiÓu Sinh ta rÊt ng­ìng mé, thiÕu hiÖp an t©m, Tr­êng Ca M«n ta nhÊt ®Şnh sÏ gióp. ¢u D­¬ng Häa ®ang ë Phông T­êng, <sex> mang chØ thŞ cña ta ®Õn chç «ng ta, ®Ó ¢u D­¬ng Häa lËp tøc b¾t ®Çu ®iÒu tra chuyÖn nµy, sÏ kh«ng cã sai sãt.",
-	"§a t¹ B¸ch HiÓu Sinh tiÒn bèi, t¹i h¹ lªn ®­êng ®©y."
+	npc.."<sex> ¸nh m¾t ho¶ng hèt... kh«ng biÕt cã chuyÖn g×?",
+	plr.."T¹i h¹ biÕt ®­îc th«ng tin tõ KhÊu ChuÈn, T©y H¹ gÇn ®©y nhiÒu lÇn bİ mËt liªn hÖ víi Liªu Quèc, h×nh nh­ dù ®Şnh liªn minh x©m l­îc Tèng, nÕu lµ thËt th× §¹i Tèng sÏ bŞ tÊn c«ng tõ hai phİa, giang s¬n sÏ gÆp nguy c¬ trong mét sím mét chiÒu.",
+	npc.."ChuyÖn nµy Tr­êng Ca M«n ta còng cã nghe qua, vµ ë Phông T­êng dß th¸m ®­îc cã ng­êi T©y H¹ ®ang Èn nÊp, T©y H¹ hµnh sù bİ mËt thËn träng, nh­ng ta còng kh«ng ®o¸n ®­îc chóng l¹i ©m m­u víi Liªu Quèc, cã ı ®å quÊy rèi.",
+	plr.."T©y H¹ lÇn nµy nghi ngê bè trİ, t¹i h¹ sî m×nh c« thÕ kh«ng thÓ øng phã. Kh«ng biÕt Tr­êng Ca M«n cã thÓ gióp ®ì ®iÒu tra kh«ng?",
+	npc.."§¹i Tèng gÆp n¹n, Tr­êng Ca M«n ta lÏ nµo l¹i ngåi yªn sao? <sex> lßng ®Çy nhiÖt huyÕt, anh hïng thiÕu nªn, b¸ch HiÓu Sinh ta rÊt ng­ìng mé, thiÕu hiÖp an t©m, Tr­êng Ca M«n ta nhÊt ®Şnh sÏ gióp. ¢u D­¬ng Häa ®ang ë Phông T­êng, <sex> mang chØ thŞ cña ta ®Õn chç «ng ta, ®Ó ¢u D­¬ng Häa lËp tøc b¾t ®Çu ®iÒu tra chuyÖn nµy, sÏ kh«ng cã sai sãt.",
+	plr.."§a t¹ B¸ch HiÓu Sinh tiÒn bèi, t¹i h¹ lªn ®­êng ®©y."
 	}
 
 	SetTask(TASK_XB_ID,2);
@@ -107,9 +116,10 @@ end
 
 --ÓëÅ·Ñô»­¶Ô»°Ç°Óë°ÙÏşÉú¶Ô»°
 function task_001_02_1()
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 local strTalk = {
-	"¢u D­¬ng Häa ®ang ë Phông T­êng, mau ®i t×m «ng ta."
+	npc.."¢u D­¬ng Häa ®ang ë Phông T­êng, mau ®i t×m «ng ta."
 	}
 
 	TalkEx("",strTalk);
@@ -118,14 +128,15 @@ end
 
 --ÓëÅ·Ñô»­¶Ô»°°ïÃ¦È¡Å®×°ÒÂ·ş
 function task_001_03_0()
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 local strTalk = {
-	"Xem tranh mü n÷ cña ta. <sex> cã thÊy tuyÖt vêi kh«ng, cã thÓ lµ siªu phÈm kh«ng?",
-	"Ph¶i…ph¶i…thËt lµ ®Ñp….",
-	"Ha ha ha, tuyÖt tuyÖt, xem ra <sex> lµ ng­êi hiÓu tranh, ¢u D­¬ng Häa ta b×nh sinh ghĞt nhÊt lµ ng­êi kh«ng hiÓu tranh! Ta lu«n ®­a thiÕu n÷ Tèng vµo tranh, thiÕu n÷ §¹i Tèng nhá nh¾n dŞu dµng, vµo trong tranh l¹i cµng quyÕn rò",
-	"¢u D­¬ng tiÒn bèi nãi cã lı.(Hãa ra «ng ta chİnh lµ ¢u D­¬ng Häa….) §óng råi tiÒn bèi….",
-	"Kh«ng sai kh«ng sai, lÇn nµy ta ®Õn T©y Vùc, muèn t×m hiÓu vÒ phong t×nh cña mü n÷ T©y Vùc. Nghe nãi thiÕu n÷ T©y Vùc tİnh khİ nãng n¶y, nÕu ®­a hä vµo tranh, e r»ng còng kh«ng ®¹t ®­îc ı muèn. Nh­ng vÏ kh«ng thÓ hiÖn ®­îc, th× kh«ng ph¶i ®¸ng tiÕc sao?",
-	"(¢u D­¬ng Häa….®óng lµ kú danh thİch vÏ) tiÒn bèi…..",
+	npc.."Xem tranh mü n÷ cña ta. <sex> cã thÊy tuyÖt vêi kh«ng, cã thÓ lµ siªu phÈm kh«ng?",
+	plr.."Ph¶i…ph¶i…thËt lµ ®Ñp….",
+	npc.."Ha ha ha, tuyÖt tuyÖt, xem ra <sex> lµ ng­êi hiÓu tranh, ¢u D­¬ng Häa ta b×nh sinh ghĞt nhÊt lµ ng­êi kh«ng hiÓu tranh! Ta lu«n ®­a thiÕu n÷ Tèng vµo tranh, thiÕu n÷ §¹i Tèng nhá nh¾n dŞu dµng, vµo trong tranh l¹i cµng quyÕn rò",
+	plr.."¢u D­¬ng tiÒn bèi nãi cã lı.(Hãa ra «ng ta chİnh lµ ¢u D­¬ng Häa….) §óng råi tiÒn bèi….",
+	npc.."Kh«ng sai kh«ng sai, lÇn nµy ta ®Õn T©y Vùc, muèn t×m hiÓu vÒ phong t×nh cña mü n÷ T©y Vùc. Nghe nãi thiÕu n÷ T©y Vùc tİnh khİ nãng n¶y, nÕu ®­a hä vµo tranh, e r»ng còng kh«ng ®¹t ®­îc ı muèn. Nh­ng vÏ kh«ng thÓ hiÖn ®­îc, th× kh«ng ph¶i ®¸ng tiÕc sao?",
+	plr.."(¢u D­¬ng Häa….®óng lµ kú danh thİch vÏ) tiÒn bèi…..",
 	}
 
 
@@ -140,14 +151,15 @@ end
 
 -- Ğø¶Ô»°
 function task_001_03_0_1()
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 local strTalk = {
-	"µ, cã c¸ch råi. HiÖn giê tuy kh«ng cã ng­êi thËt, nh­ng phôc søc cña thiÕu n÷ T©y Vùc diªm dóa phong t×nh, mµu s¾c ®éc ®¸o, ®­îc xem mét lÇn th× phong c¸ch tù nhiªn sÏ ®­îc lång vµo tranh, vËy còng tháa lßng.",
-	"Nh­ng tiÒn bèi…..",
-	"<sex> lµ ng­êi hiÓu tranh, ph¶i biÕt r»ng c¶m xóc lu«n d©ng trµo. Chóng ta chia nhau lµm, ta ®i mµi mùc, ng­¬i ®Õn phİa B¾c thµnh lÊy bé y phôc cña ng­êi ®Ñp Ba T­ vµ ng­êi ®µn bµ T©y Vùc, ta sÏ vÏ nªn bøc tranh giai nh©n tuyÖt ®Ñp. ",
-	"VËy……",
-	"Mau ®i ®i, c¶m xóc sÏ tan biÕn mÊt, cã thÓ ®­a thiÕu n÷ T©y Vùc vµo tranh lµ mét niÒm vui ®èi víi ta.",
-	"… (xem ra chØ cÇn tháa m·n niÒm ao ­íc cña «ng ta ®·, råi tİnh sau)",
+	npc.."µ, cã c¸ch råi. HiÖn giê tuy kh«ng cã ng­êi thËt, nh­ng phôc søc cña thiÕu n÷ T©y Vùc diªm dóa phong t×nh, mµu s¾c ®éc ®¸o, ®­îc xem mét lÇn th× phong c¸ch tù nhiªn sÏ ®­îc lång vµo tranh, vËy còng tháa lßng.",
+	plr.."Nh­ng tiÒn bèi…..",
+	npc.."<sex> lµ ng­êi hiÓu tranh, ph¶i biÕt r»ng c¶m xóc lu«n d©ng trµo. Chóng ta chia nhau lµm, ta ®i mµi mùc, ng­¬i ®Õn phİa B¾c thµnh lÊy bé y phôc cña ng­êi ®Ñp Ba T­ vµ ng­êi ®µn bµ T©y Vùc, ta sÏ vÏ nªn bøc tranh giai nh©n tuyÖt ®Ñp. ",
+	plr.."VËy……",
+	npc.."Mau ®i ®i, c¶m xóc sÏ tan biÕn mÊt, cã thÓ ®­a thiÕu n÷ T©y Vùc vµo tranh lµ mét niÒm vui ®èi víi ta.",
+	plr.."… (xem ra chØ cÇn tháa m·n niÒm ao ­íc cña «ng ta ®·, råi tİnh sau)",
 	}
 
 	TalkEx("",strTalk);
@@ -156,19 +168,20 @@ end
 
 --´ø»Ø»òÎ´´ø»ØÅ®×°¸øÅ·Ñô»­
 function task_001_04_0()
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 local strTalk = {};
 
 	--´ø»ØÅ®×°
 	if GetItemCount(2,0,686) >= 1 and GetItemCount(2,0,687) >= 1 then
 		strTalk = {
-			"¢u D­¬ng tiÒn bèi, ®©y lµ ®å «ng cÇn.",
-			"TuyÖt, thiÕu n÷ T©y Vùc qu¶ nhiªn lµ kh¸c víi thiÕu n÷ Trung nguyªn, thÓ hiÖn ®­îc vÎ ®Ñp, cã ı nghÜa cã ı nghÜa. µ, ®óng råi, <sex> t×m ta cã viÖc g×?",
-			"(Cuèi cïng còng nhí ®Õn ta) TiÒn bèi cã ph¶i lµ ng­êi cña Tr­êng Ca M«n? Cã ph¸t hiÖn hµnh tung gÇn ®©y cña T©y H¹ kh«ng?",
-			"Kh«ng sai, ta lµ ¢u D­¬ng Häa mét trong nh÷ng cÇm, kú, thi, häa cña Tr­êng Ca M«n, <sex> lµm sao biÕt ®­îc? GÇn ®©y ta còng ph¸t hiÖn sù xuÊt hiÖn cña ng­êi T©y H¹ ë Long M«n trÊn ngµy cµng nhiÒu.",
-			"Qu¶ nhiªn lµ vËy. T«i cßn biÕt T©y H¹ bİ mËt liªn hÖ víi Liªu Quèc, sî quÊy rèi ®Õn §¹i Tèng ta, B¸ch HiÓu Sinh tiÒn bèi nhê «ng ®iÒu tra chuyÖn nµy, ®©y lµ th­ chØ thŞ cña quı m«n ph¸i.",
-			"(xem xong th­) ¸i dµ, chuyÖn ®¹i sù nµy liªn quan ®Õn giang s¬n x· t¾c cña §¹i Tèng, sao ng­¬i kh«ng nãi sím?",
-			"….V·n bèi muèn nãi sím, nh­ng tiÒn bèi l¹i gÊp rót vÏ tranh.",
+			plr.."¢u D­¬ng tiÒn bèi, ®©y lµ ®å «ng cÇn.",
+			npc.."TuyÖt, thiÕu n÷ T©y Vùc qu¶ nhiªn lµ kh¸c víi thiÕu n÷ Trung nguyªn, thÓ hiÖn ®­îc vÎ ®Ñp, cã ı nghÜa cã ı nghÜa. µ, ®óng råi, <sex> t×m ta cã viÖc g×?",
+			plr.."(Cuèi cïng còng nhí ®Õn ta) TiÒn bèi cã ph¶i lµ ng­êi cña Tr­êng Ca M«n? Cã ph¸t hiÖn hµnh tung gÇn ®©y cña T©y H¹ kh«ng?",
+			npc.."Kh«ng sai, ta lµ ¢u D­¬ng Häa mét trong nh÷ng cÇm, kú, thi, häa cña Tr­êng Ca M«n, <sex> lµm sao biÕt ®­îc? GÇn ®©y ta còng ph¸t hiÖn sù xuÊt hiÖn cña ng­êi T©y H¹ ë Long M«n trÊn ngµy cµng nhiÒu.",
+			plr.."Qu¶ nhiªn lµ vËy. T«i cßn biÕt T©y H¹ bİ mËt liªn hÖ víi Liªu Quèc, sî quÊy rèi ®Õn §¹i Tèng ta, B¸ch HiÓu Sinh tiÒn bèi nhê «ng ®iÒu tra chuyÖn nµy, ®©y lµ th­ chØ thŞ cña quı m«n ph¸i.",
+			npc.."(xem xong th­) ¸i dµ, chuyÖn ®¹i sù nµy liªn quan ®Õn giang s¬n x· t¾c cña §¹i Tèng, sao ng­¬i kh«ng nãi sím?",
+			plr.."….V·n bèi muèn nãi sím, nh­ng tiÒn bèi l¹i gÊp rót vÏ tranh.",
 			}
 		TalkEx("task_001_04_0_1",strTalk);
 
@@ -190,13 +203,14 @@ end
 
 -- Ğø¶Ô»°
 function task_001_04_0_1()
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 local strTalk = {
-	"ChuyÖn gÊp vËy, cßn vÏ tranh µ? <sex> g¸c vÏ tranh qua mét bªn, ®îi lµm xong chuyÖn nµy ®·, ta sÏ cïng víi ng­¬i th­ëng l·m. ",
-	"Ph¶i, ph¶i…theo lêi tiÒn bèi, h×nh nh­ ng­êi T©y H¹ tô tËp ë gÇn Long M«n trÊn?",
-	"Kh«ng sai, gÇn Long M«n trÊn gÇn ®©y cã sù xuÊt hiÖn cña ng­êi T©y H¹, ta nghi ngê lµ NhÊt PhÈm §­êng MËt Sø ®ang ho¹t ®éng. T©y H¹ hµnh sù rÊt bİ mËt, NhÊt PhÈm §­êng cµng ®ª hÌn qu¸i ®¶n, bÊt ngê xuÊt hiÖn ë Long M«n trÊn, nhÊt ®Şnh lµ cã ©m m­u.",
-	"Chİnh x¸c lµ vËy, tuy T©y H¹ lÇn nµy hµnh ®éng víi t¸c phong h¾c ®¹o, nh­ng ©m m­u liªn kÕt víi Liªu Quèc ®· bŞ lé, qu¶ thËt khiÕn ng­êi ta ph¶i lo nghÜ. T«i muèn ®i Long M«n trÊn th¨m dß mét chuyÕn. TiÒn bèi cã thÓ cho t«i biÕt Long M«n trÊn ë ®©u kh«ng?",
-	"Lßng yªu n­íc cña <sex> vµ lßng yªu héi häa cña ta lµ nh­ nhau, tuyÖt l¾m. Long M«n trÊn lµ mét thŞ trÊn nhá ë phİa T©y, ra khái T©y thµnh lµ thÊy, ph¶i cÈn thËn, ta ®îi tin nhĞ!",
+	npc.."ChuyÖn gÊp vËy, cßn vÏ tranh µ? <sex> g¸c vÏ tranh qua mét bªn, ®îi lµm xong chuyÖn nµy ®·, ta sÏ cïng víi ng­¬i th­ëng l·m. ",
+	plr.."Ph¶i, ph¶i…theo lêi tiÒn bèi, h×nh nh­ ng­êi T©y H¹ tô tËp ë gÇn Long M«n trÊn?",
+	npc.."Kh«ng sai, gÇn Long M«n trÊn gÇn ®©y cã sù xuÊt hiÖn cña ng­êi T©y H¹, ta nghi ngê lµ NhÊt PhÈm §­êng MËt Sø ®ang ho¹t ®éng. T©y H¹ hµnh sù rÊt bİ mËt, NhÊt PhÈm §­êng cµng ®ª hÌn qu¸i ®¶n, bÊt ngê xuÊt hiÖn ë Long M«n trÊn, nhÊt ®Şnh lµ cã ©m m­u.",
+	plr.."Chİnh x¸c lµ vËy, tuy T©y H¹ lÇn nµy hµnh ®éng víi t¸c phong h¾c ®¹o, nh­ng ©m m­u liªn kÕt víi Liªu Quèc ®· bŞ lé, qu¶ thËt khiÕn ng­êi ta ph¶i lo nghÜ. T«i muèn ®i Long M«n trÊn th¨m dß mét chuyÕn. TiÒn bèi cã thÓ cho t«i biÕt Long M«n trÊn ë ®©u kh«ng?",
+	npc.."Lßng yªu n­íc cña <sex> vµ lßng yªu héi häa cña ta lµ nh­ nhau, tuyÖt l¾m. Long M«n trÊn lµ mét thŞ trÊn nhá ë phİa T©y, ra khái T©y thµnh lµ thÊy, ph¶i cÈn thËn, ta ®îi tin nhĞ!",
 	}
 
 	TalkEx("",strTalk);
@@ -216,17 +230,18 @@ end
 function task_001_05_0()
 
 local strTalk = {};
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 	--´ø»ØÒ»Æ·ÌÃÁîÅÆ
 	if GetItemCount(2,0,688) >= 1 then
 		strTalk = {
-			"Hoµng Sa còng cã thÓ ®·i ®­îc vµng, tiÒn bèi, t¹i h¹ ®· t×m ®­îc NhÊt PhÈm §­êng lÖnh bµi trªn ng­êi hä.",
-			"Kh«ng ngoµi dù kiÕn, qu¶ thùc lµ ng­êi cña T©y H¹ NhÊt PhÈm §­êng, NhÊt PhÈm §­êng MËt Sø chuyªn thu thËp t×nh b¸o trong ©m thÇm. T©y H¹ thñ ®o¹n gian x¶o, hµnh tung bİ Èn, lÇn nµy l¹i ®iÒu ®éng NhÊt PhÈm §­êng trµ trén Long M«n trÊn, ngoµi lĞn gÆp Liªu Quèc ra chØ e cßn cã Èn t×nh kh¸c.",
-			"ı tiÒn bèi T©y H¹ lĞn gÆp Liªu Quèc chØ lµ c¸i cí? Trong ®ã cßn cã ©m m­u kh¸c?",
-			"§ã chØ lµ dù ®o¸n ban ®Çu, NhÊt PhÈm §­êng vÉn lµ c¬ cÊu gi¸n ®iÖp ®Æc biÖt cña T©y H¹, tr­íc ®ã ®· trµ trén vµo §¹i Tèng ¸m s¸t nh©n sÜ vâ l©m vµ mua chuéc quan liªu §¹i Tèng, nguy h¹i kh«ng thÓ tİnh hÕt. LĞn gÆp Liªu Quèc e còng lµ sù thËt.",
-			"T©y H¹ NhÊt PhÈm §­êng g©y häa vâ l©m, tõ l©u ®· lµ ®èi ®Şch cña vâ l©m. Ch¼ng hay NhÊt PhÈm §­êng MËt Sø ®· dä th¸m ®­îc g× ch­a?",
-			"Ta còng muèn t×m hiÓu râ, rèt cuéc NhÊt PhÈm §­êng bµy nghi binh lµ cã ı g×. §óng råi, mËt th¸m T«n NhŞ LiÔn ta ph¸i ®i hiÖn ë Long M«n trÊn, kh«ng biÕt h¾n cã ph¸t hiÖn g× míi kh«ng?",
-			"VËy ®Ó t¹i h¹ ®i Long M«n trÊn mét chuyÕn, hy väng cã thÓ thu thËp thªm tin tøc.",
+			plr.."Hoµng Sa còng cã thÓ ®·i ®­îc vµng, tiÒn bèi, t¹i h¹ ®· t×m ®­îc NhÊt PhÈm §­êng lÖnh bµi trªn ng­êi hä.",
+			npc.."Kh«ng ngoµi dù kiÕn, qu¶ thùc lµ ng­êi cña T©y H¹ NhÊt PhÈm §­êng, NhÊt PhÈm §­êng MËt Sø chuyªn thu thËp t×nh b¸o trong ©m thÇm. T©y H¹ thñ ®o¹n gian x¶o, hµnh tung bİ Èn, lÇn nµy l¹i ®iÒu ®éng NhÊt PhÈm §­êng trµ trén Long M«n trÊn, ngoµi lĞn gÆp Liªu Quèc ra chØ e cßn cã Èn t×nh kh¸c.",
+			plr.."ı tiÒn bèi T©y H¹ lĞn gÆp Liªu Quèc chØ lµ c¸i cí? Trong ®ã cßn cã ©m m­u kh¸c?",
+			npc.."§ã chØ lµ dù ®o¸n ban ®Çu, NhÊt PhÈm §­êng vÉn lµ c¬ cÊu gi¸n ®iÖp ®Æc biÖt cña T©y H¹, tr­íc ®ã ®· trµ trén vµo §¹i Tèng ¸m s¸t nh©n sÜ vâ l©m vµ mua chuéc quan liªu §¹i Tèng, nguy h¹i kh«ng thÓ tİnh hÕt. LĞn gÆp Liªu Quèc e còng lµ sù thËt.",
+			plr.."T©y H¹ NhÊt PhÈm §­êng g©y häa vâ l©m, tõ l©u ®· lµ ®èi ®Şch cña vâ l©m. Ch¼ng hay NhÊt PhÈm §­êng MËt Sø ®· dä th¸m ®­îc g× ch­a?",
+			npc.."Ta còng muèn t×m hiÓu râ, rèt cuéc NhÊt PhÈm §­êng bµy nghi binh lµ cã ı g×. §óng råi, mËt th¸m T«n NhŞ LiÔn ta ph¸i ®i hiÖn ë Long M«n trÊn, kh«ng biÕt h¾n cã ph¸t hiÖn g× míi kh«ng?",
+			plr.."VËy ®Ó t¹i h¹ ®i Long M«n trÊn mét chuyÕn, hy väng cã thÓ thu thËp thªm tin tøc.",
 			}
 		TalkEx("",strTalk);
 		DelItem(2,0,688,1);
@@ -254,9 +269,10 @@ end
 
 --Î´ÕÒËï¶şçöÓëÅ·Ñô»­¶Ô»°
 function task_001_05_1()
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 local strTalk = {
-	"T«n NhŞ LiÔn ®­îc ph¸i ®Õn qu¸n trä Long M«n ë Long M«n trÊn ®Ó thu thËp t×nh b¸o, h¾n nhÊt ®Şnh cã thªm th«ng tin."
+	npc.."T«n NhŞ LiÔn ®­îc ph¸i ®Õn qu¸n trä Long M«n ë Long M«n trÊn ®Ó thu thËp t×nh b¸o, h¾n nhÊt ®Şnh cã thªm th«ng tin."
 	}
 
 	TalkEx("",strTalk);
@@ -267,13 +283,14 @@ end
 
 --ÓëËï¶şçö¶Ô»°¿ªÊ¼ÈÎÎñ
 function task_002_01_0()
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 local strTalk = {
-	"§©y cã ph¶i lµ T«n NhŞ Liªn tiªn sinh kh«ng?",
-	"(H¬i r­îu nång nÆc) Nµy………T×nh lµ g× mµ khiÕn lßng ng­êi ®iªn ®¶o..., tiÓu nhŞ, mang thªm mét b×nh n÷ nhi hång…………",
-	"Th­a tiªn sinh?",
-	"(bÊt tØnh nh©n sù)…………",
-	"…… (ph¶i t×m c¸ch ®¸nh thøc «ng ta dËy, kh¸ch s¹n lµ n¬i uèng r­îu, kh¸ch say xØn lµ chuyÖn b×nh th­êng, tiÓu nhŞ h·y ®­a Thuèc tØnh r­îu)",
+	plr.."§©y cã ph¶i lµ T«n NhŞ Liªn tiªn sinh kh«ng?",
+	npc.."(H¬i r­îu nång nÆc) Nµy………T×nh lµ g× mµ khiÕn lßng ng­êi ®iªn ®¶o..., tiÓu nhŞ, mang thªm mét b×nh n÷ nhi hång…………",
+	plr.."Th­a tiªn sinh?",
+	npc.."(bÊt tØnh nh©n sù)…………",
+	plr.."…… (ph¶i t×m c¸ch ®¸nh thøc «ng ta dËy, kh¸ch s¹n lµ n¬i uèng r­îu, kh¸ch say xØn lµ chuyÖn b×nh th­êng, tiÓu nhŞ h·y ®­a Thuèc tØnh r­îu)",
 	}
 
 	TalkEx("",strTalk);
@@ -285,10 +302,11 @@ end
 
 --Î´ÓëµêĞ¡¶ş¶Ô»°
 function task_002_01_1()
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 local strTalk = {
-	"(say ®Õn bÊt tØnh nh©n sù)………",
-	"(Kh¸ch s¹n lµ n¬i uèng r­îu, kh¸ch say xØn lµ chuyÖn b×nh th­êng, TiÓu nhŞ h·y ®­a Thuèc tØnh r­îu)"
+	npc.."(say ®Õn bÊt tØnh nh©n sù)………",
+	plr.."(Kh¸ch s¹n lµ n¬i uèng r­îu, kh¸ch say xØn lµ chuyÖn b×nh th­êng, TiÓu nhŞ h·y ®­a Thuèc tØnh r­îu)"
 	}
 
 	TalkEx("",strTalk);
@@ -297,16 +315,17 @@ end
 
 --ÓëµêĞ¡¶ş¶Ô»°Ë÷È¡ĞÑ¾ÆÒ©
 function task_002_02_0()
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 local strTalk = {
-	"Kh¸ch quan nghØ trä hay ¨n c¬m?",
-	"Ta muèn hái ng­¬i cã Thuèc tØnh r­îu kh«ng?",
-	"Cã, nh­ng thËt kh«ng may, mÊy h«m tr­íc ®· b¸n cho T©y B¾c tr¸ng sÜ råi, nãi r»ng muèn thi uèng r­îu.",
-	"Cã chuyÖn nµy µ? Ng­¬i cã biÕt ng­êi say r­îu kia kh«ng? ¤ng ta say bao l©u råi?",
-	"VŞ kh¸ch quan ®ã µ? DÜ nhiªn lµ biÕt, ë ®©y ®­îc mÊy ngµy råi, uèng råi ngñ, ngñ råi uèng, lÇn nµy võa míi say, B¹n mua Thuèc tØnh r­îu ®Ó lµm «ng ta tØnh µ? T«i thÊy Thuèc tØnh r­îu còng ph¶i t¨ng thªm l­îng, kho¶ng 10 ®iÓm.",
-	"Nh­ng b©y giê ng­¬i kh«ng cã hµng, cã ®i t×m còng mÊt thêi gian. VŞ T©y B¾c tr¸ng sÜ kia ®i vÒ h­íng nµo?",
-	"Nãi lµ tËp hîp t¹i nam Phông T­êng phñ. T«i thÊy nh÷ng tr¸ng sÜ ®ã th©n h×nh v¹m vì, s¾c khİ ®»ng ®»ng, nÕu kh¸ch quanh muèn mua thuèc, h·y ®Õn t×m ë n¬i kh¸c, ®õng chäc giËn hä.",
-	"§a t¹ tiÓu nhŞ ca quan t©m, nh­ng ta ph¶i xin hä İt thuèc, kh«ng chäc hä giËn ®©u.",
+	npc.."Kh¸ch quan nghØ trä hay ¨n c¬m?",
+	plr.."Ta muèn hái ng­¬i cã Thuèc tØnh r­îu kh«ng?",
+	npc.."Cã, nh­ng thËt kh«ng may, mÊy h«m tr­íc ®· b¸n cho T©y B¾c tr¸ng sÜ råi, nãi r»ng muèn thi uèng r­îu.",
+	plr.."Cã chuyÖn nµy µ? Ng­¬i cã biÕt ng­êi say r­îu kia kh«ng? ¤ng ta say bao l©u råi?",
+	npc.."VŞ kh¸ch quan ®ã µ? DÜ nhiªn lµ biÕt, ë ®©y ®­îc mÊy ngµy råi, uèng råi ngñ, ngñ råi uèng, lÇn nµy võa míi say, B¹n mua Thuèc tØnh r­îu ®Ó lµm «ng ta tØnh µ? T«i thÊy Thuèc tØnh r­îu còng ph¶i t¨ng thªm l­îng, kho¶ng 10 ®iÓm.",
+	plr.."Nh­ng b©y giê ng­¬i kh«ng cã hµng, cã ®i t×m còng mÊt thêi gian. VŞ T©y B¾c tr¸ng sÜ kia ®i vÒ h­íng nµo?",
+	npc.."Nãi lµ tËp hîp t¹i nam Phông T­êng phñ. T«i thÊy nh÷ng tr¸ng sÜ ®ã th©n h×nh v¹m vì, s¾c khİ ®»ng ®»ng, nÕu kh¸ch quanh muèn mua thuèc, h·y ®Õn t×m ë n¬i kh¸c, ®õng chäc giËn hä.",
+	plr.."§a t¹ tiÓu nhŞ ca quan t©m, nh­ng ta ph¶i xin hä İt thuèc, kh«ng chäc hä giËn ®©u.",
 	}
 
 	TalkEx("",strTalk);
@@ -319,14 +338,15 @@ end
 
 --È¡µÃ»òÎ´È¡µÃĞÑ¾ÆÒ©ÓëµêĞ¡¶ş¶Ô»°
 function task_002_03_0()
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 local strTalk = {};
 
 	--´ø»ØĞÑ¾ÆÒ©
 	if GetItemCount(2,0,689) >= 10 then
 		strTalk = {
-			"§óng lµ, cø ë ®©y say xØn, nÕu say ®Õn tr¨m n¨m nh­ ng­êi x­a, khi tØnh dËy ®· bá lë mäi chuyÖn! TiÓu nhŞ ca, h·y cho anh ta uèng thuèc ®i.",
-			"§­îc, uèng bao nhiªu ®©y ch¾c sÏ tØnh.",
+			plr.."§óng lµ, cø ë ®©y say xØn, nÕu say ®Õn tr¨m n¨m nh­ ng­êi x­a, khi tØnh dËy ®· bá lë mäi chuyÖn! TiÓu nhŞ ca, h·y cho anh ta uèng thuèc ®i.",
+			npc.."§­îc, uèng bao nhiªu ®©y ch¾c sÏ tØnh.",
 			"…………"
 			}
 		TalkEx("",strTalk);
@@ -355,10 +375,11 @@ end
 
 --ËÍ·şĞÑ¾ÆÒ©ºóÉĞÎ´ÓëËï¶şçö¶Ô»°
 function task_002_03_1()
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 local strTalk = {
-	"T¹i h¹ ®· cho T«n NhŞ gia uèng thuèc tØnh r­îu, ch¾c còng ®· tØnh l¹i råi, <sex> h·y ®i gÆp anh ta.",
-	"VÊt v¶ cho tiÓu nhŞ ca qu¸.",
+	npc.."T¹i h¹ ®· cho T«n NhŞ gia uèng thuèc tØnh r­îu, ch¾c còng ®· tØnh l¹i råi, <sex> h·y ®i gÆp anh ta.",
+	plr.."VÊt v¶ cho tiÓu nhŞ ca qu¸.",
 	}
 
 	TalkEx("",strTalk);
@@ -367,14 +388,15 @@ end
 
 --ËÍ·şĞÑ¾ÆÒ©ºóÓëËï¶şçö¶Ô»°
 function task_002_04_0()
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 local strTalk = {
-	"……¤i…… N÷ nhi hång, n÷ nhi ®Ñp, n÷ nhi dŞu dµng nh­ ThËp Tam Muéi…… ThËp Tam Muéi, ThËp Tam Muéi, sao l¹i tuyÖt t×nh, khiÕn ta ®au lßng……",
-	"(cã vÎ tØnh dËy l¹i lÈn thÈn h¬n, ThËp Tam Muéi lµ ai?)",
-	"ThËp Tam Muén……",
-	"(Xem ra ®· m¾c bÖnh t­¬ng t­ råi, ®· vËy l¹i cßn uèng r­îu, cã uèng thuèc tØnh r­îu còng v« İch)",
-	"ThËp Tam Muéi, nh×n ta ®i, cã ph¶i chÕt v× nµng ta còng cam lßng…… ThËp Tam Muéi …… N­íc ch¶y hoa tr«i, nµng bªn t©y ta bªn ®«ng……",
-	"(Nãi c©u nµy kh«ng biÕt bao nhiªu lÇn, h·y hái TiÓu nhŞ xem sao)",
+	npc.."……¤i…… N÷ nhi hång, n÷ nhi ®Ñp, n÷ nhi dŞu dµng nh­ ThËp Tam Muéi…… ThËp Tam Muéi, ThËp Tam Muéi, sao l¹i tuyÖt t×nh, khiÕn ta ®au lßng……",
+	plr.."(cã vÎ tØnh dËy l¹i lÈn thÈn h¬n, ThËp Tam Muéi lµ ai?)",
+	npc.."ThËp Tam Muén……",
+	plr.."(Xem ra ®· m¾c bÖnh t­¬ng t­ råi, ®· vËy l¹i cßn uèng r­îu, cã uèng thuèc tØnh r­îu còng v« İch)",
+	npc.."ThËp Tam Muéi, nh×n ta ®i, cã ph¶i chÕt v× nµng ta còng cam lßng…… ThËp Tam Muéi …… N­íc ch¶y hoa tr«i, nµng bªn t©y ta bªn ®«ng……",
+	plr.."(Nãi c©u nµy kh«ng biÕt bao nhiªu lÇn, h·y hái TiÓu nhŞ xem sao)",
 	}
 
 	TalkEx("",strTalk);
@@ -385,10 +407,11 @@ end
 
 --ËÍ·şĞÑ¾ÆÒ©ºóÎ´È¡µÃ¶Ç¶µÇ°ÓëËï¶şçö¶Ô»°
 function task_002_04_1()
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 local strTalk = {
-	"ThËp Tam Muéi, tim ta……",
-	"(Nãi c©u nµy kh«ng biÕt bao nhiªu lÇn, h·y hái TiÓu nhŞ xem sao)",
+	npc.."ThËp Tam Muéi, tim ta……",
+	plr.."(Nãi c©u nµy kh«ng biÕt bao nhiªu lÇn, h·y hái TiÓu nhŞ xem sao)",
 	}
 
 	TalkEx("",strTalk);
@@ -397,13 +420,14 @@ end
 
 --ÓëµêĞ¡¶ş¶Ô»°Ñ¯ÎÊÊ®ÈıÄïÒ»ÊÂ
 function task_002_05_0()
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 local strTalk = {
-	"VŞ T«n kh¸ch quan kia ®· tØnh råi µ?",
-	"TØnh chót ®Ønh, nh­ng kh«ng tØnh h¼n, cø l¶m nh¶m kh«ng biÕt bao nhiªu lÇn, «i dµo, thuèc kia kh«ng cã t¸c dông råi. Ng­¬i nãi xem anh ta ®ê ng­êi ra l©u råi, suèt ngµy say xØn, lµ v× chuyÖn g×? ThËp Tam Muéi  anh ta nãi ®Õn lµ ai?",
-	"Kh¸ch quan kh«ng biÕt råi. ThËp Tam Muéi anh ta nãi ®Õn lµ Xu©n ThËp Tam N­¬ng chñ qu¸n nµy, nµng Êy lµ ®¹i mü nh©n næi tiÕng t¹i Long M«n trÊn, rÊt xinh ®Ñp, bän ®µn «ng trong trÊn nh×n thÊy nµng kh«ng ai kh«ng hån siªu ph¸ch l¹c, ch¶y n­íc d·i rßng rßng.",
-	"Ch¼ng tr¸ch anh hïng nhôt chİ, th× ra lµ gÆp mü nh©n.",
-	"§óng vËy, T«n kh¸ch quan cßn khê h¬n, võa thÊy n÷ chñ qu¸n chóng t«i ®· mÊt hån, suèt ngµy l¶i nh¶i “ThËp Tam Muéi ” lu«n miÖng, tiÕc lµ nµng Êy kh«ng ®Ó m¾t ®Õn anh ta.",
+	npc.."VŞ T«n kh¸ch quan kia ®· tØnh råi µ?",
+	plr.."TØnh chót ®Ønh, nh­ng kh«ng tØnh h¼n, cø l¶m nh¶m kh«ng biÕt bao nhiªu lÇn, «i dµo, thuèc kia kh«ng cã t¸c dông råi. Ng­¬i nãi xem anh ta ®ê ng­êi ra l©u råi, suèt ngµy say xØn, lµ v× chuyÖn g×? ThËp Tam Muéi  anh ta nãi ®Õn lµ ai?",
+	npc.."Kh¸ch quan kh«ng biÕt råi. ThËp Tam Muéi anh ta nãi ®Õn lµ Xu©n ThËp Tam N­¬ng chñ qu¸n nµy, nµng Êy lµ ®¹i mü nh©n næi tiÕng t¹i Long M«n trÊn, rÊt xinh ®Ñp, bän ®µn «ng trong trÊn nh×n thÊy nµng kh«ng ai kh«ng hån siªu ph¸ch l¹c, ch¶y n­íc d·i rßng rßng.",
+	plr.."Ch¼ng tr¸ch anh hïng nhôt chİ, th× ra lµ gÆp mü nh©n.",
+	npc.."§óng vËy, T«n kh¸ch quan cßn khê h¬n, võa thÊy n÷ chñ qu¸n chóng t«i ®· mÊt hån, suèt ngµy l¶i nh¶i “ThËp Tam Muéi ” lu«n miÖng, tiÕc lµ nµng Êy kh«ng ®Ó m¾t ®Õn anh ta.",
 	}
 
 	TalkEx("task_002_05_0_1",strTalk);
@@ -412,14 +436,15 @@ end
 
 -- Ğø¶Ô»°
 function task_002_05_0_1()
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 local strTalk = {
-	"¤i, hång nhan g©y häa. Nh­ vËy xem ra anh ta ®· mª Xu©n ThËp Tam N­¬ng ®Õn mô ng­êi råi.",
-	"§óng vËy, tõ khi gÆp n÷ chñ qu¸n cña chóng t«i, anh ta ngµy nµo còng ®Õn uèng r­îu, say råi ngñ, tØnh dËy l¹i uèng, miÖng lóc nµo còng l¶m nh¶m, kh«ng ng©m th¬ còng gäi tªn n÷ chñ qu¸n cña chóng t«i.",
-	"¤i, r­îu t­¬ng t­ dÔ uèng kh«ng dÔ tØnh, tiÓu nhŞ ca, dïng thªm thuèc tØnh r­îu n÷a ®­îc kh«ng?",
-	"Kh«ng ®­îc, kh«ng ®­îc, thuèc nµy kh«ng ®­îc uèng nhiÒu, tù anh tØnh l¹i míi ®­îc.",
-	"…VËy th× th«i, ®a t¹ tiÓu nhŞ ca. ",
-	"(Anh ta gäi tªn Xu©n ThËp Tam N­¬ng kh«ng th«i, xem ra lµ yªu ®¬n ph­¬ng råi, ch¾c ph¶i quay vÒ t×m ¢u D­¬ng tiÒn bèi th­¬ng l­îng)",
+	plr.."¤i, hång nhan g©y häa. Nh­ vËy xem ra anh ta ®· mª Xu©n ThËp Tam N­¬ng ®Õn mô ng­êi råi.",
+	npc.."§óng vËy, tõ khi gÆp n÷ chñ qu¸n cña chóng t«i, anh ta ngµy nµo còng ®Õn uèng r­îu, say råi ngñ, tØnh dËy l¹i uèng, miÖng lóc nµo còng l¶m nh¶m, kh«ng ng©m th¬ còng gäi tªn n÷ chñ qu¸n cña chóng t«i.",
+	plr.."¤i, r­îu t­¬ng t­ dÔ uèng kh«ng dÔ tØnh, tiÓu nhŞ ca, dïng thªm thuèc tØnh r­îu n÷a ®­îc kh«ng?",
+	npc.."Kh«ng ®­îc, kh«ng ®­îc, thuèc nµy kh«ng ®­îc uèng nhiÒu, tù anh tØnh l¹i míi ®­îc.",
+	plr.."…VËy th× th«i, ®a t¹ tiÓu nhŞ ca. ",
+	plr.."(Anh ta gäi tªn Xu©n ThËp Tam N­¬ng kh«ng th«i, xem ra lµ yªu ®¬n ph­¬ng råi, ch¾c ph¶i quay vÒ t×m ¢u D­¬ng tiÒn bèi th­¬ng l­îng)",
 	}
 
 	TalkEx("",strTalk);
@@ -432,10 +457,11 @@ end
 
 --Î´ÓëÅ·Ñô»­¶Ô»°Ç°ÓëµêĞ¡¶ş¶Ô»°
 function task_002_05_1()
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 local strTalk = {
-	"Thuèc nµy kh«ng ®­îc uèng nhiÒu, kh«ng ®­îc uèng n÷a, h·y ®Ó anh ta tù tØnh l¹i.",
-	"(Anh ta gäi tªn Xu©n ThËp Tam N­¬ng kh«ng th«i, xem ra lµ yªu ®¬n ph­¬ng råi, ch¾c ph¶i quay vÒ t×m ¢u D­¬ng tiÒn bèi th­¬ng l­îng)",
+	plr.."Thuèc nµy kh«ng ®­îc uèng nhiÒu, kh«ng ®­îc uèng n÷a, h·y ®Ó anh ta tù tØnh l¹i.",
+	plr.."(Anh ta gäi tªn Xu©n ThËp Tam N­¬ng kh«ng th«i, xem ra lµ yªu ®¬n ph­¬ng råi, ch¾c ph¶i quay vÒ t×m ¢u D­¬ng tiÒn bèi th­¬ng l­îng)",
 	}
 
 	TalkEx("",strTalk);
@@ -445,14 +471,15 @@ end
 ---------------------------------- Î÷±±Çø03´ºÊ®ÈıÄï----------------------------------
 --ÓëÅ·Ñô»­¶Ô»°Ñ¯ÎÊÈçºÎÒ½ÖÎËï¶şçöµÄÏàË¼²¡
 function task_003_01_0()
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 local strTalk = {
-	"<sex> vÒ råi, cã t×m ®­îc T«n NhŞ Liªn kh«ng?",
-	"T×m ®­îc T«n NhŞ Liªn råi, nh­ng anh ta say r­îu ch­a tØnh l¹i, nghe nãi anh ta ®· mª Xu©n ThËp Tam N­¬ng ë qu¸n trä Long m«n, nh­ng ng­êi ta kh«ng ®Õm xØa g× ®Õn anh ta. Anh ta ®· m¾c bÖnh t­¬ng t­, suèt ngµy m­în r­îu gi¶i sÇu t¹i kh¸ch s¹n. Lóc ta t×m thÊy, anh ta ®· bÊt tØnh nh©n sù, uèng thuèc tØnh r­îu råi nh­ng còng v« İch.",
-	"Ai da, tham töu s¾c, lµm sao kh«ng lì viÖc cho ®­îc! Víi mü nh©n, chØ ®­îc nh×n xa kh«ng ®­îc nh×n gÇn. T«n NhŞ Liªn nµy ®· r¬i vµo l­íi t×nh, r­îu kh«ng say mµ lµ say ng­êi, lµm g× cã thuèc lµm cho tØnh l¹i?",
-	"§óng vËy, cã c¸ch nµo lµm anh ta tØnh l¹i kh«ng?",
-	"TrŞ bÖnh ph¶i t×m ra gèc bÖnh, gèc bÖnh cña T«n NhŞ Liªn lµ Xu©n ThËp Tam N­¬ng, yªu mµ kh«ng ®­îc ®¸p l¹i. M¾c bÖnh t­¬ng t­ nµy lµm sao kh«ng hån siªu ph¸ch l¹c cho ®­îc! ChØ cã thÓ b¾t ®Çu tõ ng­êi ®­îc yªu, ng­¬i biÕt Xu©n ThËp Tam N­¬ng b©y giê ë ®©u kh«ng?",
-	"TiÒn bèi nãi chİ ph¶i, nÕu t×m ®­îc ThËp Tam N­¬ng, nãi nµng ta gÆp T«n NhŞ Liªn cã ®­îc kh«ng?",
+	npc.."<sex> vÒ råi, cã t×m ®­îc T«n NhŞ Liªn kh«ng?",
+	plr.."T×m ®­îc T«n NhŞ Liªn råi, nh­ng anh ta say r­îu ch­a tØnh l¹i, nghe nãi anh ta ®· mª Xu©n ThËp Tam N­¬ng ë qu¸n trä Long m«n, nh­ng ng­êi ta kh«ng ®Õm xØa g× ®Õn anh ta. Anh ta ®· m¾c bÖnh t­¬ng t­, suèt ngµy m­în r­îu gi¶i sÇu t¹i kh¸ch s¹n. Lóc ta t×m thÊy, anh ta ®· bÊt tØnh nh©n sù, uèng thuèc tØnh r­îu råi nh­ng còng v« İch.",
+	npc.."Ai da, tham töu s¾c, lµm sao kh«ng lì viÖc cho ®­îc! Víi mü nh©n, chØ ®­îc nh×n xa kh«ng ®­îc nh×n gÇn. T«n NhŞ Liªn nµy ®· r¬i vµo l­íi t×nh, r­îu kh«ng say mµ lµ say ng­êi, lµm g× cã thuèc lµm cho tØnh l¹i?",
+	plr.."§óng vËy, cã c¸ch nµo lµm anh ta tØnh l¹i kh«ng?",
+	npc.."TrŞ bÖnh ph¶i t×m ra gèc bÖnh, gèc bÖnh cña T«n NhŞ Liªn lµ Xu©n ThËp Tam N­¬ng, yªu mµ kh«ng ®­îc ®¸p l¹i. M¾c bÖnh t­¬ng t­ nµy lµm sao kh«ng hån siªu ph¸ch l¹c cho ®­îc! ChØ cã thÓ b¾t ®Çu tõ ng­êi ®­îc yªu, ng­¬i biÕt Xu©n ThËp Tam N­¬ng b©y giê ë ®©u kh«ng?",
+	plr.."TiÒn bèi nãi chİ ph¶i, nÕu t×m ®­îc ThËp Tam N­¬ng, nãi nµng ta gÆp T«n NhŞ Liªn cã ®­îc kh«ng?",
 	}
 
 	TalkEx("task_003_01_0_1",strTalk);
@@ -461,13 +488,14 @@ end
 
 -- Ğø¶Ô»°
 function task_003_01_0_1()
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 local strTalk = {
-	"Nh­ng nh­ lêi ng­¬i nãi, dï cã t×m ®­îc Xu©n ThËp Tam N­¬ng, e r»ng nµng ta còng kh«ng muèn gÆp T«n NhŞ Liªn, nµng ta vèn kh«ng ­a T«n NhŞ Liªn, t×m nµng ta còng ch¼ng İch g×.",
-	"Kh«ng sai, chuyÖn t×nh c¶m kh«ng thÓ miÔn c­ìng. VËy nÕu cã c¸ch lµm cho T«n NhŞ Liªn c¶m thÊy Xu©n ThËp Tam N­¬ng quan t©m ®Õn anh ta, kh«ng chõng anh ta sÏ tØnh l¹i.",
-	"§óng, ®óng, tuy kh«ng mêi ®­îc Xu©n ThËp Tam N­¬ng, nÕu lÊy ®­îc İt ®å cña nµng ta, råi ®­a cho T«n NhŞ Liªn, ch¾c ch¾n anh ta sÏ cho r»ng Xu©n ThËp Tam N­¬ng quan t©m ®Õn m×nh, anh ta sÏ phÊn chÊn, kh«ng cßn sÇu khæ n÷a, ch¾c sÏ tØnh r­îu.",
-	"Nh­ng lÊy ®å cña con g¸i nhµ ng­êi ta liÖu cã thÊt lÔ kh«ng?",
-	"Hõ, giang hå nhi n÷ kh«ng quan t©m chuyÖn nhá nhÆt, lµm sao ®Ó ı chuyÖn nµy? \'x­a nay hång nhan th­êng g©y häa, x­a nay anh hïng khèi ng­êi ph¶i lôy m×nh.” Nh­ng hång nhan ®Ñp nh­ tranh qu¶ lµ th­îng phÈm, ®¸ng tiÕc, ®¸ng tiÕc.",
+	npc.."Nh­ng nh­ lêi ng­¬i nãi, dï cã t×m ®­îc Xu©n ThËp Tam N­¬ng, e r»ng nµng ta còng kh«ng muèn gÆp T«n NhŞ Liªn, nµng ta vèn kh«ng ­a T«n NhŞ Liªn, t×m nµng ta còng ch¼ng İch g×.",
+	plr.."Kh«ng sai, chuyÖn t×nh c¶m kh«ng thÓ miÔn c­ìng. VËy nÕu cã c¸ch lµm cho T«n NhŞ Liªn c¶m thÊy Xu©n ThËp Tam N­¬ng quan t©m ®Õn anh ta, kh«ng chõng anh ta sÏ tØnh l¹i.",
+	npc.."§óng, ®óng, tuy kh«ng mêi ®­îc Xu©n ThËp Tam N­¬ng, nÕu lÊy ®­îc İt ®å cña nµng ta, råi ®­a cho T«n NhŞ Liªn, ch¾c ch¾n anh ta sÏ cho r»ng Xu©n ThËp Tam N­¬ng quan t©m ®Õn m×nh, anh ta sÏ phÊn chÊn, kh«ng cßn sÇu khæ n÷a, ch¾c sÏ tØnh r­îu.",
+	plr.."Nh­ng lÊy ®å cña con g¸i nhµ ng­êi ta liÖu cã thÊt lÔ kh«ng?",
+	npc.."Hõ, giang hå nhi n÷ kh«ng quan t©m chuyÖn nhá nhÆt, lµm sao ®Ó ı chuyÖn nµy? \'x­a nay hång nhan th­êng g©y häa, x­a nay anh hïng khèi ng­êi ph¶i lôy m×nh.” Nh­ng hång nhan ®Ñp nh­ tranh qu¶ lµ th­îng phÈm, ®¸ng tiÕc, ®¸ng tiÕc.",
 	}
 
 	SetTask(TASK_XB_ID,11);
@@ -478,9 +506,10 @@ end
 
 --Î´È¡µÃ¶Ç¶µÇ°ÓëÅ·Ñô»­¶Ô»°
 function task_003_01_1()
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 local strTalk = {
-	"H·y ®Õn Long M«n TrÊn hái TiÓu nhŞ n÷ chñ qu¸n ®i ®©u. T×m ®­îc Xu©n ThËp Tam N­¬ng, lÊy mét vËt trªn ng­êi nµng ta ®­a cho T«n NhŞ Liªn, cã lÏ anh ta sÏ tØnh l¹i.",
+	npc.."H·y ®Õn Long M«n TrÊn hái TiÓu nhŞ n÷ chñ qu¸n ®i ®©u. T×m ®­îc Xu©n ThËp Tam N­¬ng, lÊy mét vËt trªn ng­êi nµng ta ®­a cho T«n NhŞ Liªn, cã lÏ anh ta sÏ tØnh l¹i.",
 	}
 
 	TalkEx("",strTalk);
@@ -489,13 +518,14 @@ end
 
 --Ñ¯ÎÊµêĞ¡¶ş´ºÊ®ÈıÄïÈ¥Ïò
 function task_003_02_0()
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 local strTalk = {
-	"TiÓu nhŞ ca, chñ nh©n cña ng­¬i ®©u?",
-	"N÷ chñ qu¸n ®· ®Õn phİa ®«n b¾c Long M«n TrÊn mua hµng, kh¸ch quan t×m nµng Êy lµm g×? NÕu lµ v× vŞ kh¸ch quan say r­îu kia, tiÓu nh©n sî r»ng B¹n ph¶i ®· uæng c«ng, v× chñ nh©n t«i rÊt ghĞt anh ta, ch¾c ch¾n sÏ kh«ng nghe B¹n ®©u.",
-	"Ta còng nghÜ vËy, vËy ta cã thÓ xin ThËp Tam N­¬ng İt ®å cho anh ta ®Ó anh ta tØnh l¹i ®­îc kh«ng?",
-	"Ai da, vËy kh¸ch quan ph¶i cÈn thËn, chñ nh©n chóng t«i võa ®Ñp l¹i cßn giái vâ, nh÷ng kÎ h¸o s¾c ë Long M«n TrÊn  nµy ®Òu kh«ng d¸m chäc giËn nµng. Nµng ta rÊt nãng tİnh, e r»ng kh¸ch quan muèn xin ®å sÏ ph¶i chŞu khæ.",
-	"Hõ, mü nh©n ®áng ®¶nh lµ chuyÖn b×nh th­êng, khi nµo chñ nh©n ng­êi vÒ, h·y nãi gióp ta.",
+	plr.."TiÓu nhŞ ca, chñ nh©n cña ng­¬i ®©u?",
+	npc.."N÷ chñ qu¸n ®· ®Õn phİa ®«n b¾c Long M«n TrÊn mua hµng, kh¸ch quan t×m nµng Êy lµm g×? NÕu lµ v× vŞ kh¸ch quan say r­îu kia, tiÓu nh©n sî r»ng B¹n ph¶i ®· uæng c«ng, v× chñ nh©n t«i rÊt ghĞt anh ta, ch¾c ch¾n sÏ kh«ng nghe B¹n ®©u.",
+	plr.."Ta còng nghÜ vËy, vËy ta cã thÓ xin ThËp Tam N­¬ng İt ®å cho anh ta ®Ó anh ta tØnh l¹i ®­îc kh«ng?",
+	npc.."Ai da, vËy kh¸ch quan ph¶i cÈn thËn, chñ nh©n chóng t«i võa ®Ñp l¹i cßn giái vâ, nh÷ng kÎ h¸o s¾c ë Long M«n TrÊn  nµy ®Òu kh«ng d¸m chäc giËn nµng. Nµng ta rÊt nãng tİnh, e r»ng kh¸ch quan muèn xin ®å sÏ ph¶i chŞu khæ.",
+	plr.."Hõ, mü nh©n ®áng ®¶nh lµ chuyÖn b×nh th­êng, khi nµo chñ nh©n ng­êi vÒ, h·y nãi gióp ta.",
 	}
 
 	TalkEx("",strTalk);
@@ -507,9 +537,10 @@ end
 
 --Î´È¡µÃ¶Ç¶µÇ°ÓëµêĞ¡¶ş¶Ô»°
 function task_003_02_1()
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 local strTalk = {
-	"Xu©n ThËp Tam N­¬ng®ang mua hµng t¹i phİa ®«ng b¾c Long M«n TrÊn, nµng ta rÊt nãng tİnh, vâ c«ng cao c­êng, ph¶i cÈn thËn kh«ng nªn ®¾c téi víi nµng Êy."
+	npc.."Xu©n ThËp Tam N­¬ng ®ang mua hµng t¹i phİa ®«ng b¾c Long M«n TrÊn, nµng ta rÊt nãng tİnh, vâ c«ng cao c­êng, ph¶i cÈn thËn kh«ng nªn ®¾c téi víi nµng Êy."
 	}
 
 	TalkEx("",strTalk);
@@ -520,14 +551,15 @@ end
 
 --È¡µÃ¶Ç¶µºóÓëËï¶şçö¶Ô»°
 function task_004_01_0()
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 local strTalk = {
-	"…¤i…trong m¬ ta vµ giai nh©n cña ta sÏ …¤i? ThËp Tam N­¬ng? §©y lµ mïi h­¬ng cña ThËp Tam N­¬ng!......ThËp Tam N­¬ng, nµng vÒ råi µ!? (thÇn chİ chît tØnh, nhæm dËy t×m xung quanh).",
-	"Kh«ng ph¶i, ThËp Tam N­¬ng cßn ®ang lµm viÖc, nh­ng ng­¬i xem ®©y cã ph¶i lµ yÕm cña nµng Êy?",
-	"C¸i g×? §­a ta xem nµo, mïi h­¬ng cña ThËp Tam N­¬ng! §©y lµ tói cña ThËp Tam N­¬ng! Nãi mau, ng­¬i ®· lµm g× víi ThËp Tam N­¬ng? C¸i ®å d©m tÆc nhµ ng­¬i kia! Nãi mau!? (thÇn chİ tØnh h¼n, tá vÎ hung h·n).",
-	"Ai da, T«n tiªn sinh ng­¬i hiÓu lÇm råi! §©y lµ ®å ThËp Tam N­¬ng cho ta, b¶o ta chuyÓn cho ng­¬i, nµng Êy nãi ng­¬i si t×nh nh­ vËy, rÊt ®¸ng ®Ó lµm b¹n. L¹i nghe nãi ng­êi suèt ngµy uèng r­îu t¹i kh¸ch s¹n, m­în r­îu gi¶i sÇu, ®· dÆn ta ®em vËt nµy vÒ cho ng­¬i, mong ng­¬i ®õng lµm chuyÖn h¹i th©n n÷a. §å nµy ng­¬i cø gi÷ lÊy, khi nµo nµng Êy vÒ h·y tr¶ l¹i, tiÖn thÓ nãi râ víi ng­êi ta.",
-	"¤i… Th× ra lµ vËy, thø lçi lóc n·y…… ThËt m¹o ph¹m, <sex> bá qua cho! Ph¶i råi, lóc n·y ng­¬i nãi ThËp Tam N­¬ng håi t©m chuyÓn ı råi ph¶i kh«ng? Ha ha ha, ta biÕt trêi kh«ng phô lßng ng­êi, kh«ng uæng c«ng ta, cuèi cïng ®· cã ®­îc mü nh©n! Tèt tèt. ph¶i råi, kh«ng biÕt <sex> t×m ta cã chuyÖn g×?",
-	"(Ng­êi nµy d­êng nh­ ®· tØnh l¹i) gÇn ®©y T©y H¹ ®ang lµm m­a lµm giã, d­êng nh­ muèn g©y rèi §¹i Tèng, ta xin Tr­êng Ca M«n gióp ®iÒu tra chuyÖn nµy, ¢u D­¬ng tiÒn bèi ®· ph¸i ta ®Õn t×m ng­¬i.",
+	npc.."…¤i…trong m¬ ta vµ giai nh©n cña ta sÏ …¤i? ThËp Tam N­¬ng? §©y lµ mïi h­¬ng cña ThËp Tam N­¬ng!......ThËp Tam N­¬ng, nµng vÒ råi µ!? (thÇn chİ chît tØnh, nhæm dËy t×m xung quanh).",
+	plr.."Kh«ng ph¶i, ThËp Tam N­¬ng cßn ®ang lµm viÖc, nh­ng ng­¬i xem ®©y cã ph¶i lµ yÕm cña nµng Êy?",
+	npc.."C¸i g×? §­a ta xem nµo, mïi h­¬ng cña ThËp Tam N­¬ng! §©y lµ tói cña ThËp Tam N­¬ng! Nãi mau, ng­¬i ®· lµm g× víi ThËp Tam N­¬ng? C¸i ®å d©m tÆc nhµ ng­¬i kia! Nãi mau!? (thÇn chİ tØnh h¼n, tá vÎ hung h·n).",
+	plr.."Ai da, T«n tiªn sinh ng­¬i hiÓu lÇm råi! §©y lµ ®å ThËp Tam N­¬ng cho ta, b¶o ta chuyÓn cho ng­¬i, nµng Êy nãi ng­¬i si t×nh nh­ vËy, rÊt ®¸ng ®Ó lµm b¹n. L¹i nghe nãi ng­êi suèt ngµy uèng r­îu t¹i kh¸ch s¹n, m­în r­îu gi¶i sÇu, ®· dÆn ta ®em vËt nµy vÒ cho ng­¬i, mong ng­¬i ®õng lµm chuyÖn h¹i th©n n÷a. §å nµy ng­¬i cø gi÷ lÊy, khi nµo nµng Êy vÒ h·y tr¶ l¹i, tiÖn thÓ nãi râ víi ng­êi ta.",
+	npc.."¤i… Th× ra lµ vËy, thø lçi lóc n·y…… ThËt m¹o ph¹m, <sex> bá qua cho! Ph¶i råi, lóc n·y ng­¬i nãi ThËp Tam N­¬ng håi t©m chuyÓn ı råi ph¶i kh«ng? Ha ha ha, ta biÕt trêi kh«ng phô lßng ng­êi, kh«ng uæng c«ng ta, cuèi cïng ®· cã ®­îc mü nh©n! Tèt tèt. ph¶i råi, kh«ng biÕt <sex> t×m ta cã chuyÖn g×?",
+	plr.."(Ng­êi nµy d­êng nh­ ®· tØnh l¹i) gÇn ®©y T©y H¹ ®ang lµm m­a lµm giã, d­êng nh­ muèn g©y rèi §¹i Tèng, ta xin Tr­êng Ca M«n gióp ®iÒu tra chuyÖn nµy, ¢u D­¬ng tiÒn bèi ®· ph¸i ta ®Õn t×m ng­¬i.",
 	}
 
 	TalkEx("task_004_01_0_1",strTalk);
@@ -536,14 +568,15 @@ end
 
 -- Ğø¶Ô»°
 function task_004_01_0_1()
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 local strTalk = {
 
-	"å, th× ra ¢u D­¬ng tiªn sinh sai ng­¬i ®Õn.. <sex> yªn t©m, ng­¬i ®· mang cho ta tin tèt nh­ vËy, ta kh«ng biÕt th× th«i, biÕt th× ph¶i lµm ®Õn cïng. Hµnh ®éng cña T©y H¹ lÇn nµy rÊt lín, kh«ng cÇn ph¶i nãi, ©m m­u trong ®ã tuy che ®­îc m¾t cña nh©n sÜ vâ l©m b×nh th­êng, nh­ng Tr­êng Ca M«n ta ®· c¶nh gi¸c.",
-	"T«n tiªn sinh d­êng nh­ biÕt chuyÖn, kh«ng biÕt ®· t×m ®­îc th«ng tin g×?? Long M«n TrÊn  gÇn ®©y cã g× kh¸c th­êng kh«ng?",
-	"NhÊt cö nhÊt ®éng cña Long M«n TrÊn  lµm sau che ®­îc m¾t ta? Vïng Long M«n TrÊn  nµy c¸ch xa hoµng ®Õ, giµy quan phñ kh«ng ®Õn ®­îc, th­êng cã tï nh©n trèn ch¹y, t×nh c¶nh rèi ren, t­¬ng truyÒn cßn cã nhiÒu cao thñ vâ l©n Èn c­. Theo ta NhÊt phÈm ®­êng ®ang ®Ó ı ®Õn vïng ®Êt kh«ng ai coi qu¶n tËp trung nhiÒu kÎ vong m¹ng nµy, bè trİ néi øng, gië thñ ®o¹n chiªu binh m·i m·. ",
-	"Nãi nh­ vËy T©y H¹ kh«ng nh÷ng m­u ®å tÊn c«ng Tèng, mµ cßn ®iÒu ®éng nh©n tµi cña NhÊt phÈm ®­êng t¹i Long M«n TrÊn ®Ó sai khiÕn, MËt sø NhÊt phÈm ®­êng ho¹t ®éng liªn tôc, th× ra ®ang thu thËp tin t×nh b¸o cña nh©n tµi.",
-	"§óng vËy, MËt sø NhÊt phÈm ®­êng gÇn ®©y bËn t×m kiÕm nh©n tµi. Kh«ng mua chuéc vong mÖnh chi ®å ¸m s¸t trém c­íp, th× lµ giËt d©y, ®óng lµ ®å ®éc ¸c.",
+	npc.."å, th× ra ¢u D­¬ng tiªn sinh sai ng­¬i ®Õn.. <sex> yªn t©m, ng­¬i ®· mang cho ta tin tèt nh­ vËy, ta kh«ng biÕt th× th«i, biÕt th× ph¶i lµm ®Õn cïng. Hµnh ®éng cña T©y H¹ lÇn nµy rÊt lín, kh«ng cÇn ph¶i nãi, ©m m­u trong ®ã tuy che ®­îc m¾t cña nh©n sÜ vâ l©m b×nh th­êng, nh­ng Tr­êng Ca M«n ta ®· c¶nh gi¸c.",
+	plr.."T«n tiªn sinh d­êng nh­ biÕt chuyÖn, kh«ng biÕt ®· t×m ®­îc th«ng tin g×?? Long M«n TrÊn  gÇn ®©y cã g× kh¸c th­êng kh«ng?",
+	npc.."NhÊt cö nhÊt ®éng cña Long M«n TrÊn  lµm sau che ®­îc m¾t ta? Vïng Long M«n TrÊn  nµy c¸ch xa hoµng ®Õ, giµy quan phñ kh«ng ®Õn ®­îc, th­êng cã tï nh©n trèn ch¹y, t×nh c¶nh rèi ren, t­¬ng truyÒn cßn cã nhiÒu cao thñ vâ l©n Èn c­. Theo ta NhÊt phÈm ®­êng ®ang ®Ó ı ®Õn vïng ®Êt kh«ng ai coi qu¶n tËp trung nhiÒu kÎ vong m¹ng nµy, bè trİ néi øng, gië thñ ®o¹n chiªu binh m·i m·. ",
+	plr.."Nãi nh­ vËy T©y H¹ kh«ng nh÷ng m­u ®å tÊn c«ng Tèng, mµ cßn ®iÒu ®éng nh©n tµi cña NhÊt phÈm ®­êng t¹i Long M«n TrÊn ®Ó sai khiÕn, MËt sø NhÊt phÈm ®­êng ho¹t ®éng liªn tôc, th× ra ®ang thu thËp tin t×nh b¸o cña nh©n tµi.",
+	npc.."§óng vËy, MËt sø NhÊt phÈm ®­êng gÇn ®©y bËn t×m kiÕm nh©n tµi. Kh«ng mua chuéc vong mÖnh chi ®å ¸m s¸t trém c­íp, th× lµ giËt d©y, ®óng lµ ®å ®éc ¸c.",
 	}
 
 	TalkEx("task_004_01_0_2",strTalk);
@@ -552,13 +585,14 @@ end
 
 -- Ğø¶Ô»°
 function task_004_01_0_2()
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 local strTalk = {
-	"Kh«ng sai, bän r¾n ®éc nµy kh«ng tõ thñ ®o¹n, ®óng lµ tai häa cña vâ l©m Trung Nguyªn ta, lÇn nµy nÕu NhÊt phÈm ®­êng thµnh c«ng, ch¾c sÏ h« m­a gäi giã, chóng ta ph¶i ra søc ng¨n c¶n.",
-	"¤i, vÊn ®Ò lµ ta kh«ng biÕt ®­îc hµnh tung cña chóng. Muèn chÆt ®øt kÕ ho¹ch cña chóng, ph¶i t×m ra kÎ chñ m­u lµ ai",
-	"Kh«ng cã ®Çu mèi µ? Coi nh­ kÎ chñ m­u mai danh Èn tİch, nh­ng lÇn nµy NhÊt phÈm ®­êng chiªu binh m·i m· quy m« lín, ch¾c sÏ kh«ng Èn n¸u qu¸ s©u. Sù qua l¹i cña chóng ch¾c cã thÓ lÇn ra dÊu vÕt.",
-	"§óng ®óng, ng­¬i kh«ng nãi ta còng kh«ng nghÜ ra, gÇn ®©y Cao thñ quan ngo¹i qua l¹i t¹i Long M«n TrÊn  cã hµnh tung kh¶ nghi, d­êng nh­ cã tiÕp xóc bİ mËt víi NhÊt phÈm ®­êng, nh­ng ta vÉn n¸n l¹i kh¸ch s¹n ch­a thÓ truy t×m, qu¶ thùc rÊt xÊu hæ.",
-	"Tiªn sinh chí xÊu hæ, ng­¬i ®· cung cÊp cho ta tin tøc quan träng, Cao thñ quan ngo¹i kia rÊt cã thÓ ®· gÆp kÎ chñ m­u, ta ph¶i ®i th¨m dß mét chuyÕn.",
+	plr.."Kh«ng sai, bän r¾n ®éc nµy kh«ng tõ thñ ®o¹n, ®óng lµ tai häa cña vâ l©m Trung Nguyªn ta, lÇn nµy nÕu NhÊt phÈm ®­êng thµnh c«ng, ch¾c sÏ h« m­a gäi giã, chóng ta ph¶i ra søc ng¨n c¶n.",
+	npc.."¤i, vÊn ®Ò lµ ta kh«ng biÕt ®­îc hµnh tung cña chóng. Muèn chÆt ®øt kÕ ho¹ch cña chóng, ph¶i t×m ra kÎ chñ m­u lµ ai",
+	plr.."Kh«ng cã ®Çu mèi µ? Coi nh­ kÎ chñ m­u mai danh Èn tİch, nh­ng lÇn nµy NhÊt phÈm ®­êng chiªu binh m·i m· quy m« lín, ch¾c sÏ kh«ng Èn n¸u qu¸ s©u. Sù qua l¹i cña chóng ch¾c cã thÓ lÇn ra dÊu vÕt.",
+	npc.."§óng ®óng, ng­¬i kh«ng nãi ta còng kh«ng nghÜ ra, gÇn ®©y Cao thñ quan ngo¹i qua l¹i t¹i Long M«n TrÊn  cã hµnh tung kh¶ nghi, d­êng nh­ cã tiÕp xóc bİ mËt víi NhÊt phÈm ®­êng, nh­ng ta vÉn n¸n l¹i kh¸ch s¹n ch­a thÓ truy t×m, qu¶ thùc rÊt xÊu hæ.",
+	plr.."Tiªn sinh chí xÊu hæ, ng­¬i ®· cung cÊp cho ta tin tøc quan träng, Cao thñ quan ngo¹i kia rÊt cã thÓ ®· gÆp kÎ chñ m­u, ta ph¶i ®i th¨m dß mét chuyÕn.",
 	}
 
 	TalkEx("",strTalk);
@@ -574,17 +608,18 @@ end
 
 --´ø»Ø»òÎ´´ø»ØÒ»Æ·ÌÃÑûÇëº¯ÓëËï¶şçö¶Ô»°
 function task_004_02_0()
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 local strTalk = {};
 
 	--´ø»ØÒ»Æ·ÌÃÑûÇëº¯
 	if GetItemCount(2,0,691) >= 1 then
 		strTalk = {
-			"Nh÷ng Cao thñ quan ngo¹i qu¶ nhiªn lîi h¹i, ta ®· lÊy ®­îc Th­ mêi cña NhÊt phÈm ®­êng trªn ng­êi chóng.",
-			"(Xem th­ mêi) kh«ng ®­îc, ng­êi chŞu tr¸ch nhiÖm chİnh trong lÇn chiªu binh m·i m· nµy cña NhÊt phÈm ®­êng lµ Lı Nguyªn Kh¸nh! ChuyÖn nµy kh«ng gièng b×nh th­êng. Nh÷ng kÎ qua l¹i víi cao thñ ®Òu lµ nh÷ng kÎ xuÊt chóng, ®ång thêi NhÊt phÈm ®­êng thËp ®¹i kim cang còng ®· ra mÆt. §¹i sù, chuyÖn ®¹i sù s¾p x¶y ra.",
-			"Tªn Lı Nguyªn Kh¸nh nµy lµ ai? ThËp ®¹i kim cang lµ nh÷ng kÎ nµo?",
-			"Xa Lu©n B¸ V­¬ng nµy lµ kÎ chñ m­u cña hµnh ®éng lÇn nµy, lóc nµy ®ang ë Long M«n TrÊn. Th«ng tin vµ suy ®o¸n cña ta chØ cã thÕ, <sex> h·y ®i t×m ¢u D­¬ng tiªn sinh, «ng ta cã thÓ gi¶i táa nghi vÊn cho ng­¬i. Ha ha, cßn ph¶i ®a t¹ <sex> ®· mang tin tèt vÒ cho ta.",
-			"§õng kh¸ch s¸o, ta xin c¸o tõ.",
+			plr.."Nh÷ng Cao thñ quan ngo¹i qu¶ nhiªn lîi h¹i, ta ®· lÊy ®­îc Th­ mêi cña NhÊt phÈm ®­êng trªn ng­êi chóng.",
+			npc.."(Xem th­ mêi) kh«ng ®­îc, ng­êi chŞu tr¸ch nhiÖm chİnh trong lÇn chiªu binh m·i m· nµy cña NhÊt phÈm ®­êng lµ Lı Nguyªn Kh¸nh! ChuyÖn nµy kh«ng gièng b×nh th­êng. Nh÷ng kÎ qua l¹i víi cao thñ ®Òu lµ nh÷ng kÎ xuÊt chóng, ®ång thêi NhÊt phÈm ®­êng thËp ®¹i kim cang còng ®· ra mÆt. §¹i sù, chuyÖn ®¹i sù s¾p x¶y ra.",
+			plr.."Tªn Lı Nguyªn Kh¸nh nµy lµ ai? ThËp ®¹i kim cang lµ nh÷ng kÎ nµo?",
+			npc.."Xa Lu©n B¸ V­¬ng nµy lµ kÎ chñ m­u cña hµnh ®éng lÇn nµy, lóc nµy ®ang ë Long M«n TrÊn. Th«ng tin vµ suy ®o¸n cña ta chØ cã thÕ, <sex> h·y ®i t×m ¢u D­¬ng tiªn sinh, «ng ta cã thÓ gi¶i táa nghi vÊn cho ng­¬i. Ha ha, cßn ph¶i ®a t¹ <sex> ®· mang tin tèt vÒ cho ta.",
+			plr.."§õng kh¸ch s¸o, ta xin c¸o tõ.",
 			}
 
 		RemoveTrigger(GetTrigger(KILL_XB_GUANWAIGAOSHOU));
@@ -612,9 +647,10 @@ end
 
 --Î´ÓëÅ·Ñô»­¶Ô»°Ç°ÓëËï¶şçö¶Ô»°
 function task_004_02_1()
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 local strTalk = {
-	"Ng­¬i h·y ®Õn Phông T­êng t×m ¢u D­¬ng Häa tiªn sinh."
+	npc.."Ng­¬i h·y ®Õn Phông T­êng t×m ¢u D­¬ng Häa tiªn sinh."
 	}
 
 	TalkEx("",strTalk);
@@ -623,15 +659,16 @@ end
 
 --ÓëÅ·Ñô»­¶Ô»°×¼±¸¼ÓÈëÒ»Æ·ÌÃ×öÎÔµ×
 function task_004_03_0()
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 local strTalk = {
-	"<sex> ®· vÒ råi µ! T«n NhŞ Liªn ®· tØnh råi chø?",
-	"T«n tiªn sinh ®· tØnh l¹i råi, «ng ta cßn th¸m thİnh ®­îc NhÊt PhÈm §­êng ®ang chiªu binh m·i m· ë Long M«n trÊn, MËt sø NhÊt PhÈm §­êng ®ang ë gÇn ®ã t×m kiÕm nh©n tµi. Cßn ®©y lµ Th­ mêi NhÊt PhÈm §­êng. Xin tiÒn bèi xem qua.",
-	"(Xem xong th­ mêi) §· ®iÒu ®éng Lı Nguyªn Kh¸nh vµ ThËp §¹i Kim Cang, hµnh ®éng lÇn nµy cña NhÊt PhÈm §­êng qu¶ thËt kh«ng ph¶i chuyÖn nhá, xem ra chóng rÊt xem träng ®ît chiªu binh m·i m· lÇn nµy, Lı Nguyªn Kh¸nh còng xuÊt hiÖn, chØ sî bªn trong cßn cã ©m m­u g× lín h¬n.",
-	"Lı Nguyªn Kh¸nh lµ ai?",
-	"Lı Nguyªn Kh¸nh lµ cao thñ thø 3 cña T©y H¹ NhÊt PhÈm §­êng, ng­êi nµy trİ dòng song toµn vµ cã ®Şa vŞ rÊt cao trong NhÊt PhÈm §­êng. Kh«ng ph¶i viÖc hÖ träng y sÏ kh«ng xuÊt hiÖn, viÖc cña NhÊt PhÈm §­êng chØ cÇn y phô tr¸ch th× ch¾c ch¾n sÏ thµnh c«ng, tõ lóc trÎ y ®· cã thÓ ngåi vµo chøc vŞ cao thñ thø 3 cã thÓ thÊy tµi nghÖ cña y cao th©m khã l­êng.",
-	"Th× ra lµ vËy! NhÊt PhÈm §­êng ®Ó Lı Nguyªn Kh¸nh phô tr¸ch viÖc chiªu binh m·i m· lÇn nµy nhÊt ®Şnh sÏ thµnh c«ng. Cßn ThËp §¹i Kim Cang?",
-	"ThËp §¹i Kim Cang lµ tinh anh NhÊt PhÈm §­êng phô tr¸ch hµnh sù vµ truyÒn chØ lÖnh. M­êi ng­êi nµy cã ngo¹i h×nh kú l¹ nh­ng ®Òu lµ cao thñ, lÇn nµy ng­êi ®Õn Long M«n trÊn ®ãn Xa Lu©n B¸ V­¬ng  chİnh lµ mét trong m­êi ng­êi ®ã.",
+	npc.."<sex> ®· vÒ råi µ! T«n NhŞ Liªn ®· tØnh råi chø?",
+	plr.."T«n tiªn sinh ®· tØnh l¹i råi, «ng ta cßn th¸m thİnh ®­îc NhÊt PhÈm §­êng ®ang chiªu binh m·i m· ë Long M«n trÊn, MËt sø NhÊt PhÈm §­êng ®ang ë gÇn ®ã t×m kiÕm nh©n tµi. Cßn ®©y lµ Th­ mêi NhÊt PhÈm §­êng. Xin tiÒn bèi xem qua.",
+	npc.."(Xem xong th­ mêi) §· ®iÒu ®éng Lı Nguyªn Kh¸nh vµ ThËp §¹i Kim Cang, hµnh ®éng lÇn nµy cña NhÊt PhÈm §­êng qu¶ thËt kh«ng ph¶i chuyÖn nhá, xem ra chóng rÊt xem träng ®ît chiªu binh m·i m· lÇn nµy, Lı Nguyªn Kh¸nh còng xuÊt hiÖn, chØ sî bªn trong cßn cã ©m m­u g× lín h¬n.",
+	plr.."Lı Nguyªn Kh¸nh lµ ai?",
+	npc.."Lı Nguyªn Kh¸nh lµ cao thñ thø 3 cña T©y H¹ NhÊt PhÈm §­êng, ng­êi nµy trİ dòng song toµn vµ cã ®Şa vŞ rÊt cao trong NhÊt PhÈm §­êng. Kh«ng ph¶i viÖc hÖ träng y sÏ kh«ng xuÊt hiÖn, viÖc cña NhÊt PhÈm §­êng chØ cÇn y phô tr¸ch th× ch¾c ch¾n sÏ thµnh c«ng, tõ lóc trÎ y ®· cã thÓ ngåi vµo chøc vŞ cao thñ thø 3 cã thÓ thÊy tµi nghÖ cña y cao th©m khã l­êng.",
+	plr.."Th× ra lµ vËy! NhÊt PhÈm §­êng ®Ó Lı Nguyªn Kh¸nh phô tr¸ch viÖc chiªu binh m·i m· lÇn nµy nhÊt ®Şnh sÏ thµnh c«ng. Cßn ThËp §¹i Kim Cang?",
+	npc.."ThËp §¹i Kim Cang lµ tinh anh NhÊt PhÈm §­êng phô tr¸ch hµnh sù vµ truyÒn chØ lÖnh. M­êi ng­êi nµy cã ngo¹i h×nh kú l¹ nh­ng ®Òu lµ cao thñ, lÇn nµy ng­êi ®Õn Long M«n trÊn ®ãn Xa Lu©n B¸ V­¬ng  chİnh lµ mét trong m­êi ng­êi ®ã.",
 
 	}
 
@@ -641,14 +678,15 @@ end;
 
 -- Ğø¶Ô»°
 function task_004_03_0_1()
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 local strTalk = {
-	"LÇn nµy c¸c cao thñ cña NhÊt PhÈm §­êng lÇn l­ît xuÊt hiÖn, kh«ng biÕt t¹i sao hä l¹i coi träng ®ît chiªu binh m·i m· nµy?",
-	"Theo ta ®o¸n, T©y H¹ muèn x©m chiÕm l·nh thæ §¹i Tèng, muèn liªn kÕt víi n­íc Liªu ®Ó x©m chiÕm §¹i Tèng, lÇn hµnh ®éng nµy NhÊt PhÈm §­êng muèn më réng thÕ lùc ë Trung Nguyªn, lµm yÕu ®i søc m¹nh cña Trung Nguyªn. NhÊt PhÈm §­êng kh«ng chØ ¸m s¸t c¸c cao thñ vâ l©m mµ cßn mua chuéc c¸c qu©n thÇn trong triÒu ®Ó lÊy th«ng tin c¬ mËt cña §¹i Tèng.",
-	"Ch¼ng tr¸ch NhÊt PhÈm §­êng coi träng hµnh ®éng lÇn nµy, chóng lµ mèi nguy h¹i víi vâ l©m Trung Nguyªn, ta ph¶i ng¨n chÆn hµnh ®éng lÇn nµy cña bän chóng.",
-	"Kh«ng sai! Nh­ng muèn ph¸ ho¹i hµnh ®éng cña bän chóng th× ta ph¶i biÕt h­íng hµnh ®éng cña chóng. µ……<sex> ®¹i hiÖp, ta cã chuyÖn muèn nhê ng­¬i.",
-	"Kh«ng d¸m! Gãp søc cho n­íc nhµ lµ tr¸ch nhiÖm cña v·n bèi. TiÒn bèi xin cø nãi!",
-	"Hµnh ®éng lÇn nµy cña NhÊt PhÈm §­êng nÕu thµnh c«ng sÏ lµ ®¹i häa cho vâ l©m. Cho nªn ta muèn <sex> th©m nhËp NhÊt PhÈm §­êng ®iÒu tra ©m m­u cña chóng, ®Ó thõa c¬ ng¨n chÆn hµnh ®éng lÇn nµy.",
+	plr.."LÇn nµy c¸c cao thñ cña NhÊt PhÈm §­êng lÇn l­ît xuÊt hiÖn, kh«ng biÕt t¹i sao hä l¹i coi träng ®ît chiªu binh m·i m· nµy?",
+	npc.."Theo ta ®o¸n, T©y H¹ muèn x©m chiÕm l·nh thæ §¹i Tèng, muèn liªn kÕt víi n­íc Liªu ®Ó x©m chiÕm §¹i Tèng, lÇn hµnh ®éng nµy NhÊt PhÈm §­êng muèn më réng thÕ lùc ë Trung Nguyªn, lµm yÕu ®i søc m¹nh cña Trung Nguyªn. NhÊt PhÈm §­êng kh«ng chØ ¸m s¸t c¸c cao thñ vâ l©m mµ cßn mua chuéc c¸c qu©n thÇn trong triÒu ®Ó lÊy th«ng tin c¬ mËt cña §¹i Tèng.",
+	plr.."Ch¼ng tr¸ch NhÊt PhÈm §­êng coi träng hµnh ®éng lÇn nµy, chóng lµ mèi nguy h¹i víi vâ l©m Trung Nguyªn, ta ph¶i ng¨n chÆn hµnh ®éng lÇn nµy cña bän chóng.",
+	npc.."Kh«ng sai! Nh­ng muèn ph¸ ho¹i hµnh ®éng cña bän chóng th× ta ph¶i biÕt h­íng hµnh ®éng cña chóng. µ……<sex> ®¹i hiÖp, ta cã chuyÖn muèn nhê ng­¬i.",
+	plr.."Kh«ng d¸m! Gãp søc cho n­íc nhµ lµ tr¸ch nhiÖm cña v·n bèi. TiÒn bèi xin cø nãi!",
+	npc.."Hµnh ®éng lÇn nµy cña NhÊt PhÈm §­êng nÕu thµnh c«ng sÏ lµ ®¹i häa cho vâ l©m. Cho nªn ta muèn <sex> th©m nhËp NhÊt PhÈm §­êng ®iÒu tra ©m m­u cña chóng, ®Ó thõa c¬ ng¨n chÆn hµnh ®éng lÇn nµy.",
 	}
 
 	TalkEx("task_004_03_0_2",strTalk);
@@ -657,14 +695,15 @@ end
 
 -- Ğø¶Ô»°
 function task_004_03_0_2()
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 local strTalk = {
-	"TiÒn bèi muèn t¹i h¹ trµ trén vµo NhÊt PhÈm §­êng?",
-	"Víi c¬ trİ cña <sex>, viÖc nµy chØ cã thÓ tr«ng chê vµo <sex>. NhÊt PhÈm §­êng hµnh ®éng khã ®o¸n, <sex> lµ ng­êi cã thÓ tin cËy, ta míi d¸m më miÖng nhê v·.",
-	"Xem ra ®©y còng lµ biÖn ph¸p tèt, muèn ph¸ ho¹i hµnh ®éng cña chóng ph¶i trµ trén vµo NhÊt PhÈm §­êng míi cã thÓ lÊy ®­îc tin tøc quan träng.",
-	"<sex> ®¹i hiÖp, nÕu viÖc nµy thµnh c«ng, <sex> xem nh­ ®· t¹o phóc cho b¸ t¸nh, hµnh ®éng lÇn nµy v« cïng nguy hiÓm, ng­êi h·y tïy c¬ hµnh sù, nÕu gÆp khã kh¨n g× h·y ®Õn t×m ta, Tr­êng Ca M«n ta sÏ ñng hé ng­êi hÕt m×nh.",
-	"V·n bèi xin ghi nhí! NhÊt ®Şnh sÏ kh«ng phô lßng ng­êi.",
-	"Ng­êi ®øng ®Çu ®ît chiªu binh m·i m· lÇn nµy lµ Xa Lu©n B¸ V­¬ng , ng­¬i cã thÓ ®em Th­ mêi NhÊt PhÈm §­êng ®Õn Long M«n trÊn thö xem. Mäi chuyÖn h·y cÈn thËn.",
+	plr.."TiÒn bèi muèn t¹i h¹ trµ trén vµo NhÊt PhÈm §­êng?",
+	npc.."Víi c¬ trİ cña <sex>, viÖc nµy chØ cã thÓ tr«ng chê vµo <sex>. NhÊt PhÈm §­êng hµnh ®éng khã ®o¸n, <sex> lµ ng­êi cã thÓ tin cËy, ta míi d¸m më miÖng nhê v·.",
+	plr.."Xem ra ®©y còng lµ biÖn ph¸p tèt, muèn ph¸ ho¹i hµnh ®éng cña chóng ph¶i trµ trén vµo NhÊt PhÈm §­êng míi cã thÓ lÊy ®­îc tin tøc quan träng.",
+	npc.."<sex> ®¹i hiÖp, nÕu viÖc nµy thµnh c«ng, <sex> xem nh­ ®· t¹o phóc cho b¸ t¸nh, hµnh ®éng lÇn nµy v« cïng nguy hiÓm, ng­êi h·y tïy c¬ hµnh sù, nÕu gÆp khã kh¨n g× h·y ®Õn t×m ta, Tr­êng Ca M«n ta sÏ ñng hé ng­êi hÕt m×nh.",
+	plr.."V·n bèi xin ghi nhí! NhÊt ®Şnh sÏ kh«ng phô lßng ng­êi.",
+	npc.."Ng­êi ®øng ®Çu ®ît chiªu binh m·i m· lÇn nµy lµ Xa Lu©n B¸ V­¬ng , ng­¬i cã thÓ ®em Th­ mêi NhÊt PhÈm §­êng ®Õn Long M«n trÊn thö xem. Mäi chuyÖn h·y cÈn thËn.",
 	}
 
 	SetTask(TASK_XB_ID,16);
@@ -677,9 +716,10 @@ end
 
 --ÉĞÎ´Óë³µÂÖ°ÔÍõ¶Ô»°Ç°ÓëÅ·Ñô»­¶Ô»°
 function task_004_03_1()
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 local strTalk = {
-	"<sex> v× n­íc kh«ng tiÕc th©n m×nh, thËt khiÕn ng­êi ng­êi kİnh phôc.",
+	npc.."<sex> v× n­íc kh«ng tiÕc th©n m×nh, thËt khiÕn ng­êi ng­êi kİnh phôc.",
 	}
 
 	TalkEx("",strTalk);
@@ -690,17 +730,18 @@ end
 ---------------------------------- Î÷±±Çø05³Â²Ö°µ¶È----------------------------------
 --Óë³µÂÖ°ÔÍõ¶Ô»°¿ªÊ¼¡±Î÷±±Çø05³Â²Ö°µ¶È¡°ÈÎÎñ
 function task_005_01_0()
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 local strTalk = {};
 
 	--´óÓÚ67·½ÄÜ½ÓÈÎÎñ
 	if GetLevel() >= 67 then
 		strTalk = {
-			"(Ta ph¶i gi¶ trang thµnh téi ph¹m cña §¹i Tèng ®Ó lÊy chiÕm ®­îc sù tİn nhiÖm cña Xa Lu©n B¸ V­¬ng)",
-			"Ng­êi lµ Xa Lu©n B¸ V­¬ng ? Ta v× m­u s¸t kÎ thï ph¹m ph¶i téi tö. Lôc PhiÕn M«n truy ®uæi t«i ®Õn ®©y, thiÕt nghÜ §¹i Tèng ®· kh«ng cßn chç ®Ó t«i dung th©n, ®©y lµ Th­ mêi NhÊt PhÈm §­êng, kh«ng biÕt NhÊt PhÈm §­êng cã thÓ th©u nhËn ta kh«ng?",
-			"Xem ra <sex> lµ nh©n tµi cña MËt sø NhÊt PhÈm §­êng. NhÊt PhÈm §­êng vèn träng anh hïng, kh«ng cÇn biÕt xuÊt xø, cho dï ng­¬i ph¹m ph¸p còng kh«ng sao, chØ cÇn lµ ng­êi cã n¨ng lùc lµ ®­îc.",
-			"T¹i h¹ ®· nghe danh NhÊt PhÈm §­êng xem träng nh©n tµi tõ l©u, t¹i h¹ ®ang bŞ bän Lôc PhiÕn M«n ®¸ng ghĞt truy ®uæi r¸o riÕt, kh«ng biÕt NhÊt PhÈm §­êng cã thÓ th©u nhËn ta kh«ng?",
-			"Ha ha! Ng­¬i yªn t©m, ë NhÊt PhÈm §­êng sî g× bän Lôc PhiÕn M«n? Cho dï Hoµng cung ®¹i néi bän ta cßn ch­a xem ra g×.",
+			plr.."(Ta ph¶i gi¶ trang thµnh téi ph¹m cña §¹i Tèng ®Ó lÊy chiÕm ®­îc sù tİn nhiÖm cña Xa Lu©n B¸ V­¬ng)",
+			plr.."Ng­êi lµ Xa Lu©n B¸ V­¬ng ? Ta v× m­u s¸t kÎ thï ph¹m ph¶i téi tö. Lôc PhiÕn M«n truy ®uæi t«i ®Õn ®©y, thiÕt nghÜ §¹i Tèng ®· kh«ng cßn chç ®Ó t«i dung th©n, ®©y lµ Th­ mêi NhÊt PhÈm §­êng, kh«ng biÕt NhÊt PhÈm §­êng cã thÓ th©u nhËn ta kh«ng?",
+			npc.."Xem ra <sex> lµ nh©n tµi cña MËt sø NhÊt PhÈm §­êng. NhÊt PhÈm §­êng vèn träng anh hïng, kh«ng cÇn biÕt xuÊt xø, cho dï ng­¬i ph¹m ph¸p còng kh«ng sao, chØ cÇn lµ ng­êi cã n¨ng lùc lµ ®­îc.",
+			plr.."T¹i h¹ ®· nghe danh NhÊt PhÈm §­êng xem träng nh©n tµi tõ l©u, t¹i h¹ ®ang bŞ bän Lôc PhiÕn M«n ®¸ng ghĞt truy ®uæi r¸o riÕt, kh«ng biÕt NhÊt PhÈm §­êng cã thÓ th©u nhËn ta kh«ng?",
+			npc.."Ha ha! Ng­¬i yªn t©m, ë NhÊt PhÈm §­êng sî g× bän Lôc PhiÕn M«n? Cho dï Hoµng cung ®¹i néi bän ta cßn ch­a xem ra g×.",
 			}
 
 		TalkEx("task_005_01_0_1",strTalk);
@@ -717,12 +758,13 @@ end
 
 -- Ğø¶Ô»°
 function task_005_01_0_1()
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 local strTalk = {
-				"ChØ cÇn NhÊt PhÈm §­êng gióp ta tho¸t khái kiÕp n¹n nµy, ta sÏ tËn lùc phông sù cho NhÊt PhÈm §­êng.",
-				"NhÊt PhÈm §­êng ta coi anh hïng, kh«ng thİch th©u nhËn kÎ bÊt tµi, th­ mêi MËt sø cho ng­¬i chØ lµ b­íc sµng läc th«i, muèn vµo NhÊt PhÈm §­êng ph¶i qua sù thö th¸ch ®Ó chøng minh n¨ng lùc cña ng­¬i. NhËp m«n ph¶i qua 3 thö th¸ch.",
-				"Vµng thËt kh«ng sî löa, ®¹i nh©n xin cø nãi!",
-				"<sex> thËt s¶ng kho¸i. Ng­¬i bŞ Lôc PhiÕn M«n truy ®uæi ®Õn ®©y, thiÕt nghÜ ng­¬i còng c¨m thï Lôc PhiÕn M«n ®Õn tËn x­¬ng, gÇn ®©y mét trong ThËp §¹i Kim Cang lµ S¸t thñ Oa Oa ch¼ng may bŞ Lôc PhiÕn M«n b¾t gi÷, ta thÊy ng­¬i hµo khİ h¬n ng­êi, cã d¸m ®Õn Lôc PhiÕn M«n cøu ng­êi kh«ng?",
+				plr.."ChØ cÇn NhÊt PhÈm §­êng gióp ta tho¸t khái kiÕp n¹n nµy, ta sÏ tËn lùc phông sù cho NhÊt PhÈm §­êng.",
+				npc.."NhÊt PhÈm §­êng ta coi anh hïng, kh«ng thİch th©u nhËn kÎ bÊt tµi, th­ mêi MËt sø cho ng­¬i chØ lµ b­íc sµng läc th«i, muèn vµo NhÊt PhÈm §­êng ph¶i qua sù thö th¸ch ®Ó chøng minh n¨ng lùc cña ng­¬i. NhËp m«n ph¶i qua 3 thö th¸ch.",
+				plr.."Vµng thËt kh«ng sî löa, ®¹i nh©n xin cø nãi!",
+				npc.."<sex> thËt s¶ng kho¸i. Ng­¬i bŞ Lôc PhiÕn M«n truy ®uæi ®Õn ®©y, thiÕt nghÜ ng­¬i còng c¨m thï Lôc PhiÕn M«n ®Õn tËn x­¬ng, gÇn ®©y mét trong ThËp §¹i Kim Cang lµ S¸t thñ Oa Oa ch¼ng may bŞ Lôc PhiÕn M«n b¾t gi÷, ta thÊy ng­¬i hµo khİ h¬n ng­êi, cã d¸m ®Õn Lôc PhiÕn M«n cøu ng­êi kh«ng?",
 				}
 
 	TalkEx("task_005_01_0_2",strTalk);
@@ -731,12 +773,13 @@ end
 
 -- Ğø¶Ô»°
 function task_005_01_0_2()
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 local strTalk = {
-			"VËy ta kh«ng ph¶i tù chu«i ®Çu vµo l­íi sao? Ta ®ang bŞ Lôc PhiÕn M«n truy ®uæi, biÕt trªn nói cã hæ d÷ ch¼ng lÏ cø leo lªn sao?",
-			"Kh«ng vµo hang cäp sao b¾t ®­îc cäp? NhÊt PhÈm §­êng kh«ng hoan nghªnh nh÷ng kÎ nh¸t gan, ph¶i v­ît qua khã kh¨n míi lµ bËc anh hïng. <sex> nÕu kh«ng ®ñ can ®¶m th× th«i vËy,, nh­ng ng­¬i ®· cã ı nhËp m«n, l¹i lµ T©n bŞ NhÊt PhÈm §­êng, sau nµy chØ cÇn ®­a ra kı hiÖu nµy víi ng­êi trong ®­êng ®Ó chøng nhËn th©n phËn.",
-			"Ha ha! §¹i nh©n h·y chê tin cña t¹i h¹.",
-			"(KÎ nµy kiªu c¨ng nh­ng l¹i cÈn träng, râ rµng ta ®· tù khai m×nh ®ang bŞ Lôc PhiÕn M«n truy n·, cßn b¾t ta m¹o hiÓm, thËt gi¶o ho¹t. Cã ®iÒu nhµ lao Lôc PhiÕn M«n ë ®©u míi ®­îc? Ch¾c ph¶i ®Õn hái ¢u D­¬ng Häa tiÒn bèi th«i.)",
+			plr.."VËy ta kh«ng ph¶i tù chui ®Çu vµo l­íi sao? Ta ®ang bŞ Lôc PhiÕn M«n truy ®uæi, biÕt trªn nói cã hæ d÷ ch¼ng lÏ cø leo lªn sao?",
+			npc.."Kh«ng vµo hang cäp sao b¾t ®­îc cäp? NhÊt PhÈm §­êng kh«ng hoan nghªnh nh÷ng kÎ nh¸t gan, ph¶i v­ît qua khã kh¨n míi lµ bËc anh hïng. <sex> nÕu kh«ng ®ñ can ®¶m th× th«i vËy,, nh­ng ng­¬i ®· cã ı nhËp m«n, l¹i lµ T©n bŞ NhÊt PhÈm §­êng, sau nµy chØ cÇn ®­a ra kı hiÖu nµy víi ng­êi trong ®­êng ®Ó chøng nhËn th©n phËn.",
+			plr.."Ha ha! §¹i nh©n h·y chê tin cña t¹i h¹.",
+			plr.."(KÎ nµy kiªu c¨ng nh­ng l¹i cÈn träng, râ rµng ta ®· tù khai m×nh ®ang bŞ Lôc PhiÕn M«n truy n·, cßn b¾t ta m¹o hiÓm, thËt gi¶o ho¹t. Cã ®iÒu nhµ lao Lôc PhiÕn M«n ë ®©u míi ®­îc? Ch¾c ph¶i ®Õn hái ¢u D­¬ng Häa tiÒn bèi th«i.)",
 	}
 
 	DelItem(2,0,691,1);--É¾È¥ÑûÇëº¯
@@ -750,10 +793,11 @@ end
 
 --ÉĞÎ´ÓëÅ·Ñô»­¶Ô»°
 function task_005_01_1()
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 local strTalk = {
 	"Thö th¸ch thø 1: ®Õn nhµ lao gi¶i cøu S¸t thñ Oa Oa ®Ó chøng tá lßng can ®¶m.",
-	"(KÎ nµy kiªu c¨ng nh­ng l¹i cÈn träng, râ rµng ta ®· tù khai m×nh ®ang bŞ Lôc PhiÕn M«n truy n·, cßn b¾t ta m¹o hiÓm, thËt gi¶o ho¹t. Cã ®iÒu nhµ lao Lôc PhiÕn M«n ë ®©u míi ®­îc? Ch¾c ph¶i ®Õn hái ¢u D­¬ng Häa tiÒn bèi th«i.)",
+	plr.."(KÎ nµy kiªu c¨ng nh­ng l¹i cÈn träng, râ rµng ta ®· tù khai m×nh ®ang bŞ Lôc PhiÕn M«n truy n·, cßn b¾t ta m¹o hiÓm, thËt gi¶o ho¹t. Cã ®iÒu nhµ lao Lôc PhiÕn M«n ë ®©u míi ®­îc? Ch¾c ph¶i ®Õn hái ¢u D­¬ng Häa tiÒn bèi th«i.)",
 	}
 
 	TalkEx("",strTalk);
@@ -773,12 +817,13 @@ end
 
 --ÓëÅ·Ñô»­¶Ô»°Ñ¯ÎÊ¼àÀÎÎ»ÖÃ
 function task_005_02_0()
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 local strTalk = {
-	"Sù viÖc ®Õn ®©u råi?",
-	"Xa Lu©n B¸ V­¬ng  rÊt cÈn thËn, nãi lµ gia nhËp NhÊt PhÈm §­êng ph¶i th«ng qua 3 thö th¸ch. Ta b¶o giê m×nh ®ang lµ téi ph¹m bŞ truy n· ë §¹i Tèng, nh­ng h¾n l¹i buéc ta ph¶i tíi Lôc PhiÕn M«n cøu ng­êi, ch¾c lµ muèn th¨m dß ta ®©y.",
-	"§óng lµ gian x¶o. Xem ra viÖc nµy ph¶i nhê ®Õn Lôc PhiÕn M«n råi. Ng­¬i h·y ®Õn BiÖn Kinh t×m B¸ch HiÓu Sinh, «ng ta quen biÕt víi Lôc PhiÕn M«n, ch¾c sÏ gióp ®­îc ng­¬i ®Êy. Ta sÏ dïng bå c©u ®­a th­ ®Ó kÓ râ sù t×nh.",
-	"§­îc, ®a t¹ sù gióp ®ì cña tiÒn bèi.",
+	npc.."Sù viÖc ®Õn ®©u råi?",
+	plr.."Xa Lu©n B¸ V­¬ng  rÊt cÈn thËn, nãi lµ gia nhËp NhÊt PhÈm §­êng ph¶i th«ng qua 3 thö th¸ch. Ta b¶o giê m×nh ®ang lµ téi ph¹m bŞ truy n· ë §¹i Tèng, nh­ng h¾n l¹i buéc ta ph¶i tíi Lôc PhiÕn M«n cøu ng­êi, ch¾c lµ muèn th¨m dß ta ®©y.",
+	npc.."§óng lµ gian x¶o. Xem ra viÖc nµy ph¶i nhê ®Õn Lôc PhiÕn M«n råi. Ng­¬i h·y ®Õn BiÖn Kinh t×m B¸ch HiÓu Sinh, «ng ta quen biÕt víi Lôc PhiÕn M«n, ch¾c sÏ gióp ®­îc ng­¬i ®Êy. Ta sÏ dïng bå c©u ®­a th­ ®Ó kÓ râ sù t×nh.",
+	plr.."§­îc, ®a t¹ sù gióp ®ì cña tiÒn bèi.",
 	}
 
 	SetTask(TASK_XB_ID,18);
@@ -790,10 +835,11 @@ end;
 
 --ÉĞÎ´Óë°ÙÏşÉú¶Ô»°
 function task_005_02_1()
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 local strTalk = {
-	"Giê ng­¬i h·y ®Õn BiÖn Kinh t×m B¸ch HiÓu Sinh, ta ®· dïng bå c©u ®­a th­ nãi râ sù t×nh víi «ng ta råi.",
-	"§­îc, v·n bèi sÏ ®i ngay."
+	npc.."Giê ng­¬i h·y ®Õn BiÖn Kinh t×m B¸ch HiÓu Sinh, ta ®· dïng bå c©u ®­a th­ nãi râ sù t×nh víi «ng ta råi.",
+	plr.."§­îc, v·n bèi sÏ ®i ngay."
 	}
 
 	TalkEx("",strTalk);
@@ -802,14 +848,15 @@ end
 
 --Óë°ÙÏşÉú¶Ô»°»ñµÃÔ¬·ÉÔÆ×ø±ê
 function task_005_03_0()
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 local nMapName,nXpos,nYpos = SelectMapData(1);
 local strTalk = {
-	"<sex> ®Õn råi µ, ta ®· nhËn ®­îc th­ cña ¢u D­¬ng Häa, chuyÖn cña Lôc PhiÕn M«n ng­¬i cø yªn t©m, ta ®· nhê Bé kho¸i Viªn V©n Phi gióp ®ì, h¾n lµ 1 trong lôc ®¹i danh bæ cña ®¹i Tèng, lµ trô cét cña Lôc PhiÕn M«n, cã sù gióp ®ì cña h¾n, viÖc sÏ ®©u vµo ®Êy c¶.",
-	"Hµnh tung cña Bé kho¸i Lôc PhiÕn M«n lµ c¬ mËt, lµm sao ta t×m Viªn Phi V©n ®­îc chø?",
-	"Ta ®· viÕt th­ cho Lôc PhiÕn M«n, giê h¾n ®ang ë "..nMapName..", ng­¬i chØ cÇn ®Õn "..(nXpos..", "..nYpos).." dïng Ph¸o hiÖu Lôc PhiÕn m«n nµy, Viªn Phi V©n tù kh¾c xuÊt hiÖn.",
-	"§a t¹ tiÒn bèi, cã nhiÒu sù gióp ®ì nh­ vËy, ta nhÊt ®Şnh sÏ hoµn thµnh tèt nhiÖm vô.",
-	"<sex> ®õng kh¸ch s¸o, cßn trÎ mµ ®· x¶ th©n v× giang s¬n ®¹i Tèng, hµnh ®éng Êy thËt vü ®¹i. <sex> ph¶i thËt cÈn träng, nÕu gÆp vÊn ®Ò g×, chØ cÇn trong ph¹m vi n¨ng lùc cña Tr­êng Ca M«n, ta ¾t dèc toµn lùc trî gióp.",
+	npc.."<sex> ®Õn råi µ, ta ®· nhËn ®­îc th­ cña ¢u D­¬ng Häa, chuyÖn cña Lôc PhiÕn M«n ng­¬i cø yªn t©m, ta ®· nhê Bé kho¸i Viªn V©n Phi gióp ®ì, h¾n lµ 1 trong lôc ®¹i danh bæ cña ®¹i Tèng, lµ trô cét cña Lôc PhiÕn M«n, cã sù gióp ®ì cña h¾n, viÖc sÏ ®©u vµo ®Êy c¶.",
+	plr.."Hµnh tung cña Bé kho¸i Lôc PhiÕn M«n lµ c¬ mËt, lµm sao ta t×m Viªn Phi V©n ®­îc chø?",
+	npc.."Ta ®· viÕt th­ cho Lôc PhiÕn M«n, giê h¾n ®ang ë "..nMapName..", ng­¬i chØ cÇn ®Õn "..(nXpos..", "..nYpos).." dïng Ph¸o hiÖu Lôc PhiÕn m«n nµy, Viªn Phi V©n tù kh¾c xuÊt hiÖn.",
+	plr.."§a t¹ tiÒn bèi, cã nhiÒu sù gióp ®ì nh­ vËy, ta nhÊt ®Şnh sÏ hoµn thµnh tèt nhiÖm vô.",
+	npc.."<sex> ®õng kh¸ch s¸o, cßn trÎ mµ ®· x¶ th©n v× giang s¬n ®¹i Tèng, hµnh ®éng Êy thËt vü ®¹i. <sex> ph¶i thËt cÈn träng, nÕu gÆp vÊn ®Ò g×, chØ cÇn trong ph¹m vi n¨ng lùc cña Tr­êng Ca M«n, ta ¾t dèc toµn lùc trî gióp.",
 	}
 
 	AddItem(2,0,692,1,1);--»ñµÃÁùÉÈÃÅÑÌ»ğ

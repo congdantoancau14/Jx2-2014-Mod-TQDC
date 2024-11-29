@@ -1,7 +1,6 @@
 function on_server_start()
 	Add_PopNpc()
 	AddPVPNpc()
-	--AddSanGuoNpc();
 end
 
 function CreateNpcList(tNpcList)
@@ -74,22 +73,3 @@ function AddPVPNpc()
 	SendScript2VM("\\script\\missions\\yp\\qmy\\entrynpc.lua","gameStart()");
 	SendScript2VM("\\script\\missions\\yp\\tysd\\entrynpc.lua","gameStart()");
 end
-
-function AddSanGuoNpc()
-	-- local tScript = {
-		-- "\\script\\missions\\yp\\tls\\mission.lua",
-		-- "\\script\\missions\\yp\\hss\\mission.lua",
-		-- "\\script\\missions\\yp\\mm\\mission.lua",
-		-- "\\script\\missions\\yp\\qmy\\mission.lua",
-		-- "\\script\\missions\\yp\\tysd\\mission.lua",
-	-- }
-	-- for i=1, getn(tScript) do
-		-- SendScript2VM(tScript[i],"stageFight.init();");
-	-- end
-	
-	SendScript2VM("\\script\\missions\\yp\\tls\\mission.lua","stageFight.init()");
-	SendScript2VM("\\script\\missions\\yp\\hss\\mission.lua","stageFight.init()");
-	SendScript2VM("\\script\\missions\\yp\\mm\\mission.lua","stageFight.init()");
-	SendScript2VM("\\script\\missions\\yp\\qmy\\mission.lua","stageFight.init()");
-	SendScript2VM("\\script\\missions\\yp\\tysd\\mission.lua","stageFight.init()");
-end;

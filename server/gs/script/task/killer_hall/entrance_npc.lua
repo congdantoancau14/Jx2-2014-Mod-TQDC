@@ -64,11 +64,11 @@ function single_man_enter()
 		if nPlayerState == 1 then
 			local nDate = tonumber(date("%y%m%d"));
 			SetTask(KH_QUEST_TSK, floor(GetTask(KH_QUEST_TSK) / 10) * 10)
-			if tonumber(date("%y%m%d")) >= 091106 and tonumber(date("%y%m%d")) <= 091206 then		
+			if tonumber(date("%y%m%d")) >= 091106 and tonumber(date("%y%m%d")) <= 491206 then		
 				gf_AddItemEx({2, 1, 30118, 150}, "Hoa Cóc");
 				WriteLogEx("Hoat dong thang 11","S¸t Thñ §­êng",150,"Hoa Cóc");		
 			end
-			if tonumber(date("%y%m%d")) >= 100716 and tonumber(date("%y%m%d")) <= 100815 then
+			if tonumber(date("%y%m%d")) >= 100716 and tonumber(date("%y%m%d")) <= 400815 then
 				Give1stTimeExp()
 			end		
 			if NewWorld(tEntrancePos[nPosIdx][1],tEntrancePos[nPosIdx][2],tEntrancePos[nPosIdx][3]) == 1 then
@@ -201,11 +201,11 @@ function transmit_team()
 		CleanInteractive();
 		if abs(GetTask(KH_TASK_MSUID) - mf_GetMissionV(MISSION_ID,MV_MISSION_UID,MAP_ID)) > 1 then	--Ö®Ç°Ã»½øÈ¥¹ı\
 			SetTask(KH_QUEST_TSK, floor(GetTask(KH_QUEST_TSK) / 10) * 10)
-			if tonumber(date("%y%m%d")) >= 091106 and tonumber(date("%y%m%d")) <= 091206 then		
+			if tonumber(date("%y%m%d")) >= 091106 and tonumber(date("%y%m%d")) <= 491206 then		
 				gf_AddItemEx({2, 1, 30118, 150}, "Hoa Cóc");
 				WriteLogEx("Hoat dong thang 11","S¸t Thñ §­êng",150,"Hoa Cóc");		
 			end
-			if tonumber(date("%y%m%d")) >= 100716 and tonumber(date("%y%m%d")) <= 100815 then
+			if tonumber(date("%y%m%d")) >= 100716 and tonumber(date("%y%m%d")) <= 400815 then
 				Give1stTimeExp()
 			end
 			if NewWorld(tEntrancePos[nPosIdx][1],tEntrancePos[nPosIdx][2],tEntrancePos[nPosIdx][3]) == 1 then

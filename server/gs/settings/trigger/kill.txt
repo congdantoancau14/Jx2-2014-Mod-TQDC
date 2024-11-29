@@ -325,3 +325,8 @@ ID	EventType	TriggerType	TargetName	TargetMap	TotalCount	ScriptFile	ScriptFunc
 1390	0	1	S¸t thñ Thiªn ¢m Gi¸o		100	\script\task\global_task\trigger.lua	OnTrigger
 1391	0	1	Thiªn ¢m ThÇn BÝ Nh©n		10	\script\task\global_task\trigger.lua	reborn3task_tysmr
 1392	0	1	Hång Ên Gi¸o Chñ		1	\script\task\global_task\trigger.lua	OnTrigger
+2000	0	1	Hæ		10	\script\mod\trigger\kill\trigger.lua	OnTrigger
+2001	0	1	Hæ		50	\script\mod\trigger\kill\trigger.lua	OnTrigger
+2002	0	1	Nh·n KÝnh Xµ		50	\script\mod\trigger\kill\trigger.lua	OnTrigger
+
+

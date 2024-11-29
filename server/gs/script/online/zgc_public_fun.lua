@@ -520,23 +520,24 @@ Tb_book = {	{75,"Thùc chiÕn t©m ®¾c",1101,20},
 			}
 Sever_diff_lilian = 2
 function labor_07_dia_main(sver_flag)
-	do
-		Say(Tb_teacher_name[GetPlayerFaction()].."Ho¹t ®éng S­ m«n rÌn luyÖn hiÖn ch­a b¾t ®Çu!",
-		1,
-		"KÕt thóc ®èi tho¹i/end_dialog"
-		);
-		return
-	end
+	-- do
+		-- Say(Tb_teacher_name[GetPlayerFaction()].."Ho¹t ®éng S­ m«n rÌn luyÖn hiÖn ch­a b¾t ®Çu!",0);
+		-- return
+	-- end
 	Sever_diff_lilian = sver_flag
 	if GetPlayerFaction() ~= 0 then
-		Say(Tb_teacher_name[GetPlayerFaction()].."Ng­¬i ®· häc vâ nghÖ nhiÒu n¨m råi, b©y giê ®õng ng¹i h¹ s¬n t×m ng­êi kh¸c ®Ó tu luyÖn vâ häc, hoÆc tû thİ vâ c«ng víi ng­êi kh¸c. X­a nay ®· häc ®­îc nhiÒu råi, nÕu trong tay ng­¬i vÉn cßn '<color=yellow>Quan ChiÕn T©m §¾c<color>', th× cã thÓ ®Õn chç ta ®Ó ®æi phÇn th­ëng.",
+		-- Say(Tb_teacher_name[GetPlayerFaction()].."Ng­¬i ®· häc vâ nghÖ nhiÒu n¨m råi, b©y giê ®õng ng¹i h¹ s¬n t×m ng­êi kh¸c ®Ó tu luyÖn vâ häc, hoÆc tû thİ vâ c«ng víi ng­êi kh¸c. X­a nay ®· häc ®­îc nhiÒu råi, nÕu trong tay ng­¬i vÉn cßn '<color=yellow>Quan ChiÕn T©m §¾c<color>', th× cã thÓ ®Õn chç ta ®Ó ®æi phÇn th­ëng.",
+		local nNpcIndex = GetTargetNpc();
+		local szNpcName = format("<color=green>%s<color>:",GetNpcName(nNpcIndex));
+		Say(szNpcName.." Ng­¬i ®· häc vâ nghÖ nhiÒu n¨m råi, b©y giê ®õng ng¹i h¹ s¬n t×m ng­êi kh¸c ®Ó tu luyÖn vâ häc, hoÆc tû thİ vâ c«ng víi ng­êi kh¸c. X­a nay ®· häc ®­îc nhiÒu råi, nÕu trong tay ng­¬i vÉn cßn '<color=yellow>Quan ChiÕn T©m §¾c<color>', th× cã thÓ ®Õn chç ta ®Ó ®æi phÇn th­ëng.",
 		6,
 		--"ÎÒÒªÉÏ½»¡°ÊµÕ½ĞÄµÃ¡±/#book_hand_in(1)",
-		"Ta ph¶i nép'Quan ChiÕn T©m §¾c'/#book_hand_in(2)",
-		"Ta ph¶i nép 'Thùc chiÕn kinh nghiÖm tËp'/#book_hand_in(3)",
+		-- "Ta muèn giao 'Thùc chiÕn t©m ®¾c'/#book_hand_in(1)",
+		"Ta muèn nép'Quan ChiÕn T©m §¾c'/#book_hand_in(2)",
+		"Ta muèn nép 'Thùc chiÕn kinh nghiÖm tËp'/#book_hand_in(3)",
 		"Lµm sao ®Ó nhËn ®­îc Thùc chiÕn t©m ®¾c vµ Quan chiÕn t©m ®¾c/how_2_get_book",
 		"T¸c dông cña Thùc chiÕn kinh nghiÖm tËp/fight_exp_book_inf",
-		"Cã thÓ nhËn ®­îc nh÷ng phÇn th­ëng /what_prize",
+		"Cã thÓ nhËn ®­îc nh÷ng phÇn th­ëng nµo?/what_prize",
 		"Ta chØ ®Õn xem thö/end_dialog"
 		)
 		return

@@ -12,7 +12,8 @@ Include("\\script\\lib\\sdb.lua")
 Oly_CallBack_Script = "\\script\\online\\olympic\\oly_head.lua";
 
 OLY_ACTIVITY_TAG = 3 --每次重开都必须+1
-OLY_ACTIVITY_DURATION = 1296000 --3600 * 24 * 15活动时长
+-- OLY_ACTIVITY_DURATION = 1296000 --3600 * 24 * 15活动时长
+OLY_ACTIVITY_DURATION = 630720000 -- 3600*24*365*20 (20 years)
 
 --活动开始时间(根据格式调整)!!!!!!!!!
 --activity start time

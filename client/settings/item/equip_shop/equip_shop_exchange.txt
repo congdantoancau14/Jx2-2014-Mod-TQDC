@@ -2449,10 +2449,10 @@ ID	Type	Title	Remark	BaguaFlag	SpecialOpStr	SpecialOpDesc	BangdingFlag	BatchNum	
 63014	0	C«ng Thøc Khinh Linh TÊn TËt Lv6											2;1;30499;200	2;1;30369;200	2;1;30368;200																		
 63015	0	C«ng Thøc V« H×nh Chi Cæ Lv6											2;1;30499;200	2;1;30369;200	2;1;30368;200																		
 																																	
-10000	0	C«ng thøc Uy Hæ Hån											2;1;31325;25	2;1;30369;300	2;1;30368;300																		
-10001	0	C«ng thøc Thanh Long Hån											2;1;31224;25	2;1;30369;200	2;1;30368;200																		
+10000	0	C«ng thøc Uy Hæ Hån											2;1;31295;25	2;1;30369;300	2;1;30368;300																		
+10001	0	C«ng thøc Thanh Long Hån											2;1;31195;25	2;1;30369;200	2;1;30368;200																		
 10002	0	C«ng thøc Háa Phông Linh											2;1;30770;25	2;1;30369;100	2;1;30368;100																		
-10003	0	C«ng thøc Uy Hæ Tinh Hoa											2;1;31224;2																				
+10003	0	C«ng thøc Uy Hæ Tinh Hoa											2;1;31195;2																				
 10004	0	C«ng thøc Thanh Long Tinh Hoa											2;1;30770;2																				
 																																	
 14000	0	Tèng-Uy Hæ T­íng Qu©n LÖnh Bµi											0;102;9300;1	2;95;204;10	2;1;30370;10	2;1;31324;2	2;1;30687;200	1;50000000															

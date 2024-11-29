@@ -20,6 +20,8 @@ Include("\\script\\task\\teach\\teach_award.lua");
 
 -- µÚÒ»´ÎÓëÒ°ÛÅ¶Ô»°
 function task_000_00()
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 	local nNation = GetGlbValue(GLB_TSK_SERVER_ID)
 	local nDate = tonumber(date("%y%m%d"))
 --	if nNation ~= 89 then
@@ -33,14 +35,70 @@ function task_000_00()
 --	end
 	
 	local strMain = {
-		"Hoan nghªnh ®Õn víi thÕ giíi <color=yellow>Vâ L©m 2<color>! Ta chuyªn h­íng dÉn <color=yellow>t©n thñ<color>! Cã muèn t×m hiÓu c¬ b¶n vÒ <color=yellow>trß ch¬i<color> vµ <color=yellow>gióp ®ì lµm nhiÖm vô<color> kh«ng?",
-		"§a t¹ l·o tiÒn bèi!/task_000_okay", 
-		"Ta ®Õn th¨m L·o tiÒn bèi th«i mµ!/task_000_01"
+		npc.."Hoan nghªnh ®Õn víi thÕ giíi <color=yellow>Vâ L©m 2<color>! Ta chuyªn h­íng dÉn <color=yellow>t©n thñ<color>! Cã muèn t×m hiÓu c¬ b¶n vÒ <color=yellow>trß ch¬i<color> vµ <color=yellow>gióp ®ì lµm nhiÖm vô<color> kh«ng?",
+		"§a t¹ l·o tiÒn bèi!/task_000_okay",
+		"Ta ®· hiÓu c¬ b¶n råi, xin tiÒn bèi chØ gi¸o thªm nh÷ng th­êng thøc kh¸c!/task_000_01",
+		"Ta muèn cã 1 cuèn <Giang hå chØ nam>/get_guild_item",
+		"Ta chØ muèn nghe tiÒn bèi kÓ chuyÖn cò th«i/skip_teach",
+		"Ta kh«ng cÇn h­íng dÉn g× c¶/task_giveout",
+		"Ta ®Õn th¨m L·o tiÒn bèi th«i mµ!/task_exit",
 	}
-	SetTask(1, 1);
-	AddItem(2,0,505,1)
+
 	SelectSay(strMain);
 
+end;
+
+function get_guild_item()
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
+	if GetItemCount(2,0,505) < 1 then 
+		AddItem(2,0,505,1);
+	else
+		Say(npc.."Ch¼ng ph¶i ng­¬i ®· cã råi sao? Ng­¬i muèn mét cuèn n÷a ­?",2,
+			"§óng vËy! T¹i h¹ muèn thªm mét cuèn cho b»ng h÷u/confirm_get_guide_yes",
+			"Kh«ng, v·n bèi nhÇm lÉn chót th«i, ®Ó ta xem l¹i/task_exit"
+		);
+	end
+	
+end;
+
+function confirm_get_guide_yes()
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
+
+	Talk(2,"",
+		npc.."§­îc th«i! Ng­¬i qu¶ lµ ng­êi nghÜa khİ víi b¹n bÌ! Kh¸ l¾m! Sau nµy hµnh tÈu giang hå ch¾c ch¾n sÏ ®­îc nhiÒu ng­êi yªu quı!",
+		npc.."TiÖn ®©y, ta còng cã mãn quµ quµ cho ng­¬i, 10 <color=yellow>®u«i thá x¸m<color>, nã sÏ gióp İch cho ng­¬i sau nµy."
+	);
+	
+	AddItem(2,0,505,1);
+	AddItem(2,1,2,10);
+end;
+
+function skip_teach()
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
+	local szTalk = plr.."Ta còng th­êng thøc ®­îc chót İt kinh nghiÖm hµnh tÈu giang hå råi. ChØ muèn nghe cè sù cña tiÒn bèi ®Ó häc hái thªm th«i.";
+	Talk(1,"confirm_skip_teach",szTalk);
+end;
+
+function confirm_skip_teach()
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
+	local szSay = npc.."Ng­¬i thùc sù lµ ng­êi tõng tr¶i trong giang hå ­? Tr«ng ng­¬i cßn non nít qu¸.";
+	local tSay = {
+		"§óng vËy, ta ®· lµ ng­êi l¨n lén giang hå, tiÒn bèi kh«ng cÇn nghi ngê/confirm_skip_teach2",
+		"Kh«ng! V·n bèi chØ lµ nãi nhÇm th«i/task_000_00",
+	}
+	Say(szSay, getn(tSay),tSay);
+end;
+
+function confirm_skip_teach2()
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
+	local szTalk = npc.."Th«i ®­îc. §Ó ta nhí l¹i mét chót ®·, råi sÏ kÓ ng­¬i chuyÖn 30 n¨m vÒ tr­íc.";
+	Talk(1,"",szTalk);
+	SetTask(1,20);
 end;
 
 -- Ñ¡ÔñÌıÒ°ÛÅ½²½â
@@ -55,7 +113,7 @@ function task_000_okay()
 		"Ph­¬ng ph¸p kiÕm tiÒn/Teach_Earn",
 		"Gia nhËp m«n ph¸i/Teach_Faction",
 		"HiÖn cã thÓ lµm /Teach_Something",
-		"Ta ®· hiÓu råi/task_000_00"
+		"Ta ®· hiÓu råi/task_exit"
 
 	}
 
@@ -66,12 +124,15 @@ end;
 
 -- ¿ªÊ¼×ö½ÌÑ§ÈÎÎñ
 function task_000_01()
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
+	SetTask(1, 1);
 	local strMain = {
-		"<color=yellow>Chñ tiÖm vò khİ, Chñ TiÖm Nam phôc, Chñ TiÖm N÷ phôc, Chñ Kim hoµn, Chñ D­îc ®iÕm, Chñ T¹p hãa<color> trong thµnh ®Òu lµ nh÷ng ng­êi hiÓu biÕt réng! H·y t×m hä häc hái!",
-		"Ng­¬i thö ®Õn th¨m hä, biÕt ®©u sÏ nhËn ®­îc <color=yellow>VËt phÈm<color>. Nhí më <color=yellow>B¶n ®å nhá<color> ®i cho tiÖn!"
+		npc.."<color=yellow>Chñ tiÖm vò khİ, Chñ TiÖm Nam phôc, Chñ TiÖm N÷ phôc, Chñ Kim hoµn, Chñ D­îc ®iÕm, Chñ T¹p hãa<color> trong thµnh ®Òu lµ nh÷ng ng­êi hiÓu biÕt réng! H·y t×m hä häc hái!",
+		npc.."Ng­¬i thö ®Õn th¨m hä, biÕt ®©u sÏ nhËn ®­îc <color=yellow>VËt phÈm<color>. Nhí më <color=yellow>B¶n ®å nhá<color> ®i cho tiÖn!",
+		npc.."Ta còng cã cuèn <Giang hå chØ nam> tÆng ng­¬i. Nã sÏ gióp rÊt nhiÒu cho t©n thñ nh­ ng­¬i."
 	}
-
+	AddItem(2,0,505,1);
 	TE_Talk("task_000_02",strMain);
 
 end;
@@ -84,9 +145,10 @@ end;
 
 -- ÓëÎäÆ÷µêÀÏ°åµÄ¶Ô»°
 function task_001_00()
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 	local strMain = {
-		"Hoan nghªnh b»ng h÷u tham gia thÕ giíi Vâ L©m. <color=yellow>Vò khİ<color> cña ta tuy chØ cÊp 4 trë xuèng nh­ng còng lµ ®Ö nhÊt cña vïng nµy. Mua ®i! Ta sÏ h­íng dÉn cho c¸ch sö dông.",
+		npc.."Hoan nghªnh b»ng h÷u tham gia thÕ giíi Vâ L©m. <color=yellow>Vò khİ<color> cña ta tuy chØ cÊp 4 trë xuèng nh­ng còng lµ ®Ö nhÊt cña vïng nµy. Mua ®i! Ta sÏ h­íng dÉn cho c¸ch sö dông.",
 		"PhiÒn tiÒn bèi chØ gi¸o!/task_001_01",
 		"Kh«ng cÇn ®©u!/task_001_02"
 	}
@@ -96,13 +158,14 @@ end;
 
 -- ÌıÎäÆ÷µêÀÏ°å½²½â
 function task_001_01()
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 	local strMain = {
-		"Hµnh tÈu giang hå, cÇn ph¶i cã vò khİ ®Ó phßng th©n. Nh÷ng thø ®¬n gi¶n nh­ <color=yellow>Hé thñ<color>, <color=yellow>KiÕm<color>, <color=yellow>¸m khİ<color>, <color=yellow>C«n<color> kh«ng cÇn s­ phô h­íng dÉn, nh÷ng thø cßn l¹i nh­ ®ao, cÇm, bót, tr­îng ph¶i ®­îc h­íng dÉn.",
-		"Vò khİ trªn ng­êi t­¬ng øng víi tõng ®¼ng cÊp, ng­êi ch¬i cã thÓ mua vò khİ th«ng th­êng ë thî rÌn, cßn nh÷ng lo¹i cao cÊp ph¶i tù t¹o hoÆc mua l¹i tõ ng­êi ch¬i kh¸c.",
-		"Lóc tr­íc ta cã giao ®Êu víi cao thñ ph¸i tµ kiÕm ph¸i Thanh Thµnh, may ®­îc mét vŞ Vâ §ang ra tay cøu gióp, trªn tay «ng ta lµ thanh b¶o kiÕm ®­îc kh¶m ngäc, uy lùc kinh ng­êi. Nghe nãi ®©y lµ lo¹i kú th¹ch h¾c b¹ch cã thÓ kh¶m n¹m lªn vò khİ.",
-		"NÕu ng­¬i gÆp c¬ duyªn cã ®­îc b¶o kiÕm ®ã th× viÖc hµnh tÈu giang hå xem ra rÊt nhÑ nhµng.",
-		"Giê ng­¬i cã thÓ ®i gÆp <color=yellow>Chñ TiÖm Nam phôc<color>."
+		npc.."Hµnh tÈu giang hå, cÇn ph¶i cã vò khİ ®Ó phßng th©n. Nh÷ng thø ®¬n gi¶n nh­ <color=yellow>Hé thñ<color>, <color=yellow>KiÕm<color>, <color=yellow>¸m khİ<color>, <color=yellow>C«n<color> kh«ng cÇn s­ phô h­íng dÉn, nh÷ng thø cßn l¹i nh­ ®ao, cÇm, bót, tr­îng ph¶i ®­îc h­íng dÉn.",
+		npc.."Vò khİ trªn ng­êi t­¬ng øng víi tõng ®¼ng cÊp, ng­êi ch¬i cã thÓ mua vò khİ th«ng th­êng ë thî rÌn, cßn nh÷ng lo¹i cao cÊp ph¶i tù t¹o hoÆc mua l¹i tõ ng­êi ch¬i kh¸c.",
+		npc.."Lóc tr­íc ta cã giao ®Êu víi cao thñ ph¸i tµ kiÕm ph¸i Thanh Thµnh, may ®­îc mét vŞ Vâ §ang ra tay cøu gióp, trªn tay «ng ta lµ thanh b¶o kiÕm ®­îc kh¶m ngäc, uy lùc kinh ng­êi. Nghe nãi ®©y lµ lo¹i kú th¹ch h¾c b¹ch cã thÓ kh¶m n¹m lªn vò khİ.",
+		npc.."NÕu ng­¬i gÆp c¬ duyªn cã ®­îc b¶o kiÕm ®ã th× viÖc hµnh tÈu giang hå xem ra rÊt nhÑ nhµng.",
+		npc.."Giê ng­¬i cã thÓ ®i gÆp <color=yellow>Chñ TiÖm Nam phôc<color>."
 	}
 	TE_Talk("task_001_02",strMain);
 
@@ -403,7 +466,8 @@ function task_009_02()
 		"Ta cã mãn vâ <color=yellow>khinh c«ng<color> ®Şnh d¹y ng­¬i, nh­ng l¹i cã viÖc gÊp råi, th«i ®Ó khi kh¸c vËy.",
 		"§a t¹ tiÒn bèi! Ta ph¶i quay vÒ gÆp <color=yellow>D· TÈu<color>."
 	}
-	TE_Talk("task_009_03",strMain);
+	-- TE_Talk("task_009_03",strMain);
+	TE_Talk("",strMain);
 end;
 
 -- ÓëÎäÊ¦¶Ô»°½áÊøºó¸Ä±äÈÎÎñ±äÁ¿£º10
@@ -696,11 +760,12 @@ end;
 
 -- Íæ¼Òµ½ÁË 9 ¼¶Ö®ºóºÍÒ°ÛÅ¶Ô»°
 function task_020_00()
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 	local strMain = {
-		"30 n¨m råi…mau thËt!",
-		"TiÒn bèi nãi 30 n¨m tr­íc lµ sao?",
-		"Kh«ng cã g×! Xin gióp ta mang bøc th­ cho <color=yellow>TriÖu Diªn Niªn ë BiÖn Kinh<color>, vÒ ta sÏ nãi sau!",
+		npc.."30 n¨m råi… Mau thËt!",
+		plr.."TiÒn bèi nãi 30 n¨m tr­íc lµ sao?",
+		npc.."Kh«ng cã g×! Xin gióp ta mang bøc th­ cho <color=yellow>TriÖu Diªn Niªn ë BiÖn Kinh<color>, vÒ ta sÏ nãi sau!",
 	}
 
 	TE_Talk("task_020_01",strMain);
@@ -719,17 +784,18 @@ end;
 
 
 function task_021_00()
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 	local strMain = {
-		"VŞ "..GetPlayerSex().." ®Õn ®¸nh cê víi ta ch¨ng?",
-		"D· TÈu nhê ta mang bøc th­ cho tiÒn bèi!",
-		"Ra lµ vËy! L¹i bŞ phiÒn phøc n÷a råi!",
+		npc.."VŞ "..GetPlayerSex().." ®Õn ®¸nh cê víi ta ch¨ng?",
+		plr.."D· TÈu nhê ta mang bøc th­ cho tiÒn bèi!",
+		npc.."Ra lµ vËy! L¹i bŞ phiÒn phøc n÷a råi!",
 		"(TriÖu Diªn Niªn më th­ ra xem)",
-		"Ta ®ãi qu¸, ng­¬i cã thÓ t×m cho ta 1 c¸i <color=yellow>b¸nh ng«<color> ®­îc kh«ng?",
-		"Móa kiÕm th× ®­îc, b¸nh ng« th×.....",
-		"B¸nh ng« ®¬n gi¶n thÕ còng kh«ng lµm ®­îc, sao hµnh tÈu giang hå!",
-		"Nhí kü! Ng­¬i më <color=yellow>giao diÖn kü n¨ng<color> chän <color=yellow>tuyÖt kü gia truyÒn<color> sau ®ã nhÊn <color=yellow>B¸nh ng«<color> råi <color=yellow>§ång ı<color> lµ ®­îc.",
-		"§Ó v·n bèi thö xem!",
+		npc.."Ta ®ãi qu¸, ng­¬i cã thÓ t×m cho ta 1 c¸i <color=yellow>b¸nh ng«<color> ®­îc kh«ng?",
+		plr.."Móa kiÕm th× ®­îc, b¸nh ng« th×.....",
+		npc.."B¸nh ng« ®¬n gi¶n thÕ còng kh«ng lµm ®­îc, sao hµnh tÈu giang hå!",
+		npc.."Nhí kü! Ng­¬i më <color=yellow>giao diÖn kü n¨ng<color> chän <color=yellow>tuyÖt kü gia truyÒn<color> sau ®ã nhÊn <color=yellow>B¸nh ng«<color> råi <color=yellow>§ång ı<color> lµ ®­îc.",
+		plr.."§Ó v·n bèi thö xem!",
 	}
 
 	TE_Talk("task_021_01",strMain);
@@ -747,11 +813,12 @@ end;
 
 
 function task_022_00()
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 	local strMain = {
-		"Ng­¬i qu¶ lµ ng­êi tèt bông, ®Ó l·o phu kÓ ng­¬i nghe c©u chuyÖn 30 n¨m vÒ tr­íc.",
-		"Lµm phiÒn tiÒn bèi!",
-		"30 n¨m tr­íc th¸i tæ TriÖu Khu«ng DÉn ®o¹t ®­îc <color=yellow>b¶n ®å S¬n Hµ X· T¾c<color> tõ tay Sµi Vinh, bİ mËt liªn l¹c c¸c m«n ph¸i cïng t×m b¶n ®å kho b¸u bªn trong ®ång thêi ph¸t ®éng binh biÕn TrÇn kiÒu, m­u ®å so¸i vŞ. Kh«ng ai biÕt ®ã chİnh lµ tÊm b¶n ®å cña Thiªn, §Şa, Nh©n <color=yellow>Tam Giíi chÊn phï<color>, long m¹ch cña Trung Nguyªn, b¸u vËt mµ Sµi Vinh ®em tİnh m¹ng ra giµnh lÊy. ViÖc lµm cña th¸i tæ dÉn ®Õn trêi ®Êt c¨m phÉn, trong ngµy ®¹i lÔ tÕ trêi, S¬n Hµ X· T¾c ®ét nhiªn hãa thµnh tro bôi, bay ®i kh¾p n¬i.",
+		npc.."Ng­¬i qu¶ lµ ng­êi tèt bông, ®Ó l·o phu kÓ ng­¬i nghe c©u chuyÖn 30 n¨m vÒ tr­íc.",
+		plr.."Lµm phiÒn tiÒn bèi!",
+		npc.."30 n¨m tr­íc th¸i tæ TriÖu Khu«ng DÉn ®o¹t ®­îc <color=yellow>b¶n ®å S¬n Hµ X· T¾c<color> tõ tay Sµi Vinh, bİ mËt liªn l¹c c¸c m«n ph¸i cïng t×m b¶n ®å kho b¸u bªn trong ®ång thêi ph¸t ®éng binh biÕn TrÇn kiÒu, m­u ®å so¸i vŞ. Kh«ng ai biÕt ®ã chİnh lµ tÊm b¶n ®å cña Thiªn, §Şa, Nh©n <color=yellow>Tam Giíi chÊn phï<color>, long m¹ch cña Trung Nguyªn, b¸u vËt mµ Sµi Vinh ®em tİnh m¹ng ra giµnh lÊy. ViÖc lµm cña th¸i tæ dÉn ®Õn trêi ®Êt c¨m phÉn, trong ngµy ®¹i lÔ tÕ trêi, S¬n Hµ X· T¾c ®ét nhiªn hãa thµnh tro bôi, bay ®i kh¾p n¬i.",
 		"Th¸i tæ biÕt m×nh ®· lµm nghŞch ı trêi, ®¶o lén cµn kh«n tam giíi, yªu ma hiÖn thÕ, Trung Nguyªn s¾p l©m vµo ®¹i kiÕp. §Ó söa sai lÇm, mét bªn chÊn chØnh l¹i c¸c côc diÖn, mÆt kh¸c bè c¸o thiªn h¹, hy väng t×m ®­îc ng­êi kiÕm l¹i nh÷ng m¶nh b¶n ®å S¬n Hµ X· T¾c."
 	};
 
@@ -767,16 +834,17 @@ end;
 
 -- ÓëÕÔÑÓÄê¶Ô»°½áÊøºó¸Ä±äÈÎÎñ±äÁ¿£º23
 function task_022_01()
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 	local strMsg = {
 		"C©u chuyÖn t­ëng chõng ch×m vµo quªn l·ng, ®ét nhiªn cã tin th¸i tæ b¹o bÖnh qua ®êi, ng­êi kÕ vŞ kh«ng ph¶i th¸i tö TriÖu §øc Ph­¬ng mµ lµ em vua TriÖu Quang NghÜa, tin ®ån lan truyÒn ®Õn d©n gi©n....100 ngµn binh lİnh cña n­íc Liªu ®· kÒ cËn Nh¹n M«n Quan, mét sè hµo kiÖt lai lŞch kh«ng râ chiÕm cø L­¬ng S¬n B¹c, Thµnh §« phñ vµ TuyÒn Ch©u phñ xung quanh xuÊt hiÖn nhiÒu quû qu¸i.",
 		"KÓ tõ ®ã tin tøc vÒ tÊm b¶n ®å S¬n Hµ X· T¾c lan truyÒn kh¾p Trung Nguyªn.",
 		"T­¬ng lai kh«ng xa, Trung Nguyªn sÏ ph¶i ®èi mÆt víi mét côc diÖn tranh giµnh, tµn s¸t lÉn nhau ®Ó cã ®­îc tÊm b¶n ®å quı gi¸ Êy."
 	};
 	local strMain = {
-		"Ta kh«ng thÓ khoanh tay ®øng nh×n, ph¶i t×m c¸ch cøu Trung Nguyªn th«i!",
-		"Sè phËn do trêi, ng­¬i ®õng qu¸ lo l¾ng! §¹t cÊp 10 quay l¹i t×m ta.",
-		"NhÊt ®Şnh v·n bèi sÏ quay l¹i!"
+		plr.."Ta kh«ng thÓ khoanh tay ®øng nh×n, ph¶i t×m c¸ch cøu Trung Nguyªn th«i!",
+		npc.."Sè phËn do trêi, ng­¬i ®õng qu¸ lo l¾ng! §¹t cÊp 10 quay l¹i t×m ta.",
+		plr.."NhÊt ®Şnh v·n bèi sÏ quay l¹i!"
 	};
 
 	TE_SetTeachAdd();
@@ -787,11 +855,12 @@ function task_022_01()
 end;
 
 function task_023_00()
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 	local strMain = {
-		"Kh¸ l¾m! Kh«ng lµm ta thÊt väng.",
-		"Ta cã 3 bøc th­ nhê mang cho <color=yellow>D· TÈu<color>. Lµm phiÒn b»ng h÷u qu¸!",
-		"SÏ kh«ng lµm tiÒn bèi thÊt väng!"
+		npc.."Kh¸ l¾m! Kh«ng lµm ta thÊt väng.",
+		npc.."Ta cã 3 bøc th­ nhê mang cho <color=yellow>D· TÈu<color>. Lµm phiÒn b»ng h÷u qu¸!",
+		plr.."SÏ kh«ng lµm tiÒn bèi thÊt väng!"
 	}
 	TE_Talk("task_023_01",strMain);
 end;
@@ -806,27 +875,29 @@ end;
 
 
 function task_024_00()
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 	local strMain = {
-		"VÒ råi ­? Ng­¬i biÕt TriÖu Diªn Niªn lµ ai kh«ng?",
-		"V·n bèi kh«ng biÕt!",
-		"TriÖu Diªn Niªn vèn ng­êi hoµng téc, do ch¸n c¶nh tranh quyÒn chèn hoµng cung mµ quyÕt ®Şnh bá hÕt danh lîi, phiªu b¹t giang hå.",
-		"Th× ra lµ vËy!",
-		"Ng­¬i ®· cã chót thµnh tùu, cã thÓ ®Õn c¸c m«n ph¸i häc hái thªm. Cè g¾ng nhĞ!",
-		"§a t¹ tiÒn bèi!"
+		npc.."VÒ råi ­? Ng­¬i biÕt TriÖu Diªn Niªn lµ ai kh«ng?",
+		plr.."V·n bèi kh«ng biÕt!",
+		npc.."TriÖu Diªn Niªn vèn ng­êi hoµng téc, do ch¸n c¶nh tranh quyÒn chèn hoµng cung mµ quyÕt ®Şnh bá hÕt danh lîi, phiªu b¹t giang hå.",
+		plr.."Th× ra lµ vËy!",
+		npc.."Ng­¬i ®· cã chót thµnh tùu, cã thÓ ®Õn c¸c m«n ph¸i häc hái thªm. Cè g¾ng nhĞ!",
+		plr.."§a t¹ tiÒn bèi!"
 	}
 	TE_Talk("task_024_01",strMain);
 end;
 
 
 function task_024_01()
-
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
 	local strMain = {
-		"Ng­¬i gióp ta chuyÓn 3 bøc th­ cña TriÖu Diªn Niªn ®­îc kh«ng?",
-		"§­îc th«i! Nh­ng mang ®Õn cho ai vËy?",
-		"TriÖu Diªn Niªn lo c¸c ®Şa ph­¬ng x¶y ra <color=yellow>biÕn cè<color>, cho nªn muèn liªn l¹c c¸c vŞ sau. <color=yellow>KhÊu ChuÈn<color> ng­êi chİnh trùc hiÖn ®ang lµm quan ë <color=yellow>BiÖn Kinh<color>; <color=yellow>Ph¹m Träng Yªm<color> v¨n quan hiÖn ë <color=yellow>Nam Thµnh §«<color>; <color=yellow>V­¬ng NghiÖp VÜ<color> th­¬ng gia sµnh sø hiÖn ë <color=yellow>TuyÒn Ch©u<color>.",
-		"ChØ cÇn mang th­ ®Õn cho bän hä lµ §­îc! §©y ta cã chót quµ tÆng ng­¬i, ®i ®­êng cÈn thËn nhĞ!",
-		"Xin ®a t¹! V·n bèi ®i ®©y."
+		npc.."Ng­¬i gióp ta chuyÓn 3 bøc th­ cña TriÖu Diªn Niªn ®­îc kh«ng?",
+		plr.."§­îc th«i! Nh­ng mang ®Õn cho ai vËy?",
+		npc.."TriÖu Diªn Niªn lo c¸c ®Şa ph­¬ng x¶y ra <color=yellow>biÕn cè<color>, cho nªn muèn liªn l¹c c¸c vŞ sau. <color=yellow>KhÊu ChuÈn<color> ng­êi chİnh trùc hiÖn ®ang lµm quan ë <color=yellow>BiÖn Kinh<color>; <color=yellow>Ph¹m Träng Yªm<color> v¨n quan hiÖn ë <color=yellow>Nam Thµnh §«<color>; <color=yellow>V­¬ng NghiÖp VÜ<color> th­¬ng gia sµnh sø hiÖn ë <color=yellow>TuyÒn Ch©u<color>.",
+		npc.."ChØ cÇn mang th­ ®Õn cho bän hä lµ §­îc! §©y ta cã chót quµ tÆng ng­¬i, ®i ®­êng cÈn thËn nhĞ!",
+		plr.."Xin ®a t¹! V·n bèi ®i ®©y."
 	}
 	TE_Talk("task_024_02",strMain);
 end
@@ -845,8 +916,9 @@ end;
 
 -- ·ÅÆú×ö½ÌÓıÈÎÎñ
 function task_giveout()
---	TE_SetTeachState(23);
+	-- TE_SetTeachState(23);
 	Say("ThÊy ng­¬i b¶n lÜnh h¬n ng­êi, l·o ®©y kh«ng cÇn d¹y nhiÒu, vÒ sau ®iÒu g× kh«ng hiÓu cã thÓ ®Õn t×m ta.", 0);
+	task_024_02()
 end;
 
 -- Ê²Ã´Ò²²»×öµÄ¿Õº¯Êı

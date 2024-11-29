@@ -23,13 +23,14 @@ tNEW_AWARD_EX_STAGE_7_2 = {
 		[9] = 2500000,
 };
 
-tNguHanhKiem = {
+tWuxingJian = {
 	[1] = {"Tµng Kim Long kiÕm",{2,0,198}},
 	[2] = {"Tµng §µo Méc kiÕm",{2,0,199}},
 	[3] = {"Tµng Bİch Thñy kiÕm",{2,0,200}},
 	[4] = {"Tµng Háa V©n kiÕm",{2,0,201}},
 	[5] = {"Tµng Thæ kiÕm",{2,0,202}},
 	[6] = {"Tµng Du Long kiÕm",{2,0,203}},
+	[7] = {"Bİch Tµm kiÕm",{2,0,999}},
 
 }
 
@@ -50,13 +51,13 @@ function ACT1_Trap()
 		local nCTime = random(180, 360)
 		local nRelation = random(-5, 0)
 		SetTask(TB_BONUS_SCORE, (GetTask(TB_BONUS_SCORE)+nScore))	-- Ôö¼Ó»ı·Ö
-		if random(1,100000) <= 80000 then
-			SetTask(TB_BONUS_RELATION, (GetTask(TB_BONUS_RELATION)+nRelation))		-- ½µµÍÓÑºÃ¶È
-			Msg2Player("Hµng lo¹t gia ®inh phÉn né……")
-		end
 		if random(1,100000) <= 50000 then
 			CastState("state_confusion",100, nCTime)
 			Msg2Player("Th×nh l×nh bŞ mai phôc, ch»ng biÕt xoay së ra sao.")
+		end
+		if random(1,100000) <= 80000 then
+			SetTask(TB_BONUS_RELATION, (GetTask(TB_BONUS_RELATION)+nRelation))		-- ½µµÍÓÑºÃ¶È
+			Msg2Player("Hµng lo¹t gia ®inh phÉn né……")
 		end
 		local nFlag = SetBit(GetTask(SB_EVENT_STAGE[1]), 3, 1)
 		SetTask(SB_EVENT_STAGE[1], nFlag)
@@ -154,38 +155,40 @@ function ACT1_Killer()
 		MU_Msg2Team("Tæng qu¶n ngo¹i viÖn ®· bŞ ®¸nh b¹i!")
 	end
 	if TT_TARGET_Name == "Gia ®inh phÉn né" then
-		MU_Msg2Team("Lò ®å ®Ö ®éc ¸c, c¸c ng­¬i nhÊt ®Şnh sÏ bŞ b¸o øng!", 2)
+		MU_Msg2Team("Lò ®å tÓ ®éc ¸c, c¸c ng­¬i nhÊt ®Şnh sÏ bŞ b¸o øng!", 2)
 	end
 end
 -- ------------------------------------------------------------------------------------------------ <Act II> ----
-local tongquan = "<Color=green>Tæng qu¶n<color>: ";
+tongquan = "<color=green>Tæng qu¶n<color>: ";
+player = ""; --GetName()..": ";
 ACT2_BOSSTALK = {
-tongquan.."§Õn ®óng lóc l¾m, bæn trang cã viÖc nµy cÇn th­¬ng l­îng. Khi c¸c ng­¬i vµo ®¹i viÖn th× Thiªn C­¬ng Du Long kiÕm bçng nhiªn biÕn mÊt. Ta kh«ng nghi ngê c¸c ng­¬i nh­ng viÖc nµy còng nªn lµm râ.",
-GetName()..": Sao l¹i nãi hµm hå vËy? H·y xem ®©y!/ACT2_StartBoss",
-GetName()..": Cã chuyÖn nµy sao?/ACT2_StartBossWithRules",
-tongquan.."NÕu c¸c ng­¬i kh«ng cã tËt giËt m×nh, hµ tÊt ph¶i xÊu hæ mµ hãa giËn thÕ? Xem Tµng KiÕm s¬n trang ta lµ chèn kh«ng ng­êi µ? B©y ®©u? B¾t nã cho ta!",
-GetName()..": Ch¾c ch¾n cã kÎ ®¸nh c¾p Du Long kiÕm råi vu oan cho ta, Ta ph¶i lµm râ chuyÖn nµy míi ®­îc. \n §­îc! Ta ®îi tin cña ng­¬i!",
-tongquan.."Ch­a cã tin tøc Du Long kiÕm sao? ChuyÖn nµy e r»ng cã chót kh¶ nghi!",
-tongquan.."Th× ra lµ do S¬n trang gi¸o ®¸nh c¾p! ThËt cã lçi víi c¸c vŞ, l·o phu v« cïng xÊu hæ! Tæng qu¶n ngo¹i viÖn nãi: C¸c vŞ qu¶ thËt th©n thñ bÊt phµm! L·o phu muèn lÜnh gi¸o vµi chiªu, xin c¸c vŞ tËn t×nh chØ b¶o! B©y ®©u? Lui!",
-tongquan.."TiÓu tÆc kia! C¸c ng­¬i kh«ng thÓ ®i ®­îc! §¹i tiÓu th­ ®ang chê c¸c ng­¬i ë hËu viÖn!",
-tongquan.."Qu¶ lµ tuæi trÎ tµi cao, l·o phu kh«ng th¾ng næi c¸c ng­¬i! Xin mêi vµo trong.",
-tongquan.."C©y kiÕm Bİch Tµm mµ c¸c ng­¬i t×m ®­îc kh«ng ph¶i lµ b¶o kiÕm ta lµm mÊt nh­ng nã ®­îc ®óc tõ XXX. NÕu gÆp ®­îc tæng qu¶n XXX nhí mang tr¶ l¹i cho h¾n.",
-tongquan.."Qua Liªn Hoµn Sµo lµ ®Õn ®µi ®óc kiÕm, nÕu gÆp ®­îc tæng qu¶n th× göi l¹i cho h¾n, nhí ®õng lµm kinh ®éng tiÓu th­.",
-GetName().."Ta muèn ®æi Du Long kiÕm lÊy Tµng Kim Long KiÕm/#getKiem(1)",
-GetName().."Ta muèn ®æi Du Long kiÕm lÊy Tµng §µo Méc KiÕm/#getKiem(2)",
-GetName().."Ta muèn ®æi Du Long kiÕm lÊy Tµng Bİch Thñy KiÕm/#getKiem(3)",
-GetName().."Ta muèn ®æi Du Long kiÕm lÊy Tµng Háa V©n KiÕm/#getKiem(4)",
-GetName().."Ta muèn ®æi Du Long kiÕm lÊy Tµng Thæ KiÕm/#getKiem(5)",
+	tongquan.."§Õn ®óng lóc l¾m, bæn trang cã viÖc nµy cÇn th­¬ng l­îng. Khi c¸c ng­¬i vµo ®¹i viÖn th× Thiªn C­¬ng Du Long kiÕm bçng nhiªn biÕn mÊt. Ta kh«ng nghi ngê c¸c ng­¬i nh­ng viÖc nµy còng nªn lµm râ.",
+	player.."Sao l¹i nãi hµm hå vËy? H·y xem ®©y!/ACT2_StartBoss",
+	player.."Cã chuyÖn nµy sao?/ACT2_StartBossWithRules",
+	tongquan.."NÕu c¸c ng­¬i kh«ng cã tËt giËt m×nh, hµ tÊt ph¶i xÊu hæ mµ hãa giËn thÕ? Xem Tµng KiÕm s¬n trang ta lµ chèn kh«ng ng­êi µ? B©y ®©u? B¾t nã cho ta!",
+	player.."Ch¾c ch¾n cã kÎ ®¸nh c¾p Du Long kiÕm råi vu oan cho ta, Ta ph¶i lµm râ chuyÖn nµy míi ®­îc. \n"..tongquan.."§­îc! Ta ®îi tin cña ng­¬i!",
+	tongquan.."Ch­a cã tin tøc Du Long kiÕm sao? ChuyÖn nµy e r»ng cã chót kh¶ nghi!",
+	tongquan.."Th× ra lµ do S¬n trang gi¸o ®¸nh c¾p! ThËt cã lçi víi c¸c vŞ, l·o phu v« cïng xÊu hæ!\nC¸c vŞ qu¶ thËt th©n thñ bÊt phµm! L·o phu muèn lÜnh gi¸o vµi chiªu, xin c¸c vŞ tËn t×nh chØ b¶o! B©y ®©u? Lui!",
+	tongquan.."TiÓu tÆc kia! C¸c ng­¬i kh«ng thÓ ®i ®­îc! §¹i tiÓu th­ ®ang chê c¸c ng­¬i ë hËu viÖn!",
+	tongquan.."Qu¶ lµ tuæi trÎ tµi cao, l·o phu kh«ng th¾ng næi c¸c ng­¬i! Xin mêi vµo trong.",
+	tongquan.."C©y kiÕm Bİch Tµm mµ c¸c ng­¬i t×m ®­îc kh«ng ph¶i lµ b¶o kiÕm ta lµm mÊt nh­ng nã ®­îc ®óc tõ bİch ngäc. NÕu gÆp ®­îc tæng qu¶n Tµng KiÕm C¸c nhí mang tr¶ l¹i cho h¾n.",
+	tongquan.."Qua Liªn Hoµn Sµo lµ ®Õn ®µi ®óc kiÕm, nÕu gÆp ®­îc tæng qu¶n th× göi l¹i cho h¾n, nhí ®õng lµm kinh ®éng tiÓu th­.",
+	player.."Ta muèn ®æi Du Long kiÕm lÊy Tµng Kim Long KiÕm/#getKiem(1)",
+	player.."Ta muèn ®æi Du Long kiÕm lÊy Tµng §µo Méc KiÕm/#getKiem(2)",
+	player.."Ta muèn ®æi Du Long kiÕm lÊy Tµng Bİch Thñy KiÕm/#getKiem(3)",
+	player.."Ta muèn ®æi Du Long kiÕm lÊy Tµng Háa V©n KiÕm/#getKiem(4)",
+	player.."Ta muèn ®æi Du Long kiÕm lÊy Tµng Thæ KiÕm/#getKiem(5)",
 }		-- ³õ²½¶¨Îª»ñµÃ[±ù¾§]µÄÈÎÎñ
 ACT2_GotSword = {}
 -- ------------------------------------------------------------------------------------------------ <Act II Function> ----
 function ACT2_Talk()
+	player = GetName()..": ";
 	local nZone = TC_GetTeamZone()
 	if TC_STAGE_State[nZone] < 16 then
 		if TM_IsCaptain() == 1 then
-			Say(ACT2_BOSSTALK[1], 2, ACT2_BOSSTALK[2], ACT2_BOSSTALK[3])
+			Say(ACT2_BOSSTALK[1], 2, player..ACT2_BOSSTALK[2], player..ACT2_BOSSTALK[3])
 		else
-			Talk(1, "", ACT2_BOSSTALK[1])
+			Talk(1, "", player..ACT2_BOSSTALK[1])
 		end
 	else
 		if TC_STAGE_State[nZone] == 16 then
@@ -193,13 +196,13 @@ function ACT2_Talk()
 		elseif TC_STAGE_State[nZone] == 17 then
 			--Talk(1, "", ACT2_BOSSTALK[7])
 			local tSay = {
-				ACT2_BOSSTALK[12],
-				ACT2_BOSSTALK[13],
-				ACT2_BOSSTALK[14],
-				ACT2_BOSSTALK[15],
-				ACT2_BOSSTALK[16],
-				}
-			tinsert(tSay, "§a t¹ tæng qu¶n ®· tiÕp ®ãn ta chu ®¸o nh­ vËy/ACT2_Talk_Ext");
+				player..ACT2_BOSSTALK[12],
+				player..ACT2_BOSSTALK[13],
+				player..ACT2_BOSSTALK[14],
+				player..ACT2_BOSSTALK[15],
+				player..ACT2_BOSSTALK[16],
+			}
+			tinsert(tSay, player.."§a t¹ tæng qu¶n ®· tiÕp ®ãn ta chu ®¸o nh­ vËy/ACT2_Talk_Ext");
 			Say(ACT2_BOSSTALK[7],getn(tSay),tSay);
 		elseif TC_STAGE_State[nZone] == 18 then
 			Talk(1, "", ACT2_BOSSTALK[10])
@@ -222,12 +225,12 @@ function ACT2_Talk()
 end
 
 function getKiem(nId)
-	local nDel = DelItem(tNguHanhKiem[6][2][1],tNguHanhKiem[6][2][2],tNguHanhKiem[6][2][3],1) -- Added at 26/07/2020
+	local nDel = DelItem(tWuxingJian[6][2][1],tWuxingJian[6][2][2],tWuxingJian[6][2][3],1) -- Added at 26/07/2020
 	if nDel == 1 then 
-		AddItem(tNguHanhKiem[nId][2][1],tNguHanhKiem[nId][2][2],tNguHanhKiem[nId][2][3],1);
-		Talk(1,"","Lµ hiÓu lÇm. Mong b»ng h÷u bá qua. Ta ®ång ı ®æi cho ng­¬i c©y kiÕm nµy coi nh­ quµ chuéc lçi ®Ó kh«ng lµm mÊt quan hÖ tèt ®Ñp cña s¬n trang víi b»ng h÷u vâ l©m.");
+		AddItem(tWuxingJian[nId][2][1],tWuxingJian[nId][2][2],tWuxingJian[nId][2][3],1);
+		Talk(1,"",tongquan.."Lµ hiÓu lÇm. Mong b»ng h÷u bá qua. Ta ®ång ı ®æi cho ng­¬i c©y kiÕm nµy coi nh­ quµ chuéc lçi ®Ó kh«ng lµm mÊt quan hÖ tèt ®Ñp cña s¬n trang víi b»ng h÷u vâ l©m.");
 	else
-		Talk(1,"","C¸c h¹ kh«ng cã Du Long KiÕm l¹i tham lam muèn lÊy thªm kiÕm sao?");
+		Talk(1,"",tongquan.."C¸c h¹ kh«ng cã Du Long KiÕm l¹i tham lam muèn lÊy thªm kiÕm sao?");
 	end
 	
 end;
@@ -269,7 +272,7 @@ end
 function ACT2_StartBossWithRules()
 	local nZone = TC_GetTeamZone()
 	TC_STAGE_State[nZone] = 16			-- 16~19 ÊÇ½»½£
-	MU_Msg2Team(ACT2_BOSSTALK[5], 2)
+	MU_Msg2Team(MU_GetColoredText(GetName(), "green")..": "..ACT2_BOSSTALK[5], 2)
 end
 function ACT2_Timer()
 	local nZone = TC_GetTeamZone()
@@ -285,25 +288,25 @@ end
 function ACT2_Killer()
 	local nZone = TC_GetTeamZone()
 	if (TT_TARGET_Name == "Gi¸o ®Çu") then
-		if random(1,100) <= 10 then
+		if random(1,100) <= 7 then
 			--Msg2Player("Killed Gi¸o ®Çu");
 			local n = random(1,5);
-			AddItem(tNguHanhKiem[n][2][1],tNguHanhKiem[n][2][2],tNguHanhKiem[n][2][3],1);
+			AddItem(tWuxingJian[n][2][1],tWuxingJian[n][2][2],tWuxingJian[n][2][3],1);
 		end
 		if (TC_STAGE_State[nZone] == 16) then
 			TC_TASK_EventCount[nZone][1] = TC_TASK_EventCount[nZone][1] + 1
 			MU_Msg2Team(TC_TASK_EventCount[nZone][1].."/"..TC_TASK_Conditions[nZone][1])
 			if (TC_TASK_EventCount[nZone][1] >= TC_TASK_Conditions[nZone][1]) then
-				if (random(1,100000) <= 30000) or (TC_TASK_EventCount[nZone][1] >= TC_TASK_Conditions[nZone][2]) then
-					TC_STAGE_State[nZone] = 17
-					AddItem(tNguHanhKiem[6][2][1],tNguHanhKiem[6][2][2],tNguHanhKiem[6][2][3],1) -- Add at 26/07/2020
-					MU_Msg2Team(GetName().." §¸nh b¹i S¬n trang gi¸o ®Çu ph¸t hiÖn 1 thanh h¾c kiÕm.", 2)
-					MU_Msg2Team("§éi nhËn ®­îc vËt phÈm nhiÖm vô: Du Long.")
-				elseif random(1,100000) <= 10000 then
+				if random(1,100000) <= 10000 then
 					TC_STAGE_State[nZone] = 18
 					MU_Msg2Team(GetName().." §¸nh b¹i S¬n trang gi¸o ®Çu ph¸t hiÖn 1 thanh lôc kiÕm.", 2)
-					--AddItem(tNguHanhKiem[3][2][1],tNguHanhKiem[3][2][2],tNguHanhKiem[3][2][3],1); -- Add at 26/07/2020
+					AddItem(tWuxingJian[7][2][1],tWuxingJian[7][2][2],tWuxingJian[7][2][3],1); -- Mod 30/10/2020
 					MU_Msg2Team("§éi nhËn ®­îc vËt phÈm nhiÖm vô: Bİch Tµm")
+				elseif (random(1,100000) <= 30000) or (TC_TASK_EventCount[nZone][1] >= TC_TASK_Conditions[nZone][2]) then
+					TC_STAGE_State[nZone] = 17
+					AddItem(tWuxingJian[6][2][1],tWuxingJian[6][2][2],tWuxingJian[6][2][3],1) -- Add at 26/07/2020
+					MU_Msg2Team(GetName().." §¸nh b¹i S¬n trang gi¸o ®Çu ph¸t hiÖn 1 thanh h¾c kiÕm.", 2)
+					MU_Msg2Team("§éi nhËn ®­îc vËt phÈm nhiÖm vô: Du Long.")			
 				end
 			end
 		end
@@ -338,6 +341,7 @@ function ACT3_Trap()
 	local nZone = TC_GetTeamZone()
 	-- Stage Event Start
 	Msg2Player("B¹n ®· giÉm lªn v­ên hoa…… "..ACT3_Traped[nZone].."/3]")
+	Talk(1,"",MU_GetColoredText(GetName(),"green")..": ChÕt tiÖt! Ta quªn mÊt, ®· giÉm lªn v­ên hoa…… "..ACT3_Traped[nZone].."/3]");
 	ACT3_Traped[nZone] = ACT3_Traped[nZone] + 1
 	-- Stage Event End
 end
@@ -607,27 +611,15 @@ function ACT5_Talk()
 	end
 	local nSwordType = ACT5_GetSwordFlag(TT_GetTarget())
 	if TC_STAGE_State[nZone] < 15 then
-		if (TT_TARGET_Name == "Kim kiÕm") and (GetStrength() >= nStatesLimit) 
-			or GetItemCount(tNguHanhKiem[1][2][1],tNguHanhKiem[1][2][2],tNguHanhKiem[1][2][3]) >= 1 then
-			DelItem(tNguHanhKiem[1][2][1],tNguHanhKiem[1][2][2],tNguHanhKiem[1][2][3],1);
-			gf_Msg2Team(format("%s sö dông %s dÉn hån, rót kiÕm thµnh c«ng!",GetName(),tNguHanhKiem[1][1]));
-		elseif (TT_TARGET_Name == "Méc kiÕm") and (GetDexterity() >= nStatesLimit)
-			or GetItemCount(tNguHanhKiem[2][2][1],tNguHanhKiem[2][2][2],tNguHanhKiem[2][2][3]) >= 1 then
-			DelItem(tNguHanhKiem[2][2][1],tNguHanhKiem[2][2][2],tNguHanhKiem[2][2][3],1);
-			gf_Msg2Team(format("%s sö dông %s dÉn hån, rót kiÕm thµnh c«ng!",GetName(),tNguHanhKiem[2][1]));
-		elseif (TT_TARGET_Name == "Thñy kiÕm") and (GetEnergy() >= nStatesLimit) 
-			or GetItemCount(tNguHanhKiem[3][2][1],tNguHanhKiem[3][2][2],tNguHanhKiem[3][2][3]) >= 1 then
-			DelItem(tNguHanhKiem[3][2][1],tNguHanhKiem[3][2][2],tNguHanhKiem[3][2][3],1);
-			gf_Msg2Team(format("%s sö dông %s dÉn hån, rót kiÕm thµnh c«ng!",GetName(),tNguHanhKiem[3][1]));
-		elseif (TT_TARGET_Name == "Háa KiÕm") and (GetObserve() >= nStatesLimit)
-			or GetItemCount(tNguHanhKiem[4][2][1],tNguHanhKiem[4][2][2],tNguHanhKiem[4][2][3]) >= 1 then
-			DelItem(tNguHanhKiem[4][2][1],tNguHanhKiem[4][2][2],tNguHanhKiem[4][2][3],1);
-			gf_Msg2Team(format("%s sö dông %s dÉn hån, rót kiÕm thµnh c«ng!",GetName(),tNguHanhKiem[4][1]));
-		elseif (TT_TARGET_Name == "Thæ kiÕm") and (GetVitality() >= nStatesLimit)
-			or GetItemCount(tNguHanhKiem[5][2][1],tNguHanhKiem[5][2][2],tNguHanhKiem[5][2][3]) >= 1 then
-			DelItem(tNguHanhKiem[5][2][1],tNguHanhKiem[5][2][2],tNguHanhKiem[5][2][3],1);
-			gf_Msg2Team(format("%s sö dông %s dÉn hån, rót kiÕm thµnh c«ng!",GetName(),tNguHanhKiem[5][1]));
-		else
+		local result = 0;
+		if (TT_TARGET_Name == "Kim kiÕm") and (GetStrength() >= nStatesLimit or checkWuxingJian(1) == 1) then result = 1;
+		elseif (TT_TARGET_Name == "Méc kiÕm") and (GetDexterity() >= nStatesLimit or checkWuxingJian(2) == 1) then result = 1;
+		elseif (TT_TARGET_Name == "Thñy kiÕm") and (GetEnergy() >= nStatesLimit or checkWuxingJian(3) == 1) then result = 1;
+		elseif (TT_TARGET_Name == "Háa KiÕm") and (GetObserve() >= nStatesLimit or checkWuxingJian(4) == 1) then result = 1;
+		elseif (TT_TARGET_Name == "Thæ kiÕm") and (GetVitality() >= nStatesLimit or checkWuxingJian(5) == 1) then result = 1;
+		end
+		
+		if result == 0 then
 			Msg2Player("B¹n kh«ng ®ñ n¨ng lùc rót thanh kiÕm nµy!")
 			return
 		end
@@ -636,7 +628,7 @@ function ACT5_Talk()
 			ACT5_PICKORDER_Table[nZone] = {}
 		end
 		ACT5_PICKORDER_Table[nZone][TC_TASK_EventCount[nZone][1]] = TT_TARGET_Name
-		MU_Msg2Team(TT_TARGET_Name.."®· bŞ rót ra!", 2)
+		MU_Msg2Team(TT_TARGET_Name.." ®· bŞ rót ra!", 2)
 		MC_Del4Group(TT_GetTarget(), 0)
 --		Msg2Player(nSwordType.." "..TT_TARGET_Name)
 		ACT5_CreateDefender(nSwordType, TT_TARGET_Name)
@@ -663,7 +655,7 @@ function ACT5_Talk()
 						MU_Msg2Team(GetName().."®©m "..ACT5_Word2Num(nWithOrder).." vµo "..ACT5_Word2Num(nSwordType)..". ["..(TC_TASK_EventCount[nZone][2]-1).."/"..(TC_TASK_Conditions[nZone][2]-1).."]")
 						if TC_TASK_EventCount[nZone][2] >= TC_TASK_Conditions[nZone][2] then
 							MC_CreateBoss(5)
-							MU_Msg2Team("Tr­ëng l·o Tµng KiÕm C¸c:"..ACT5_SWORD_SHAPEWORD[ACT5_DROP_ROW[nZone]].."§· l©u ko cã ai d¸m qua ®©y. TiÓu tö! Ng­¬i l¹i ®Õn µ? §Ó ta xem b¶n lÜnh cña ng­¬i thÕ nµo.", 2)
+							MU_Msg2Team("<color=green>Tr­ëng l·o Tµng KiÕm C¸c<color> :"..ACT5_SWORD_SHAPEWORD[ACT5_DROP_ROW[nZone]].."§· l©u ko cã ai d¸m qua ®©y. TiÓu tö! Ng­¬i l¹i ®Õn µ? §Ó ta xem b¶n lÜnh cña ng­¬i thÕ nµo.", 2)
 							MU_Msg2Team("Tr­ëng l·o Tµng KiÕm C¸c hiÖn th©n!")
 							-- Stage Event Start
 							local nETRow = MU_Div(TM_GetMinLevel()) - 2
@@ -689,6 +681,18 @@ function ACT5_Talk()
 		end
 	end
 end
+
+function checkWuxingJian(nIndex)
+	local result = 0;
+	-- GetItemCount(tWuxingJian[nIndex][2][1],tWuxingJian[nIndex][2][2],tWuxingJian[nIndex][2][3]);
+	local nDel = DelItem(tWuxingJian[nIndex][2][1],tWuxingJian[nIndex][2][2],tWuxingJian[nIndex][2][3],1);
+	if nDel == 1 then
+		gf_Msg2Team(format("%s sö dông %s dÉn hån, rót kiÕm thµnh c«ng!",GetName(),tWuxingJian[1][1]));
+		result = 1;
+	end
+	return result;
+end;
+
 function ACT5_Timer()
 	local nZone = TC_GetTeamZone()
 	local nMaxLevel = TM_GetMaxLevel()	
@@ -976,6 +980,7 @@ end
 function main()
 --	CureWound(2)
 	local nZone = TC_GetTeamZone()
+	print("nZone",nZone);
 	local a,b,c = GetWorldPos()
 	TT_TARGET_Index, TT_TARGET_ModID, TT_TARGET_Name = GetTriggeringUnit()
 	
@@ -1329,10 +1334,10 @@ function On_Dropis_Loot(a,b,c)
 --	Msg2Player("#"..aGearsIndex[1].." "..aGearsIndex[2].." "..aGearsIndex[3])
 	if nFaction == 0 or GetItemCount(2,1,30115) >= 1 then -- Tµng KiÕm lÖnh
 		Say("Trong r­¬ng cã 10 ®ång vµng, cã muèn lÊy ra?", 2, "LÊy vµng/#On_Dropis_Get("..a..","..b..","..c..")", "Rêi khái/On_Dropis_Exit")
-		MU_Msg2Team(GetName().."Trong r­¬ng"..GT_GetGearFaction(aGearsIndex[3]).."-"..GT_GetGearPart(aGearsIndex[2]).."trang bŞ")
+		MU_Msg2Team(GetName().." trong r­¬ng "..GT_GetGearFaction(aGearsIndex[3]).."-"..GT_GetGearPart(aGearsIndex[2]).." trang bŞ")
 	else
-		Say("Trong r­¬ng cã"..GT_GetGearFaction(aGearsIndex[3]).."-"..GT_GetGearPart(aGearsIndex[2]).."trang bŞ, muèn lÊy kh«ng?", 2, "LÊy trang bŞ/#On_Dropis_Get("..a..","..b..","..c..")", "Rêi khái/On_Dropis_Exit")
-		MU_Msg2Team(GetName().."Trong r­¬ng"..GT_GetGearFaction(aGearsIndex[3]).."-"..GT_GetGearPart(aGearsIndex[2]).."trang bŞ")
+		Say("Trong r­¬ng cã"..GT_GetGearFaction(aGearsIndex[3]).."-"..GT_GetGearPart(aGearsIndex[2]).." trang bŞ, muèn lÊy kh«ng?", 2, "LÊy trang bŞ/#On_Dropis_Get("..a..","..b..","..c..")", "Rêi khái/On_Dropis_Exit")
+		MU_Msg2Team(GetName().." trong r­¬ng "..GT_GetGearFaction(aGearsIndex[3]).."-"..GT_GetGearPart(aGearsIndex[2]).." trang bŞ")
 	end
 end
 

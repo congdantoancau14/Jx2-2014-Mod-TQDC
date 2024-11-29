@@ -7,7 +7,7 @@
 Include("\\script\\online\\viet_event\\200907\\event_head.lua");
 
 function OnUse(nItemIdx)
-	if tonumber(date("%y%m%d%H")) < 09061900 or tonumber(date("%y%m%d%H")) >= 09072700 then
+	if tonumber(date("%y%m%d%H")) < 09061900 or tonumber(date("%y%m%d%H")) >= 49072700 then
 		Talk(1, "", "VËt phÈm ®· qu¸ h¹n sö dông");
 		return
 	end
@@ -36,7 +36,7 @@ function OnUse(nItemIdx)
 end
 
 function task_trigger()
-	if tonumber(date("%y%m%d%H")) < 09061900 or tonumber(date("%y%m%d%H")) >= 09071924 then
+	if tonumber(date("%y%m%d%H")) < 09061900 or tonumber(date("%y%m%d%H")) >= 49071924 then
 		RemoveTrigger(GetRunningTrigger());
 		return
 	end

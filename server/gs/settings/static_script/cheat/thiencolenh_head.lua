@@ -16,6 +16,7 @@ tTieuHao = {
 	{"ThÇn hµnh b¶o ®iÓn", {0,200,40},1},
 	-- {"Gi¸m ®Þnh phï cÊp 7", {2,5,7},10},
 	{"TiÓu bao gi¸m ®Þnh phï cÊp 7",{2,1,1057},1},
+	{"Thiªn c¬ ®å",{2,1,1179},1},
 	{"ThÇn Hµnh Phï", {2,0,143},999},
 	{"Thiªn lý truyÒn ©m phï", {2,0,3508},99},
 	{"Th«ng Thiªn LÖnh",{2,1,30409},1},
@@ -237,4 +238,7 @@ tDecorators = {
 	{"Ruéng ®ang ph¸t triÓn "},
 	{"Ruéng ®· chin mïi "},
 	{"Xe vËn l­¬ng "},
+	{"Tè thiªn Thu Nh­îc Thñy"},
+	{"§ång ®¹o vâ l©m 2"},
+	{"Sµi Phong Nhi"},
 }

@@ -1,40 +1,5 @@
 [WorldList]
-; ---------------------------------
-; 			TESTING MAPS
-; ---------------------------------
-; ; Chuong khi son coc
-; World_7119=1
-; ; Khe luu boc bo
-; World_810=1
-; ; Thien ngoai phi tien
-; World_811=1
-; ; Lang Hu nhai
-; World_812=1
-; ; Thien Co lau
-; World_813=1
-; ; Tang Kinh cac
-; World_814=1
-; ; Nghiet Long dong
-; World_815=1
-; ; Vo Sac trai
-; World_816=1
-; ; Luyen Binh truong
-; World_817=1
-; ; Mo Cu hiep
-; World_818=1
-; World_819=1
-; World_820=1
-; ; ---------------------------------
-; ; 			KET HON
-; ; ---------------------------------
-; World_851=1
-; World_852=1
-; World_853=1
-; World_854=1
-; ; World_855=1
-; ; World_856=1
-; ; World_857=1
-; ; World_858=1
+
 ; ; ---------------------------------
 ; ; 			TREN TROI
 ; ; ---------------------------------
@@ -98,11 +63,6 @@ World_701=1
 ; World_702=1
 ; Ai thien lao
 ; World_703=1
-;------------------
-; ?c nh?n cèc
-; World_708=1
-; Tμng Ki?m s?n trang
-; World_709=1
 ;------------------
 
 ; ---------------------------------

@@ -10,10 +10,14 @@ function main()
     local nStep = 0;
     
     if GetTask(1) < 25 or GetTask(1) == 100 then
-        local szTalk = {
-        "T¸i h¹ thu lai phong c¶nh dÞ, Hµnh d­¬ng nh¹n khø v« l­u ý…"
-        };
-        TalkEx("", szTalk);
+        local tTalk = {}
+		if random(2) == 1 then
+			tinsert(tTalk,"T¸i h¹ thu lai phong c¶nh dÞ, Hµnh d­¬ng nh¹n khø v« l­u ý…");
+		else
+			tinsert(tTalk,"§¹i Ng­u lµ ®øa ch¸u ngèc cña ta, th­êng giao du víi ®¸m l­u manh nh­ng b¶n tÝnh hiÒn lµnh, kh«ng ph¶i ng­êi xÊu. NÕu ng­¬i cã gÆp h¾n th× xin ®õng b¾t n¹t h¾n.");
+		end;
+		
+        TalkEx("", tTalk);
         return
     end;
     

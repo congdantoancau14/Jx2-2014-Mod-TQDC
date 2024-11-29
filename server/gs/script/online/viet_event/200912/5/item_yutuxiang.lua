@@ -5,7 +5,7 @@
 Include("\\script\\online\\viet_event\\200912\\event_head.lua")
 
 function OnUse(nItemIdx)
-	do return end
+	-- do return end
 	--local nDate = tonumber(date("%y%m%d"));
 	--if nDate > 091025 then
 	--	Talk(1, "", "物品已经过期，不能打开。");

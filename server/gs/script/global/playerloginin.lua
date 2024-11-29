@@ -1,4 +1,17 @@
+-- ¹¦ÄÜËµÃ÷
+-- ´Ë½Å±¾ÎÄ¼ş»áÔÚÍæ¼ÒÃ¿´Î½øÈëÈÎÒâÒ»¸ö·şÎñÆ÷(ÄÜÊ¶±ğ´ËÎÄ¼şµÄ)ºó×Ô¶¯Ö´ĞĞ main º¯ÊıÀïÃæµÄ½Å±¾
+-- ¼òµ¥µÄËµ£¬ÇĞ»»µØÍ¼¡¢µÇÂ½ÓÎÏ·¶¼»áÖ´ĞĞ´Ë½Å±¾ÎÄ¼şÖĞ main º¯ÊıµÄÄÚÈİ
 
+-- ¹¦ÄÜÄ¿µÄ
+-- Í¨³£ÊÇ×÷ÎªÍæ¼ÒĞÂÕÊºÅ½¨Á¢ºó½øÈëÓÎÏ·Ç°³õÊ¼»¯Ò»Ğ©¸öÈËĞÅÏ¢
+-- ±ÈÈç×Ô¶¯¼ÓÔØ³õÊ¼ÈÎÎñµÈ
+
+
+--Ìí¼ÓÍ·ÎÄ¼şÊ±ÇëÈ·±£È«¾Ö±äÁ¿Óëº¯Êı²»»á³åÍ»¡¡Ìí¼ÓÍ·ÎÄ¼şÊ±ÇëÈ·±£È«¾Ö±äÁ¿Óëº¯Êı²»»á³åÍ»
+--Ìí¼ÓÍ·ÎÄ¼şÊ±ÇëÈ·±£È«¾Ö±äÁ¿Óëº¯Êı²»»á³åÍ»	Ìí¼ÓÍ·ÎÄ¼şÊ±ÇëÈ·±£È«¾Ö±äÁ¿Óëº¯Êı²»»á³åÍ»
+--Ìí¼ÓÍ·ÎÄ¼şÊ±ÇëÈ·±£È«¾Ö±äÁ¿Óëº¯Êı²»»á³åÍ»	Ìí¼ÓÍ·ÎÄ¼şÊ±ÇëÈ·±£È«¾Ö±äÁ¿Óëº¯Êı²»»á³åÍ»
+--Ìí¼ÓÍ·ÎÄ¼şÊ±ÇëÈ·±£È«¾Ö±äÁ¿Óëº¯Êı²»»á³åÍ»	Ìí¼ÓÍ·ÎÄ¼şÊ±ÇëÈ·±£È«¾Ö±äÁ¿Óëº¯Êı²»»á³åÍ»
+--Ìí¼ÓÍ·ÎÄ¼şÊ±ÇëÈ·±£È«¾Ö±äÁ¿Óëº¯Êı²»»á³åÍ»	Ìí¼ÓÍ·ÎÄ¼şÊ±ÇëÈ·±£È«¾Ö±äÁ¿Óëº¯Êı²»»á³åÍ»
 Include("\\script\\task\\WeekEnd\\weekend_switch.lua");
 Include("\\script\\online\\qingrenyuanxiao\\qryx_head.lua")
 Include("\\script\\online\\laborday06\\laborday_head.lua");
@@ -306,7 +319,7 @@ function main(ExchangeComing)
 	--================================================================
 
 	--08ÄêÇåÃ÷½Ú»î¶¯
-	if nDate <= 20480412 then
+	if nDate <= 20080412 then
 		Msg2Player("Ho¹t ®éng tiÕt Thanh Minh ®· b¾t ®Çu, c¸c hiÖp kh¸ch h·y ®Õn DÉn Lé nh©n gÇn D· TÈu ®Ó biÕt th«ng tin chi tiÕt!");
 	else	--·ÇÇåÃ÷½Ú»î¶¯ÆÚ¼äÉÏÏßµ½°İ¼ÀµØÍ¼Ê±£¬×Ô¶¯´«ËÍÍæ¼Ò³öÈ¥
 		local Map_Pos_QM = {
@@ -740,7 +753,7 @@ function main(ExchangeComing)
 	
 	-- Set ID cho server Thµnh Long
 	local nDateSpec = tonumber(date("%y%m%d"))
-	if nDateSpec >= 111223 and nDateSpec <= 120123 then
+	if nDateSpec >= 111223 and nDateSpec <= 420123 then
 		if gf_GetTaskByte(TSK_SERVER_ID, TSK_SERVER_ID_CUR) ~= 70 and GetGlbValue(GLB_TSK_SERVER_ID) == 70 then
 			gf_SetTaskByte(TSK_SERVER_ID, TSK_SERVER_ID_CUR, 70)
 		end
@@ -749,7 +762,7 @@ function main(ExchangeComing)
 	vng_playerlogin_init()
 	
 	local nDenBuDate = tonumber(date("%y%m%d"))
-	if nDenBuDate >= 120814 and nDenBuDate <= 120814 then
+	if nDenBuDate >= 120814 and nDenBuDate <= 420814 then
 		DenBu_BKL()
 	end
 	
@@ -760,7 +773,7 @@ function main(ExchangeComing)
 	end
 	-- ´¦Àí°×¾Ôµ÷Õû£¬×¢Òâ·ÅÔÚ×îºó£¡
 	if ExchangeComing == 0 then
-		OfflineLiveEx()
+--		OfflineLiveEx()
 	end
 	if gf_GetTaskByte(TSK_SERVER_ID, TSK_SERVER_ID_CUR) == 49 then
 		gf_SetTaskByte(TSK_SERVER_ID, TSK_SERVER_ID_CUR, 52)
@@ -910,8 +923,12 @@ function main(ExchangeComing)
 	--ËÄÁéÊÔÁ¶¸±±¾
 	slt_LeaveGame();
 	ibc_PlayerLogin(); --ºÚµÀ¾ß²¹³¥»î¶¯
-	
+	--2015Äê2ÔÂÎåÅÌ¹û
+	SendScript2VM("\\script\\online_activites\\201502\\wupanguo.lua", "_wpg_playerlogin()")
 	-------------------------------------------------------
+	thamgiatinhnang3phe()
+
+
 end;
 --*****************************É¾³ı¹ıÆÚÎïÆ·*************************
 overdue_goods_list = {
@@ -1724,7 +1741,7 @@ function OfflineLiveEx()
 	local nSanQingTime = UpdateOneOfflineTime(LogoutTime, LoginTime, nMaxTime, TASKVAL_SANQING_LASTACTIVE_TIME, TASKVAL_SANQING_OFFLINE_TIME, 0)
 	local nJuLingTime = UpdateJuLingOfflineTime(LogoutTime, LoginTime, nMaxTime)
 	
-	--_TellOfflineTime(nBaiJuTime, nLiuShenTime, nSanQingTime, nJuLingTime)
+	_TellOfflineTime(nBaiJuTime, nLiuShenTime, nSanQingTime, nJuLingTime)
 end
 
 function _TellOfflineTime(nBaiJuTime, nLiuShenTime, nSanQingTime, nJuLingTime)
@@ -1786,9 +1803,9 @@ function AddItemForViet200906()
 	if EventOpen0906() == 0 then
 		return
 	end
-	if tonumber(date("%y%m%d%H")) >= 09071924 or tonumber(date("%y%m%d%H")) < 09061900 then
-		return
-	end
+	-- if tonumber(date("%y%m%d%H")) >= 09071924 or tonumber(date("%y%m%d%H")) < 09061900 then
+		-- return
+	-- end
 
 		--Ìí¼Ó¸¨Öú
 	if GetTask(TASK_GET_FUZHU_DATE) >= tonumber(date("%y%m%d")) then
@@ -2212,4 +2229,21 @@ function dzt_tmz_trigger()
 			RemoveTrigger(GetTrigger(1278*2));
 		end
 	end
+end
+
+function thamgiatinhnang3phe()
+	local tbSayDialog = {};
+	local nSaySize = 0;
+	local szSayHead = "Ba n­íc T©y H¹, Thæ Phån, §¹i Lı cïng chŞu sù quÊy ph¸ cña Thiªn ¢m Gi¸o, nªn quyÕt ®Şnh cïng nhau ph¸i ®Æc sø ®Õn Vâ L©m Minh ®Ó cÇu viÖn. B¸ch HiÓu Sinh thÊy râ tİnh nghiªm träng cña thÕ lùc míi Thiªn ¢m Gi¸o, nªn ®· ph¸i c¸c anh hïng hµo hiÖp ®Õn gióp ®ì ba n­íc T©y H¹, Thæ Phån vµ §¹i Lı !!!!"
+	tinsert(tbSayDialog, "Tham gia tİnh n¨ng 3 phe/moveplayer")
+	tinsert(tbSayDialog, "Tho¸t/donothing")
+
+	nSaySize = getn(tbSayDialog);
+	Say(szSayHead, nSaySize, tbSayDialog);
+end
+function moveplayer()
+		NewWorld(425,1744,3181)
+end
+function donothing()
+
 end

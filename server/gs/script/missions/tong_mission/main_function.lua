@@ -3,7 +3,6 @@
 --describe:¶¨ÒåÒ»Ğ©°ï»á¹Ø¿¨Ïà¹ØµÄ²Ù×÷
 Include("\\script\\missions\\tong_mission\\main_head.lua");
 Include("\\script\\online_activites\\task_values.lua");--ÈÎÎñ±äÁ¿Í·ÎÄ¼ş
-Include("\\settings\\static_script\\cheat\\event\\event_init.lua");
 
 --»ñÈ¡Ä¿±ê³¡µØµÄ×´Ì¬ºÍÊ¹ÓÃ³¡µØµÄ°ï»áÃû×Ö
 function TM_GetFieldInfo(nAreaIdx,nFieldIdx)
@@ -255,11 +254,9 @@ function TM_AddExpAward(nCurStage,tbPlayer)
 			nX = 0;
 		end;
 		if IsPlayerDeath() ~= 1 then	--Èç¹ûÃ»ËÀ
-			local nExp = 8000000
+			local nExp = floor(GetLevel()^3*4);
 			local nExp2 = floor(nX*nExp);
 			ModifyExp(nExp2);
-			
-			EventAddPhoBan(150);
 			Msg2Player("Trong tuÇn nµy ®¹i hiÖp ®©y lµ lÇn thø "..nPassTimes.." v­ît ¶i "..%nCurStage..", cã thÓ thu ®­îc "..nExp.." kinh nghiÖm, sau khi trõ xong cã sè ®iÓm thùc tÕ lµ "..nExp2.." ®iÓm kinh nghiÖm");
 		end;
 	end;

@@ -25,7 +25,7 @@ function CaijiYaorencao()
 --	end
 	local npcIndex = CreateNpc("D­îc Nh©n Th¶o","U Minh Hoa",GetWorldPos());
 	SetNpcDeathScript(npcIndex,"\\script\\online\\olympic\\npc\\youminghua.lua");
---	SetTaskTemp(TMP_TASK_ID_OLY_YMH_TEMP_INDEX,npcIndex);
+	SetTaskTemp(TMP_TASK_ID_OLY_YMH_TEMP_INDEX,npcIndex);
 	SetNpcLifeTime(npcIndex,60 * 5);
 end
 

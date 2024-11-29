@@ -271,14 +271,14 @@ function nothing()
 end
 
 function callback_talk()
---	local strtab = {
---		"Ta muèn nhËn phÇn th­ëng ng­êi ch¬i cò/get_old_award",
---		"Ta muèn rót th¨m Viªm Hoµng Thiªn §Şa/tiandi_choujiang",
---		"C¸c lo¹i phÇn th­ëng t­¬ng øng víi ng­êi ch¬i cò/about_old_award",
---		"Ta t¹m thêi kh«ng nhËn phÇn th­ëng/nothing"}
---	Say("<color=green>D· TÈu<color>: §· l©u kh«ng gÆp, ta vÉn nhí lÇn ®Çu gÆp ng­¬i, tuy vâ l©m phong ba biÕn ®æi liªn tôc nh­ng l·o ®©y vÉn nhí ng­¬i, ta ®· chuÈn bŞ vµi mãn ®å gi¸p, cã thÓ gióp ng­¬i hµnh hiÖp giang hå! Ta còng ®­îc gäi lµ Èn gi¶ trong giang hå, cã thÓ d¹y cho ng­¬i vµi chiªu!",
---		getn(strtab),
---		strtab)
+	local strtab = {
+		"Ta muèn nhËn phÇn th­ëng ng­êi ch¬i cò/get_old_award",
+		"Ta muèn rót th¨m Viªm Hoµng Thiªn §Şa/tiandi_choujiang",
+		"C¸c lo¹i phÇn th­ëng t­¬ng øng víi ng­êi ch¬i cò/about_old_award",
+		"Ta t¹m thêi kh«ng nhËn phÇn th­ëng/nothing"}
+	Say("<color=green>D· TÈu<color>: §· l©u kh«ng gÆp, ta vÉn nhí lÇn ®Çu gÆp ng­¬i, tuy vâ l©m phong ba biÕn ®æi liªn tôc nh­ng l·o ®©y vÉn nhí ng­¬i, ta ®· chuÈn bŞ vµi mãn ®å gi¸p, cã thÓ gióp ng­¬i hµnh hiÖp giang hå! Ta còng ®­îc gäi lµ Èn gi¶ trong giang hå, cã thÓ d¹y cho ng­¬i vµi chiªu!",
+		getn(strtab),
+		strtab)
 end
 
 function get_old_award()

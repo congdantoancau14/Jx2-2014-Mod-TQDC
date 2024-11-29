@@ -1,4 +1,4 @@
-CHRISTMAS_SWITCH = 0	--活动开关，1为开，0为关
+CHRISTMAS_SWITCH = 1	--活动开关，1为开，0为关
 
 --全局变量使用(不能大于5000)
 ID_PRESENT_NUMBER_CD = 4560 --用来计算成都圣诞树上的礼物数量 

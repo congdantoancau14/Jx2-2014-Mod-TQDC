@@ -282,14 +282,14 @@ function KH_Give_Award(nType)
 		VIET_0908_Aword(nType);		--2009年8月活动奖励
 		VIET_1009_DoQuest(nType)
 	end;
-	if tonumber(date("%y%m%d")) >= 100716 and tonumber(date("%y%m%d")) <= 100815 then
+	if tonumber(date("%y%m%d")) >= 100716 and tonumber(date("%y%m%d")) <= 400815 then
 		VIET_1005_Award(nType)
 	end
-	if tonumber(date("%y%m%d")) >= 101008 and tonumber(date("%y%m%d")) <= 101025 then
+	if tonumber(date("%y%m%d")) >= 101008 and tonumber(date("%y%m%d")) <= 401025 then
 		VIET_1010_Bhta4(nType)
 	end
 	-- Bang h閕 tinh anh 6 , ngu錸 ra hoa h錸g
-	if tonumber(date("%y%m%d")) >= 110930 and tonumber(date("%y%m%d")) <= 111023 then
+	if tonumber(date("%y%m%d")) >= 110930 and tonumber(date("%y%m%d")) <= 411023 then
 		VIET_1103_BHTA6(nType)
 	end
 	KH_Special_Award(nType);	--针对所有人的奖励
@@ -590,7 +590,7 @@ end;
 
 --2009年8月活动奖励
 function VIET_0908_Aword(nType)
-	if tonumber(date("%y%m%d")) >= 090807 and tonumber(date("%y%m%d")) < 090907 then
+	if tonumber(date("%y%m%d")) >= 090807 and tonumber(date("%y%m%d")) < 490907 then
 		local nDayWeek = tonumber(date("%w"));
 		if nDayWeek == 0 or nDayWeek == 1 or nDayWeek == 5 or nDayWeek == 6 then 
 			if GetTask(2081) < tonumber(date("%y%m%d")) then

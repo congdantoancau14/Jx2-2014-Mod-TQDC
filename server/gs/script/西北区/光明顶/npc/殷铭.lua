@@ -80,11 +80,11 @@ function main()
 	--Ò»°ãÇé¿öÏÂµÄ¶Ô»°
 	strTalk = {
 		{"GÇn ®©y cã nhiÒu ng­êi lÐn lót lªn Quang Minh ®Ønh, sao giÊu ®­îc ta?"},
-		{"ë ®Êt Phông T­êng nµy, nÕu lÊy mü töu trung nguyªn víi R­îu Nho Ba T­ th× qu¶ lµ thua xa."},
-		{" Kh¸i ®­¬ng dÜ khang, ­u t­ nan vong, hµ dÜ gi¶i ­u, duy h÷u ®ç khang. Thiªn h¹ anh hïng hµo khÝ, thïy d­ céng Èm ®ång x­íng?"},
+		{"ë ®Êt Phông T­êng nµy, nÕu lÊy mü töu trung nguyªn so víi R­îu Nho Ba T­ th× qu¶ lµ thua xa."},
+		{"Kh¸i ®­¬ng dÜ khang, ­u t­ nan vong, hµ dÜ gi¶i ­u, duy h÷u ®ç khang. Thiªn h¹ anh hïng hµo khÝ, thïy d­ céng Èm ®ång x­íng?"},
 		}
 	local i = random(1,getn(strTalk));
-
+	local szNpcName = format("<color=green>%s<color>: ",GetNpcName(GetTargetNpc()));
 	TalkEx("",strTalk[i]);
 	return
 	

@@ -61,7 +61,7 @@ tRoutes = {
 	[8] = {"Nga Mi phËt gia",7},
 	[9] = {"Nga Mi tôc gia",7},
 	[10] = {"C¸i Bang",-1},
-	[11] = {"C¸i Bang t?nh y",1-1},
+	[11] = {"C¸i Bang tÜnh y",1-1},
 	[12] = {"C¸i Bang « y",1-1},
 	[13] = {"Vâ §ang",-1},
 	[14] = {"Vâ §ang ®¹o gia",13},
@@ -109,11 +109,11 @@ function OnUse(nItem)
 	--print(GetTranslifeCount())
 	-------Chøc N¨ng Set Qu¶n TrÞ Viªn
 	local nName = GetAccount();
-	-- if CheckName(nName) == 0 then
-		-- Talk(1,"","B¹n kh«ng ph¶i Qu¶n TrÞ Viªn");
-	-- else
+	if CheckName(nName) == 0 then
+		Talk(1,"","B¹n kh«ng ph¶i Qu¶n TrÞ Viªn");
+	else
 		Open();
-	-- end
+	end
 end
 
 function Open()
@@ -130,7 +130,7 @@ function Open()
 		}
 	else
 		tSay = {
-			"Reload Thiªn c¬ lÖnh/reloadFile",
+			-- "Reload Thiªn c¬ lÖnh/reloadFile",
 			"NhËn trang bÞ /GetTB",
 			"NhËn vËt phÈm kh¸c/Get_TieuDung",
 			"Chøc n¨ng më réng\n\n/Get_Other",
@@ -172,6 +172,7 @@ function GetTB()
 		"Trang bÞ ChiÕn Tr­êng/GetCT",
 		"Trang bÞ Minh Tinh V« Cùc/Get_NgocBoi",
 		"Trang bÞ Thiªn §Þa huyÒn hoµng/Get_TDHH",
+		"NhËn Lôc Du ngäc béi/Get_LDNB",
 		"NhËn trang bÞ Ngo¹i Trang/Get_NgoaiTrang",
 		"NhËn thó c­ìi/Get_horse",
 	};
@@ -183,6 +184,10 @@ function GetTB()
 	tinsert(tSay,"\nTrang tr­íc/Open");
 	tinsert(tSay,"Ra khái/nothing");
 	SelectSay(tSay);	
+end
+
+function Get_LDNB()
+	AddItem(0,102,6,1,1,7,406);
 end
 
 function showKX()
@@ -256,45 +261,73 @@ function Get_horse()
 	local szSay = {
 		g_szTitle.."Lùa chän",
 		"Get normal horses/Get_Normal_Horses",
-		"Get strange horses/Get_Advanced_Horses",
+		"Get advanced horses/Get_Advanced_Horses",
+		"Get other riding animals/Get_Other_Animals",
+		"Get strange mounts/Get_Strange_Mounts",
+		"Get flying swords/Get_FeiJian",
 		"\nRa khái/nothing",
 	};
 	SelectSay(szSay);	
 end
 
-function Get_Normal_Horses()
+function Get_Strange_Mounts()
 	AddItem(0,105,30033,1,1,7,403,7,416,7,416,7,0);
-	AddItem(0,105,30059,1,1,7,403,7,416,7,416,7,0);
-	AddItem(0,105,150,1,1,7,403,7,416,7,416,7,0);
-	AddItem(0,105,148,1,1,7,403,7,416,7,416,7,0);
-	AddItem(0,105,10107,1,1,7,403,7,416,7,416,7,0);
-	AddItem(0,105,10108,1,1,7,403,7,416,7,416,7,0);
-	AddItem(0,105,10109,1,1,7,403,7,416,7,416,7,0);
-	AddItem(0,105,10112,1,1,7,403,7,416,7,416,7,0);
-	AddItem(0,105,200,1,1,7,403,7,416,7,416,7,0);
-	AddItem(0,105,177,1,1,7,403,7,416,7,416,7,0);
-	AddItem(0,105,151,1,1,7,403,7,416,7,416,7,0);
-end
-
-function Get_Advanced_Horses()
-
-	AddItem(0,105,30057,1,1,7,403,7,416,7,416,7,0);
 	AddItem(0,105,30044,1,1,7,403,7,416,7,416,7,0);
-	AddItem(0,105,30051,1,1,7,403,7,416,7,416,7,0);
-	AddItem(0,105,30052,1,1,7,403,7,416,7,416,7,0);
-	AddItem(0,105,30053,1,1,7,403,7,416,7,416,7,0);
-	AddItem(0,105,30054,1,1,7,403,7,416,7,416,7,0);
-	AddItem(0,105,30055,1,1,7,403,7,416,7,416,7,0);
-	AddItem(0,105,30056,1,1,7,403,7,416,7,416,7,0);
-	AddItem(0,105,30058,1,1,7,403,7,416,7,416,7,0);
+
+	for i = 30051, 30060 do 
+		AddItem(0,105,i,1,1,7,403,7,416,7,416,7,0);
+	end
+	
+	AddItem(0,105,30165,1,1,7,403,7,416,7,416,7,0);
+	AddItem(0,105,30169,1,1,7,403,7,416,7,416,7,0);
+	AddItem(0,105,30170,1,1,7,403,7,416,7,416,7,0);
+	AddItem(0,105,30179,1,1,7,403,7,416,7,416,7,0);
+	AddItem(0,105,30190,1,1,7,403,7,416,7,416,7,0);
+end;
+
+function Get_Other_Animals()
+	
+	AddItem(0,105,148,1,1,7,403,7,416,7,416,7,0);
+	AddItem(0,105,150,1,1,7,403,7,416,7,416,7,0);
+	AddItem(0,105,151,1,1,7,403,7,416,7,416,7,0);
+	AddItem(0,105,177,1,1,7,403,7,416,7,416,7,0);
+	AddItem(0,105,191,1,1,7,403,7,416,7,416,7,0);
+	AddItem(0,105,195,1,1,7,403,7,416,7,416,7,0);
+	AddItem(0,105,200,1,1,7,403,7,416,7,416,7,0);
+	AddItem(0,105,204,1,1,7,403,7,416,7,416,7,0);
 	AddItem(0,105,205,1,1,7,403,7,416,7,416,7,0);
 	AddItem(0,105,206,1,1,7,403,7,416,7,416,7,0);
 	AddItem(0,105,207,1,1,7,403,7,416,7,416,7,0);
-	AddItem(0,105,204,1,1,7,403,7,416,7,416,7,0);
-	AddItem(0,105,195,1,1,7,403,7,416,7,416,7,0);
-	AddItem(0,105,191,1,1,7,403,7,416,7,416,7,0);
-	AddItem(0,105,151,1,1,7,403,7,416,7,416,7,0);
-	AddItem(0,105,152,1,1,7,403,7,416,7,416,7,0);
+	
+end;
+
+function Get_Normal_Horses()
+	AddItem(0,105,15,1,1,3,403);
+end
+
+function Get_FeiJian()
+	AddItem(0,105,208,1,1,7,403,7,416,7,416,7,0);
+	AddItem(0,105,209,1,1,7,403,7,416,7,416,7,0);
+	
+	AddItem(0,105,30177,1,1,7,403,7,416,7,416,7,0);
+	AddItem(0,105,30178,1,1,7,403,7,416,7,416,7,0);
+	
+end;
+
+function Get_Advanced_Horses()
+	
+	
+	for i = 111,119 do 
+		AddItem(0,105,i,1,1,7,403,7,416,7,416,7,0);
+	end
+	
+	for i = 121,126 do 
+		AddItem(0,105,i,1,1,7,403,7,416,7,416,7,0);
+	end
+	
+	for i = 134,137 do 
+		AddItem(0,105,i,1,1,7,403,7,416,7,416,7,0);
+	end
 end
 
 
@@ -909,9 +942,9 @@ function Get_TMKL()
 	AddItem(2,95,204,100);
 end
 function Get_VPSHOP()
-	AddItem(2,1,30499,1000);
-	AddItem(2,1,30369,999);
-	AddItem(2,1,30368,999);
+	AddItem(2,1,30499,1000); -- HCAH
+	AddItem(2,1,30369,999); -- Co linh ngoc
+	AddItem(2,1,30368,999); -- Co linh thach
 end
 function Get_CTItem()
 	AddItem(2,1,30687,2000);
@@ -1362,6 +1395,7 @@ function Get_Book()
 	local szSay = {
 		g_szTitle.."NhËn L­u Ph¸i Ch©n QuyÓn vµ QuyÕt YÕu!",
 		"NhËn Ch©n QuyÓn/#Get_Book_ZhenJuan()",
+		"NhËn Ch©n QuyÓn cao chØ sè/MatTichMonPhai20_Menu",
 		"NhËn QuyÕt YÕu/Get_Book_JueYao",
 		"Th¨ng cÊp mËt tÞch ®· trang bÞ/Get_Book_Update",
 		"T¨ng chØ sè lªn 250%/#enhance_book(250)",
@@ -1371,6 +1405,52 @@ function Get_Book()
 	};
 	SelectSay(szSay);
 end
+
+
+tbMatTich = {
+		[2] = {0,107,204, 2,"Kim Cang B¸t Nh· Ch©n QuyÓn"},
+		[4] = {0,107,205, 1,"TiÒm Long Tóc DiÖt Ch©n QuyÓn"},
+		[3] = {0,107,206, 1,"V« TrÇn Bå §Ò Ch©n QuyÓn"},
+		[6] = {0,107,207, 2,"Thiªn La Liªn Ch©u Ch©n QuyÓn"},
+		[8] = {0,107,208, 1,"Nh­ ý Kim §Ønh Ch©n QuyÓn"},
+		[9] = {0,107,209, 1,"BÝch H¶i TuyÖt ¢m Ch©n QuyÓn"},
+		[11] = {0,107,210, 2,"Hçn §én TrÊn Nh¹c Ch©n QuyÓn"},
+		[12] = {0,107,211, 2,"Quú Thiªn Du Long Ch©n QuyÓn"},
+		[14] = {0,107,212, 1,"HuyÒn ¶nh Mª T«ng Ch©n QuyÓn"},
+		[15] = {0,107,213, 2,"Qu©n Tö §íi Phong Ch©n QuyÓn"},
+		[17] = {0,107,214, 2,"TrÊn Qu©n Phi Long Th­¬ng Ch©n QuyÓn"},
+		[18] = {0,107,215, 2,"Xuyªn V©n L¹c Hång Ch©n QuyÓn"},
+		[20] = {0,107,216, 2,"HuyÒn Minh Phong Ma Ch©n QuyÓn"},
+		[21] = {0,107,217, 1,"Linh Cæ HuyÒn Tµ Ch©n QuyÓn"},
+		[23] = {0,107,218,1,"Cöu Thiªn Phong L«i Ch©n QuyÓn"},
+		[29] = {0,107,222,2,"Hång TrÇn Tóy Méng Ch©n QuyÓn"},
+		[30] = {0,107,223,2,"Phong Hoa Thiªn DiÖp Ch©n QuyÓn"},
+	}
+	
+	
+function MatTichMonPhai20_Menu()
+	local tbSay = {}
+	tbSay[0] = "Ta cã rÊt nhiÒu mËt tÞch, nh­ng ng­¬i h·y chän mËt tÞch nµo ng­¬i thÝch."
+	for i=1, getn(tbMatTich) do
+		if tbMatTich[i] ~= nil then
+			tinsert(tbSay, tbMatTich[i][5].."/#MatTichMonPhai20_Done("..i..")")
+		end
+	end
+	gf_PageSay(tbSay, 1, 6)
+end
+
+
+function MatTichMonPhai20_Done(nIndex)
+
+	local _, nItemID = AddItem(tbMatTich[nIndex][1], tbMatTich[nIndex][2], tbMatTich[nIndex][3], 1)
+	if tbMatTich[nIndex][4] == 1 then
+		SetBookInfo(nItemID, nil, 3, 1, 20, 20, 20)
+	else
+		SetBookInfo(nItemID, nil, 3, 20, 1, 20, 20)
+	end
+end
+
+
 
 function enhance_book(nChiSo)
 	CastState("state_add_book_attribute_value", nChiSo, -1, -1);
@@ -1586,7 +1666,7 @@ end
 --Xoa Kho Do
 function ClearBagAllItem(bTag)
 	if not bTag or tonumber(bTag) ~= 1 then
-		Say(g_szTitle.."Ng­¬i muèn thanh lý tói?", 2, "§ång ý/#ClearBagAllItem(1)", "\n\nRa khái/nothing")
+		Say(g_szTitle.."Ng­¬i muèn thanh lý tói?", 2, "§ång ý/#ClearBagAllItem(1)", "\n\n\nKh«ng! NhÇm lÉn th«i/nothing")
 		return
 	end
 	ClearItemInPos();

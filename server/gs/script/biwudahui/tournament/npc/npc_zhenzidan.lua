@@ -66,6 +66,8 @@ function main_bwdh()
 				--"ÁìÈ¡ÉÏÖÜ±ÈÎä´ó»á½±Àø/BWT_GetAward",
 				--"ÓÃ±ÈÎä´ó»áÁîÅÆ»»È¡½±Àø/xunzhang_award",
 				--"µ¥ÈË±ÈÎäÔöÖµ·şÎñÉèÖÃ/GLB_BW_Services_Set",
+				"Dïng tØ vâ ®¹i héi bµi ®æi th­ëng/xunzhang_award",
+				"Cµi ®Æt ®¬n ®Êu/GLB_BW_Services_Set",
 				"PhÇn th­ëng §¹i Héi Tû Vâ/main_bwdh_award",
 				"Phæ biÕn §¹i héi tû vâ/know_detail",
 				"Kh«ng cã g×!/nothing",
