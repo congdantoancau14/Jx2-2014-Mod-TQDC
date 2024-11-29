@@ -110,7 +110,7 @@ end;
 nPageOut = 1;
 
 function showThingsOut(nNav)
-	if nNav == nil or nNav == 0 then
+	if nNav == nil then
 		nNav = 0;
 		nPageOut = 1;
 	end

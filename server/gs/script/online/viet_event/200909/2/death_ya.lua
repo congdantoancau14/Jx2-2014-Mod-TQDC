@@ -10,15 +10,10 @@ function OnDeath(nNpcIndex)
 		-- AddItem(2,1,30368,2);
 		-- AddItem(2,1,30369,2);
 		-- AddItem(2,1,30499,2);
-		-- WriteLogEx("Ho¹t §éng Th?t N­íng","nhËn",2,"nguyªn liÖu mçi lo¹i");
+		-- WriteLogEx("Ho¹t §éng ThÞt N­íng","nhËn",2,"nguyªn liÖu mçi lo¹i");
 	-- end
-	AddItem(2,1,30128,2) -- ®ïi v?t
-	if random(10) == 1 then
-		AddItem(2,1,1156,1) -- nghÞch l©n
-	end
-	if random(1,100) == 1 then
-		AddItem(2,1,1157,1) -- §Êu hån
-	end
+	AddItem(2,1,30128,2) -- ®ïi vÞt
+	GiveNghichLanDauHon();
 	
 	if random(1,100) < 15 then
 		AddItem(2,1,394,1) -- b¸nh ?t n?p

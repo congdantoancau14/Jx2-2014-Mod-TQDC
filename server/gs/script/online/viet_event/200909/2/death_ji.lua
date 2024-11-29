@@ -15,12 +15,7 @@ function OnDeath(nNpcIndex)
 	
 	AddItem(2,1,30127,2) -- 2 chan ga
 	AddItem(1,3,2,5) -- thit ga
-	if random(10) == 1 then
-		AddItem(2,1,1156,1) -- nghÞch l©n
-	end
-	if random(1,100) == 1 then
-		AddItem(2,1,1157,1) -- §Êu hån
-	end
+	GiveNghichLanDauHon()
 	
 	if random(1,100) < 15 then
 		AddItem(2,1,394,1) -- B¸nh it nªp

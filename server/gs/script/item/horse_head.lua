@@ -6,6 +6,10 @@ nSavedP = 0;
 STATE_RIDED = 1
 STATE_UNRIDED = 0
 
+
+--szHorseModel = "thi’t d≠¨ng";
+szHorseModel = "L∑nh qu©n t≠Óng binh m∑";
+
 tHorses = {
 	{"Ki÷u Hoa","ki÷u"},
 	{"Ni™n ThÛ","ni™n thÛ to lÌn"},
@@ -63,7 +67,8 @@ tHorses = {
 	{"Bπch D≠¨ng","thi’t d≠¨ng"},
 	{"Long M∑","ßπi long"},
 	{"Bﬂ","mao ng≠u"},
-	{"ThÛ MÈt Sıng","thi’t d≠¨ng"},
+	{"ThÛ MÈt Sıng",szHorseModel},
+	{"Kim Ng‰c T≠Íng","ti”u ∏p"},
 }
 
 function GetRidingState()
@@ -96,11 +101,14 @@ function OnUnEquipCallBack(nItemIndex, nRidingStateAdd)
 	
 	local nG, nD, nP	= GetItemInfoByIndex(nItemIndex);
 	
+	--print("nRidingState:"..nRidingState);
 	if nRidingState == 1 then 
 		RestoreCarry()
 		
 		local szItemName = GetItemName(nG, nD, nP);
 		local index = search(szItemName);
+		--print("horse_head.lua>>OnUnEquipCallBack:"..index..szItemName);
+
 		summonHorse(index,szItemName);
 		nRidingState = nRidingState + nRidingStateAdd;
 		
@@ -108,6 +116,7 @@ function OnUnEquipCallBack(nItemIndex, nRidingStateAdd)
 		nSavedD = nD;
 		nSavedP = nP;
 		szSaveHorseName = szItemName;
+
 	elseif nRidingState == 0 then
 		KillFollower();
 		nRidingState = nRidingState + nRidingStateAdd;
@@ -131,8 +140,9 @@ function summonHorse(index,szItemName)
 	if index ~= 0 then 
 		szHorse = tHorses[index][2];
 	else
-		szHorse = "Thi’t d≠¨ng";
+		szHorse = szHorseModel;
 	end
+	--print("horse_head.lua::summonHorse>>szHorse:"..szHorse);
 	SummonNpc(szHorse,szItemName);
 end;
 
@@ -203,7 +213,7 @@ function releaseHorse(index,szItemName)
 	if index ~= 0 then 
 		szHorse = tHorses[index][2];
 	else
-		szHorse = "Thi’t d≠¨ng";
+		szHorse = szHorseModel;
 	end
 
 	local nIndex = GetFollower();

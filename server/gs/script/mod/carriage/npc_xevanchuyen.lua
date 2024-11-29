@@ -21,8 +21,8 @@ function main()
 	
 	local tbSay = {
 		"\n>> ChÊt lªn khay/putintray",
-		"\n>> ChÊt ®å lªn xe/#showThingsIn(0)",
-		"\n>> Dì ®å xuèng xe/#showThingsOut(0)",
+		"\n>> ChÊt ®å lªn xe/showThingsIn",
+		"\n>> Dì ®å xuèng xe/showThingsOut",
 		"\n>> §Ëy n¾p thïng xe/nothing",
 	}
 	Say(szHead,getn(tbSay),tbSay);
@@ -72,7 +72,7 @@ end
 nPageIn = 1;
 
 function showThingsIn(nNav)
-	if nNav == nil or nNav == 0 then
+	if nNav == nil then
 		nNav = 0;
 		nPageIn = 1;
 	end

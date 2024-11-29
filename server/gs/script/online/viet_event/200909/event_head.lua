@@ -373,6 +373,17 @@ tb_VIET_0909_YUTUXIANG = {
 
 VIET_0909_LOG_TITLE = "[Hoat dong trung thu 2009]";
 
+function GiveNghichLanDauHon()
+	if random(10) == 1 then
+		--AddItem(2,1,1156,1) -- nghﬁch l©n
+		gf_AddItemEx2({2,1,1156,1},"Nghﬁch l©n","Hoat dong Tet Nguyen Dan","gi’t thÛ",15*24*3600);
+	end
+	if random(1,100) == 1 then
+		--AddItem(2,1,1157,1) -- ß u hÂn
+		gf_AddItemEx2({2,1,1157,1},"ß u hÂn","Hoat dong Tet Nguyen Dan","gi’t thÛ",15*24*3600);
+	end
+end;
+
 --¡Ï»°…œœﬂΩ±¿¯
 function Viet0909_Give_ShangXian_Aword()
 	if tonumber(date("%y%m%d")) < 090918 or tonumber(date("%y%m%d")) >= 491026 then

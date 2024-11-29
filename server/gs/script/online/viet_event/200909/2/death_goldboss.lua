@@ -32,7 +32,9 @@ function OnDeath(nNpcIndex)
 		Msg2Player("Hµnh trang qu¸ ®Çy, kh«ng thÓ nhËn th­ëng!");
 		return 0;
 	end
-	AddItem(2,1,1157,1) -- §Êu hån
+	
+	--AddItem(2,1,1157,1) -- §Êu hån
+	gf_AddItemEx2({2,1,1157,1},"§Êu hån","Hoat dong Tet Nguyen Dan","giÕt gia cÇm hoµng kim",15*24*3600);
 	
 	local nRand = GetRandByID(tb_GoldBoss_Award);
 	local nRet, nItemIdx = gf_AddItemEx2(tb_GoldBoss_Award[nRand][3],tb_GoldBoss_Award[nRand][1],"Hoat dong Tet Nguyen Dan","giÕt gia cÇm hoµng kim",tb_GoldBoss_Award[nRand][4])

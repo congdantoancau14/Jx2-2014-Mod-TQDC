@@ -129,6 +129,7 @@ DIRECT_TAKEOUT = 2;
 
 
 function xb_generateNavigation(nStoreId,nPage,nNav,t,nAction)
+--print("page"..nPage);
 	local nMaxItems = getn(t);
 	
 	--------------- Empty ---------------
@@ -207,6 +208,7 @@ function xb_generateNavigation(nStoreId,nPage,nNav,t,nAction)
 	tinsert(tbSay,tbFunctions[nStoreId][nAction][5]);
 	-- show dialog
 	Say(szHead,getn(tbSay),tbSay);
+	--print("page"..nPage);
 	return nPage;
 end;
 

@@ -56,6 +56,7 @@ function OpenThienCo()
 	local tSay = {}
 
 	tSay = {
+		--"fhoidshga/test",
 		"Reload gm_item_tifuzhiyin/#reloadFile(2)",
 		-- "Save reload_file script/#reloadFile(5)",
 		-- "Reload target file/reloadTargetFile",
@@ -83,12 +84,20 @@ function OpenThienCo()
 	Say(g_szTitle.."Lùa chän chøc n¨ng", getn(tSay), tSay);
 end
 
+function test()
+
+	CreateNpc("L·nh qu©n t­îng binh m·","Ngùa",GetWorldPos());
+
+
+	--SummonNpc("Ma Ni T¨ng");
+
+end;
 
 tCastState = {
-	{"state_p_attack_point_add","Ngo¹i c«ng t¨ng",100000000},
-	{"state_m_attack_point_add","Néi kÝch t¨ng",100000000},
-	{"state_damage_point","S¸t th­¬ng t¨ng",100000000},
-	{"state_max_carry_point_add","Søc lùc t¨ng",100000},
+	{"state_p_attack_point_add","Ngo¹i c«ng t¨ng",1000000,5},
+	{"state_m_attack_point_add","Néi kÝch t¨ng",1000000,5},
+	{"state_damage_point","S¸t th­¬ng t¨ng",1000000,5},
+	{"state_max_carry_point_add","Søc lùc t¨ng",20000,60},
 }
 
 function changeState()
@@ -189,7 +198,7 @@ function turn_off_effect()
 end;
 
 function increase_attack(nIndex)
-	local nTime = 60*3;
+	local nTime = 60*tCastState[nIndex][4];
 	CastState(tCastState[nIndex][1],tCastState[nIndex][3],18*nTime)
 	StartTimeGuage(tCastState[nIndex][2],nTime)
 end;

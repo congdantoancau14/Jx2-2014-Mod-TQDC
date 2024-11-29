@@ -1,12 +1,15 @@
 Include("\\script\\online_activites\\silingmount\\string.lua")
+Include("\\script\\item\\horse_head.lua");
 
-function OnEquip(item)
+function OnEquip(nItemIndex)	
+	OnEquipCallBack(nItemIndex, 1);
 	CleanInteractive();
 	InteractiveEnable(0);
 	return 0
 end
 
-function OnUnEquip(item)
+function OnUnEquip(nItemIndex)
+	OnUnEquipCallBack(nItemIndex, -1);
 	InteractiveEnable(1);
 	return 0
 end

@@ -20,7 +20,7 @@ SKILL = {
 
 	SKILL_LEVEL_MISSLE_ATTRIB =	--技能等级相关子弹属性
 	{
-	{"missle_vanish_after_collide",{{1,0},{2,300},{3,0},{9,0}}},
+	{"missle_vanish_after_collide",{{1,0},{2,100},{3,0},{9,0}}},
 	},
 
 	--魔法属性

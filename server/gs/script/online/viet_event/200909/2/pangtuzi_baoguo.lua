@@ -67,7 +67,6 @@ function main()
 	
 	local nSelfIndex = GetTargetNpc()
 	SetNpcLifeTime(nSelfIndex, 0)	
-
 	SetTask(GET_PANGTUZI_ID, SetByte(nTaskVal,2,GetByte(nTaskVal,2) + 1))
 	SetTask(GET_PANGTUZI_TIME_ID,GetTime())
 	local nExp, nRep, nRep1, nFaction, nFaction1 = 5000000, 5, 2, 5, 2
@@ -83,7 +82,7 @@ function main()
 			{"Th×t dª",1,{2,1,30998,1},0},
 			{"Th×t heo",1,{2,1,257,1},0},
 			{"Th×t Heo Ngon",1,{2,1,31304,1},0},
-			{"Th×t l¹c ®µ",1,{2,1,524,1},0},
+			--{"Th×t l¹c ®µ",1,{2,1,524,1},0},
 			{"Th×t L¹p",1,{2,1,31081,1},0},
 			{"Th×t Ngçng",1,{2,1,30996,1},0},
 			{"Th×t Nguéi",1,{2,1,30586,1},0},
@@ -118,7 +117,9 @@ function main()
 	end
 	
 	-- doi 45 gi©y míi cã thÓ ¨n ®­îc n÷a	
-	StartTimeGuage("ThÞt N­íng",45,0,1)	
+	local szNPCName = GetNpcName(nSelfIndex);
+	StartTimeGuage(szNPCName,45,0,1) --StartTimeGuage("ThÞt N­íng",45,0,1)	
+	
 		
 	if GetTask(TSK_THONUONG_ACCEPT) == 1 then
 		set_task_thonuong(BYTE_COUNT_COLLECT, get_task_thonuong(BYTE_COUNT_COLLECT) + 1)
