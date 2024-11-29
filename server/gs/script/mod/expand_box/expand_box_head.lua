@@ -180,6 +180,7 @@ function xb_generateNavigation(nStoreId,nPage,nNav,t,nAction)
 		,nPage,nPages,nMaxItems,nBegin,nEnd);
 	-- put/take one item
 	for i = nBegin, nEnd do 
+		--print(i,nEnd)
 		tinsert(tbSay,format(tbFunctions[nStoreId][nAction][2],i,t[i][1],t[i][3],i));
 	end
 	-- insert last page empty lines
@@ -302,7 +303,7 @@ function xb_putthispage(tItems,nBegin,nEnd,nStoreId,szStoreFileName)
 		insertrowtodata(object,nStoreId,szStoreFileName);
 		Msg2Player(format(tbMessages[nStoreId].putonein,tItems[i][1],tItems[i][3]));
 	end
-	showThingsIn(0);
+	showThingsIn(-1);
 end;
 
 function xb_putonein(tItems,nInTableItemIndex,nStoreId,szStoreFileName)
@@ -362,10 +363,17 @@ function xb_takethispage(nBegin,nEnd,nStoreId,szStoreFileName)
 		
 		if nEnd > getn(TB_ITEMS) then 
 			nEnd = getn(TB_ITEMS);
-			i = 1;
+			i = nBegin;
+		end
+		
+		if i > nEnd then
+			break;
 		end
 		
 		local object = TB_ITEMS[i];
+		if object == nil then
+			print(i,nEnd)
+		end
 		local nResult, nItemIndex = AddItem(object[2][1],object[2][2],object[2][3],object[3]);
 		if  object[5] and tonumber(object[5]) ~= nil and tonumber(object[5]) > 0 then 
 			SetItemExpireTime(nItemIndex,object[5]);
@@ -373,7 +381,7 @@ function xb_takethispage(nBegin,nEnd,nStoreId,szStoreFileName)
 		RemoveItemFromFile(object,nStoreId,szStoreFileName);
 
 	end
-	showThingsOut(0);
+	showThingsOut(-1);
 end;
 
 function xb_takeoneout(nInTableItemIndex,nStoreId,szStoreFileName)
@@ -562,12 +570,18 @@ function RemoveItemFromFile(tItem,nStoreId,szStoreFileName)
 	return result;
 end;
 
-
+-- take all out action
 function erasedata(nStoreId,szStoreFileName)
 	generateItemFilePath(WRITE_FILE,nStoreId,szStoreFileName);
 	local file = openfile(ITEM_FILEPATH, "w")
 	write(file,"");
 	closefile(file)
+	
+	local string = tableofobjectstostring(TB_ITEMS);
+	local logfile = openfile(ITEM_LOG_FILEPATH, "a+")
+	local timenow = date("%y%m%d%H%M%S");
+	write(logfile,"takeallout:"..timenow..":\n"..string);
+	closefile(logfile);
 end;
 
 function overwritedata_original(nStoreId,szStoreFileName)
@@ -579,18 +593,32 @@ function overwritedata_original(nStoreId,szStoreFileName)
 	closefile(file)
 end;
 
+-- takeout action
 function overwritedata(nStoreId,szStoreFileName)
 	generateItemFilePath(WRITE_FILE,nStoreId,szStoreFileName);
-	local file = openfile(ITEM_FILEPATH, "w")
-	write(file,tableofobjectstostring(TB_ITEMS));
+	local file = openfile(ITEM_FILEPATH, "w");
+	local string = tableofobjectstostring(TB_ITEMS);
+	write(file,string);
 	closefile(file)
+	
+	local logfile = openfile(ITEM_LOG_FILEPATH, "a+")
+	local timenow = date("%y%m%d%H%M%S");
+	write(logfile,"takeout:"..timenow..":\n"..string);
+	closefile(logfile);
 end;
 
+-- putin action
 function inserttabletodata(table,nStoreId,szStoreFileName)
 	generateItemFilePath(WRITE_FILE,nStoreId,szStoreFileName);
-	local file = openfile(ITEM_FILEPATH, "a+")
-	write(file,tableofobjectstostring(table));
+	local file = openfile(ITEM_FILEPATH, "a+");
+	local string = tableofobjectstostring(table);
+	write(file,string);
 	closefile(file)
+	
+	local logfile = openfile(ITEM_LOG_FILEPATH, "a+")
+	local timenow = date("%y%m%d%H%M%S");
+	write(logfile,"putin:"..timenow..":\n"..string);
+	closefile(logfile);
 end;
 
 function insertrowtodata(object,nStoreId,szStoreFileName)
@@ -610,20 +638,27 @@ function generateItemFilePath(nAction, nStoreId, szStoreFileName)
 	end
 	
 	if nStoreId == nil or nStoreId == 0 or nStoreId == 1 then 
-		if nAction == nil or nAction == 0 or nAction == 1 then
+		if nAction == nil or nAction == 0 or nAction == 1 then		-- write to file
 			ITEM_FILEPATH = "data/expand_box/"..file_name..".txt";
-		else
+			ITEM_LOG_FILEPATH = "data/logs/expand_box/"..file_name..".txt";
+		else														-- read from file
 			ITEM_FILEPATH = "\\data\\expand_box\\"..file_name..".txt";
+			--ITEM_LOG_FILEPATH = "\\data\\logs\\expand_box\\"..file_name..".txt";
 		end
 	else
 		if nAction == nil or nAction == 0 or nAction == 1 then
 			ITEM_FILEPATH = "data/carriage/"..file_name..".txt";
+			ITEM_LOG_FILEPATH = "data/logs/carriage/"..file_name..".txt";
 		else
 			ITEM_FILEPATH = "\\data\\carriage\\"..file_name..".txt";
+			--ITEM_LOG_FILEPATH = "\\data\\logs\\carriage\\"..file_name..".txt";
 		end
 	end
 	
+	
+	
 	-- print(ITEM_FILEPATH);
+	-- print("ITEM_LOG_FILEPATH",ITEM_LOG_FILEPATH);
 end;
 
 
@@ -657,21 +692,21 @@ function getListFromFile()
 		end
 	end
 	-- print("k",k);
-	TabFile_Unload(ITEM_FILEPATH); -- THIS IS VERY IMPORTANT COMMAND !!! REMEMBER IT!!!
+	TabFile_Unload(ITEM_FILEPATH); -- THIS IS VERY IMPORTANT COMMAND !!! PLEASE TAKE NOTICE THAT AND REMEMBER IT!!!
 	return tData, k;
 end;
 
 
 function init(nStoreId, szStoreFileName)
-	print("expand_box >> init >> szStoreFileName",szStoreFileName)
+	--print("expand_box >> init >> szStoreFileName",szStoreFileName)
 	generateItemFilePath(READ_FILE,nStoreId,szStoreFileName)
 	TB_DATAITEMS = {}
 	TB_DATAITEMS = new(KTabFile, ITEM_FILEPATH);
 	TB_ITEMS, ITEM_COUNT = getListFromFile();
-	print("nStoreId:",nStoreId);
-	print("ITEM_FILEPATH",ITEM_FILEPATH)
-	print("TB_ITEMS",getn(TB_ITEMS))
-	print("ITEM_COUNT",ITEM_COUNT)
+	--print("nStoreId:",nStoreId);
+	--print("ITEM_FILEPATH",ITEM_FILEPATH)
+	--print("TB_ITEMS",getn(TB_ITEMS))
+	--print("ITEM_COUNT",ITEM_COUNT)
 end
 
 

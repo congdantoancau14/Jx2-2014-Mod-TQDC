@@ -5,8 +5,12 @@ Include("\\script\\online_activites\\task_values.lua")
 
 function main()
 	if GetTime() - GetTask(Pre_Click_Time2) < Click_Space_time then
-		--Msg2Player(format("Thêi gian CD nhÊp vµo B¶o R­¬ng lµ %d gi©y",Click_Space_time));
-		return 0;
+		if DelItem(2,97,236,1) == 1 then -- Thiªn kiªu lÖnh
+			Msg2Player("§· dïng 1 Thiªn kiªu lÖnh më B¶o R­¬ng");
+		else
+			Msg2Player(format("Thêi gian CD nhÊp vµo B¶o R­¬ng lµ %d gi©y",Click_Space_time));
+			return 0;
+		end
 	end
 	if LSB_Check_LR() == 0 then
 			return 0;

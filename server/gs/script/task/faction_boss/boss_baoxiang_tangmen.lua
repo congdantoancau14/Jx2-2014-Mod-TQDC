@@ -48,7 +48,7 @@ function main()
 	AddUnitStates(nCurNpcIndex, 0, 100)		-- ¥À∂Œ∑¿À¢
 	
 	
-	if (nLastGetTaskDate < nCurDay) then	-- ΩÒÃÏªπ√ª”–¡Ï»°»ŒŒÒ
+	if (nLastGetTaskDate < nCurDay) and GetItemCount(2,1,29000) < 1  then	-- ΩÒÃÏªπ√ª”–¡Ï»°»ŒŒÒ
 		Say("Bπn v…n ch≠a b∏o danh tham gia cao thÒ thÒ thˆ luy÷n, tÛi quµ nµy kh´ng th” nhÀn.", 0)
 		AddUnitStates(nCurNpcIndex, 0, -100)		-- ¥À∂Œ∑¿À¢
 		return
@@ -65,7 +65,7 @@ function main()
 	
 	-- ΩÒÃÏ“—æ≠º»°¡À“ª∏ˆ
 	local nCanGotBox = GetTask(TASK_ID_HAVE_GOT_TODAY)
-	if (nCanGotBox == 0) then
+	if (nCanGotBox == 0) and GetItemCount(2,1,29000) < 1 then
 		Say("Xin lÁi, h´m nay bπn Æ∑ nhÀn quµ rÂi kh´ng th” nhÀn th™m.", 0)
 		AddUnitStates(nCurNpcIndex, 0, -100)		-- ¥À∂Œ∑¿À¢
 		return

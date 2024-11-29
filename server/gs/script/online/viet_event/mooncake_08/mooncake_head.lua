@@ -5,8 +5,8 @@
 
 SWITCH_08_MOONCAKE_VIET	= 1;
 
-DATE_08_MOONCAKE_VIET_START	= 2008090500;			-- 中秋活动开始日期
-DATE_08_MOONCAKE_VIET_END	= 2048100600;			-- 中秋活动结束日期
+DATE_08_MOONCAKE_VIET_START	= 09;			-- 中秋活动开始日期
+DATE_08_MOONCAKE_VIET_END	= 10;			-- 中秋活动结束日期
 
 TOTALEXP_08_MOONCAKE_VIET = 2455					--记录使用月饼获得的总共的经验
 FIRE_TIME_08_MOONCAKE_VIET = 2456					--记录点火(生成火炉)的时间
@@ -28,7 +28,7 @@ szLogTrungThuName = "Hoat Dong Trung Thu"
 
 --中秋活动开放返回1，关闭返回0
 function is_mooncake_viet_open()
-	local nDate = tonumber(date("%Y%m%d%H"));
+	local nDate = tonumber(date("%m"));
 	if nDate >= DATE_08_MOONCAKE_VIET_START and nDate < DATE_08_MOONCAKE_VIET_END then
 		return SWITCH_08_MOONCAKE_VIET;
 	else

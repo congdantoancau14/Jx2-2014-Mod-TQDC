@@ -260,9 +260,12 @@ function manageTasks()
 		-- "Skip tasks/main_task_skipper",
 		"TiÕn vµo Tµng KiÕm s¬n trang/goTangKiem",
 		"Khëi ®éng lß n­íng/showlistLoNuong",
+		"Khëi ®éng Tø linh ®Ønh/startTiaozhanSiling",
 		format("Thªm %d §µn H­¬ng méc vµo Tø Linh ®Ønh/#addTanXiangMu(%d)",50,50),
 		"Khëi ®éng nhiÖm vô hµnh c­íc/createCollecEvent",
 		"Khëi ®éng S¸t thñ ®­êng/startKillerHall",
+		"Khëi ®éng Cao thñ s­ m«n/#call_faction_bt_boss(0,0,0,1)",
+		"Khëi ®éng Boss Hoµng Kim/callGoldenBoss",
 		"Khëi ®éng §Êu tr­êng tuyÕt/startSnowWar",
 		"Khëi ®éng C«ng thµnh chiÕn/startGongCheng",
 		--"Khëi ®éng B¶o hé tµi nguyªn/conf_res_protect_info",
@@ -278,6 +281,34 @@ function manageTasks()
 		}
 	tinsert(tSay, "Tho¸t/nothing")
 	Say(g_szTitle.."Lùa chän chøc n¨ng", getn(tSay), tSay);
+end;
+
+function startTiaozhanSiling()
+	local nRandom = random(1,5)
+	local VET_201008_02_STR_SILINGDING_CITY_NAME = {
+		[0] = "Tø linh ®Ønh ®· xuÊt hiÖn t¹i %s, ch­ vÞ ®¹i hiÖp h·y chuÈn bÞ khiªu chiÕn BOSS tø linh",
+		[1] = "Long TuyÒn Th«n",
+		[2] = "V©n Méng Tr¹ch",
+		[3] = "§«ng BiÖn Kinh",
+		[4] = "T©y TuyÒn Ch©u",
+		[5] = "B¾c TuyÒn Ch©u",
+	};
+	msg = format(VET_201008_02_STR_SILINGDING_CITY_NAME[0],VET_201008_02_STR_SILINGDING_CITY_NAME[nRandom])
+    --OutputMsg(format(msg));
+	AddGlobalNews(msg,1)
+    tianzhansilingboss(nRandom);
+end;
+
+function callGoldenBoss()
+	local Random1 = random(8)
+          Random2 = random(5)
+          Random3 = random(2)
+	
+	  world1 = Random1+1
+	  world2 = Random2+101
+	  world3 = Random3+201
+	  
+	  createBoss(world1,world2,world3);
 end;
 
 function addTanXiangMu(nQuantity)
@@ -399,10 +430,20 @@ function getNPCInfo()
 		local file = openfile("npcinfo.lua", "a+")
 		write(file,sMessage)
 		closefile(file)
-		print(script);
+		print(sMessage);
 		PlaySound("\\sound\\sound_i016.wav");
 		SetCurrentNpcSFX(PIdx2NpcIdx(),905,0,0)
 	end
 end 
 
 
+
+function LM_StartTimeGuage(szInfo, nDuration, bRepeat, nCustomID, tbPlayer)
+	if tbPlayer == nil then --Ä¬ÈÏÊÇËùÓÐÍæ¼Ò
+		tbPlayer = mf_GetMSPlayerIndex(MISSION_ID, ALL_CAMP);
+	end;
+	local funTimeGuage = function(tbArg)
+		StartTimeGuage(%szInfo,%nDuration,%bRepeat,%nCustomID);
+	end;
+	gf_OperatePlayers(tbPlayer,funTimeGuage,{})
+end;

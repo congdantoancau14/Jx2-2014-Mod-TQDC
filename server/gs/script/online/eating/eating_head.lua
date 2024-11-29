@@ -36,7 +36,7 @@ ET_ItemsTable = {
 	{"Méc Lan Xu©n",{1,1,18},18,2},
 	{"T©y B¾c Väng",{1,1,19},19,2},
 	
-	{"B¸nh n­íng",{2,1,35},2,1},
+	{"B¸nh n­íng",{2,1,35},3,1},
 	{"Thiªu töu",{2,1,12},1,2},
 
 	{"Hå l«",{2,1,29009},10,2,1},
@@ -45,7 +45,7 @@ ET_ItemsTable = {
 	{"NghÜa KhÝ Töu",{2,95,925},9,2},
 	{"ThÇn Nh­ìng Tóy B¸n Tiªn",{2,96,29},29,2},
 	{"Minh M¹ng Chi Töu",{2,1,30587},30,2},
-	{"BÇu r­îu da dª",{2,1,60},10,2},
+	{"BÇu r­îu da dª",{2,1,60},6,2},
 	{"R­îu T©y Phông",{2,1,1401},14,2},
 	{"R­îu hå l«",{2,1,1414},14,2},
 	{"R­îu Nho",{2,1,30841},30,2},
@@ -187,7 +187,7 @@ function ET_OnTimerReset()
 end;
 
 function ET_OnTimerResetSleep()
-	local nVolume = GetTask(TE_TASK_SLEEP_VOLUME)
+	local nVolume = getSleepVolume(1);
 	print(GetName().." GetTask(TE_TASK_SLEEP_VOLUME)",GetTask(TE_TASK_SLEEP_VOLUME))
 	if nVolume < FULL_VOLUME_SLEEP then 
 		SetTask(TE_TASK_STATE_SLEPT,0);
@@ -245,6 +245,7 @@ function ET_OnGetup()
 	else
 		SetTask(TE_TASK_SLEEP_VOLUME, nTotalVolume )
 		nVolume = floor(nVolume);
+		nTotalVolume = floor(nTotalVolume);
 		if check_slept() == 0 then
 			Msg2Player("LÇn nµy c¸c h¹ ®· ngñ ®­îc "..nVolume.." phót. Céng thªm lÇn tr­íc "..nLastVolume
 				..". Tæng thêi gian lµ: "..nTotalVolume.." phót"

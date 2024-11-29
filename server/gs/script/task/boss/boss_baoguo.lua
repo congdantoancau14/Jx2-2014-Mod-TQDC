@@ -18,19 +18,19 @@ function main()
 		gf_SetTaskByte(TSK_GET_ITEM_TIME, TSK_GET_ITEM_COUNT_BYTE, 0)
 	end
 	
-	if gf_GetTaskByte(TSK_GET_ITEM_TIME, TSK_GET_ITEM_COUNT_BYTE) >= 4 then
+	if gf_GetTaskByte(TSK_GET_ITEM_TIME, TSK_GET_ITEM_COUNT_BYTE) >= 4 and GetItemCount(2,1,29000) < 1   then
 		Talk(1,"","Mçi ngµy chØ cã thÓ nhÆt tèi ®a 4 tói")
 		return 0
 	end
 	
 	local nWait = 300 - (GetTime() - GetUnitCurStates(npcIndex, 6))
-	if nWait > 0 then
+	if nWait > 0  and GetItemCount(2,1,29000) < 1  then
 		Talk(1,"","Cßn "..nWait.." gi©y míi cã thÓ nhÆt tói!")
 		return 0
 	end
 	
 	local nDelay = 5 - (GetTime() - GetTask(2278))
-	if nDelay > 0 then
+	if nDelay > 0  and GetItemCount(2,1,29000) < 1  then
 		Talk(1,"","Sau "..nDelay.." gi©y míi cã thÓ nhÆt tói tiÕp theo!")
 		return 0
 	end

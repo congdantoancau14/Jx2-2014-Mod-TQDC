@@ -4,7 +4,7 @@ MISSION_ID = 51;									--Mission的ID
 TIMER_ID = 80;										--计时器的ID
 LOG_ID = 3002;										--登陆触发器ID
 LOG_CUSTOM_ID = 2501;								--登陆触发器自定义编号
-MAP_ID = {
+SILING_MAP_ID = {
     [1] = {106,1466,3071}, --龙泉村
     [2] = {151,1481,2961}, --云梦泽
     [3] = {205,1670,3015}, --汴京府东
@@ -68,7 +68,7 @@ function MS_EndMission()
     SetMissionV(MV_MISSION_STATE,MS_STATE_IDEL);
     StopMissionTimer(MISSION_ID,TIMER_ID);
     StartMissionTimer(MISSION_ID,TIMER_ID,ENDING_TIMER_INTERVAL*FRAME_PER_MIN);
-    mf_ClearMissionData(MAP_ID[nRandom][1]);
+    mf_ClearMissionData(SILING_MAP_ID[nRandom][1]);
     --SetGlbValue(1001,0)
 end;
 
@@ -120,7 +120,7 @@ function MS_ProcessEndingTimer()
                 local nRandom = random(1,4)
                 Msg2Global(VET_201008_02_TB_STR_LIST[21])
                 --print("//////////////*******************\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\")
-                nNpcIndex = CreateNpc(VET_201008_02_TB_BOSS_LIST[nRandom][1],VET_201008_02_TB_BOSS_LIST[nRandom][2],MAP_ID[nRandMap][1],MAP_ID[nRandMap][2],MAP_ID[nRandMap][3])
+                nNpcIndex = CreateNpc(VET_201008_02_TB_BOSS_LIST[nRandom][1],VET_201008_02_TB_BOSS_LIST[nRandom][2],SILING_MAP_ID[nRandMap][1],SILING_MAP_ID[nRandMap][2],SILING_MAP_ID[nRandMap][3])
                 SetNpcLifeTime(nNpcIndex,3600)
                 SetNpcDeathScript(nNpcIndex,VET_201008_02_TB_BOSS_LIST[nRandom][3])
                 --AddUnitStates(nNpcIndex,1,nRandom)
@@ -140,7 +140,7 @@ function MS_CreateMSUID()
 end;
 
 function AddSiLingDing(nRandMap)
-    local nNpcIndex = CreateNpc(VET_201008_02_TB_NPC_LIST[1][1],VET_201008_02_TB_NPC_LIST[1][2],MAP_ID[nRandMap][1],MAP_ID[nRandMap][2],MAP_ID[nRandMap][3],-1,1,1,100)
+    local nNpcIndex = CreateNpc(VET_201008_02_TB_NPC_LIST[1][1],VET_201008_02_TB_NPC_LIST[1][2],SILING_MAP_ID[nRandMap][1],SILING_MAP_ID[nRandMap][2],SILING_MAP_ID[nRandMap][3],-1,1,1,100)
     SetNpcScript(nNpcIndex,VET_201008_02_TB_NPC_LIST[1][3])
     SetGlbValue(1032,nNpcIndex)
     --AddUnitStates(nNpcIndex,1,0) --记录npc处交檀香木的数量
@@ -150,7 +150,7 @@ end
 function AddTanMuXiang()
     local nRandMap = GetGlbValue(1033)
     local nNpcIndex = 0
-    local nMapID, nWx, nWy = MAP_ID[nRandMap][1], MAP_ID[nRandMap][2], MAP_ID[nRandMap][3]
+    local nMapID, nWx, nWy = SILING_MAP_ID[nRandMap][1], SILING_MAP_ID[nRandMap][2], SILING_MAP_ID[nRandMap][3]
     local nAddX = 0
     local nAddY = 0
     Msg2Global(VET_201008_02_TB_STR_LIST[19])

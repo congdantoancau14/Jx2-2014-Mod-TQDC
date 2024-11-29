@@ -1,5 +1,5 @@
 function OnUse()
-	getThisPos();
+	getTargetNpc();
 end;
 
 function getThisPos()
@@ -16,7 +16,7 @@ function getTargetNpc()
 	local m,x,y = GetNpcWorldPos(nNpcIndex);
 	local script = GetNpcScript(nNpcIndex);
 	
-	local string = format("\n[ %d,%d,%d ]",m,x,y)..script;
+	local string = name..format(" - [ %d,%d,%d ] - ",m,x,y)..script;
 	print(string)
 	Msg2Player(string);
 

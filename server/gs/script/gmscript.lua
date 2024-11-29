@@ -31,8 +31,8 @@ function tianzhansilingboss(nMapId)
         return 0;
     end
     SetGlbValue(1033,nMapId)
-    --print("MAP_ID = ***************"..MAP_ID[nMapId][1])
-    mf_OpenMission(MISSION_ID,MAP_ID[nMapId][1])
+    print("SILING_MAP_ID = ***************"..SILING_MAP_ID[nMapId][1])
+    mf_OpenMission(MISSION_ID,SILING_MAP_ID[nMapId][1])
     AddSiLingDing(nMapId); --Ìí¼ÓËÄÁé¶¦
     AddTanMuXiang()
     --print("nMapId = ******************"..nMapId)
@@ -394,7 +394,7 @@ end;
 
 
 -- ¸ù¾Ýrelay·¢À´µÄÖ¸Áî£¬¸ãÈý¸öÃÅÅÉboss³öÀ´¸ø´ó¼Ò´ò
-function call_faction_bt_boss(nPos1, nPos2, nPos3)
+function call_faction_bt_boss(nPos1, nPos2, nPos3, nForge)
 	local strBossName = {"Thanh Th­", "HuyÒn Ch©n", "D­¬ng Diªn §øc", "§­êng Hû", "Hoµng ChÝnh NhÊt", "Cæ MÆc", "TuÖ Minh"}
 	local szBossMapID = {312, 204, 219, 305, 209, 407, 303}
 	local szBossMapX = {1580, 1378, 1676, 1570, 1482, 1710, 1673}
@@ -410,7 +410,7 @@ function call_faction_bt_boss(nPos1, nPos2, nPos3)
 	-- ÏÖÔÚÊÇÖ±½Ó7¸öbossÈ«²¿ÕÐ³öÀ´
 	-- ÅÐ¶ÏÊÇ²»ÊÇÐÇÆÚÎå£¬ÐÇÆÚÁù£¬ÐÇÆÚÌì
 	local nCurWeekDay = tonumber(date("%w"))
-	if (nCurWeekDay == 0 or nCurWeekDay == 5 or nCurWeekDay == 6) then
+	if (nCurWeekDay == 0 or nCurWeekDay == 5 or nCurWeekDay == 6) or nForge == 1 then
 		local nNpcIndex = 0;
 		for i = 1, 7 do
 			nNpcIndex = CreateNpc(strBossName[i], strBossName[i], szBossMapID[i], szBossMapX[i], szBossMapY[i])

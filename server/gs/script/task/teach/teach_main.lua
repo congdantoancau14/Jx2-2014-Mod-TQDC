@@ -913,9 +913,14 @@ function task_024_02()
 	SetTask(132,1); --·¶ÖÙÑÍ
 end;
 
+function task_giveout()
+	Say("Nghe khÈu khİ cña ng­¬i thËt ng¹o m¹n. Tuæi trÎ ng«ng cuång!", 2,
+		"Ta thùc sù kh«ng cÇn h­íng dÉn/task_giveout_callback",
+		"V·n bèi nhÇm th«i!/task_000_00");
+end;
 
 -- ·ÅÆú×ö½ÌÓıÈÎÎñ
-function task_giveout()
+function task_giveout_callback()
 	-- TE_SetTeachState(23);
 	Say("ThÊy ng­¬i b¶n lÜnh h¬n ng­êi, l·o ®©y kh«ng cÇn d¹y nhiÒu, vÒ sau ®iÒu g× kh«ng hiÓu cã thÓ ®Õn t×m ta.", 0);
 	task_024_02()

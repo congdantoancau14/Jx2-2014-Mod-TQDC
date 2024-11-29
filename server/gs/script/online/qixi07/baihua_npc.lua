@@ -60,7 +60,7 @@ function main()
 	if nDate >= YEAR2 + 0614 and nDate <= YEAR2 + 0615 then
 		tinsert(strtab,4,"Nh©n ®«i kinh nghiÖm/about_shuangbei")
 	end
-	if nDate < YEAR1 + 0816 then
+	if nDate < YEAR1 + 0801 then
 		Talk(1,"","Ho¹t ®éng ThÊt tÞch vÉn ch­a b¾t ®Çu.")
 	else
 		Say("Ngµy Ng­u Lang Chøc n÷ gÆp nhau ®· ®Õn råi.. Ta cã rÊt nhiÒu h¹t gièng hoa hång, vµo ngµy nµy h·y trång cho ng­êi yªu cña m×nh mét khãm hoa hång. Ta gÇn ®©y ph¸t hiÖn 1 lo¹i H¹t ThÇn bÝ, nh­ng trång hoµi kh«ng ®­îc, nÕu ng­¬i gióp ta trång, ta sÏ tr¶ c«ng cho ng­¬i.",

@@ -1,4 +1,5 @@
 FILEPATH = "\\settings\\static_script\\test\\test.lua";
+--FILEPATH = "\\settings\\static_script\\test\\check.lua";
 --FILEPATH = "\\script\\mod\\expand_box\\expand_box_head.lua";
 Include(FILEPATH);
 

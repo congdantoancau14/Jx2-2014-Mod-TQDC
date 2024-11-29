@@ -535,8 +535,8 @@ function main(ExchangeComing)
 	SetTask(629,0)  --ÊÕ·Ñ°æÊÇ628 IB°æÊÇ629
 	--================================================================
 	--07ÆßÏ¦»î¶¯
-	local nQixiDate = tonumber(date("%Y%m%d"))
-	if nQixiDate >= 20070816 and nQixiDate <= 20470830 then
+	local nQixiDate = tonumber(date("%m%d"))
+	if nQixiDate >= 0801 and nQixiDate <= 0830 then
 		Msg2Player("Ho¹t ®éng ThÊt tÞch ®· khai m¹c, b¸ch Hoa sø gi¶ kh¾p n¬i ë trung t©m BiÖn Kinh , Thµnh §«, TuyÒn Ch©u ®· chuÈn bÞ v« sè lÔ vËt cho t×nh nh©n trong dÞp lÔ l·ng m¹n nµy, mau mau ®Õn xem!")
 	end
 
