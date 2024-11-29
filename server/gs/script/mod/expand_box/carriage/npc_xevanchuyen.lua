@@ -334,7 +334,14 @@ function showThingsOut_original(nNav)
 end;
 
 function checkItemNumber(nCarriageId)
+	-- if GetNpcName(GetFollower()) == '0' then
+	-- print(GetFollower());
+	if GetFollower() == 0 then
+		SetTaskTemp(TASKTEMP_ON_CARRIER_ITEMS_NUMBER,0);
+		return 0;
+	end
 	init(STORE_ID_CARRIAGE,nCarriageId);
 	-- print(STORE_ID_CARRIAGE,ITEM_COUNT,getn(TB_ITEMS));
+	SetTaskTemp(TASKTEMP_ON_CARRIER_ITEMS_NUMBER,ITEM_COUNT);
 	return ITEM_COUNT;
 end;

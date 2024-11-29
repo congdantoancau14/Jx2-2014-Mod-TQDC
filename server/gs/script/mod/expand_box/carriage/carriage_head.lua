@@ -9,7 +9,7 @@ BIAOCHE_RENT_MAP			 = 3059;
 BIAOCHE_RENT_TIME			 = 3060;
 BIAOCHE_LAST_MAP			 = 3061;
 BIAOCHE_NAME				= 3062;
-
+TASKTEMP_ON_CARRIER_ITEMS_NUMBER = 4000;
 tHuanCheLing = {2,1,29004}
 npc_name = "";
 
@@ -251,7 +251,12 @@ function returnCarriage(nForce)
 	--init(STORE_ID_CARRIAGE, GetTask(BIAOCHE_NAME));
 	--print("BIAOCHE_NAME:"..GetTask(BIAOCHE_NAME));
 	--print("ITEM_COUNT:",ITEM_COUNT)
-	local itemCount = SendScript2VM("\\script\\online\\qianhe_tower\\qht_head.lua", format("checkItemNumber(%s)", GetTask(BIAOCHE_NAME)));	
+	-- local itemCount = SendScript2VM("\\script\\mod\\expand_box\\carriage\\npc_xevanchuyen.lua", format("checkItemNumber(%s)", GetTask(BIAOCHE_NAME)));
+	local itemCount = GetTaskTemp(TASKTEMP_ON_CARRIER_ITEMS_NUMBER);
+	-- print(itemCount);
+	if itemCount == nil then
+		itemCount = 0;
+	end
 	if itemCount > 0 then --ITEM_COUNT > 0 then 
 		Talk(1,"",npc_name.."Ng­¬i bá quªn ®å trªn xe k×a! §i ®©u mµ véi vµng thÕ?!!")
 		return 0;
@@ -261,6 +266,9 @@ function returnCarriage(nForce)
 		local nPay = nPassedDays * 50000;
 		if nPayHelpReturn ~= 0 then 
 			nPay = nPay + nPayHelpReturn;
+		end
+		if nPay > 5000000 then
+			nPay = 5000000;
 		end
 		if Pay(nPay) ~= 1 then 
 			Talk(1,"",format(npc_name.."Ng­¬i tr¶ xe chËm trÔ [<color=red>%d<color>] ngµy. Ng­¬i ch­a mang ®ñ tiÒn ®ãng ph¹t råi.",nPassedDays));

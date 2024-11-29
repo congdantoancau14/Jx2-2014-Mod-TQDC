@@ -911,6 +911,38 @@ function task_024_02()
 	SetTask(130,1); --ÍõÒµÎ°
 	SetTask(131,1); --¿Ü×¼
 	SetTask(132,1); --·¶ÖÙÑÍ
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";	
+	if random(1,2) == 1 then 
+		Say(npc.."Ta thÊy ng­¬i tè chÊt kh«ng tÖ, tiÒn ®å x¸n l¹n, ta cã chót ng©n l­îng tÆng ng­¬i lµm lé phİ hµnh tÈu giang hå.",
+			2,
+			"§a t¹ tiÒn bèi, ta kh«ng d¸m nhËn ®©u!/task_024_02_giveup",
+			"§a t¹ l·o tiÒn bèi!/take_money"
+		);
+	end
+end;
+
+function task_024_02_giveup()
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
+	Talk(2,"task_024_02_giveup_callback",
+		plr.."§a t¹ tiÒn bèi hËu ¸i! V·n bèi thÊy r»ng m×nh søc trÎ dai dµi, ng©n l­îng cã thÓ tù kiÕm ®­îc. Chi b»ng tiÒn bèi h·y nh­êng phÇn th­ëng nµy cho c¸c b»ng h÷u kh¸c ®i!",
+		npc.."H­`, ®óng lµ trÎ ng­êi non d¹! Nh­ng khİ ph¸ch kh«ng tåi. Kh¸ l¾m, ta l©u råi míi gÆp ®­îc ng­êi hîp y', muèn tÆng ng­¬i chót lÔ vËt nh­ng nÕu ng­¬i qu¶ quyÕt nh­ vËy th× ta cãng kh«ng miÔn c­?ng. Ta cã c¶m gi¸c r»ng ng­¬i sau nµy nhÊt ®Şnh lµm nªn ®¹i sù."
+	)
+end;
+
+function task_024_02_giveup_callback()
+	ModifyReputation(100,0);
+end;
+
+function take_money()
+local npc = gf_FixColor(GetNpcName(GetTargetNpc()),2)..": ";
+local plr = gf_FixColor(GetName(),2)..": ";
+	Talk(2,"",
+		npc.."Chóc ng­¬i thuËn buåm xu«i giã!",
+		plr.."§a t¹ l·o tiÒn bèi!"
+	)
+	AddItem(2,0,1,1);
 end;
 
 function task_giveout()
