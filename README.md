@@ -8,3 +8,7 @@ LOG FILE
 
 UPDATE_20201026	
 [*]	Chuyển chức năng Thầnh Hành phù sang Thông Thiên lệnh
+
+
+NOTE
+Mở hộp thoại run (Windows+R) Gõ ``control intl.cpl,,3``. Cài đặt encoding hệ thống là Chinese PRC (Mainland)
