@@ -44,7 +44,10 @@ function AddItemsByList(tItems)
 	-- print("tItems",getn(tItems));
 	for i = 1,getn(tItems) do
 		if gf_Judge_Room_Weight(1,100) == 1 then
-			AddItem(tItems[i][2][1],tItems[i][2][2],tItems[i][2][3],tItems[i][3]);
+			local nItemIndex = AddItem(tItems[i][2][1],tItems[i][2][2],tItems[i][2][3],tItems[i][3]);
+			if tItems[i][4] ~= nil then 
+				SetItemExpireTime(nItemIndex,tItems[i][4]);
+			end
 		end
 	end
 	erasedata();
@@ -202,9 +205,10 @@ function getListFromFile()
 		local nDetail = TB_DATAITEMS:getCell(i,3);
 		local nPaticular = TB_DATAITEMS:getCell(i,4);
 		local nQuantity = TB_DATAITEMS:getCell(i,5);
+		local nExpireTime = TB_DATAITEMS:getCell(i,6);
 		if sName ~= "" then
 			k = k+1;
-			tData[k] = {sName,{nGeneral,nDetail,nPaticular},nQuantity}
+			tData[k] = {sName,{nGeneral,nDetail,nPaticular},nQuantity,nExpireTime}
 		end
 	end
 	-- print("k",k);

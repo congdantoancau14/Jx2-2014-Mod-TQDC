@@ -34,6 +34,7 @@ tHorses = {
 	{"Tª","cæ d­¬ng thó"},
 	{"T¬ Vµng","thá mËp"},
 	{"Tö Ngäc","truy t×nh kiÕm"},
+	{"ThiÕu D­¬ng","truy t×nh kiÕm"},
 	{"ThuyÒn","tiªu tÇn"},
 	{"Kú l©n","niªn thó to lín"},
 	{" Kú L©n","háa kú l©n1"},

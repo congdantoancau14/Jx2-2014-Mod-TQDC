@@ -2866,7 +2866,7 @@ end
 
 function AddTuLinhNpc()
 	-- local nNation = GetGlbValue(GLB_TSK_SERVER_ID)
-	print("autoexec >> AddTuLinhNpc::SERVER_INDEX",nNation)
+	-- print("autoexec >> AddTuLinhNpc::SERVER_INDEX",nNation)
 	local nNation = random(94);			-- For offline server
 	SetGlbValue(GLB_TSK_SERVER_ID,nNation)
 	local szName = "Linh thó" 			-- Default name: "B¹ch Hæ"

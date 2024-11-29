@@ -747,7 +747,7 @@ function main(ExchangeComing)
 	vng_merge_server()
 	local nCheckLServer = GetGlbValue(GLB_TSK_SERVER_ID)
 	if nCheckLServer < 150 or nCheckLServer > 158 then
-		init_new_server()
+		-- init_new_server() -- Turn off for offline random server
 		Init_Change_Server()
 	end
 	

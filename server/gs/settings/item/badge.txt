@@ -24,18 +24,15 @@ Huy Ch­¬ng Liªu Nguyªn So¸i	0	153	22	0	0	0	100	35;35					31162	80		1		\image\ite
 Huy Ch­¬ng Liªu Nguyªn So¸i	0	153	23	0	0	0	100	35;35					31163	80		2		\image\item\banghui\ÔªË§»ÕÕÂ36.spr	\image\item\banghui\ÔªË§»ÕÕÂ120.spr	Huy Ch­¬ng Liªu Nguyªn So¸i anh dòng giÕt ®Şch. <enter><color=Gold> ( thuéc tİnh ph¸t triÓn cã thÓ tiÕn hµnh trïng luyÖn, thuéc tİnh më khãa cè ®Şnh kh«ng thÓ tiÕn hµnh tinh luyÖn)		Huy HiÖu	\script\newbattles\battle_equipment_item.lua	1;10	4	1		0		3	11	11	9
 Huy Ch­¬ng Liªu Nguyªn So¸i	0	153	24	0	0	0	100	35;35					31164	80		3		\image\item\banghui\ÔªË§»ÕÕÂ36.spr	\image\item\banghui\ÔªË§»ÕÕÂ120.spr	Huy Ch­¬ng Liªu Nguyªn So¸i anh dòng giÕt ®Şch. <enter><color=Gold> ( thuéc tİnh ph¸t triÓn cã thÓ tiÕn hµnh trïng luyÖn, thuéc tİnh më khãa cè ®Şnh kh«ng thÓ tiÕn hµnh tinh luyÖn)		Huy HiÖu	\script\newbattles\battle_equipment_item.lua	1;10	4	1		0		3	11	11	9
 Huy Ch­¬ng Liªu Nguyªn So¸i	0	153	25	0	0	0	100	35;35					31165	80		4		\image\item\banghui\ÔªË§»ÕÕÂ36.spr	\image\item\banghui\ÔªË§»ÕÕÂ120.spr	Huy Ch­¬ng Liªu Nguyªn So¸i anh dòng giÕt ®Şch. <enter><color=Gold> ( thuéc tİnh ph¸t triÓn cã thÓ tiÕn hµnh trïng luyÖn, thuéc tİnh më khãa cè ®Şnh kh«ng thÓ tiÕn hµnh tinh luyÖn)		Huy HiÖu	\script\newbattles\battle_equipment_item.lua	1;10	4	1		0		3	11	11	9
-
 Huy Ch­¬ng Du HiÖp	0	153	26	0	0	0	100	35;35					31234	80				\image\item\banghui\ÓÎÏÀ»ÕÕÂa1.spr	\image\item\banghui\ÓÎÏÀ»ÕÕÂa0.spr	R­îu thŞt ®i qua ruét, vÉn l­u trong lßng hiÖp nghÜa 		Huy HiÖu		1;11	4	1		0		4	18	20	10
 Huy Ch­¬ng ThiÕt HuyÕt	0	153	27	0	0	0	100	40;30					31235	80				\image\item\banghui\ÌúÑª»ÕÕÂa1.spr	\image\item\banghui\ÌúÑª»ÕÕÂa0.spr	ThiÕt huyÕt ®¬n t©m, chÕt mµ v« hèi		Huy HiÖu		1;11	4	1		0		4	19	21	10
 Huy Ch­¬ng V©n Du	0	153	28	0	0	0	100	30;40					31236	80				\image\item\banghui\ÔÆÓÎ»ÕÕÂa1.spr	\image\item\banghui\ÔÆÓÎ»ÕÕÂa0.spr	V©n du thiªn h¹, tiªu dao bèn ph­¬ng		Huy HiÖu		1;11	4	1		0		4	20	22	10
-
-Huy ch­¬ng HiÖp Cèt	0	153	29	0	0	0	100	35;35					31974	690				\image\item\banghui\ÏÀ¹Ç»ÕÕÂa1.spr	\image\item\banghui\ÏÀ¹Ç»ÕÕÂa0.spr	HiÖp Cèt Nhu T×nh, Lo¹n ThÕ Hµo KiÖt		Huy HiÖu		1;12	4	1		0		5	49	44	13
-Huy ch­¬ng Qñy Phï	0	153	30	0	0	0	100	40;30					31975	690				\image\item\banghui\¹í¸«»ÕÕÂa1.spr	\image\item\banghui\¹í¸«»ÕÕÂa0.spr	Qñy Phï ThÇn C«ng, ChiÕn V« BÊt Th¾ng		Huy HiÖu		1;12	4	1		0		5	50	45	13
-Huy ch­¬ng §»ng V©n	0	153	31	0	0	0	100	30;40					31976	690				\image\item\banghui\ÌÚÔÆ»ÕÕÂa1.spr	\image\item\banghui\ÌÚÔÆ»ÕÕÂa0.spr	§»ng V©n Gi¸ Vô, Di ThÕ §éc LËp		Huy HiÖu		1;12	4	1		0		5	51	46	13
-Hoan L¨ng Ch­¬ng	0	153	32	0	0	0	100	40;40					32067	790				\image\item\banghui\»ÃÁè»ÕÕÂa1.spr	\image\item\banghui\»ÃÁè»ÕÕÂa0.spr	§éng t¾c v« th­êng, nh­îc nguy nh­îc an		Huy HiÖu		1;12	4	1		0		6	87	61	14
-§»ng Giao Ch­¬ng	0	153	33	0	0	0	100	45;35					32068	790				\image\item\banghui\ÌÚòÔ»ÕÕÂa1.spr	\image\item\banghui\ÌÚòÔ»ÕÕÂa0.spr	T­íng t­íng bæn v« chñng, nam nhi ®­¬ng tù c­êng		Huy HiÖu		1;12	4	1		0		6	88	62	14
-Khëi Ph­îng Ch­¬ng	0	153	34	0	0	0	100	35;45					32069	790				\image\item\banghui\Æğ·ï»ÕÕÂa1.spr	\image\item\banghui\Æğ·ï»ÕÕÂa0.spr	Cöu v¹n lı phong b»ng chİnh cö		Huy HiÖu		1;12	4	1		0		6	89	63	14
-
-S¸t Lang Ch­¬ng	0	153	35	0	0	0	100	45;45					28091	690				\image\item\tong\huychuongsatlang1.spr	\image\item\tong\huychuongsatlang.spr	Giã v« h×nh, m©y kh«ng d¸ng		Huy HiÖu		1;12	4	1		0		7	138	117	15
-NhuÖ Nha Ch­¬ng	0	153	36	0	0	0	100	50;40					28092	690				\image\item\tong\huychuongnhuenha1.spr	\image\item\tong\huychuongnhuenha.spr	NhiÖt HuyÕt Kiªu Tö		Huy HiÖu		1;12	4	1		0		7	139	118	15
-Méng S¸t Ch­¬ng	0	153	37	0	0	0	100	40;50					28093	690				\image\item\tong\huychuongmongsat1.spr	\image\item\tong\huychuongmongsat.spr	KÌn hiÖu vµo m¬, s½n sµng tuèt kiÕm		Huy HiÖu		1;12	4	1		0		7	140	119	15
+Huy ch­¬ng HiÖp Cèt	0	153	29	0	0	0	100	35;35					31974	590				\image\item\banghui\ÏÀ¹Ç»ÕÕÂa1.spr	\image\item\banghui\ÏÀ¹Ç»ÕÕÂa0.spr	HiÖp Cèt Nhu T×nh, Lo¹n ThÕ Hµo KiÖt		Huy HiÖu		1;12	4	1		0		5	49	44	13
+Huy ch­¬ng Qñy Phï	0	153	30	0	0	0	100	40;30					31975	590				\image\item\banghui\¹í¸«»ÕÕÂa1.spr	\image\item\banghui\¹í¸«»ÕÕÂa0.spr	Qñy Phï ThÇn C«ng, ChiÕn V« BÊt Th¾ng		Huy HiÖu		1;12	4	1		0		5	50	45	13
+Huy ch­¬ng §»ng V©n	0	153	31	0	0	0	100	30;40					31976	590				\image\item\banghui\ÌÚÔÆ»ÕÕÂa1.spr	\image\item\banghui\ÌÚÔÆ»ÕÕÂa0.spr	§»ng V©n Gi¸ Vô, Di ThÕ §éc LËp		Huy HiÖu		1;12	4	1		0		5	51	46	13
+Hoan L¨ng Ch­¬ng	0	153	32	0	0	0	100	40;40					32067	690				\image\item\banghui\»ÃÁè»ÕÕÂa1.spr	\image\item\banghui\»ÃÁè»ÕÕÂa0.spr	§éng t¾c v« th­êng, nh­îc nguy nh­îc an		Huy HiÖu		1;12	4	1		0		6	87	61	14
+§»ng Giao Ch­¬ng	0	153	33	0	0	0	100	45;35					32068	690				\image\item\banghui\ÌÚòÔ»ÕÕÂa1.spr	\image\item\banghui\ÌÚòÔ»ÕÕÂa0.spr	T­íng t­íng bæn v« chñng, nam nhi ®­¬ng tù c­êng		Huy HiÖu		1;12	4	1		0		6	88	62	14
+Khëi Ph­îng Ch­¬ng	0	153	34	0	0	0	100	35;45					32069	690				\image\item\banghui\Æğ·ï»ÕÕÂa1.spr	\image\item\banghui\Æğ·ï»ÕÕÂa0.spr	Cöu v¹n lı phong b»ng chİnh cö		Huy HiÖu		1;12	4	1		0		6	89	63	14
+S¸t Lang Ch­¬ng	0	153	35	0	0	0	100	45;45					28091	690				\image\item\other\¼²Ó°»ÕÕÂa1.spr	\image\item\other\¼²Ó°»ÕÕÂa0.spr	Giã v« h×nh, m©y kh«ng d¸ng		Huy HiÖu		1;12	4	1		0		7	138	117	15
+NhuÖ Nha Ch­¬ng	0	153	36	0	0	0	100	50;40					28092	690				\image\item\other\ÈñÑÀ»ÕÕÂa1.spr	\image\item\other\ÈñÑÀ»ÕÕÂa0.spr	NhiÖt HuyÕt Kiªu Tö		Huy HiÖu		1;12	4	1		0		7	139	118	15
+Méng S¸t Ch­¬ng	0	153	37	0	0	0	100	40;50					28093	690				\image\item\other\Ï¡Ğë»ÕÕÂa1.spr	\image\item\other\Ï¡Ğë»ÕÕÂa0.spr	KÌn hiÖu vµo m¬, s½n sµng tuèt kiÕm		Huy HiÖu		1;12	4	1		0		7	140	119	15

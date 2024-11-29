@@ -39,10 +39,10 @@ end;
 
 
 function yes_box()
-	-- if GetTask(1) < 25 then	
-		-- Talk(1,"","<color=green>Thñ khè<color>: Hoµn thµnh <color=yellow>nhiÖm vô t©n thñ<color> råi h½n ®Õn t×m ta.");
-		-- return 0;
-	-- end;
+	if GetTask(1) < 25 then	
+		Talk(1,"","<color=green>Thñ khè<color>: Hoµn thµnh <color=yellow>nhiÖm vô t©n thñ<color> råi h½ng ®Õn t×m ta.");
+		return 0;
+	end;
 	SetTask(ID_ITEMBOX,1);
 	Say("H·y t×m <color=yellow>10 ®u«i Thá x¸m<color> vÒ cho ta!",1,"Ta ®i ngay ®©y!/no_box");
 	TaskTip("Ra ngoµi thµnh thu thËp 10 ®u«i Thá x¸m ®Ó lµm r­¬ng chøa ®å!")
@@ -50,7 +50,7 @@ end;
 
 function check_box()
 	if GetItemCount(2,1,2)<10 then 
-		Say("Ng­¬i ch­a t×m ®­îc <color=yellow>10 ®u«i Thá x¸m<color> ta cÇn, ta kh«ng thÓ gióp ng­¬i lµm r­¬ng chøa ®å!",1,"Ta ®i t×m ngay ®©y!/box_no")
+		Say("Ng­¬i ch­a t×m ®­îc <color=yellow>10 ®u«i Thá x¸m<color> ta cÇn, ta kh«ng thÓ gióp ng­¬i lµm r­¬ng chøa ®å!",1,"Ta ®i t×m ngay ®©y!/no_box")
 	else
 		DelItem(2,1,2,10)
 		SetTask(ID_ITEMBOX,2) --¿ª·Å´¢ÎïÏä±ê¼Ç

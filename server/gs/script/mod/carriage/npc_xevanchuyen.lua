@@ -3,7 +3,9 @@ THIS_FILE = "\\script\\mod\\carriage\\npc_xevanchuyen.lua";
 tItems = {}
 nStoreId = 2;
 function main()
-	local nCarriageId = BIAOCHE_TASKGROUP:GetTask(BIAOCHE_TASKGROUP.BIAOCHE_INDEX);
+	-- local nCarriageId = BIAOCHE_TASKGROUP:GetTask(BIAOCHE_TASKGROUP.BIAOCHE_INDEX);
+	-- "Ch╩t nhъ ох lкn xe"
+	
 	init(nStoreId);
 	local tbSay = {
 		"\n>> Ch╩t ох lкn xe/#showThingsIn(0)",

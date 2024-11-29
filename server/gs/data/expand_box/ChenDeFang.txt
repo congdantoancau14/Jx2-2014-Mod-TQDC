@@ -1,0 +1,36 @@
+§o¹n Tr­êng Th¶o-Thi	2	1	31257	1
+Th­ tiÕn cö	2	1	1200	1
+C«ng thµnh Tiªn phon	2	1	1203	1
+Long Diªn Th¶o-Thiªn	2	1	31258	1
+VÐ Sè N¨m Míi	2	1	31288	2
+R­¬ng Manh Manh	2	1	31323	1
+R­¬ng Trang BÞ ChiÕn	2	1	31002	1
+D©y roi	2	1	29002	1
+R­¬ng Háa Phông	2	1	30844	1
+Cá l¹	2	97	32	1
+NÕn vµng	2	1	30029	1
+ThÎ CTV	2	1	50011	1
+Tói Trang BÞ Kim Xµ 	2	1	31231	1
+R­¬ng Thó C­ìi Manh 	2	1	31324	1
+Tµng B¶o §å	2	95	917	1
+§æi Linh Th¹ch-Cao 3	2	1	31251	3
+Kim Tinh Th¹ch	2	1	30147	1
+Phï chuyÓn tiÕp ngÉu	2	97	36	3
+Kim Cang Kinh	2	95	825	1
+§å Ch¬i	2	1	30545	1
+B¶n vÏ ChÕ t¹o Hoµng	2	1	1190	1
+TÈy T©m Th¹ch cÊp 4	2	1	30524	7
+B¶o r­¬ng tÇng 1 Tö 	2	0	740	1
+C¶i ®á	2	1	1090	21
+B¶n vÏ ®óc t¹o thÇn 	2	1	1086	30
+Cñ c¶i Vµng	2	1	1091	1
+TÈy T©m Th¹ch Kho¸ng	2	1	30536	15
+LuyÖn L« ThiÕt Kho¸n	2	1	30537	11
+SÇu riªng	2	1	30013	8
+Ví Gi¸ng sinh	2	1	208	5
+Gç	2	1	30263	4
+S¾t	2	1	30260	1
+§¸	2	1	30261	1
+Cñi	2	1	30264	2
+Tö Kim Méc	2	1	30461	1
+Lóa	2	1	30262	1

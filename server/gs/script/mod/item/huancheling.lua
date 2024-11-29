@@ -5,6 +5,7 @@ Include("\\script\\mod\\carriage\\carriage_head.lua");
 tRouteMap = {
 }
 
+MAX_DISTANCE = 70;
 
 function OnUse()
 	move()
@@ -12,19 +13,30 @@ end;
 
 function move()
 	--print("huanbiaoling >> move called.");
-	local m,x,y = GetWorldPos();
-	local pos = {{x,y},}
+	
+	
+	local nMap,nPosX,nPosY = GetWorldPos();
+	local tPos = {{nPosX,nPosY},}
 	
 	local nCurTime = GetTime();
 	
-	local nNpcIdx = BIAOCHE_TASKGROUP:GetTask(BIAOCHE_TASKGROUP.BIAOCHE_INDEX);
+	local nOldNpcIdx = BIAOCHE_TASKGROUP:GetTask(BIAOCHE_TASKGROUP.BIAOCHE_INDEX);
 	local nOldMap = BIAOCHE_TASKGROUP:GetTask(BIAOCHE_TASKGROUP.YUNBIAO_MAP);
-	local nNewMap = m;
-	if nNpcIdx ~= 0 then
+	
+	local nNpcMapID,nNpcPosX,nNpcPosY = GetNpcWorldPos(nOldNpcIdx);
+	local nDistance = abs(nPosX-nNpcPosX)+abs(nPosY-nNpcPosY);
+	
+	print(nDistance);
+	
+	local nNewMap = nMap;
+	if nOldNpcIdx ~= 0 then
 		if nNewMap == nOldMap then
-			moveBiaoChe(nNpcIdx,pos);
+			if nDistance > MAX_DISTANCE then 
+				Msg2Player(format("Kho¶ng c¸ch: [%d] Qu¸ xa. Xe kh«ng nhËn ®­îc tÝn hiÖu.",nDistance));
+			end
+			moveBiaoChe(nOldNpcIdx,tPos);
 		else
-			rebornBiaoChe(nNpcIdx,m,pos);
+			rebornBiaoChe(nOldNpcIdx,nMap,tPos);
 		end
 	else
 		Msg2Player("Kh«ng t×m thÊy xe");
