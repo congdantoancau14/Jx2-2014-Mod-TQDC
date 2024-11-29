@@ -1,6 +1,5 @@
 Include("\\script\\mod\\expand_box\\expand_box_head.lua");
 Include("\\script\\mod\\store_box\\store_box_head.lua");
-THIS_FILE = "\\script\\mod\\expand_box\\expand_box.lua";
 tItems = {}
 nStoreId = 1;
 function main()
@@ -18,75 +17,12 @@ function main()
 	
 	init(1);
 	local tbSay = {
-		"\n>> §Æt vµo khay/putintray",
 		"\n>> §Æt ®å vµo/showThingsIn",
 		"\n>> LÊy ®å ra/showThingsOut",
 		"\n>> §Ëy r­¬ng l¹i/nothing",
 	}
 	Say("",getn(tbSay),tbSay);
 end;
-
--------------------------------------------------------------------------------
-function putintray()
-	local MaxPutinCount = 10;
-	PutinItemBox("§Æt ®å lªn xe", MaxPutinCount, "X¸c nhËn ®Æt ®å vµo r­¬ng", THIS_FILE, 1);
-end;
-
-function OnPutinCheck(param, idx, genre, detail, particular)
-	if param ~= 1 then
-		return 0;
-	end
-	if genre ~= 2 then 
-		Talk(1,"","VËt nµy kh«ng phï hîp bá vµo r­¬ng.");
-		return 0;
-	end
-	return 1;
-end
-	
-function OnPutinComplete(param)
-	if param ~= 1 then
-		return 0;
-	end
-	local t = GetPutinItem()
-	
-	-- for i=1, getn(t) do
-		-- for j=1,getn(t[i]) do
-			-- print(format("t[%d][%d] = ",i,j)..t[i][j]);
-		-- end
-	-- end
-	
-	puttrayin(t);
-	
-end
-
-
-function puttrayin(t)
-	-- if getn(t) > GetStoreFreeRoom(nStoreId,nNpcIndex) then 
-		-- Talk(1,"","<color=red>R­¬ng qu¸ ®Çy, kh«ng thÓ chÊt thªm nhiÒu ®å!<color>");
-		-- return 0;
-	-- end
-	
-	for i = 1, getn(t) do
-		if DelItemByIndex(t[i][1], -1) ~= 1 then
-			print("error: Could not delete item from tray! Index = ",i)
-		end
-		local nCount = get_item_count(t, t[i][2], t[i][3], t[i][4]);
-		local object = {t[i][5],{t[i][2],t[i][3],t[i][4]},nCount};
-		insertrowtodata(object,nStoreId,nNpcIndex);
-		Msg2Player(format("§· bá %s x%d vµo r­¬ng ®å",t[i][5],nCount));
-	end
-end;
-
-function get_item_count(t, id1, id2, id3)
-	local nCount = 0;
-	for i = 1, getn(t) do
-		if (t[i][2] == id1 and t[i][3] == id2 and t[i][4] == id3) then
-			nCount = nCount + 1;
-		end
-	end
-	return nCount;
-end
--------------------------------------------------------------------------------
 
 nPageIn = 1;
 
@@ -131,9 +67,7 @@ function showThingsIn(nNav)
 	end
 	
 	if nPageIn > nPages then 
-		nPageIn = nPages;
-		-- Talk(1,"","§· ®Õn trang cuèi");
-		-- return 0;
+		Talk(1,"","§· ®Õn trang cuèi");
 	end
 	
 	-- print(nBegin,nEnd);
@@ -141,27 +75,16 @@ function showThingsIn(nNav)
 	local szHead = format("Trang <color=yellow>%d<color>/%d. "
 		.."Tæng céng <color=yellow>%d<color> vËt phÈm. §ang hiÓn thÞ vËt phÈm: %d - %d"
 		,nPageIn,nPages,nMaxItems,nBegin,nEnd);
-	
 	for i = nBegin, nEnd do 
 		tinsert(tbSay,format("[%d] %s x%d/#putin(%d)",i,t[i][1],t[i][3],i));
 	end
 	
-	local nEmptyLine = nMaxinPage - (nEnd - nBegin + 1);
-	if nEmptyLine < nMaxinPage then 
-		for i=1, nEmptyLine do 
-			tinsert(tbSay," ");
-		end
-	end
-	
+
 	if nPageIn < nPages then 
-		tinsert(tbSay, "Trang kÕ/#showThingsIn(1)")
-	else
-		tinsert(tbSay, format("Trang ®Çu/#showThingsIn(%d)",-nPages+1))
+	tinsert(tbSay, "Trang kÕ/#showThingsIn(1)")
 	end
 	if nPageIn > 1 then 
-		tinsert(tbSay, "Trang tr­íc/#showThingsIn(-1)")
-	else
-		tinsert(tbSay, format("Trang cuèi/#showThingsIn(%d)",nPages-nPageIn))
+	tinsert(tbSay, "Trang tr­íc/#showThingsIn(-1)")
 	end
 	tinsert(tbSay,format("\nBá vËt phÈm ë trang nµy vµo r­¬ng/#putthispage(%d,%d,%d)",nPageIn,nBegin,nEnd));
 	tinsert(tbSay,"Bá toµn bé vµo r­¬ng/putallin");
@@ -239,9 +162,7 @@ function showThingsOut(nNav)
 	end
 	
 	if nPageOut > nPages then 
-		nPageIn = nPages;
-		-- Talk(1,"","§· ®Õn trang cuèi");
-		-- return 0;
+		Talk(1,"","§· ®Õn trang cuèi");
 	end
 	
 	-- print(nBegin,nEnd);
@@ -253,25 +174,14 @@ function showThingsOut(nNav)
 		tinsert(tbSay,format("[%d] %s x%d/#takeout(%d)",i,t[i][1],t[i][3],i));
 	end
 	
-	local nEmptyLine = nMaxinPage - (nEnd - nBegin + 1);
-	if nEmptyLine < nMaxinPage then 
-		for i=1, nEmptyLine do 
-			tinsert(tbSay," ");
-		end
-	end
-	
 	if nMaxItems < 1 then 
 		Talk(1,"","Hµnh trang kh«ng cã vËt phÈm phï hîp bá vµo r­¬ng");
 	else	
 		if nPageOut < nPages then 
-			tinsert(tbSay, "Trang kÕ/#showThingsOut(1)")
-		else
-			tinsert(tbSay, format("Trang ®Çu/#showThingsOut(%d)",-nPages+1))
+		tinsert(tbSay, "Trang kÕ/#showThingsOut(1)")
 		end
 		if nPageOut > 1 then 
-			tinsert(tbSay, "Trang tr­íc/#showThingsOut(-1)")
-		else
-			tinsert(tbSay, format("Trang cuèi/#showThingsOut(%d)",nPages-nPageIn))
+		tinsert(tbSay, "Trang tr­íc/#showThingsOut(-1)")
 		end
 		tinsert(tbSay,format("\nLÊy tÊt c¶ vËt phÈm ë trang nµy/#takethispage(%d,%d,%d)",nPageOut,nBegin,nEnd))
 		tinsert(tbSay,"LÊy tÊt c¶ ra hµnh trang/takeallout");

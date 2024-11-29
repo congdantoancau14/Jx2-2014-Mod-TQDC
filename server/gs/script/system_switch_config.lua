@@ -27,22 +27,22 @@ t_switch_config =
 	{ 1, 1, "Meridian"},
 	{ 2, 1, "NewTask"},
 	{ 3, 1, "WanJianZhongMission"},
-	{ 4, 1, "TongTianHuanJingMission"}, --201312 close
+	{ 4, 0, "TongTianHuanJingMission"}, --201312 close
 	{ 5, 1, "CiXiu"},
 	{ 6, 1, "EquipUnbind"},
 	{ 7, 1, "MissionTask"},
 	{ 8, 1, "QianBianHe"},
-	{ 9, 1, "ZhenQiBattle"}, --201312 close
+	{ 9, 0, "ZhenQiBattle"}, --201312 close
 	{10, 1, "KuaFuBattle"},
-	{11, 1, "3V3"},
-	{12, 1, "TongMelee"},
+	{11, 0, "3V3"},
+	{12, 0, "TongMelee"},
 	{13, 1, "CardVip"},
 	{14, 1, "GemSystem", "HÖ thèng §¸ Quý"},
 	{15, 1, "TaiYi", "¶i PhÇn Thiªn L©m"},
 	{16, 1, "StateChess", "Tr­îng KiÕm Thiªn Nhai"},
-	{17, 1, "Merit", "C«ng tr¹ng vâ l©m vµ ®iÓm kiÕm hiÖp"},
+	{17, 0, "Merit", "C«ng tr¹ng vâ l©m vµ ®iÓm kiÕm hiÖp"},
 	{18, 1, "eyt_battle", "Tû Vâ ¢n O¸n §µi"},
-	{19, 1, "kf_newbattle", "Ph¸o §µi ChiÕn Liªn Server"},
+	{19, 0, "kf_newbattle", "Ph¸o §µi ChiÕn Liªn Server"},
 	{20, 1, "HonorTong", "Bang Héi Vinh Danh"},
 	{21, 0, "UnUse"},
 	{22, 0, "UnUse"},

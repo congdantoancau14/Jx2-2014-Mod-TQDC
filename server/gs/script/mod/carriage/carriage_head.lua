@@ -197,10 +197,10 @@ function returnCarriage(nForce)
 			nPay = nPay + nPayHelpReturn;
 		end
 		if Pay(nPay) ~= 1 then 
-			Talk(1,"",format(npc_name.."Ng≠¨i tr∂ xe chÀm tr‘ [<color=red>%d<color>] ngµy. Ng≠¨i ch≠a mang ÆÒ ti“n Æ„ng phπt rÂi.",nPassedDays));
+			Talk(1,"",format("Ng≠¨i tr∂ xe chÀm tr‘ [<color=red>%d<color>] ngµy. Ng≠¨i ch≠a mang ÆÒ ti“n Æ„ng phπt rÂi.",nPassedDays));
 			return 0;
 		else
-			Talk(1,"",format(npc_name.."Ng≠¨i tr∂ xe chÀm tr‘ %d ngµy. SË ti“n ph∂i nÈp phπt lµ %d ÆÂng.",nPassedDays,nPay));
+			Talk(1,"",format("Ng≠¨i tr∂ xe chÀm tr‘ %d ngµy. SË ti“n ph∂i nÈp phπt lµ %d.",nPassedDays,nPay));
 		end
 	end
 	
@@ -210,7 +210,7 @@ function returnCarriage(nForce)
 	SetNpcLifeTime(nNpcIdx,0);
 	Earn(50000);
 	DelItem(tHuanCheLing[1],tHuanCheLing[2],tHuanCheLing[3],1);
-	Talk(1,"",npc_name.."Ti“n c‰c cÒa ngµi Æ©y! L«n sau lπi tÌi nh–! ;)")
+	Talk(1,"",npc_name.."Ti“n c‰c cÒa ngµi Æ©y! L«n sau lπi tÌi nh–!")
 	
 	return 1;
 end;

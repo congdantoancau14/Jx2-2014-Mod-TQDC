@@ -61,7 +61,6 @@ function Get_TrangBi()
 	local tSay = {
 		g_szTitle.."Lùa chän",
 		"Trang bÞ Kim xµ/showKX",
-		"Trang bÞ Th«ng Thiªn/Get_TT",
 		"Trang bÞ Thiªn H¹ V« Song/Get_THVS",
 		"Trang bÞ V« Song ChiÕn ThÇn/Get_VSCT",
 		"Trang bÞ H¾c B¹ch V« Song/Get_HBVS",
@@ -88,6 +87,21 @@ end
 function Get_LDNB()
 	AddItem(0,102,6,1,1,7,406);
 end
+
+function showKX()
+	local tSay = {
+		g_szTitle.."Lùa chän",
+		"NhËn Th«n NguyÖt lÖnh (KX6)/Get_KimXa",
+		"Trang bÞ Kim xµ 4 (ngÉu nhiªn)/showKX4",
+		"Trang bÞ Kim xµ 5 (ngÉu nhiªn)/showKX5",
+		"Trang bÞ Kim xµ 6 (ngÉu nhiªn)/showKX6",
+		"Trang bÞ Kim xµ 7 (ngÉu nhiªn)/showKX7",
+		"Trang bÞ Kim xµ 3/getKX3",
+		"Trang bÞ Kim xµ 4/getKX4",
+	}
+	tinsert(tSay,"Ra khái/nothing");
+	SelectSay(tSay);	
+end;
 
 function Get_TDHH()
 	AddItem(2,0,1055,1)
@@ -246,28 +260,10 @@ function Get_NgoaiTrang()
 		"Ngo¹i trang Xu©n Y/Get_NT_XuanY",
 		"Ngo¹i trang Khæng T­íc/Get_NT_KhongTuoc",
 		"Ngo¹i trang DiÖp Th­îng Thu/Get_NT_DiepThuongThu",
-		"Ngo¹i trang n¨m míi/Get_NT_NM",
 		"Ra khái/nothing",
 	};
 	SelectSay(szSay);
 end
-
-function Get_NT_NM()
-	if 1 ~= gf_Judge_Room_Weight(3, 1, g_szTitle) then
-		return 0;
-	end
-
-	local nRoute	= GetPlayerRoute();
-	local nBody1 	= 30033 + GetBody() - 1;
-	
-	AddItem(0,108,nBody1,1,4,7,14538,7,14539,7,14540,0,0)
-	AddItem(0,109,nBody1,1,4,7,14541,7,14538,7,14542,0,0)
-	AddItem(0,110,nBody1,1,4,7,14542,7,13069,7,14538,0,0)
-	
-	AddItem(0,108,nBody1,1,4,7,14539,7,496,7,14538,0,0)
-	AddItem(0,109,nBody1,1,4,7,496,7,13069,7,496,0,0)
-	AddItem(0,110,nBody1,1,4,7,496,7,13308,7,496,0,0)
-end;
 
 function Get_NT_HoaPhung()
 	if 1 ~= gf_Judge_Room_Weight(3, 1, g_szTitle) then
@@ -413,19 +409,6 @@ function Get_VSCT()
 	AddItem(0, 100, nBody, 1,1, -1,-1,-1,-1,-1,-1,1,15);
 end
 
-function Get_TT()
-	if 1 ~= gf_Judge_Room_Weight(3, 1, g_szTitle) then
-		return 0;
-	end
-
-	local nRoute	= GetPlayerRoute();
-	local nBody 	= 20016 + GetBody() - 1;
-	
-	AddItem(0, 103, nBody, 1,1, -1,-1,-1,-1,-1,-1,1,15);
-	AddItem(0, 101, nBody, 1,1, -1,-1,-1,-1,-1,-1,1,15);
-	AddItem(0, 100, nBody, 1,1, -1,-1,-1,-1,-1,-1,1,15);
-end
-
 function Get_HBVS()
 	if 1 ~= gf_Judge_Room_Weight(3, 1, g_szTitle) then
 		return 0;
@@ -513,8 +496,8 @@ function Get_ST()
 	AddItem(0, 101, p ,1,1, -1,-1,-1,-1,-1,-1,1,15);	-- quan
 	AddItem(0, 103, p ,1,1, -1,-1,-1,-1,-1,-1,1,15);	-- non
 	
-	AddItem(0, 102, 20004, 1);	-- ngoc
-	AddItem(0, 102, 20005, 1);	-- ngoc
+	AddItem(0, 102, 20004, 2);	-- ngoc
+	AddItem(0, 102, 20005, 2);	-- ngoc
 	
 	local r = GetPlayerRoute();
 	AddItem(0, tVKST[r][1], tVKST[r][2], 1,1,-1,-1,-1,-1,-1,-1,1,15);	-- vk
@@ -904,7 +887,7 @@ end;
 
 function getLingShi()
 	local tSay = {
-		"NhËn Linh th¹ch nguyªn th¹ch/getLingshiyuanshi",
+		"NhËn Linh th¹ch ngÉu nhiªn/getRandomLingshi",
 		"LÊy tÊt c¶ c¸c cÊp ®é/chooseLingshiPos",
 		"Chän cÊp ®é chi tiÕt/chooseLingshiLevel",
 	}
@@ -980,7 +963,7 @@ function addRandomLingshi(nType,nMinLevel,nMaxLevel)
 	return found;
 end;
 
-function getLingshiyuanshi()
+function getRandomLingshi()
 	for i=30413,30419 do
 		AddItem(2,1,i,10)
 	end

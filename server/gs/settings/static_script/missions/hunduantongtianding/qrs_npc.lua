@@ -9,11 +9,6 @@ Include("\\settings\\static_script\\missions\\hunduantongtianding\\runtime_data_
 
 g_NpcName = "<color=green> Th¸nh n÷ NhËm Doanh Doanh<color>:"
 
--- MIN_ROUTE_NUMBER = 5;
--- MIN_TEAM_MEMBER = 5;
-MIN_ROUTE_NUMBER = 1;
-MIN_TEAM_MEMBER = 1;
-
 function ttd_entry_npc_main()
 	T1 = {};
 	T2 = {};
@@ -67,7 +62,7 @@ function ttd_entry_npc_main()
 		local strtab = {
     		"KÕt thóc ®èi tho¹i/nothing",
     		}
-    	Say(g_NpcName..format("Lèi vµo ¶i %s ®· ®ãng lÇn sau h·y ®Õn më!", "Hån §o¹n Th«ng Thiªn HuyÔn C¶nh"),
+    	Say(g_NpcName..format("Lèi vµo ¶i %s®· ®ãng lÇn sau h·y ®Õn më!", "Hån §o¹n Th«ng Thiªn HuyÔn C¶nh"),
     		getn(strtab),
     		strtab)
 	end
@@ -103,7 +98,6 @@ function qrs_check()
 ---ÒÑÈëÃÅÅÉ
 ---×é¶Ó½øÈë£¬×é¶Ó³ÉÔ±5ÈË
 ---Á÷ÅÉÊý¡Ý5
---do return 1 end
 	tState.lv = {};
 	tState.route = {};
 	tState.noRoute = {};
@@ -136,13 +130,13 @@ function qrs_check()
 			nRouteCount = nRouteCount + 1;
 		end
 	end
-	if nRouteCount < MIN_ROUTE_NUMBER then
+	if nRouteCount < 5 then
 		nResult = 0;
-		msg = msg .. format("\n<color=red> hÖ ph¸i trong tæ ®éi kh«ng ®ñ %d<color>\n",MIN_ROUTE_NUMBER);
+		msg = msg .. "\n<color=red> hÖ ph¸i trong tæ ®éi kh«ng ®ñ 5<color>\n";
 	end
-	if tState.count < MIN_TEAM_MEMBER then
+	if tState.count < 5 then
 		nResult = 0;
-		msg = msg .. format("\n<color=red> Tæ ®éi ®ñ % thµnh viªn míi cã thÓ vµo <color>\n",MIN_TEAM_MEMBER);
+		msg = msg .. "\n<color=red> Tæ ®éi ®ñ 5 thµnh viªn míi cã thÓ vµo <color>\n";
 	end
 	if getn(tState.diffMap) ~= 0 then
 		nResult = 0;
