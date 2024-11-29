@@ -48,3 +48,59 @@ ID	Name	EquipWorth	UnlockLv1	AttrGroup1	AttrLv1	UnlockLv2	AttrGroup2	AttrLv2	Unl
 38	QuÇn Hµo HiÖp	6000	1	107		6	108		10	109	
 39	NhÉn Hµo HiÖp	6000	1	113		6	114		10	115	
 40	Vò khÝ Hµo HiÖp	6000	1	110		6	111		10	112	
+41	¸o kho¸c HiÖp Cèt	6000	4	119		8	120		12	121	
+42	¸o kho¸c Qñy Phï	6000	4	126		8	127		12	128	
+43	¸o kho¸c §»ng V©n	6000	4	133		8	134		12	135	
+44	Huy ch­¬ng HiÖp Cèt	6000	4	119		8	120		12	121	
+45	Huy ch­¬ng Qñy Phï	6000	4	126		8	127		12	128	
+46	Huy ch­¬ng §»ng V©n	6000	4	133		8	134		12	135	
+47	HiÖp Cèt Tr­êng Ngoa	6000	4	119		8	120		12	122	
+48	Qñy Phï ChiÕn Ngoa	6000	4	126		8	127		12	129	
+49	§»ng V©n §¹o Ngoa	6000	4	133		8	134		12	136	
+50	Èm HuyÕt §Çu	3000	1	185		6	186		10	187	
+51	Èm HuyÕt y	3000	1	191		6	192		10	193	
+52	Èm HuyÕt Trang	3000	1	197		6	198		10	199	
+53	Âm HuyÕt Giíi	3000	1	203		6	204		10	205	
+54	Èm HuyÕt Béi	3000	1	209		6	210		10	211	
+55	vò khÝ Èm huyÕt (néi)	3000	1	227		6	228		10	229	
+56	më khãa V« Song ChiÕn ThÇn	2000	10	238							
+57	vò khÝ Èm huyÕt (ngo¹i)	3000	1	245		6	246		10	247	
+58	Hoan L¨ng Phi Phong	6000	4	251		8	252		12	253	
+59	§»ng Giao Phi Phong	6000	4	259		8	260		12	261	
+60	Khëi Ph­îng Phi Phong	6000	4	266		8	267		12	268	
+61	Hoan L¨ng Ch­¬ng	6000	4	251		8	252		12	254	
+62	§»ng Giao Ch­¬ng	6000	4	259		8	260		12	261	
+63	Khëi Ph­îng Ch­¬ng	6000	4	266		8	267		12	268	
+64	Hoan L¨ng Ngoa	6000	4	251		8	252		12	255	
+65	§»ng Giao Ngoa	6000	4	259		8	260		12	262	
+66	Khëi Ph­îng Ngoa	6000	4	266		8	267		12	269	
+67	§Çu S¸t Tinh	6000	1	288		6	289		10	290	
+68	¸o S¸t Tinh	6000	1	288		6	289		10	290	
+69	QuÇn S¸t Tinh	6000	1	288		6	289		10	290	
+70	Vò KhÝ S¸t Tinh	6000	1	318		6	319		10	320	
+71	Trang Søc S¸t Tinh	6000	1	310		6	311		10	312	
+100	Th«ng Thiªn Qu¸n	3000	1	343		6	344		10	345	
+101	Th«ng Thiªn Bµo	3000	1	349		6	350		10	351	
+102	Th«ng Thiªn Trang	3000	1	355		6	356		10	357	
+103	Th«ng Thiªn Giíi	3000	1	361		6	362		10	363	
+104	Th«ng Thiªn Béi	3000	1	367		6	368		10	369	
+95	vò khÝ Èm huyÕt (néi)	3000	1	385		6	386		10	387	
+97	vò khÝ Èm huyÕt (ngo¹i)	3000	1	391		6	392		10	393	
+105	më khãa H¾c B¹ch V« Song	2000	10	399							
+106	Tö Kh¸ch M·o	6000	1	409		6	410		10	411	
+107	Tö Kh¸ch Y	6000	1	412		6	413		10	414	
+108	Tö Kh¸ch Trang	6000	1	415		6	416		10	417	
+109	Tr¸c ViÖt - §Çu S¸t Tinh	6000	1	421		6	421		10	421	
+110	Tr¸c ViÖt - ¸o S¸t Tinh	6000	1	421		6	421		10	421	
+111	Tr¸c ViÖt - QuÇn S¸t Tinh	6000	1	421		6	421		10	421	
+112	Tr¸c ViÖt - Vò KhÝ S¸t Tinh	6000	1	432		6	432		10	432	
+113	Tr¸c ViÖt - Trang Søc S¸t Tinh	6000	1	425		6	425		10	425	
+114	S¸t Lang Phi Phong	6000	4	437		8	438		12	439	
+115	NhuÖ Nha Phi Phong	6000	4	445		8	446		12	447	
+116	Méng S¸t Phi Phong	6000	4	452		8	453		12	454	
+117	S¸t Lang Ch­¬ng	6000	4	437		8	438		12	440	
+118	NhuÖ Nha Ch­¬ng	6000	4	445		8	446		12	447	
+119	Méng S¸t Ch­¬ng	6000	4	452		8	453		12	454	
+120	S¸t Lang Ngoa	6000	4	437		8	438		12	441	
+121	NhuÖ Nha Ngoa	6000	4	445		8	446		12	449	
+122	Méng S¸t Ngoa	6000	4	452		8	453		12	455	
