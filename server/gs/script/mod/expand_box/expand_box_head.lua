@@ -11,8 +11,11 @@ Include("\\script\\class\\ktabfile.lua");
 MAX_EXPAND_BOX_ITEMS = 1000;
 MAX_CARRIAGE_ITEMS = 100;
 
-MAX_ITEM_COUNT = 0
+ITEM_COUNT = 0
 TB_ITEMS = {}
+
+WRITE_FILE = 1;
+READ_FILE = 2;
 
 tExpandBoxs = {
 	{201,{200,1490,2951},"§«ng BiÖn Kinh"},
@@ -136,7 +139,7 @@ function DropItemsByList(tItems)
 end;
 
 function GetItemIndexFromFile(g,d,p)
-	for i=1, MAX_ITEM_COUNT do 
+	for i=1, ITEM_COUNT do 
 		if(	g == tonumber(TB_ITEMS[i][2][1])
 			and d == tonumber(TB_ITEMS[i][2][2])
 			and p == tonumber(TB_ITEMS[i][2][3])
@@ -147,9 +150,9 @@ function GetItemIndexFromFile(g,d,p)
 	return 0;
 end;
 
-function RemoveItemFromFile(tItem,nStoreId)
+function RemoveItemFromFile(tItem,nStoreId,nNpcIndex)
 	local result = 0;
-	for i=1, MAX_ITEM_COUNT do 
+	for i=1, ITEM_COUNT do 
 		if (	tItem[2][1] == TB_ITEMS[i][2][1]
 			and tItem[2][2] == TB_ITEMS[i][2][2]
 			and tItem[2][3] == TB_ITEMS[i][2][3]
@@ -159,36 +162,36 @@ function RemoveItemFromFile(tItem,nStoreId)
 			break
 		end
 	end
-	overwritedata(nStoreId);
+	overwritedata(nStoreId,nNpcIndex);
 	return result;
 end;
 
 
-function erasedata(nStoreId)
-	generateItemFilePath(0,nStoreId);
+function erasedata(nStoreId,nNpcIndex)
+	generateItemFilePath(0,nStoreId,nNpcIndex);
 	local file = openfile(ITEM_FILEPATH, "w")
 	write(file,"");
 	closefile(file)
 end;
 
-function overwritedata(nStoreId)
-	generateItemFilePath(0,nStoreId);
+function overwritedata(nStoreId,nNpcIndex)
+	generateItemFilePath(0,nStoreId,nNpcIndex);
 	local file = openfile(ITEM_FILEPATH, "w")
-	for i=1,MAX_ITEM_COUNT do 
+	for i=1,ITEM_COUNT do 
 		write(file,rowtostring(TB_ITEMS[i]));
 	end
 	closefile(file)
 end;
 
-function inserttabletodata(table,nStoreId)
-	generateItemFilePath(0,nStoreId);
+function inserttabletodata(table,nStoreId,nNpcIndex)
+	generateItemFilePath(0,nStoreId,nNpcIndex);
 	local file = openfile(ITEM_FILEPATH, "a+")
 	write(file,tabletostring(table));
 	closefile(file)
 end;
 
-function insertrowtodata(object,nStoreId)
-	generateItemFilePath(0,nStoreId);
+function insertrowtodata(object,nStoreId,nNpcIndex)
+	generateItemFilePath(0,nStoreId,nNpcIndex);
 	local file = openfile(ITEM_FILEPATH, "a+")
 	write(file,rowtostring(object))
 	closefile(file)
@@ -235,21 +238,26 @@ function isNummeric(str)
 end;
 
 -- nAction value: nil,0,1 is write to file, 2 is read from file
-function generateItemFilePath(nAction, nStoreId)
+function generateItemFilePath(nAction, nStoreId, nNpcIndex)
 	player_rolename = GetName();
 	player_rolename = totelex(player_rolename);
 	
+	local file_name = player_rolename;
+	if nNpcIndex ~= nil then 
+		file_name = nNpcIndex;
+	end
+	
 	if nStoreId == nil or nStoreId == 0 or nStoreId == 1 then 
 		if nAction == nil or nAction == 0 or nAction == 1 then
-			ITEM_FILEPATH = "data/expand_box/"..player_rolename..".txt";
+			ITEM_FILEPATH = "data/expand_box/"..file_name..".txt";
 		else
-			ITEM_FILEPATH = "\\data\\expand_box\\"..player_rolename..".txt";
+			ITEM_FILEPATH = "\\data\\expand_box\\"..file_name..".txt";
 		end
 	else
 		if nAction == nil or nAction == 0 or nAction == 1 then
-			ITEM_FILEPATH = "data/carriage/"..player_rolename..".txt";
+			ITEM_FILEPATH = "data/carriage/"..file_name..".txt";
 		else
-			ITEM_FILEPATH = "\\data\\carriage\\"..player_rolename..".txt";
+			ITEM_FILEPATH = "\\data\\carriage\\"..file_name..".txt";
 		end
 	end
 	
@@ -257,14 +265,9 @@ function generateItemFilePath(nAction, nStoreId)
 end;
 
 
-function GetStoreFreeRoomExpandBox()
-	generateItemFilePath(2, 1);
-	return MAX_EXPAND_BOX_ITEMS - MAX_ITEM_COUNT;
-end;
-
-function GetStoreFreeRoomCarriage()
-	generateItemFilePath(2, 2);
-	return MAX_CARRIAGE_ITEMS - MAX_ITEM_COUNT;
+function GetStoreFreeRoom(nStoreId,nNpcIndex)
+	generateItemFilePath(READ_FILE,nStoreId,nNpcIndex);
+	return MAX_EXPAND_BOX_ITEMS - ITEM_COUNT;
 end;
 
 function getListFromFile()
@@ -291,15 +294,16 @@ function getListFromFile()
 end;
 
 
-function init(nStoreId)
-	generateItemFilePath(2,nStoreId)
+function init(nStoreId, nNpcIndex)
+	-- print("expand_box >> init >> nNpcIndex",nNpcIndex)
+	generateItemFilePath(2,nStoreId,nNpcIndex)
 	-- print(nStoreId,ITEM_FILEPATH);
 	TB_DATAITEMS = {}
 	TB_DATAITEMS = new(KTabFile, ITEM_FILEPATH);
-	TB_ITEMS, MAX_ITEM_COUNT = getListFromFile();
+	TB_ITEMS, ITEM_COUNT = getListFromFile();
 	-- print("ITEM_FILEPATH",ITEM_FILEPATH)
 	-- print("TB_ITEMS",getn(TB_ITEMS))
-	-- print("MAX_ITEM_COUNT",MAX_ITEM_COUNT)
+	-- print("ITEM_COUNT",ITEM_COUNT)
 end
 
 function nothing() end;

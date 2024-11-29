@@ -34,7 +34,8 @@ ListGif_1 = {
 	{"Linh th¹ch nguyªn th¹ch cÊp 5",10,{2,1,30417,1},0},
 	{"Linh th¹ch nguyªn th¹ch cÊp 6",10,{2,1,30418,1},0},
 	{"Linh th¹ch nguyªn th¹ch cÊp 7",10,{2,1,30419,1},0},
-	{"V¹n B¶o ®å",10,{2,1,2643,1},0},
+	-- {"V¹n B¶o ®å",10,{2,1,2643,1},0},
+	{"Phèi chÕ linh th¹ch",10,{2,1,2641,1},0},
 };
 
 ListGif_2 = {
@@ -65,7 +66,7 @@ ListGif_2 = {
 
 ListGif_3 = {
 	{"B¶o r­¬ng thÇn bÝ",10,{2,0,139,1},0},
-	{"Tói trang bÞ kim xµ 4 sao",10,{2,1,31261,1},0},
+	-- {"Tói trang bÞ kim xµ 4 sao",10,{2,1,31261,1},0},
 	{"Bao thiªn th¹ch tinh th¹ch",10,{2,1,1051,1},0},
 	--{"Hép quµ ¸o n¨m míi",10,{2,1,30000,1},0},
 	{"Tµng Hoµng kim bao",10,{2,1,204,1},0},	

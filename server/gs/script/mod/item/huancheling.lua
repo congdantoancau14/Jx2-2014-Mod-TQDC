@@ -1,68 +1,73 @@
 --Include("\\script\\lib\\globalfunctions.lua");
 Include("\\script\\mod\\carriage\\carriage_head.lua");
 
-tRouteMap = {
-}
-
+tRouteMap = {}
 
 function OnUse()
-	move()
+	move_carriage()
+	-- BIAOCHE_TASKGROUP:SetTask(BIAOCHE_TASKGROUP.BIAOCHE_INDEX,0);
+	-- BIAOCHE_TASKGROUP:SetTask(BIAOCHE_TASKGROUP.RENT_MAP,0);
+	-- print("\nBIAOCHE_TASKGROUP:GetTask(BIAOCHE_TASKGROUP.BIAOCHE_INDEX)",BIAOCHE_TASKGROUP:GetTask(BIAOCHE_TASKGROUP.BIAOCHE_INDEX))
+	-- print("BIAOCHE_TASKGROUP:GetTask(BIAOCHE_TASKGROUP.RENT_MAP)",BIAOCHE_TASKGROUP:GetTask(BIAOCHE_TASKGROUP.RENT_MAP))
+	-- print("BIAOCHE_TASKGROUP:GetTask(BIAOCHE_TASKGROUP.RENT_TIME)",BIAOCHE_TASKGROUP:GetTask(BIAOCHE_TASKGROUP.RENT_TIME))
 end;
 
-function move()
-	--print("huanbiaoling >> move called.");
-	
+function move_carriage()
+	--print("huanbiaoling >> move_carriage called.");
 	
 	local nMap,nPosX,nPosY = GetWorldPos();
 	local tPos = {{nPosX,nPosY},}
 	
 	local nCurTime = GetTime();
 	
-	local nOldNpcIdx = BIAOCHE_TASKGROUP:GetTask(BIAOCHE_TASKGROUP.BIAOCHE_INDEX);
+	local nOldCarIndex = BIAOCHE_TASKGROUP:GetTask(BIAOCHE_TASKGROUP.BIAOCHE_INDEX);
+	-- print("\n ________________________");
+	-- print("\n move_carriage >> nOldCarIndex",nOldCarIndex);
 	local nOldMap = BIAOCHE_TASKGROUP:GetTask(BIAOCHE_TASKGROUP.LAST_MAP);
 	
-	local nNpcMapID,nNpcPosX,nNpcPosY = GetNpcWorldPos(nOldNpcIdx);
+	local nNpcMapID,nNpcPosX,nNpcPosY = GetNpcWorldPos(nOldCarIndex);
 	local nDistance = abs(nPosX-nNpcPosX)+abs(nPosY-nNpcPosY);
 	
 	-- print(nDistance);
 	
 	local nNewMap = nMap;
-	if nOldNpcIdx ~= 0 then
+	if nOldCarIndex ~= 0 then
 		if nNewMap == nOldMap then
 			if nDistance > MAX_DISTANCE then 
 				Msg2Player(format("Kho¶ng c¸ch: [%d] Qu¸ xa. Xe kh«ng nhËn ®­îc tÝn hiÖu.",nDistance));
 			end
-			moveBiaoChe(nOldNpcIdx,tPos);
+			moveBiaoChe(nOldCarIndex,tPos);
 		else
-			rebornBiaoChe(nOldNpcIdx,nMap,tPos);
+			rebornBiaoChe(nOldCarIndex,nMap,tPos);
 		end
 	else
 		Msg2Player("Kh«ng t×m thÊy xe");
 	end
 end
 
-function rebornBiaoChe(nNpcIdx, nMap, tPos)
-	SetNpcLifeTime(nNpcIdx,0);
+function rebornBiaoChe(nCarIndex,nMap,tPos)
+	-- print(format("SetNpcLifeTime(%d,0)",nCarIndex))
+	SetNpcLifeTime(nCarIndex,0);
 	createBiaoChe()
 end;
 
 
-function moveBiaoChe(nNpcIdx,pos)
-	g_NpcAI:setWayPoint(nNpcIdx, pos);
+function moveBiaoChe(nCarIndex,pos)
+	g_NpcAI:setWayPoint(nCarIndex,pos);
 end;
 
 function createBiaoChe()
-	local nNpcIdx = CreateNpc("Xe vËn chuyÓn","Xe chë ®å",GetWorldPos());
-	SetNpcScript(nNpcIdx,"\\script\\mod\\carriage\\npc_xevanchuyen.lua");
-	BIAOCHE_TASKGROUP:SetTask(BIAOCHE_TASKGROUP.BIAOCHE_INDEX, nNpcIdx);
+	local nCarIndex = CreateNpc("Xe vËn chuyÓn","Xe chë ®å",GetWorldPos());
+	SetNpcScript(nCarIndex,"\\script\\mod\\carriage\\npc_xevanchuyen.lua");
+	BIAOCHE_TASKGROUP:SetTask(BIAOCHE_TASKGROUP.BIAOCHE_INDEX, nCarIndex);
 	local nMap = GetWorldPos();
-	BIAOCHE_TASKGROUP:SetTask(BIAOCHE_TASKGROUP.LAST_MAP,nMap);
-	if nNpcIdx ~= 0 then
+	BIAOCHE_TASKGROUP:SetTask(BIAOCHE_TASKGROUP.LAST_MAP, nMap);
+	if nCarIndex ~= 0 then
 	
-		local nNpcID = GetNpcID(nNpcIdx);
-		print("huancheling >> rebornBiaoChe >> nNpcID",nNpcID);
-		g_NpcAI:setAI(nNpcIdx,AT_SM_MOVE);
+		-- local nNpcID = GetNpcID(nCarIndex);
+		-- print("huancheling >> rebornBiaoChe >> nNpcID",nNpcID);
+		g_NpcAI:setAI(nCarIndex,AT_SM_MOVE);
 		
-		--SetNpcTempData(nNpcIdx, 1, nBCType)
+		--SetNpcTempData(nCarIndex, 1, nBCType)
 	end
 end;

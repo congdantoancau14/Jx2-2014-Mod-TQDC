@@ -14,48 +14,115 @@ end;
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
 
+tItems = {}
+nCount = 0;
+nPage = 1;
+nPages = 1;
+ITEM_PER_PAGE = 5;
+
 function destroyListItems()
-	RemoveItemInBag(1);
+	navigation(0);
 end;
 
-tItems = {}
-nPage = 1;
-function RemoveItemInBag(nPage)
+function navigation(nNav)
 	tItems = GetItemsInBag();
-	local nCount = getn(tItems);
+	nCount = getn(tItems);
 	-- print(nCount);
 	if nCount < 1 then 
 		Msg2Player("Hµnh trang ®· trèng");
 		return 0;
 	end
+	local nRound = floor(nCount/ITEM_PER_PAGE)*ITEM_PER_PAGE;
 	
-	local nEnd = 30;
+	nPages = ceil(nCount/ITEM_PER_PAGE);
+	nPage = nPage + nNav;
+	
+	if nPage >= nPages then 
+		nPage = nPages;
+	end
+	
+	local nBegin = (nPage-1) * ITEM_PER_PAGE + 1;
+	local nEnd = nBegin + ITEM_PER_PAGE - 1;
+	if nPage == nPages and nRound < nCount then 
+		nEnd = nBegin + nCount - nRound - 1;
+	end
 	
 	local tbSay = {}
-	if nPage == 1 then
-		local nPages = 2;
-		if nCount < nEnd then 
-			nEnd = nCount;
-			nPages = 1;
-		else
-			tinsert(tbSay, "Trang sau/#RemoveItemInBag(2)");
-		end
-		for i=1, nEnd do 
-			-- print(i,tItems[i][1]);
-			tinsert(tbSay,format("[%d] %s x%d/#ask_for_confirm_delitem(%d)",i,tItems[i][1],tItems[i][3],i))
-		end
-		if nPages > 1 then 
-			tinsert(tbSay, "Trang sau/#RemoveItemInBag(2)");
-		end
-	else
-		for i=nEnd+1, nCount do 
-			tinsert(tbSay,format("[%d] %s x%d/#ask_for_confirm_delitem(%d)",i,tItems[i][1],tItems[i][3],i))
-		end
-		tinsert(tbSay, "Trang tr­íc/#RemoveItemInBag(1)");
+	
+	for i=nBegin,nEnd do 
+		tinsert(tbSay,format("[%d] %s x%d/#ask_for_confirm_delitem(%d)",i,tItems[i][1],tItems[i][3],i))
 	end
+	
+	if nPage < nPages then
+		tinsert(tbSay, "\nTrang sau/#navigation(1)");
+	else
+		tinsert(tbSay, format("\nTrang ®Çu/#navigation(%d)",-nPage+1));
+	end
+	if nPage > 1 then 
+		tinsert(tbSay, "Trang tr­íc/#navigation(-1)");
+	else
+		tinsert(tbSay, format("Trang cuèi/#navigation(%d)",nPages-nPage));
+	end
+	tinsert(tbSay,format("Xãa trang nµy/#confirm_del_this_page(%d)",nPage));
 	tinsert(tbSay,"\nKh«ng xãa/nothing");
-	Say(format("Tæng céng cã <color=yellow>%d<color> item. Chän item ®Ó xãa",nCount),getn(tbSay),tbSay);
+	Say(format("Tæng céng cã <color=yellow>%d<color> lo¹i item. §ang hiÓn thÞ trang <color=gold>%d<color>\/%d.",nCount,nPage,nPages),getn(tbSay),tbSay);
 end;
+
+function confirm_del_this_page(nPage)
+	Say(format("X¸c nhËn xãa trang [<color=yellow>%d<color>]?",nPage),2,
+		format("\n>> X¸c nhËn/#delThisPage(%d)",nPage),
+		"\n>> Kh«ng/nothing"
+	)
+end;
+
+function delThisPage(nPage)
+	local nRound = floor(nCount/ITEM_PER_PAGE)*ITEM_PER_PAGE;
+	local nBegin = (nPage-1) * ITEM_PER_PAGE + 1;
+	local nEnd = nBegin + ITEM_PER_PAGE - 1;
+	if nPage == nPages then 
+		nEnd = nBegin + nCount - nRound - 1;
+	end
+	
+	local nBegin = (nPage-1) * ITEM_PER_PAGE + 1;
+	local nEnd = nBegin + ITEM_PER_PAGE - 1;
+	if nPage == nPages and nRound < nCount then 
+		nEnd = nBegin + nCount - nRound - 1;
+	end
+	
+	-- print(nBegin,nEnd);
+	for i=nBegin, nEnd do 
+		local nDel = DelItem(tItems[i][2][1],tItems[i][2][2],tItems[i][2][3],tItems[i][3]);
+		if nDel == 1 then 
+			Msg2Player(format("§· xãa %s x%d cña trang %d.",tItems[i][1],tItems[i][3],nPage))
+		else
+			Msg2Player(format("X¶y ra lçi khi xãa %s x%d cña trang %d.",tItems[i][1],tItems[i][3],nPage))
+			return 0;
+		end
+	end
+	
+	navigation(0);
+end;
+
+function ask_for_confirm_delitem(nIndex)
+	Say(format("X¸c nhËn xãa <color=yellow>%s x%d<color> khái hµnh trang?",tItems[nIndex][1],tItems[nIndex][3]),2,
+		format("\n>> X¸c nhËn/#DelItemFromBag(%d)",nIndex),
+		"\n>> Kh«ng/nothing"
+	)
+end
+
+function DelItemFromBag(nIndex)
+	local nDel = DelItem(tItems[nIndex][2][1],tItems[nIndex][2][2],tItems[nIndex][2][3],tItems[nIndex][3]);
+	if nDel == 1 then 
+		Msg2Player(format("Xãa thµnh c«ng [%s] x%d",tItems[nIndex][1],tItems[nIndex][3]))
+		navigation(0);
+		return 1;
+	else
+		Msg2Player(format("Xãa thÊt b¹i [%s] x%d",tItems[nIndex][1],tItems[nIndex][3]))
+		return 0;
+	end
+end;
+
+
 
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------

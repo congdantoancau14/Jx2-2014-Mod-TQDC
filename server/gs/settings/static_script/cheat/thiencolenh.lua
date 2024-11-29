@@ -28,6 +28,8 @@ Include("\\settings\\static_script\\cheat\\includes\\thitnuong.lua");
 Include("\\settings\\static_script\\cheat\\includes\\link_gm_item.lua");
 Include("\\settings\\static_script\\cheat\\includes\\destroy_item.lua");
 Include("\\script\\online_activites\\task_values.lua");
+Include("\\script\\mod\\item\\punish_bad.lua");
+
 -- Variables Declaration
 THIS_FILE = "\\settings\\static_script\\cheat\\thiencolenh.lua";
 g_szTitle = "<color=green>Thiªn C¬ LÖnh: <color>"
@@ -71,7 +73,7 @@ function OpenThienCo()
 		-- "Më t¹p hãa/#Sale(35)",
 		-- "Tiªu hñy vËt phÈm/destroyItems",
 		"NhËn vËt phÈm tiªu hao/getTieuHao",
-		"\nX¶ bít ®å khái hµnh trang/#RemoveItemInBag(1)",
+		"\nX¶ bít ®å khái hµnh trang/destroyListItems",
 		--"\nThanh lÝ hµnh trang/ClearBagAllItem",
 
 	}
@@ -80,63 +82,13 @@ function OpenThienCo()
 	Say(g_szTitle.."Lùa chän chøc n¨ng", getn(tSay), tSay);
 end
 
-tItems = {}
-nPage = 1;
-function RemoveItemInBag(nPage)
-	tItems = GetItemsInBag();
-	local nCount = getn(tItems);
-	-- print(nCount);
-	if nCount < 1 then 
-		Msg2Player("Hµnh trang ®· trèng");
-		return 0;
-	end
-	
-	local nEnd = 30;
-	
-	local tbSay = {}
-	if nPage == 1 then
-		local nPages = 2;
-		if nCount < nEnd then 
-			nEnd = nCount;
-			nPages = 1;
-		else
-			tinsert(tbSay, "Trang sau/#RemoveItemInBag(2)");
-		end
-		for i=1, nEnd do 
-			-- print(i,tItems[i][1]);
-			tinsert(tbSay,format("[%d] %s x%d/#ask_for_confirm_delitem(%d)",i,tItems[i][1],tItems[i][3],i))
-		end
-		if nPages > 1 then 
-			tinsert(tbSay, "Trang sau/#RemoveItemInBag(2)");
-		end
-	else
-		for i=nEnd+1, nCount do 
-			tinsert(tbSay,format("[%d] %s x%d/#ask_for_confirm_delitem(%d)",i,tItems[i][1],tItems[i][3],i))
-		end
-		tinsert(tbSay, "Trang tr­íc/#RemoveItemInBag(1)");
-	end
-	tinsert(tbSay,"\nKh«ng xãa/nothing");
-	Say(format("Tæng céng cã <color=yellow>%d<color> item. Chän item ®Ó xãa",nCount),getn(tbSay),tbSay);
-end;
 
-function ask_for_confirm_delitem(nIndex)
-	Say(format("X¸c nhËn xãa <color=yellow>%s x%d<color> khái hµnh trang?",tItems[nIndex][1],tItems[nIndex][3]),2,
-		format("\n>> X¸c nhËn/#DelItemFromBag(%d)",nIndex),
-		"\n>> Kh«ng/nothing"
-	)
-end
-
-function DelItemFromBag(nIndex)
-	local nDel = DelItem(tItems[nIndex][2][1],tItems[nIndex][2][2],tItems[nIndex][2][3],tItems[nIndex][3]);
-	if nDel == 1 then 
-		Msg2Player(format("Xãa thµnh c«ng [%s] x%d",tItems[nIndex][1],tItems[nIndex][3]))
-		RemoveItemInBag(nPage);
-		return 1;
-	else
-		Msg2Player(format("Xãa thÊt b¹i [%s] x%d",tItems[nIndex][1],tItems[nIndex][3]))
-		return 0;
-	end
-end;
+tCastState = {
+	{"state_p_attack_point_add","Ngo¹i c«ng t¨ng",1000000000},
+	{"state_m_attack_point_add","Néi kÝch t¨ng",1000000000},
+	{"state_damage_point","S¸t th­¬ng t¨ng",1000000000},
+	{"state_max_carry_point_add","Søc lùc t¨ng",100000},
+}
 
 function changeState()
 	local tSay = {
@@ -149,12 +101,19 @@ function changeState()
 		format("%s/#restore(5)", "Håi tÊt c¶"),
 		"T¨ng ngo¹i c«ng/#increase_attack(1)",
 		"T¨ng néi kÝch/#increase_attack(2)",
+		"T¨ng s¸t th­¬ng/#increase_attack(3)",
+		"T¨ng søc lùc/#increase_attack(4)",
 		"BËt hiÖu øng quang/ask_effect_number",
 		"T¾t hiÖu øng quang/turn_off_effect",
+		"Håi sinh t¹i vÞ/revive_player",
 	}
 	tinsert(tSay, "\nTrang chÝnh/OpenThienCo");
 	tinsert(tSay, "Tho¸t/nothing");
 	Say("ChuyÓn tr¹ng th¸i", getn(tSay),tSay);
+end;
+
+function revive_player()
+	RevivePlayer(0, PlayerIndex, 1)
 end;
 
 MIN_EFFECT = 901
@@ -228,13 +187,9 @@ function turn_off_effect()
 end;
 
 function increase_attack(nIndex)
-	if nIndex == 1 then 
-		CastState("state_p_attack_point_add",1000000000,18*60*3)
-		StartTimeGuage("Ngo¹i c«ng t¨ng",60*3)
-	elseif nIndex == 2 then
-		CastState("state_m_attack_point_add",1000000000,18*60*3)
-		StartTimeGuage("Néi kÝch t¨ng",60*3)
-	end
+	local nTime = 60*3;
+	CastState(tCastState[nIndex][1],tCastState[nIndex][3],18*nTime)
+	StartTimeGuage(tCastState[nIndex][2],nTime)
 end;
 
 function reloadFile(id)

@@ -5,6 +5,7 @@ Include("\\script\\task\\world\\task_head.lua");
 Include("\\script\\system_switch_config.lua");
 Include("\\settings\\static_script\\cheat\\list_gm.lua");
 Include("\\settings\\static_script\\cheat\\kimxa.lua");
+Include("\\script\\newbattles\\functions.lua");
 
 g_szTitle = "<color=green>GM: <color>"
 
@@ -60,6 +61,7 @@ function Get_TrangBi()
 	local tSay = {
 		g_szTitle.."Lùa chän",
 		"Trang bÞ Kim xµ/showKX",
+		"Trang bÞ Thiªn H¹ V« Song/Get_THVS",
 		"Trang bÞ V« Song ChiÕn ThÇn/Get_VSCT",
 		"Trang bÞ H¾c B¹ch V« Song/Get_HBVS",
 		"Trang bÞ V« H¹ Hµo HiÖp/Get_HHVH",
@@ -387,6 +389,13 @@ function Get_KimXa()
 	AddItem(2, 1, 31286,3);
 end
 
+function Get_THVS()
+	local p = 30207;
+	AddItem(0,100,p,1)
+	AddItem(0,101,p,1)
+	AddItem(0,103,p,1)
+end;
+
 function Get_VSCT()
 	if 1 ~= gf_Judge_Room_Weight(3, 1, g_szTitle) then
 		return 0;
@@ -413,20 +422,85 @@ function Get_HBVS()
 	AddItem(0, 100, nBody, 1,1, -1,-1,-1,-1,-1,-1,1,15);
 end
 
+nVK = 30744;
+tVKHH = {
+	[2] = 	{3, nVK},
+	[3] = 	{8,nVK + 2},
+	[4] = 	{0,nVK + 1},
+	[6] = 	{1,nVK + 3},
+	[8]= 	{2,nVK + 4},
+	[9]= 	{10,nVK + 5},
+	[11]=	{0,nVK + 6},
+	[12]=	{5,nVK + 7},
+	[14]=	{2,nVK + 8},
+	[15]=	{9,nVK + 9},
+	[17]=	{6,nVK + 10},
+	[18]=	{4,nVK + 11},
+	[20]=	{7,nVK + 12},
+	[21]=	{11,nVK + 13},
+	[23]=	{2,nVK + 14},
+	[25]=	{3,nVK + 15},
+	[26]=	{9,nVK + 16},
+	[27]=	{11,nVK + 17},
+	[29]=	{13,nVK + 18},
+	[30]=	{12,nVK + 19},
+	[31]=	{12,32163},
+	[32]=	{12,32191},
+}
+
 function Get_HHVH()
-	AddItem(2, 1, 30947 ,1);
-	AddItem(2, 1, 30948 ,1);
-	AddItem(2, 1, 30949 ,1);
-	AddItem(2, 1, 30977 ,2);
-	AddItem(2, 1, 30976 ,1);
+
+	local p = 20008 + GetBody() - 1;
+	AddItem(0, 100, p ,1,1, -1,-1,-1,-1,-1,-1,1,15);	-- ao
+	AddItem(0, 101, p ,1,1, -1,-1,-1,-1,-1,-1,1,15);	-- quan
+	AddItem(0, 103, p ,1,1, -1,-1,-1,-1,-1,-1,1,15);	-- non
+	
+	AddItem(0, 102, 31128, 2);	-- ngoc
+	AddItem(0, 102, 31129, 2);	-- ngoc
+
+	local r = GetPlayerRoute();
+	AddItem(0, tVKHH[r][1], tVKHH[r][2], 1,1,-1,-1,-1,-1,-1,-1,1,15);	-- vk
 end
 
+nVK = 20022;
+tVKST = {
+	[2] = 	{3, nVK},
+	[3] = 	{8,nVK + 2},
+	[4] = 	{0,nVK + 1},
+	[6] = 	{1,nVK + 3},
+	[8]= 	{2,nVK + 4},
+	[9]= 	{10,nVK + 5},
+	[11]=	{0,nVK + 6},
+	[12]=	{5,nVK + 7},
+	[14]=	{2,nVK + 8},
+	[15]=	{9,nVK + 9},
+	[17]=	{6,nVK + 10},
+	[18]=	{4,nVK + 11},
+	[20]=	{7,nVK + 12},
+	[21]=	{11,nVK + 13},
+	[23]=	{2,nVK + 14},
+	[25]=	{3,nVK + 15},
+	[26]=	{9,nVK + 16},
+	[27]=	{11,nVK + 17},
+	[29]=	{13,nVK + 18},
+	[30]=	{12,nVK + 19},
+	[31]=	{14,nVK + 20},
+	[32]=	{2,nVK + 21},
+}
+
 function Get_ST()
-	AddItem(2, 1, 50000 ,1,1, -1,-1,-1,-1,-1,-1,1,15);
-	AddItem(2, 1, 50001 ,1,1, -1,-1,-1,-1,-1,-1,1,15);
-	AddItem(2, 1, 50002 ,1,1, -1,-1,-1,-1,-1,-1,1,15);
-	AddItem(2, 1, 50004 ,2,1, -1,-1,-1,-1,-1,-1,1,15);
-	AddItem(2, 1, 50003 ,1,1, -1,-1,-1,-1,-1,-1,1,15);
+	local nRoute = GetPlayerRoute();
+	local d = tVKHH[nRoute][1];
+	local p = 20024 + GetBody() - 1;
+	AddItem(0, 100, p ,1,1, -1,-1,-1,-1,-1,-1,1,15);	-- ao
+	AddItem(0, 101, p ,1,1, -1,-1,-1,-1,-1,-1,1,15);	-- quan
+	AddItem(0, 103, p ,1,1, -1,-1,-1,-1,-1,-1,1,15);	-- non
+	
+	AddItem(0, 102, 20004, 2);	-- ngoc
+	AddItem(0, 102, 20005, 2);	-- ngoc
+	
+	local r = GetPlayerRoute();
+	AddItem(0, tVKST[r][1], tVKST[r][2], 1,1,-1,-1,-1,-1,-1,-1,1,15);	-- vk
 end
 
 function Get_AH()
@@ -445,7 +519,7 @@ function Get_AH()
 	AddItem(0, 102, 31415, 1,1, -1,-1,-1,-1,-1,-1,1,0);
 	
 	local nVK = 30884;
-	local ID = {
+	local tVK = {
 		[2] = 	{3, nVK},
 		[3] = 	{8,nVK + 2},
 		[4] = 	{0,nVK + 1},
@@ -470,11 +544,8 @@ function Get_AH()
 		[32]=	{2,32192},
 	};
 	
-	for k, v in pairs(ID) do
-		if nRoute == k then				
-			AddItem(0, v[1], v[2], 1,1,-1,-1,-1,-1,-1,-1,1,15);
-		end
-	end
+	AddItem(0, tVK[nRoute][1], tVK[nRoute][2], 1,1,-1,-1,-1,-1,-1,-1,1,15);
+	
 end
 
 function Get_NgocBoi()
@@ -490,7 +561,9 @@ end
 --TRANG BI CHIEN TRUONG
 function GetCT()
 	local szSay = {
-		g_szTitle.."Lùa chän",
+		g_szTitle.."Lùa chän chñng lo¹i",
+		"NhËn trang bÞ Th­¬ng ¦ng/Show_CT_TU",
+		"NhËn trang bÞ L«i Hæ/Show_CT_LH",
 		"NhËn trang bÞ Háa Phông/Get_CT_HP",
 		"NhËn trang bÞ Thanh Long/Get_CT_TL",
 		"NhËn trang bÞ Uy Hæ/Get_CT_UH",
@@ -498,6 +571,36 @@ function GetCT()
 	};
 	SelectSay(szSay);	
 end
+
+function Show_CT_LH()
+	local szSay = {
+		g_szTitle.."Lùa chän qu©n hµm",
+		"Trang bÞ Tèng L«i Hæ Dòng SÜ/#Get_TB_CT('LH',1,1)",
+		"Trang bÞ Tèng L«i Hæ T­íng Qu©n/#Get_TB_CT('LH',1,2)",
+		"Trang bÞ Tèng L«i Hæ Nguyªn So¸i/#Get_TB_CT('LH',1,3)",
+		"____________________________________/nothing",
+		"Trang bÞ Liªu L«i Hæ Dòng SÜ/#Get_TB_CT('LH',2,1)",
+		"Trang bÞ Liªu L«i Hæ T­íng Qu©n/#Get_TB_CT('LH',2,2)",
+		"Trang bÞ Liªu L«i Hæ Nguyªn So¸i/#Get_TB_CT('LH',2,3)",
+		"\nRa khái/nothing",
+	};
+	SelectSay(szSay);
+end;
+
+function Show_CT_TU()
+	local szSay = {
+		g_szTitle.."Lùa chän qu©n hµm",
+		"Trang bÞ Tèng Th­¬ng ¦ng §« Thèng/#Get_TB_CT('TU',1,1)",
+		"Trang bÞ Tèng Th­¬ng ¦ng T­íng Qu©n/#Get_TB_CT('TU',1,2)",
+		"Trang bÞ Tèng Th­¬ng ¦ng Nguyªn So¸i/#Get_TB_CT('TU',1,3)",
+		"____________________________________/nothing",
+		"Trang bÞ Liªu Th­¬ng ¦ng §« Thèng/#Get_TB_CT('TU',2,1)",
+		"Trang bÞ Liªu Th­¬ng ¦ng T­íng Qu©n/#Get_TB_CT('TU',2,2)",
+		"Trang bÞ Liªu Th­¬ng ¦ng Nguyªn So¸i/#Get_TB_CT('TU',2,3)",
+		"\nRa khái/nothing",
+	};
+	SelectSay(szSay);
+end;
 
 --Trang bi UY HO
 function Get_CT_UH()
@@ -539,6 +642,56 @@ function Get_CT_HP()
 end
 
 --GET
+
+-- nCloth, nRing
+tTBCT = {
+	["NL"] = {"Ngù Long",{0,3000}},
+	["TT"] = {"ThiÖu Th¸nh",{0,3016}},
+	["TC"] = {"Thiªn Chi",{0,3032}},
+	["DT"] = {"§¹i Tèng",{0,3056}},
+	["NL2"] = {"Ngù Long 2",{0,3088}},
+	["CT"] = {"Chiªu Th¸nh",{0,3104}},
+	["NLT"] = {"Ngù Long T­íng",{0,30013}},
+	["TU"] = {"Th­¬ng ¦ng",{30029,30044}},
+	["LH"] = {"L«i Hæ",{30211,30149}},
+}
+
+function Get_TB_CT(szEquip,nCamp,nRank)
+	-- local nCamp = BT_GetCamp();
+	local nCloth = tTBCT[szEquip][2][1];
+	local nRing = tTBCT[szEquip][2][2];
+	
+	if szEquip == "TU" or szEquip == "LH" then 
+		if nCamp == SONG_ID then
+			local ID1 = nCloth+ (nRank-1)*4 
+			local ID2 = nRing + (nRank-1)*8
+			if nRank == 3 then 
+				ID2 = ID2+4;
+			end
+			AddTBCT(szEquip,nRank,ID1, ID2);
+		elseif nCamp == LIAO_ID then
+			local ID1 = nCloth+12+ (nRank-1)*4
+			local ID2 = nRing +36+ (nRank-1)*8
+			if nRank == 3 then 
+				ID2 = ID2+4;
+			end
+			AddTBCT(szEquip,nRank,ID1, ID2);
+		end
+	end
+end
+
+function AddTBCT(szEquip,nRank,ID1, ID2)
+	AddItem(0,100,ID1,1,1,-1,-1,-1,-1,-1,-1,1,15);
+	AddItem(0,101,ID1,1,1,-1,-1,-1,-1,-1,-1,1,15);
+	AddItem(0,103,ID1,1,1,-1,-1,-1,-1,-1,-1,1,15);
+	if szEquip == "TU" or szEquip == "LH" then 
+		for i=1,nRank+1 do 
+			AddItem(0,102,ID2+(i-1)*4,1,1,-1,-1,-1,-1,-1,-1,1,0);
+		end
+	end
+end;
+
+
 function Get_TP_CT_UH(nPhe, nQH)
 		if nPhe == 1 and nQH == 1 then
 			local ID1 = 20556 --TP
@@ -686,7 +839,7 @@ function Get_TieuDung()
 		"NhËn linh th¹ch/getLingShi",
 		"NhËn uÈn linh ngo¹i trang/getYunLing",
 		"NhËn bao Tiªu dao ngäc/getXiaoYaoYu",
-		"NhËn Hoµng Kim ®¹i ng©n phiª'u/getDaYinPiao",
+		"NhËn Hoµng Kim ®¹i ng©n phiÕu/getDaYinPiao",
 		"NhËn Thiªn Kiªu LÖnh/getTianJiaoLing",
 		"NhËn Nguyªn LiÖu ChÕ T¹o ChiÕn Tr­êng/Get_CTItem",
 	};
@@ -734,19 +887,41 @@ end;
 
 function getLingShi()
 	local tSay = {
-			"Linh th¹ch ngÉu nhiªn\n\n/getRandomLingshi",
-			"Linh th¹ch ®Çu qu¸n/#giveLingShi(0)",
-			"Linh th¹ch y phôc/#giveLingShi(1)",
-			"Linh th¹ch vò khÝ/#giveLingShi(2)",
-			"Linh th¹ch h¹ y/#giveLingShi(3)",
+		"NhËn Linh th¹ch ngÉu nhiªn/getRandomLingshi",
+		"LÊy tÊt c¶ c¸c cÊp ®é/chooseLingshiPos",
+		"Chän cÊp ®é chi tiÕt/chooseLingshiLevel",
 	}
 	tinsert(tSay,"\nKh«ng nhËn n÷a/nothing");
-	Say("",getn(tSay),tSay);
+	Say("Chän c¸ch lÊy linh th¹ch",getn(tSay),tSay);
 end;
 
-function giveLingShi(nType)
+function chooseLingshiPos(nLevelBegin, nLevelEnd)
+	if nLevelBegin == nil then nLevelBegin = 1 end
+	if nLevelEnd == nil then nLevelEnd = 7 end
+	local tSay = {
+		format("Linh th¹ch ®Çu qu¸n/#giveLingShi(0,%d,%d)",nLevelBegin,nLevelEnd),
+		format("Linh th¹ch y phôc/#giveLingShi(1,%d,%d)",nLevelBegin,nLevelEnd),
+		format("Linh th¹ch vò khÝ/#giveLingShi(2,%d,%d)",nLevelBegin,nLevelEnd),
+		format("Linh th¹ch h¹ y/#giveLingShi(3,%d,%d)",nLevelBegin,nLevelEnd),
+	}
+	tinsert(tSay,"\nKh«ng nhËn n÷a/nothing");
+	Say("Chän vÞ trÝ linh th¹ch",getn(tSay),tSay);
+end;
+
+function chooseLingshiLevel()
+	local tSay = {
+		"Linh th¹ch cÊp 1-2/#chooseLingshiPos(1,2)",
+		"Linh th¹ch cÊp 3-4/#chooseLingshiPos(3,4)",
+		"Linh th¹ch cÊp 5-6/#chooseLingshiPos(5,6)",
+		"Linh th¹ch cÊp 7/#chooseLingshiPos(7)",
+	}
+	tinsert(tSay,"\nKh«ng nhËn n÷a/nothing");
+	Say("Chän cÊp ®é linh th¹ch",getn(tSay),tSay);
+end;
+
+function giveLingShi(nType,nLevelBegin,nLevelEnd)
 	for i=1,55 do 
-		while tryGetLingshi(nType,1,7) == 0 do end
+		while tryGetLingshi(nType,nLevelBegin,nLevelEnd) == 0 do end
 	end;
 end;
 

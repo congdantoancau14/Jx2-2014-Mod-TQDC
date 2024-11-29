@@ -2,21 +2,18 @@
 Include("\\script\\online\\olympic\\oly_head.lua")
 Include("\\settings\\static_script\\global\\regular_clear_task.lua")
 Include("\\script\\lib\\talktmp.lua")
-Include("\\script\\lib\\globalfunctions.lua");
-Include("\\script\\vng\\lib\\vnglib_textdata.lua") 
-Include("\\script\\vng\\lib\\vnglib_award.lua") 
 
 tbSay_201207 = {
 	"Giíi thiÖu ho¹t ®éng/introduce_201207",
-	"GhĞp Ngò S¾c Th¸nh Háa Th¹ch/combining_flame_201207",
-	"§o¸n sè tróng Lam S¾c Th¸nh Háa Th¹ch/guess_flame_201207",
-	"§Õn Háa Vùc Cöu Ch©u thu thËp Th¸nh Háa Th¹ch/goto_caji_map_201207",
-	"§Õn Thiªn S­ Bİ C¶nh thu thËp Th¸nh Háa Th¹ch/goto_tianshimijing",
+--	"°ÂÔËĞÒÔË³é½±/oly_lucky_star_201207",
 	"Rót th­ëng H¹nh VËn/oly_lucky_star_201207",
-	"§æi Ngò Th¸i Th¸nh Háa sang Ngò S¾c Th¸nh Háa Th¹ch/ExchangeItem",
+	"GhĞp Ngò Th¸i Th¸nh Háa/combining_flame_201207",
+	"§o¸n sè nhËn Lam S¾c Th¸nh Háa /guess_flame_201207",
+	"§Õn Háa Vùc Cöu Ch©u thu thËp Th¸nh Háa/goto_caji_map_201207",
 }
 
-sTitle_201207 = "Chµo mõng phiªn b¶n míi, th¾p s¸ng Th¸nh Háa §µn ®Ó nhËn phÇn th­ëng tèt. Ng­êi ch¬i ®¹t cÊp 80, ®· gia nhËp l­u ph¸i vµ häc hÕt kü n¨ng cÊp 55 cã thÓ tham gia.";
+--sTitle_201207 = "»¶Ó­²Î¼Ó°ÂÔË»î¶¯£¬ÊÕ¼¯¸÷É«Ê¥»ğµãÈ¼Ê¥Ì³£¬Ó®È¡ºÃÀñ¡£<color=green>70<color>¼¶ÒÑÈëÁ÷ÅÉÑ§»á<color=green>1<color>Ì×<color=green>55<color>¼¶¼¼ÄÜµÄÈËÊ¿¿ÉÒÔ²Î¼Ó¡£";
+sTitle_201207 = "Chóc mõng Phiªn B¶n míi, nhËn h¶o lÔ. CÊp 80 ®· gia nhËp m«n ph¸i häc kü n¨ng 55 ®¹t cÊp tèi ®a cã thÓ tham gia";
 
 Activity_Ds_Name = "<color=green>§¹i Sø ho¹t ®éng: <color>";
 
@@ -31,8 +28,8 @@ function introduce_201207()
 		"Nguån gèc vµ chñng lo¹i Th¸nh Háa/source_201207",
 		"PhÇn th­ëng vµ sè lÇn sö dông 5 lo¹i Th¸nh Háa ®Ó th¾p s¸ng/danse_award_201207",
 		"PhÇn th­ëng vµ sè lÇn sö dông Ngò Th¸i Th¸nh Háa ®Ó th¾p s¸ng/wucai_award_201207",
+--		"Ã¿ÈÕ°ÂÔËĞÒÔËĞÇ³é½±/lucky_star_201207",
 		"Rót th­ëng H¹nh VËn Tinh mçi ngµy/lucky_star_201207",
-		"H»ng ngµy th¾p löa gäi BOSS/lucky_call_boss",
 		"\n rót lui/nothing",
 	}
 	Say(Activity_Ds_Name..sTitle_201207_1,getn(tbSay),tbSay);
@@ -49,7 +46,7 @@ function source_201207()
 end
 
 function danse_award_201207()
-	local tbBody = format("Sè lÇn: Th¸nh Háa §µn ë mçi thµnh thŞ ®­îc th¾p s¸ng 3 lÇn/ngµy. PhÇn th­ëng:\n   Sè lÇn th¾p s¸ng +1;\n   Sè lÇn th¾p s¸ng trong ngµy cña server +1;\n   exp <color=green>%d<color>;\n   Hép Trang Trİ Gi¸ng Sinh;\n   hoÆc 1 ®¹o cô ngÉu nhiªn.", OLY_EXP_2);
+	local tbBody = format("Sè lÇn: Th¸nh Háa §µn cña mçi thµnh, mçi ngµy cã thÓ ®èt s¸ng 1 lÇn. PhÇn th­ëng: \n céng dån sè lÇn ®iÓm háa + 1; \n exp<color=green>%d<color>; \n ngÉu nhiªn 1 ®¹o cô quı hiÕm, phÇn th­ëng cao nhÊt cã Tinh Kh¾c, trang bŞ Thiªn NghÜa, trang bŞ ngÉu nhiªn v.v.", OLY_EXP_2);
 	local tbSay = {
 		"Sè lÇn th¾p s¸ng céng dån cã lîi İch g× kh«ng?/fire_used_201207",
 		"\n trë vÒ tÇng tr­íc/introduce_201207",
@@ -59,7 +56,7 @@ function danse_award_201207()
 end
 
 function wucai_award_201207()
-	local tbBody = format("Sè lÇn: Cã thÓ th¾p s¸ng Th¸nh Háa §µn tèi ®a 2000 lÇn. PhÇn th­ëng:\n   Sè lÇn th¾p s¸ng +1;\n   Sè lÇn th¾p s¸ng trong ngµy cña server +3;\n   exp <color=green>%d<color>;\n   Hép Trang Trİ Gi¸ng Sinh*3;\n   hoÆc 1 ®¹o cô ngÉu nhiªn.", OLY_EXP_3);
+	local tbBody = format("Sè lÇn: Cã thÓ ®iÓm háa t¹i bÊt kú Th¸nh Háa §µn cña thµnh thŞ víi sè lÇn bÊt kú. PhÇn th­ëng: \n céng dån sè lÇn ®iÓm háa +1; \n exp<color=green>%d<color>; \n ngÉu nhiªn 1 ®¹o cô quı hiÕm, phÇn th­ëng cao nhÊt cã Linh Th¹ch cÊp 7, Thiªn Cang LÖnh, §Şnh Hån Thiªn Th¹ch Linh Th¹ch, Thiªn Th¹ch Linh Th¹ch, trang bŞ ngÉu nhiªn v.v", OLY_EXP_3);
 	local tbSay = {
 		"Sè lÇn th¾p s¸ng céng dån cã lîi İch g× kh«ng?/fire_used_201207",
 		"\n trë vÒ tÇng tr­íc/introduce_201207",
@@ -70,7 +67,8 @@ end
 
 function fire_used_201207()
 	local tbSay = {};
-	tbSay.msg = Activity_Ds_Name.."Sè lÇn th¾p s¸ng ®¹t ®Õn c¸c mèc kh¸c nhau sÏ nhËn ®­îc nh÷ng phÇn th­ëng sau:\n";
+--	tbSay.msg = Activity_Ds_Name.."´ïµ½²»Í¬µÄÀÛ¼Æµã»ğ´ÎÊı»ñµÃ½±ÀøÊ±½«±È»ñµÃÈçÏÂ½±Àø£º\n    50´Î-1¼¶Ç§»Ã¿Ì°å£»100´Î-ÉñĞĞ±¦µä£»150´Î-ÔÉÌú¾«Ê¯£»\n    300´Î-2¼¶Ç§»Ã¿Ì°å£¨¿É»»È¡Ö¸¶¨²¿Î»Ö¸¶¨ÊôĞÔµÄ2¼¶ÔÌÁé£©£»\n    600´Î-»Ô»Í¾ü¹¦ÕÂ£»\n    800´Î-7¼¶ÁéÊ¯£»\n    1000´Î-3¼¶Ç§»Ã¿Ì°å£¨¿É»»È¡Ö¸¶¨²¿Î»Ö¸¶¨ÊôĞÔµÄ3¼¶ÔÌÁé£©£»\n    1200´Î-Ììî¸Áî£»\n	×¢Òâ£ºÁìÈ¡1200´ÎµÄ½±Àøºó£¬ÀÛ¼Æµã»ğ´ÎÊı»áÇåÁã£¬¿ÉÒÔÖØĞÂ¿ªÊ¼ÀÛ»ı¡£\n";
+	tbSay.msg = Activity_Ds_Name.."§iÓm háa céng dån ®¹t ®Õn 50 lÇn kh¸c nhau trang bŞ ngÉu nhiªn-1-3 sao; 100 lÇn-Bİ Ng©n To¶n; 200 lÇn-Bİ Ng©n Chïy; 400 lÇn-Qu©n C«ng §¹i; 700 lÇn-Thiªn Th¹ch Tinh Th¹ch; 1000 lÇn-Qu©n C«ng Huy Hoµng; 1300 lÇn-TÈy T©m Th¹ch cÊp 3; 1600 lÇn-LuyÖn L« ThiÕt cÊp 3; 1800 lÇn-Thiªn M«n Kim LÖnh; 2000 lÇn-Thiªn Cang LÖnh; \n Chó ı: Sau khi nhËn phÇn th­ëng 2000 lÇn, sè lÇn ®iÓm háa tİch lòy céng dån sÏ ®­îc lµm míi, cã thÓ tiÕp tôc b¾t ®Çu tİch lòy l¹i tõ ®Çu.";
 	tbSay.sel = {
 		{"\n rót lui","nothing"},
 	};
@@ -84,7 +82,7 @@ function combining_flame_201207()
 	end
 	local tbSay = {
 		"GhĞp b»ng Ngò Th¸i ThÇn Th¹ch (b¸n ë Ngù C¸c)/combining_1_201207",
-		--"GhĞp Th¸nh Háa vµ Vµng/combining_2_201207",
+		"GhĞp Th¸nh Háa vµ Vµng/combining_2_201207",
 		"\n rót lui/nothing",
 	}
 	Say(Activity_Ds_Name.."C¸c h¹ muèn chän c¸ch thøc nµo ®Ó ghĞp Ngò Th¸i Th¸nh Háa vËy?",getn(tbSay),tbSay);
@@ -100,7 +98,7 @@ function combining_1_201207()
 		"\n trë vÒ tÇng tr­íc/combining_flame_201207",
 		"Tho¸t/nothing",
 	}
-	Say(Activity_Ds_Name.."5 Th¸nh Háa Th¹ch ®¬n s¾c bÊt kú + 1 Ngò S¾c ThÇn Th¹ch (Mua trong Ngù C¸c) = 1 Ngò S¾c Th¸nh Háa Th¹ch",getn(tbSay),tbSay);
+	Say(Activity_Ds_Name.."1 Th¸nh Háa bÊt kú+1 Ngò Th¸i ThÇn Th¹ch (b¸n ë Ngù C¸c)=1 Ngò Th¸i Th¸nh Háa",getn(tbSay),tbSay);
 end
 
 function combining_2_201207()
@@ -113,7 +111,7 @@ function combining_2_201207()
 		"\n trë vÒ tÇng tr­íc/combining_flame_201207",
 		"Tho¸t/nothing",
 	}
-	Say(Activity_Ds_Name.."9 Th¸nh Háa Th¹ch ®¬n s¾c bÊt kú + 30 vµng = 1 Ngò S¾c Th¸nh Háa Th¹ch",getn(tbSay),tbSay);
+	Say(Activity_Ds_Name.."9 Th¸nh Háa bÊt kú+30 Vµng=1 Ngò Th¸i Th¸nh Háa",getn(tbSay),tbSay);
 end
 
 function guess_flame_201207()
@@ -132,16 +130,8 @@ end
 
 function lucky_star_201207()
 	local tbSay = {};
-	tbSay.msg = Activity_Ds_Name.."Sè lÇn th¾p s¸ng ®¹t 6 lÇn/ngµy, sÏ cã thÓ tham gia ho¹t ®éng Rót Th¨m May M¾n:\n   C¸ch thøc: NhËp 1 con sè trong kho¶ng 1-9999;\n   Quy tr×nh nhËn th­ëng: 21:00 h»ng ngµy më th­ëng, tõ 21:00-21:30 ng­êi ch¬i tróng th­ëng ph¶i ®Õn chç cña ta ®Ó ®¨ng kı tróng th­ëng, 10 ng­êi ch¬i ®Çu tiªn ®¨ng kı cã thÓ chia ®Òu phÇn th­ëng. Sau 21:30 cã thÓ nhËn th­ëng, ®Õn 22:00 th× kÕt thóc nhËn th­ëng, qu¸ giê sÏ kh«ng thÓ nhËn.\n   PhÇn th­ëng: Mçi ngµy 50 Thiªn Kiªu LÖnh, trong ngµy kh«ng ai tróng th­ëng (nhËn th­ëng), th× phÇn th­ëng sÏ tİch lòy cho ®Õn khi cã ng­êi tróng th­ëng hoÆc ho¹t ®éng kÕt thóc.\n   Chó ı: Con sè may m¾n chØ cã hiÖu lùc trong ngµy.";
-	tbSay.sel = {
-		{"\n rót lui","nothing"},
-	};
-	temp_Talk(tbSay);
-end
-
-function lucky_call_boss()
-	local tbSay = {};
-	tbSay.msg = Activity_Ds_Name.."Sau khi sè lÇn th¾p s¸ng trong ngµy cña server ®¹t 5000 lÇn, vµo lóc 20:00 ë T©y Thµnh §« sÏ xuÊt hiÖn Phï Thñy B¨ng Gi¸, sau khi tiªu diÖt sÏ r¬i ra nhiÒu phÇn th­ëng. Dïng Th¸nh Háa Th¹ch th­êng ®Ó th¾p s¸ng, sè lÇn th¾p s¸ng +1, nÕu dïng Ngò S¾c Th¸nh Háa Th¹ch ®Ó th¾p s¸ng, sè lÇn th¾p s¸ng +3.";
+--	tbSay.msg = Activity_Ds_Name.."Ò»ÌìÀÛ¼Æµã»ğ´ÎÊı´ïµ½ 6 ´Î£¬¼´¿É²Î¼Ó°ÂÔËĞÒÔË³é½±»î¶¯:\n   ·½Ê½£ºÊäÈëÒ»¸ö1-9999Ö®¼äµÄÊı×Ö£»\n   Áì½±Á÷³Ì£ºÃ¿Íí21:00¿ª½±£¬21:00-21:30ÖĞ½±Íæ¼ÒĞèÒªÀ´ÎÒÕâÀï½øĞĞÖĞ½±µÇ¼Ç£¬Ç°10ÃûµÇ¼ÇµÄÍæ¼Ò¿ÉÒÔ¾ù·Ö½±Àø¡£ÍíÉÏ21:30ºó¿ÉÒÔÁì½±£¬22:00Áì½±½áÊø£¬¹ıÊ±²»ÄÜÁì½±¡£\n   ½±Àø£ºÃ¿Ìì1¸öÌìî¸Áî£¬µ±ÈÕÎŞÈËÖĞ½±£¨Áì½±£©£¬½±Àø½«Ò»Ö±ÀÛ¼ÆÖ±µ½ÓĞÈËÖĞ½±»ò»î¶¯½áÊø¡£\n   ×¢Òâ£ºĞÒÔËÊı×Öµ±ÈÕÓĞĞ§¡£";
+	tbSay.msg = Activity_Ds_Name.."Mçi ngµy sè lÇn tİch lòy ®iÓm háa ®¹t ®Õn 6 lÇn, cã thÓ tham gia ho¹t ®éng rót th­ëng H¹nh VËn: \n   H×nh thøc: tõ 1-9999 nhËp vµo 1 con sè; \n   L­u tr×nh phÇn th­ëng: 21:00 mçi tèi sÏ më th­ëng, 21:00-21:30 nh÷ng ai tróng th­ëng ph¶i ®Õn ®©y ®Ó ®¨ng kı, 10 ng­êi ch¬i ®¨ng kı tr­íc sÏ cã phÇn th­ëng. Sau 21:30 cã thÓ nhËn th­ëng, 22:00 kÕt thóc nhËn th­ëng, qu¸ thêi gian kh«ng thÓ nhËn th­ëng. \n PhÇn th­ëng: Mçi ngµy 1 Thiªn Cang LÖnh, trong ngµy kh«ng ai tróng th­ëng (nhËn th­ëng), th× phÇn th­ëng sÏ ®­îc tİch lòy cho ®Õn khi cã ng­êi tróng th­ëng hoÆc ho¹t ®éng kÕt thóc. \n Chó ı: Sè H¹nh VËn cã hiÖu lùc trong ngµy.";
 	tbSay.sel = {
 		{"\n rót lui","nothing"},
 	};
@@ -154,7 +144,8 @@ function oly_lucky_star_201207()
 		return 0;
 	end
 	CheckAndDoRegularClear(EM_REGULAR_CLEAR_TYPE_DAILY);
-	local tbBody = "Sè lÇn th¾p s¸ng ®¹t 6 lÇn/ngµy, sÏ cã thÓ tham gia ho¹t ®éng Rót Th¨m May M¾n.\n    PhÇn th­ëng tİch lòy hiÖn t¹i lµ: <color=green>%d Thiªn Kiªu LÖnh<color>;\n    Con sè may m¾n h«m nay lµ: <color=green>%s<color>;\n    Con sè may m¾n cña b¹n lµ: <color=green>%d<color>;\n    PhÇn th­ëng: Mçi ngµy 50 Thiªn Kiªu LÖnh, trong ngµy kh«ng ai tróng th­ëng (nhËn th­ëng), th× phÇn th­ëng sÏ tİch lòy cho ®Õn khi cã ng­êi tróng th­ëng hoÆc ho¹t ®éng kÕt thóc.";
+--	local tbBody = "Ò»ÌìÀÛ¼Æµã»ğ´ÎÊı´ïµ½ 6 ´Î£¬¼´¿É²Î¼Ó°ÂÔËĞÒÔË³é½±»î¶¯¡£\n    Ä¿Ç°ÀÛ»ı½±ÀøÎª£º<color=green>%d¸öÌìî¸Áî<color>£»\n    ½ñÌìµÄĞÒÔËÊı×ÖÊÇ£º<color=green>%s<color>£»\n    Äã½ñÌìµÄĞÒÔËÊı×ÖÊÇ£º<color=green>%d<color>£»\n    ½±Àø£ºÃ¿Ìì1¸öÌìî¸Áî£¬µ±ÈÕÎŞÈËÖĞ½±£¨Áì½±£©£¬½±Àø½«Ò»Ö±ÀÛ¼ÆÖ±µ½ÓĞÈËÖĞ½±»ò»î¶¯½áÊø¡£";
+	local tbBody = "Mçi ngµy sè lÇn tİch lòy ®iÓm háa ®¹t ®Õn 6 lÇn, cã thÓ tham gia ho¹t ®éng rót th­ëng H¹nh VËn. \n HiÖn t¹i tİch lòy rót th­ëng lµ: <color=green>%d Thiªn Cang LÖnh<color>; \n Sè H¹nh VËn h«m nay lµ: <color=green>%s<color>; \n Sè H¹nh VËn h«m nay cña ng­¬i lµ: <color=green>%d<color>; \n PhÇn th­ëng: Mçi ngµy 1 Thiªn Cang LÖnh, trong ngµy kh«ng ai tróng th­ëng (lÜnh th­ëng), phÇn th­ëng sÏ ®­îc tİch lòy cho ®Õn khi cã ng­êi tróng th­ëng hoÆc ho¹t ®éng kÕt thóc. ";
 	local tbSay = oly_CreateDlgTable();
 	local nTglNum,strNum,nMyluckNum = oly_GetBaseInfo();	
 	tinsert(tbSay,"Tho¸t/nothing");
@@ -186,7 +177,7 @@ function goto_caji_map_201207()
 		"§ång ı/sure_201207",
 		"Tho¸t/nothing",
 	}
-	Say(Activity_Ds_Name.."§ång ı ®Õn b¶n ®å thu thËp ®Ó t×m Lôc S¾c Th¸nh Háa Th¹ch?",getn(tbSay),tbSay);
+	Say(Activity_Ds_Name.."Cã muèn ®i thu thËp Lam S¾c vµ Lôc S¾c Th¸nh Háa kh«ng?",getn(tbSay),tbSay);
 end
 
 function sure_201207()
@@ -198,30 +189,6 @@ function sure_201207()
 		return 0;
 	end
 	NewWorld(328,1628,3981);
-	SetFightState(1);
-end
-
-function goto_tianshimijing()
-	if oly_IsActivityOpen() ~= 1 then
-		Talk(1,"","Event ®· hÕt h¹n");
-		return 0;
-	end
-	local tbSay = {
-		"§ång ı/sure_goto_tianshimijing",
-		"Ra khái/nothing",
-	}
-	Say(Activity_Ds_Name.."§ång ı ®Õn b¶n ®å thu thËp ®Ó t×m Lôc S¾c Th¸nh Háa Th¹ch?",getn(tbSay),tbSay);
-end
-
-function sure_goto_tianshimijing()
-	if oly_IsActivityOpen() ~= 1 then
-		Talk(1,"","Event ®· hÕt h¹n");
-		return 0;
-	end
-	if oly_Is_LevelSkill()	~= 1 then
-		return 0;
-	end
-	NewWorld(329, 1734, 3428);
 	SetFightState(1);
 end
 
@@ -237,28 +204,4 @@ function get_lucknum_award_201207()
 	end
 	--Áì½±
 	ApplyRelayShareData(Oly_Record3.szKey,Oly_Record3.nKey1,Oly_Record3.nKey2,Oly_CallBack_Script,"oly_CallBack_GetLuckPersonNum");
-end
-
-function ExchangeItem()
-	nItem = GetItemCount(2,1,30402)
-	
-	if  IsPlayerDeath() ~= 0 then
-		Talk(1,"",Activity_Ds_Name.."Tr¹ng th¸i hiÖn t¹i kh«ng thÓ ®æi vËt phÈm!")
-		return
-	end	
-	
-	if gf_Judge_Room_Weight(2, 200) == 0 then
-		Talk(1,"", Activity_Ds_Name.."Søc lùc hoÆc hµnh trang kh«ng ®ñ, c¸c h¹ h·y s¾p xÕp l¹i nhĞ.")
-		return 
-	end
-
-	if nItem < 1 then
-		Talk(1,"",Activity_Ds_Name.."C¸c h¹ kh«ng cã Ngò Th¸i Th¸nh Háa trong ng­êi!")
-		return
-	end
-	
-	if DelItem(2,1,30402,nItem) == 1 then
-		gf_AddItemEx2({2,1,30753,nItem}, "Ngò Th¸i Th¸nh Háa", "§æi Item Ngò Th¸i Th¸nh Háa", "nhËn")
-		Talk(1,"",Activity_Ds_Name.."C¸c h¹ ®· ®æi thµnh c«ng <color=yellow>"..nItem.."<color> Ngò Th¸i Th¸nh Háa sang Ngò S¾c Th¸nh Háa th¹ch")
-	end
 end

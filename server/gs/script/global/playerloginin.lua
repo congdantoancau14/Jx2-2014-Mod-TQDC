@@ -80,6 +80,7 @@ Include("\\script\\online\\viet_event\\platinum_card\\platinum_head.lua")
 Include("\\script\\vng\\vanmay_daohuu\\vanmay_npc.lua") 
 Include("\\script\\vng\\vng_playerlogin.lua")
 Include("\\script\\biwudahui\\tournament\\tournament_head.lua")
+Include("\\script\\mod\\carriage\\carriage_head.lua");
 
 g_szThisFile = "\\script\\global\\playerloginin.lua"
 
@@ -927,7 +928,9 @@ function main(ExchangeComing)
 	SendScript2VM("\\script\\online_activites\\201502\\wupanguo.lua", "_wpg_playerlogin()")
 	-------------------------------------------------------
 	-- thamgiatinhnang3phe()
-
+	if is_rent_carriage_outtime() == 1 then 
+		Talk(1,"","C¸c h¹ ®· thuª xe chë ®å qu¸ l©u. Xa phu ®ang t×m c¸c h¹ kh¾p n¬i!");
+	end
 
 end;
 --*****************************É¾³ý¹ýÆÚÎïÆ·*************************

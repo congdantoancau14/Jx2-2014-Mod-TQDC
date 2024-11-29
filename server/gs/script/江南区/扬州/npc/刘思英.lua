@@ -1,13 +1,19 @@
 Include("\\script\\item\\item_yunling_box.lua")
 function main()
+	local player = "";
+	if GetSex() == 1 then 
+		player = "T¹i h¹";
+	else
+		player = "TiÓu n÷";
+	end
 	local tDialog = 
 	{
-		"\nTñ Thiªn BiÕn TiÕu Y/NpcTalkMain",
-		"\n Nguån gèc UÈn Linh /cixiu_laiyuan",
-		"\n ph­¬ng ph¸p thªu/cixiu_fangfa",
-		"\n rót lui/nothing",
+		"\nTa muèn nãi vÒ chuyÖn Tñ Thiªn BiÕn TiÕu Y/NpcTalkMain",
+		"\nTa muèn biÕt vÒ Nguån gèc UÈn Linh /cixiu_laiyuan",
+		"\nTa muèn l·nh gi¸o ph­¬ng ph¸p thªu/cixiu_fangfa",
+		format("\n%s xin c¸o tõ/nothing",player),
 	};
-	Say("<color=green>L­u T­ Anh:<color>thªu lµ tuyÖt nghÖ cña t¹i h¹, UÈn Linh ®­îc t¹i h¹ thªu kh«ng nh÷ng ®Ñp mµ cßn bÒn n÷a. ",getn(tDialog),tDialog);
+	Say("<color=green>L­u T­ Anh:<color>Thªu lµ tuyÖt nghÖ cña tiÓu n÷, UÈn Linh ®­îc ta thªu kh«ng nh÷ng ®Ñp mµ cßn bÒn n÷a. ",getn(tDialog),tDialog);
 end
 
 function cixiu_laiyuan()

@@ -16,15 +16,15 @@ function main()
 	else
 		strSex = "ThiÕu hiÖp/N÷ hiÖp"
 	end
-	local nDate = tonumber(date("%Y%m%d"))
-	if nDate < 20060216 then
-		Say("Chóc mäi ng­êi n¨m míi vui vÎ, vµo <color=red>ngµy 16/02/2008<color> bæn tiÖm sÏ chİnh thøc më cöa, c¸c vŞ"..strSex.."nhí ghĞ nhĞ!",0)
-		return 0
-	end
-	if nDate > 20060221 then
-		Say("TÕt qua råi, bæn tiÖm xin phĞp ®ãng cöa nghØ! C¸c vŞ"..strSex.."Nhí tÕt n¨m sau ®Õn ñng hé bæn tiÖm nhĞ!",0)
-		return 0
-	end
+	-- local nDate = tonumber(date("%m%d"))
+	-- if nDate < 0216 then
+		-- Say("Chóc mäi ng­êi n¨m míi vui vÎ, vµo <color=red>ngµy 16/02/2008<color> bæn tiÖm sÏ chİnh thøc më cöa, c¸c vŞ"..strSex.."nhí ghĞ nhĞ!",0)
+		-- return 0
+	-- end
+	-- if nDate > 0221 then
+		-- Say("TÕt qua råi, bæn tiÖm xin phĞp ®ãng cöa nghØ! C¸c vŞ "..strSex.." nhí tÕt n¨m sau ®Õn ñng hé bæn tiÖm nhĞ!",0)
+		-- return 0
+	-- end
 	if NEWYEAR_SWITCH == 1 then
 		local selTab = {
 					"ChÕ biÕn sñi c¶o./make_dumpling",

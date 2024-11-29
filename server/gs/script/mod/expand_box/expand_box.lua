@@ -104,7 +104,7 @@ function putthispage(nPage,nBegin,nEnd)
 end;
 
 function putallin()
-	-- if getn(tItems) > GetStoreFreeRoomExpandBox() then 
+	-- if getn(tItems) > GetStoreFreeRoom(nStoreId) then 
 		-- Talk(1,"","<color=red>R­¬ng ®· ®Çy, kh«ng thÓ chøa thªm nhiÒu ®å!<color>");
 		-- return 0;
 	-- end
@@ -216,8 +216,8 @@ function takeallout()
 	local nOverflow = 0;
 	
 	AddItemsByList(TB_ITEMS);
-	if MAX_ITEM_COUNT > nFreeRoom then 
-		nOverflow = MAX_ITEM_COUNT - nFreeRoom;
+	if ITEM_COUNT > nFreeRoom then 
+		nOverflow = ITEM_COUNT - nFreeRoom;
 		local tMoveItems = tablesplit(TB_ITEMS, 1, nFreeRoom);
 		local tDropItems = tablesplit(TB_ITEMS, nFreeRoom+1, nOverflow);
 		if getn(tDropItems) > 0 then

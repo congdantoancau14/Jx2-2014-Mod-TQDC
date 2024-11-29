@@ -16,17 +16,17 @@ D· Tr­ Quû Nha	2	0	14	2	0	1												\image\item\other\coll_003a1.spr	\image\i
 B×nh nhá	2	0	15	2	0	1												\image\item\other\coll_029a1.spr	\image\item\other\coll_029a0.spr	B×nh nhá ®ùng n­íc suèi dïng ®Ó pha trµ.		NhiÖm vô	\script\task\world\ox_quest\the_black_blood\Step001_002_³É¶¼±±½¼Ğ¡Æ¿×Ó.lua	1	2	1		
 M¸u ®en	2	0	16	2	0	1												\image\item\other\coll_029a1.spr	\image\item\other\coll_029a0.spr	B×nh nhá chøa m¸u ®en.		NhiÖm vô		1	2	1		
 LÖnh bµi Bé §Çu	2	0	17	2	0	1												\image\item\other\quest_008a1.spr	\image\item\other\quest_008a0.spr	LÖnh bµi cña bé ®Çu ë Thµnh §«.		NhiÖm vô		1	2	1		
-Th­ cña Thêi Thiªn 1	2	0	18	2	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	Th­ do Thêi Thiªn viÕt cho b»ng h÷u		NhiÖm vô		1	2	0		
-MËt th­ TriÒu ®×nh	2	0	19	2	0	1												\image\item\other\secr_019a1.spr	\image\item\other\secr_019a0.spr	Ghi nhiÒu tin tøc bÊt lîi cho giang hå lôc l©m h¶o h¸n.		NhiÖm vô		1	2	0		
+Th­ cña Thêi Thiªn 1	2	0	18	0	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	Th­ do Thêi Thiªn viÕt cho b»ng h÷u		NhiÖm vô		1	2	0		
+MËt th­ TriÒu ®×nh	2	0	19	0	0	1												\image\item\other\secr_019a1.spr	\image\item\other\secr_019a0.spr	Ghi nhiÒu tin tøc bÊt lîi cho giang hå lôc l©m h¶o h¸n.		NhiÖm vô		1	2	0		
 Thñ cÊp quan binh	2	0	20	2	0	1												\image\item\other\quest_011a1.spr	\image\item\other\quest_011a0.spr	Thñ cÊp quan binh		NhiÖm vô		1	2	0		
 Kh«ng Kh«ng DiÖu Thñ	2	0	21	2	0	1												\image\item\other\coll_074a1.spr	\image\item\other\coll_074a0.spr	Bao tay diÖu thñ kh«ng kh«ng cña Thêi Thiªn.		NhiÖm vô		1	2	0		
-Th­ cña Thêi Thiªn 2	2	0	22	2	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	Th­ do Thêi Thiªn viÕt cho b»ng h÷u		NhiÖm vô		1	2	0		
-Th­ cña Thêi Thiªn 3	2	0	23	2	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	Th­ do Thêi Thiªn viÕt cho b»ng h÷u		NhiÖm vô		1	2	0		
-Trung Th­ LÖnh	2	0	24	2	0	1												\image\item\other\quest_009a1.spr	\image\item\other\quest_009a0.spr	LÖnh bµi chøng minh chøc quan Trung Th­.		NhiÖm vô		1	2	0		
+Th­ cña Thêi Thiªn 2	2	0	22	0	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	Th­ do Thêi Thiªn viÕt cho b»ng h÷u		NhiÖm vô		1	2	0		
+Th­ cña Thêi Thiªn 3	2	0	23	0	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	Th­ do Thêi Thiªn viÕt cho b»ng h÷u		NhiÖm vô		1	2	0		
+Trung Th­ LÖnh	2	0	24	0	0	1												\image\item\other\quest_009a1.spr	\image\item\other\quest_009a0.spr	LÖnh bµi chøng minh chøc quan Trung Th­.		NhiÖm vô		1	2	0		
 Cê lÖnh	2	0	25	2	0	1												\image\item\other\quest_010a1.spr	\image\item\other\quest_010a0.spr	Cê lín cña cÊm qu©n trong TriÒu ®×nh.		NhiÖm vô		1	2	0		
 Lôa vµng	2	0	26	2	0	1												\image\item\other\coll_067a1.spr	\image\item\other\coll_067a0.spr	M¶nh lôa vµng cã thªu h×nh rång.		NhiÖm vô		1	2	0		
-Tèng Hµ phï	2	0	27	2	0	1												\image\item\other\quest_009a1.spr	\image\item\other\quest_009a0.spr	Con d©n §¹i Tèng: Tèng Hµ		NhiÖm vô		1	2	0		
-Lı Quû phï	2	0	28	2	0	1												\image\item\other\quest_009a1.spr	\image\item\other\quest_009a0.spr	Con d©n §¹i Tèng: Lı Quû		NhiÖm vô		1	2	0		
+Tèng Hµ phï	2	0	27	0	0	1												\image\item\other\quest_009a1.spr	\image\item\other\quest_009a0.spr	Con d©n §¹i Tèng: Tèng Hµ		NhiÖm vô		1	2	0		
+Lı Quû phï	2	0	28	0	0	1												\image\item\other\quest_009a1.spr	\image\item\other\quest_009a0.spr	Con d©n §¹i Tèng: Lı Quû		NhiÖm vô		1	2	0		
 CÈm nang nhiÖm vô	2	0	29	2	0	1												\image\item\other\quest_012a1.spr	\image\item\other\quest_012a0.spr	Xem qu¸ tr×nh thùc hiÖn nhiÖm vô cña m×nh. Cã thÓ nhËn hoÆc hñy bá nhiÖm vô.		NhiÖm vô	\script\item\task_pack.lua	1	0	0		
 D­îc cña L·nh ®¹i phu	2	0	30	2	0	1												\image\item\usable\heal_002a1.spr	\image\item\usable\heal_002a0.spr	§¬n d­îc cña L·nh ®¹i phu bµo chÕ cho TiÓu Hæ n­¬ng.		NhiÖm vô		1	2	1		
 Tµng KiÕm anh hïng thiÕp	2	0	31	2	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	Th­ cña Tµng KiÕm s¬n trang mêi quÇn hïng thiªn h¹.<enter><color=Gold>(§éi tr­ëng mang theo ®Ó dÉn ®éi ®Õn Tµng KiÕm s¬n trang)		NhiÖm vô		1	0	1		
@@ -39,18 +39,18 @@ Kim Ng©n Hoa	2	0	37	2	0	999												\image\item\usable\medi_002a1.spr	\image\
 M¶nh giÊy	2	0	38	2	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	NĞt ch÷ trªn giÊy bŞ mê, ch¼ng biÕt viÕt g× trªn ®ã.		NhiÖm vô		1	2	0		
 D· tr­ mao	2	0	39	2	0	1												\image\item\other\coll_001a1.spr	\image\item\other\coll_001a0.spr	L«ng heo rõng cùc mŞn, rÊt khã t×m		NhiÖm vô		1	2	0		
 MËt hµm Ch­¬ng VÜ Cang	2	0	40	2	0	1												\image\item\other\secr_019a1.spr	\image\item\other\secr_019a0.spr	MËt th­ cña Ch­¬ng VÜ C­¬ng, ¶nh h­ëng rÊt lín ®Õn giang hå.		NhiÖm vô	\script\task\world\lizhi_ÈªÖİ\task_letter.lua	1	2	0		
-Th­ tİn 1	2	0	41	2	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	Th­ H¹ HÇu CÇm göi hä Gia		NhiÖm vô		1	2	0		
+Th­ tİn 1	2	0	41	0	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	Th­ H¹ HÇu CÇm göi hä Gia		NhiÖm vô		1	2	0		
 Thø tİn 2	2	0	42	2	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	Th­ H¹ HÇu CÇm göi T«n Th­.		NhiÖm vô		1	2	0		
-Th­ tİn 3	2	0	43	2	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	Th­ H¹ HÇu CÇm göi hä TriÖu		NhiÖm vô		1	2	0		
+Th­ tİn 3	2	0	43	0	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	Th­ H¹ HÇu CÇm göi hä TriÖu		NhiÖm vô		1	2	0		
 Hoµng Hæ Linh Cèt	2	0	44	2	0	1												\image\item\other\coll_023a1.spr	\image\item\other\coll_023a0.spr	Hæ cèt quı hiÕm dïng bµo chÕ thuèc rÊt tèt.		NhiÖm vô		1	2	0		
 Hæ Cèt Linh PhÊn	2	0	45	2	0	1												\image\item\usable\heal_017a1.spr	\image\item\usable\heal_017a0.spr	Thuèc bµo chÕ tõ Hoµng Hæ Linh Cèt.		NhiÖm vô		1	2	0		
 C«n ®å khÈu cung	2	0	46	2	0	5												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	Lêi khai cña C«n ®å		NhiÖm vô		1	2	0		
 MŞch T«ng Cæ	2	0	47	2	0	1												\image\item\other\coll_055a1.spr	\image\item\other\coll_055a0.spr	Bİ thuËt gia truyÒn cña B¸ch Th¶o ¤ng chÕ t¹o, cã thÓ khèng chÕ ®­îc c¸c lo¹i ®éc trïng		NhiÖm vô	\script\task\world\lizhi_ãê¾©\task_trigger.lua	1	2	0		
-Th­ göi TriÖu Diªn Niªn	2	0	48	2	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	Th­ D· TÈu göi TriÖu Diªn Niªn		NhiÖm vô		1	2	0		
-Th­ TriÖu Diªn Niªn	2	0	49	2	0	3												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	Th­ hä TriÖu ®İch th©n viÕt.		NhiÖm vô		1	2	0		
-MËt th­ cña Tiªu Hµn	2	0	50	2	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	MËt th­ Tiªu Hµn mang theo.		NhiÖm vô		1	2	0		
+Th­ göi TriÖu Diªn Niªn	2	0	48	0	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	Th­ D· TÈu göi TriÖu Diªn Niªn		NhiÖm vô		1	2	0		
+Th­ TriÖu Diªn Niªn	2	0	49	0	0	3												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	Th­ hä TriÖu ®İch th©n viÕt.		NhiÖm vô		1	2	0		
+MËt th­ cña Tiªu Hµn	2	0	50	0	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	MËt th­ Tiªu Hµn mang theo.		NhiÖm vô		1	2	0		
 Tr­êng M«n S¸ch	2	0	51	2	0	9												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	Ghi chĞp tªn c¸c nh©n vËt trong Tr­êng Ca M«n.		NhiÖm vô		1	2	0		
-Thiªn ¢m Gi¸o t¹p th­	2	0	52	2	0	9												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	Ghi chĞp chuyÖn ë Thiªn ¢m gi¸o.		NhiÖm vô		1	2	0		
+Thiªn ¢m Gi¸o t¹p th­	2	0	52	0	0	9												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	Ghi chĞp chuyÖn ë Thiªn ¢m gi¸o.		NhiÖm vô		1	2	0		
 Xi Háa gi¸o d©n tôc	2	0	53	2	0	9												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	Ghi chĞp c¸c phong tôc ë Xi Háa gi¸o.		NhiÖm vô		1	2	0		
 Bİ mËt NhÊt PhÈm §­êng	2	0	54	2	0	9												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	Ghi chĞp chuyÖn ë NhÊt PhÈm §­êng.		NhiÖm vô		1	2	0		
 Hæ Cèt	2	0	55	2	0	10												\image\item\other\coll_023a1.spr	\image\item\other\coll_023a0.spr	X­¬ng ®Çu Hæ cã thÓ bµo chÕ thuèc.		NhiÖm vô		1	2	0		
@@ -58,9 +58,9 @@ Cê tiªu côc	2	0	56	2	0	1												\image\item\other\quest_010a1.spr	\image\ite
 Hµng hãa bŞ mÊt	2	0	57	2	0	20												\image\item\other\secr_027a1.spr	\image\item\other\secr_027a0.spr	Hµng hãa bŞ LiÖp Hé c­íp mÊt.		NhiÖm vô		1	2	0		
 LÖnh bµi S¬n trang	2	0	58	2	0	1												\image\item\other\skius_008a1.spr	\image\item\other\skius_008a0.spr	LÖnh bµi ra vµo Mé TuyÕt s¬n trang		NhiÖm vô		1	2	0		
 Danh bµi	2	0	59	2	0	1												\image\item\other\skius_010a1.spr	\image\item\other\skius_010a0.spr	Danh bµi lÊy ®­îc ë ThÊt Tinh ®éng.		NhiÖm vô		1	2	0		
-Th­ göi Th¸c B¹t Kú	2	0	60	2	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	Th­ göi Th¸c B¹t Kú ë KiÕm M«n Quan.		NhiÖm vô		1	2	0		
+Th­ göi Th¸c B¹t Kú	2	0	60	0	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	Th­ göi Th¸c B¹t Kú ë KiÕm M«n Quan.		NhiÖm vô		1	2	0		
 T©y H¹ bè trËn ®å	2	0	61	2	0	1												\image\item\other\coll_067a1.spr	\image\item\other\coll_067a0.spr	B¶n ®å bè trİ qu©n cña T©y H¹.		NhiÖm vô		1	2	0		
-MËt th­ T©y H¹	2	0	62	2	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	MËt th­ mang theo cña T©y H¹ t­íng lÜnh.		NhiÖm vô		1	2	0		
+MËt th­ T©y H¹	2	0	62	0	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	MËt th­ mang theo cña T©y H¹ t­íng lÜnh.		NhiÖm vô		1	2	0		
 NhÊt PhÈm bµi	2	0	63	2	0	10												\image\item\other\skius_012a1.spr	\image\item\other\skius_012a0.spr	Chøng minh lµ thµnh viªn cña NhÊt PhÈm §­êng		NhiÖm vô		1	2	0		
 D­îc phÈm thÇn bİ	2	0	64	2	0	1												\image\item\usable\heal_018a1.spr	\image\item\usable\heal_018a0.spr	Thuèc tïy th©n cña Gia LuËt B¸ Nham.		NhiÖm vô		1	2	0		
 Mª Hån H­¬ng	2	0	65	2	0	10												\image\item\usable\heal_018a1.spr	\image\item\usable\heal_018a0.spr	Thuèc tïy th©n cña c¸c N÷ KiÕm kh¸ch.		NhiÖm vô		1	2	0		
@@ -69,17 +69,17 @@ C«ng V¨n Liªu Quèc	2	0	67	2	0	1												\image\item\other\secr_022a1.spr	\ima
 H¾c Thiªn Nh·n ch©u	2	0	68	2	0	10												\image\item\other\coll_108a1.spr	\image\item\other\coll_108a0.spr	H¹t ch©u mµu ®en cña T©y H¹ t¨ng nh©n mang theo ng­êi.		NhiÖm vô		1	2	0		
 B¶n ®å Phôc Ng­u s¬n	2	0	69	2	0	1												\image\item\other\coll_067a1.spr	\image\item\other\coll_067a0.spr	§¸nh dÊu ph©n bè cña Liªu Quèc.		NhiÖm vô		1	2	0		
 Thuèc næ	2	0	70	2	0	1												\image\item\other\coll_110a1.spr	\image\item\other\coll_110a0.spr	Trang bŞ háa c«ng trong qu©n, cã thÓ ph¸ hñy kiÕn tróc, kho l­¬ng cña ®Şch		NhiÖm vô	\script\task\world\lizhi_ÏåÑô\Item_hy.lua	1	2	0		
-MËt th­ Thiªn ¢m gi¸o	2	0	71	2	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	MËt th­ Thiªn ¢m gi¸o t×m ®­îc trong doanh tr¹i phe Liªu.		NhiÖm vô		1	2	0		
-MËt th­ NhÊt PhÈm §­êng	2	0	72	2	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	MËt th­ NhÊt PhÈm §­êng t×m ®­îc trªn ng­êi t¨ng nh©n T©y H¹		NhiÖm vô		1	2	0		
-MËt th­ L­¬ng S¬n	2	0	73	2	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	MËt th­ trªn ng­êi §Çu lÜnh S¬n tÆc		NhiÖm vô		1	2	0		
+MËt th­ Thiªn ¢m gi¸o	2	0	71	0	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	MËt th­ Thiªn ¢m gi¸o t×m ®­îc trong doanh tr¹i phe Liªu.		NhiÖm vô		1	2	0		
+MËt th­ NhÊt PhÈm §­êng	2	0	72	0	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	MËt th­ NhÊt PhÈm §­êng t×m ®­îc trªn ng­êi t¨ng nh©n T©y H¹		NhiÖm vô		1	2	0		
+MËt th­ L­¬ng S¬n	2	0	73	0	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	MËt th­ trªn ng­êi §Çu lÜnh S¬n tÆc		NhiÖm vô		1	2	0		
 Thæ Lang Cèt	2	0	74	2	0	10												\image\item\other\coll_023a1.spr	\image\item\other\coll_023a0.spr	X­¬ng tiÓu thæ lang cã thÓ bµo chÕ d­îc liÖu.		NhiÖm vô		1	2	0		
 Thanh Lang Cèt	2	0	75	2	0	10												\image\item\other\coll_023a1.spr	\image\item\other\coll_023a0.spr	X­¬ng sãi xanh cã thÓ bµo chÕ d­îc liÖu.		NhiÖm vô		1	2	0		
 Tö Tinh Hoa	2	0	76	2	0	10												\image\item\other\secr_004a1.spr	\image\item\other\secr_004a0.spr	Hoa tİm nhá cã 5 c¸nh, cã thÓ bµo chÕ d­îc liÖu.		NhiÖm vô		1	2	0		
 Lang Cèt Töu	2	0	77	2	0	1												\image\item\other\coll_012a1.spr	\image\item\other\coll_012a0.spr	R­îu thuèc ®Æc chÕ cña §­êng M«n, rÊt th¬m ngon, gióp c­êng tr¸ng th©n thÓ.		NhiÖm vô		1	2	0		
 Tİn vËt Träng Yªm	2	0	78	2	0	1												\image\item\ring\ring_003a1.spr	\image\item\ring\ring_003a0.spr	Ngäc béi Ph¹m Träng Yªm		NhiÖm vô		1	2	0		
 Hµnh trang thÊt l¹c	2	0	79	2	0	1												\image\item\other\coll_038a1.spr	\image\item\other\coll_038a0.spr	Hµnh lı bŞ mÊt cña ®Ö tö C¸i Bang.		NhiÖm vô		1	2	0		
-Th­ göi Ph¹m Träng Yªm	2	0	80	2	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	Th­ Hång ThÊt C¸i Bang göi cho Ph¹m Träng Yªm.		NhiÖm vô		1	2	0		
-Th­ göi TrÇn Phi D­¬ng	2	0	81	2	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	Th­ Gia C¸t Kú göi Phi D­¬ng.		NhiÖm vô		1	2	0		
+Th­ göi Ph¹m Träng Yªm	2	0	80	0	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	Th­ Hång ThÊt C¸i Bang göi cho Ph¹m Träng Yªm.		NhiÖm vô		1	2	0		
+Th­ göi TrÇn Phi D­¬ng	2	0	81	0	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	Th­ Gia C¸t Kú göi Phi D­¬ng.		NhiÖm vô		1	2	0		
 Lang HuyÕt	2	0	82	2	0	2												\image\item\usable\heal_004a1.spr	\image\item\usable\heal_004a0.spr	Cã thÓ bµo chÕ thuèc, dïng trŞ ngo¹i th­¬ng rÊt c«ng hiÖu.		NhiÖm vô		1	2	0		
 Tói ph¸p khİ	2	0	83	2	0	1												\image\item\other\coll_038a1.spr	\image\item\other\coll_038a0.spr	Tói Ph¸p khİ trõ yªu cña TrÇn Phi D­¬ng göi Gia C¸t Kú.		NhiÖm vô		1	2	0		
 Táa Yªu Chung	2	0	84	2	0	1												\image\item\cloth\tool_008a1.spr	\image\item\cloth\tool_008a0.spr	Ph¸p b¶o do Tr­¬ng Thiªn S­ chÕ luyÖn, cã thÓ nhèt hån ph¸ch cña yªu ma vµo trong.		NhiÖm vô		1	2	0		
@@ -87,19 +87,19 @@ Oan hån Hñ Thi	2	0	85	2	0	25												\image\item\other\coll_091a1.spr	\image\
 Oan hån Hµnh thi	2	0	86	2	0	15												\image\item\other\coll_032a1.spr	\image\item\other\coll_032a0.spr	Hån ph¸ch cña Hµnh thi bŞ nhèt trong Táa Yªu Chung kÕt tinh thµnh mµu hång.		NhiÖm vô		1	2	0		
 Väng Giang Hång	2	0	87	2	0	10												\image\item\other\coll_076a1.spr	\image\item\other\coll_076a0.spr	Loµi hoa d¹i mµu hång mäc gÇn Giang T©n th«n rÊt ®Ñp.		NhiÖm vô		1	2	0		
 L«ng qu¹ ®en	2	0	88	2	0	4												\image\item\other\coll_109a1.spr	\image\item\other\coll_109a0.spr	Cã thÓ dïng ®Ó chÕ mùc.		NhiÖm vô		1	2	0		
-Bøc th­	2	0	89	2	0	1												\image\item\other\coll_111a1.spr	\image\item\other\coll_111a0.spr	Bøc th­ ®· bŞ më, tªn ng­êi nhËn lµ ch­ëng m«n Tr­êng Ca M«n		NhiÖm vô		1	2	0		
-Phong th­ 1	2	0	90	2	0	1												\image\item\other\slife_001a1.spr	\image\item\other\slife_001a0.spr	Trang th­ ®Çu tiªn Tèng Giang viÕt göi Tr­êng Ca M«n.		NhiÖm vô		1	2	0		
-Phong th­ 2	2	0	91	2	0	1												\image\item\other\slife_001a1.spr	\image\item\other\slife_001a0.spr	Trang th­ thø 2 göi Tr­êng Ca M«n.		NhiÖm vô		1	2	0		
-Phong th­ 3	2	0	92	2	0	1												\image\item\other\slife_001a1.spr	\image\item\other\slife_001a0.spr	Trang th­ thø 3 göi Tr­êng Ca M«n.		NhiÖm vô		1	2	0		
-Phong th­ 4	2	0	93	2	0	1												\image\item\other\slife_001a1.spr	\image\item\other\slife_001a0.spr	Trang th­ thø 4 göi Tr­êng Ca M«n.		NhiÖm vô		1	2	0		
+Bøc th­	2	0	89	0	0	1												\image\item\other\coll_111a1.spr	\image\item\other\coll_111a0.spr	Bøc th­ ®· bŞ më, tªn ng­êi nhËn lµ ch­ëng m«n Tr­êng Ca M«n		NhiÖm vô		1	2	0		
+Phong th­ 1	2	0	90	0	0	1												\image\item\other\slife_001a1.spr	\image\item\other\slife_001a0.spr	Trang th­ ®Çu tiªn Tèng Giang viÕt göi Tr­êng Ca M«n.		NhiÖm vô		1	2	0		
+Phong th­ 2	2	0	91	0	0	1												\image\item\other\slife_001a1.spr	\image\item\other\slife_001a0.spr	Trang th­ thø 2 göi Tr­êng Ca M«n.		NhiÖm vô		1	2	0		
+Phong th­ 3	2	0	92	0	0	1												\image\item\other\slife_001a1.spr	\image\item\other\slife_001a0.spr	Trang th­ thø 3 göi Tr­êng Ca M«n.		NhiÖm vô		1	2	0		
+Phong th­ 4	2	0	93	0	0	1												\image\item\other\slife_001a1.spr	\image\item\other\slife_001a0.spr	Trang th­ thø 4 göi Tr­êng Ca M«n.		NhiÖm vô		1	2	0		
 M¶nh ®ång	2	0	94	2	0	8												\image\item\other\secr_009a1.spr	\image\item\other\secr_009a0.spr	M¶nh ®ång phİa trªn cã kh¾c ch÷ kú qu¸i.		NhiÖm vô		1	2	0		
-Di th­ TrÇn Phi D­¬ng 1	2	0	95	2	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	Di th­ TrÇn Phi D­¬ng muèn göi cho ph­¬ng tr­îng ThiÕu L©m.		NhiÖm vô		1	2	0		
-Di th­ TrÇn Phi D­¬ng 2	2	0	96	2	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	Di th­ TrÇn Phi D­¬ng muèn göi cho ch­ëng m«n C¸i Bang.		NhiÖm vô		1	2	0		
+Di th­ TrÇn Phi D­¬ng 1	2	0	95	0	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	Di th­ TrÇn Phi D­¬ng muèn göi cho ph­¬ng tr­îng ThiÕu L©m.		NhiÖm vô		1	2	0		
+Di th­ TrÇn Phi D­¬ng 2	2	0	96	0	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	Di th­ TrÇn Phi D­¬ng muèn göi cho ch­ëng m«n C¸i Bang.		NhiÖm vô		1	2	0		
 §ïi heo rõng	2	0	97	2	0	10												\image\item\usable\edib_001a1.spr	\image\item\usable\edib_001a0.spr	§ïi heo rõng th­êng dïng ®Ó cóng tÕ.		NhiÖm vô		1	2	0		
 Sinh ThiÕt	2	0	98	2	0	20												\image\item\other\smeta_001a1.spr	\image\item\other\smeta_001a0.spr	Nguyªn vËt liÖu quan träng dïng ®óc t¹o binh khİ.		NhiÖm vô		1	2	0		
 ThiÒm T«	2	0	99	2	0	10												\image\item\usable\heal_028a1.spr	\image\item\usable\heal_028a0.spr	D­îc liÖu cùc quı chiÕt tõ cãc ®éc		NhiÖm vô		1	2	0		
 Phi Béc Kim Ch©m	2	0	100	2	0	1												\image\item\other\skius_005a1.spr	\image\item\other\skius_005a0.spr	¸m khİ cao cÊp ®Æc biÖt cña §­êng M«n		NhiÖm vô	\script\task\world\lizhi_ÑïÖİ\task_fpjz.lua	1	2	0		
-D÷ Thª th­	2	0	101	2	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	Th­ viÕt göi vî cña L«i Th¾ng		NhiÖm vô	\script\task\world\lizhi_ÑïÖİ\task_yqs.lua	1	2	0		
+D÷ Thª th­	2	0	101	0	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	Th­ viÕt göi vî cña L«i Th¾ng		NhiÖm vô	\script\task\world\lizhi_ÑïÖİ\task_yqs.lua	1	2	0		
 Thiªn H¹t VÜ Ch©m	2	0	102	2	0	20												\image\item\other\coll_112a1.spr	\image\item\other\coll_112a0.spr	Cùc phÈm chøa nhiÒu chÊt ®éc.		NhiÖm vô		1	2	0		
 M¶nh tr¸i B¶n ®å thÇn bİ	2	0	103	2	0	1												\image\item\other\secr_024a1.spr	\image\item\other\secr_024a0.spr	Cã ghi chĞp tin tøc quan träng.		NhiÖm vô		1	2	0		
 M¶nh ph¶i B¶n ®å thÇn bİ	2	0	104	2	0	1												\image\item\other\secr_024a1.spr	\image\item\other\secr_024a0.spr	Cã ghi chĞp tin tøc quan träng.		NhiÖm vô		1	2	0		
@@ -123,12 +123,12 @@ TÈy Tñy ®¬n	2	0	136	1	0	1												\image\item\usable\rich_001a1.spr	\image\it
 TÈy Tñy linh ®¬n	2	0	137	1	0	1												\image\item\usable\rich_002a1.spr	\image\item\usable\rich_002a0.spr	C¸c tiªn nh©n ®Æc biÖt bµo chÕ cho ng­êi muèn chuyÓn h­íng luyÖn c«ng<enter> <color=Gold>(Tïy ı ph©n phèi l¹i ®iÓm tiÒm n¨ng)		D­îc phÈm	\script\item\item_billing\xisuilingdan.lua	1	0	1		
 B¸t B¶o TÈy Tñy Tiªn §¬n	2	0	138	1	0	1												\image\item\usable\rich_003a1.spr	\image\item\usable\rich_003a0.spr	ThÇn d­îc cña Th¸i Th­îng l·o qu©n chÕ luyÖn<enter> <color=Gold>TÈy l¹i tÊt c¶ ®iÓm tiÒm n¨ng.		D­îc phÈm	\script\item\item_billing\babaoxisuixiandan.lua	1	0	1		
 B¶o r­¬ng ThÇn bİ	2	0	139	1	0	999												\image\item\usable\rich_004a1.spr	\image\item\usable\rich_004a0.spr	B¶o r­¬ng thÇn bİ bªn trong Èn chøa nhiÒu bİ mËt.		NhiÖm vô	\script\item\shenmibaoxiang.lua	1	0	0		
-TriÖu Yªu phï	2	0	140	1	0	999												\image\item\usable\rich_005a1.spr	\image\item\usable\rich_005a0.spr	Phï chó bŞ yªu ma lµm phĞp, kh«ng ai biÕt qu¸i vËt bªn trong ra sao.		NhiÖm vô	\script\item\zhaoyaofu.lua	1	0	0		
+TriÖu Yªu phï	2	0	140	0	0	999												\image\item\usable\rich_005a1.spr	\image\item\usable\rich_005a0.spr	Phï chó bŞ yªu ma lµm phĞp, kh«ng ai biÕt qu¸i vËt bªn trong ra sao.		NhiÖm vô	\script\item\zhaoyaofu.lua	1	0	0		
 Tiªu KiÕp t¸n	2	0	141	1	0	999												\image\item\usable\rich_006a1.spr	\image\item\usable\rich_006a0.spr	C¸ch chÕ luyÖn chØ ®­îc ghi chĞp trong c¸c s¸ch cæ, gióp röa bít nghiÖp ch­íng<enter> <color=Gold>(Gi¶m 1 ®iÓm PK).		D­îc phÈm	\script\item\item_billing\xiaojiesan.lua	1	0	1		
 HuyÒn Hoµng B¶o ®¬n	2	0	142	1	0	999												\image\item\other\Ğş»Æ±¦µ¤a1.spr	\image\item\other\Ğş»Æ±¦µ¤a0.spr	§­îc chÕ luyÖn tõ Tiªn Phong Lé Thñy trªn ®Ønh Bång Lai s¬n, gióp xãa hÕt nghiÖp ch­íng.<enter> <color=Gold>(Xãa tÊt c¶ ®iÓm PK).		D­îc phÈm	\script\item\item_billing\xuanhuangbaodan.lua	1	0	1		
-ThÇn Hµnh phï	2	0	143	1	0	999												\image\item\usable\rich_008a1.spr	\image\item\usable\rich_008a0.spr	T­¬ng truyÒn lµ phï chó trªn gi¸p m· cña ThÇn Hµnh Th¸i B¶o, sö dông cã thÓ ®i xa tr¨m dÆm trong 1 ngµy.		NhiÖm vô	\script\item\shenxingfu.lua	1	0	0		
+ThÇn Hµnh phï	2	0	143	0	0	999												\image\item\usable\rich_008a1.spr	\image\item\usable\rich_008a0.spr	T­¬ng truyÒn lµ phï chó trªn gi¸p m· cña ThÇn Hµnh Th¸i B¶o, sö dông cã thÓ ®i xa tr¨m dÆm trong 1 ngµy.		NhiÖm vô	\script\item\shenxingfu.lua	1	0	0		
 Hµnh lı cña Tr­¬ng B¸ H¸n	2	0	144	1	0	1												\image\item\other\coll_038a1.spr	\image\item\other\coll_038a0.spr	Hµnh lı Tr­¬ng B¸ H¸n ho¶ng vİa ®¸nh r¬i ë Vò Di s¬n.		NhiÖm vô		1	2	0		
-Da Th­¬ng Viªn	2	0	145	1	0	1												\image\item\other\orskin_010a1.spr	\image\item\other\orskin_010a0.spr	Da Th­¬ng Viªn		NhiÖm vô		1	2	0		
+Da Th­¬ng Viªn	2	0	145	2	0	1												\image\item\other\orskin_010a1.spr	\image\item\other\orskin_010a0.spr	Da Th­¬ng Viªn		NhiÖm vô		1	2	0		
 L«ng Ng©n hå	2	0	146	1	0	1												\image\item\other\coll_001a1.spr	\image\item\other\coll_001a0.spr	L«ng cña Ng©n hå.		NhiÖm vô		1	2	0		
 B×nh rçng	2	0	147	1	0	1												\image\item\usable\heal_022a1.spr	\image\item\usable\heal_022a0.spr	B×nh nhá cña L­u HuyÒn Thanh dïng luyÖn ®¬n		NhiÖm vô	\script\task\world\lizhi_ÑïÖİ\task_kpz.lua	1	2	0		
 Bïn ë L­ìng Thñy ®éng	2	0	148	1	0	1												\image\item\usable\heal_022a1.spr	\image\item\usable\heal_022a0.spr	B×nh nhá chøa ®Çy ®Êt ë L­ìng Thñy ®éng, kh¶ n¨ng cã hån ph¸ch b»ng h÷u cña L­u HuyÒn Thanh trong ®ã.		NhiÖm vô		1	2	0		
@@ -136,7 +136,7 @@ Son Thiªn H­¬ng	2	0	149	1	0	1												\image\item\other\coll_059a1.spr	\image
 Háa Kú L©n HuyÕt	2	0	150	1	100000	1												\image\item\other\fulife_005a1.spr	\image\item\other\fulife_005a0.spr	M¸u cña Háa Kú L©n		NhiÖm vô		1	2	1		
 Th¶m	2	0	151	1	0	1												\image\item\other\baitan_001a1.spr	\image\item\other\baitan_001a0.spr	C¸c tiÓu th­¬ng tr·i ra bµy vËt phÈm lªn ®Ó b¸n.		Chuyªn dïng bµy b¸n		1	0	1		
 Xe hµng (tiÓu)	2	0	152	1	0	1												\image\item\other\baitan_002a1.spr	\image\item\other\baitan_002a0.spr	Lo¹i xe th« s¬ c¸c tiÓu th­¬ng dïng ®Ó vËn chuyÓn vËt phÈm.		Chuyªn dïng bµy b¸n		1	0	1		
-Th­¬ng xa	2	0	153	1	0	1												\image\item\other\baitan_003a1.spr	\image\item\other\baitan_003a0.spr	Lo¹i xe chuyªn chë vËt phÈm cña c¸c th­¬ng nh©n.		Chuyªn dïng bµy b¸n		1	0	1		
+Th­¬ng xa	2	0	153	5	0	1												\image\item\other\baitan_003a1.spr	\image\item\other\baitan_003a0.spr	Lo¹i xe chuyªn chë vËt phÈm cña c¸c th­¬ng nh©n.		Chuyªn dïng bµy b¸n		1	0	1		
 Xe hµng (®¹i)	2	0	154	1	0	1												\image\item\other\baitan_004a1.spr	\image\item\other\baitan_004a0.spr	C¸c th­¬ng nh©n chuyªn dïng ®Ó chë hµng.		Chuyªn dïng bµy b¸n		1	0	1		
 Tñ lé thiªn	2	0	155	1	0	1												\image\item\other\baitan_005a1.spr	\image\item\other\baitan_005a0.spr	Tñ bµy hµng cña c¸c ®¹i th­¬ng gia! Cã phĞp cña quan phñ míi ®­îc bµy b¸n.		Chuyªn dïng bµy b¸n		1	0	1		
 CÈu Khuyªn	2	0	156	1	666	999												\image\item\other\quest_034a1.spr	\image\item\other\quest_034a0.spr	Lo¹i vßng quÊn quanh cæ chã, th­êng lµm b»ng s¾t hoÆc b»ng b¹c, cã m¾c thªm d©y thõng ®Ó d¾t cho ®i.		Thu thËp		1	0	0		
@@ -146,13 +146,13 @@ HiÖu bµi Gia ®inh	2	0	159	1	456	999												\image\item\other\coll_066a1.spr	
 GiÊy b¸n th©n	2	0	160	1	666	999												\image\item\other\secr_013a1.spr	\image\item\other\secr_013a0.spr	GiÊy b¸n th©n cña gia ®inh Tµng KiÕm s¬n trang ghi râ lı do vµ kú h¹n b¸n th©n cã dÊu tay x¸c nhËn cña hai phİa chñ tí.		Thu thËp		1	0	0		
 §uèc	2	0	161	1	256	999												\image\item\other\coll_125a1.spr	\image\item\other\coll_125a0.spr	§uèc tõ nhùa th«ng dïng th¾p s¸ng.		Thu thËp		1	0	0		
 M«ng H¸n d­îc	2	0	162	1	256	999												\image\item\usable\heal_027a1.spr	\image\item\usable\heal_027a0.spr	Bét thuèc khiÕn h«n mª t¹m thêi, cÇn thiÕt khi hµnh tÈu giang hå.		Thu thËp		1	0	0		
-Gi¸o ®Çu th­	2	0	163	1	456	999												\image\item\other\secr_013a1.spr	\image\item\other\secr_013a0.spr	Th­ mêi cña Tæng gi¸o ®Çu Tµng KiÕm s¬n trang, cã th­ nµy míi ®­îc ra vµo s¬n trang ®¹i viÖn.		Thu thËp		1	0	0		
+Gi¸o ®Çu th­	2	0	163	0	456	999												\image\item\other\secr_013a1.spr	\image\item\other\secr_013a0.spr	Th­ mêi cña Tæng gi¸o ®Çu Tµng KiÕm s¬n trang, cã th­ nµy míi ®­îc ra vµo s¬n trang ®¹i viÖn.		Thu thËp		1	0	0		
 Quû §Çu ®¹i ®ao	2	0	164	1	666	999												\image\item\other\coll_075a1.spr	\image\item\other\coll_075a0.spr	Binh khİ s¾t bĞn, hiÖp kh¸ch hµnh th­êng sö dông.		Thu thËp		1	0	0		
 Chæi quĞt	2	0	165	1	256	999												\image\item\other\coll_126a1.spr	\image\item\other\coll_126a0.spr	Dông cô quĞt nhµ th«ng th­êng ®­îc lµm tõ b«ng cao l­¬ng.		Thu thËp		1	0	0		
 Lång ®Ìn l­u ly	2	0	166	1	666	999												\image\item\other\coll_127a1.spr	\image\item\other\coll_127a0.spr	Lång ®Ìn s¸ng rùc, cã thÓ chèng ®­îc n­íc m­a.		Thu thËp		1	0	0		
 Ch×a khãa cò	2	0	167	1	456	999												\image\item\other\coll_128a1.spr	\image\item\other\coll_128a0.spr	Ch×a khãa cò kü kh«ng thÓ sö dông.		Thu thËp		1	0	0		
 Hép gÊm	2	0	168	1	5000	999												\image\item\other\coll_057a1.spr	\image\item\other\coll_057a0.spr	Bªn trong chøa nhiÒu gÊm ®Ñp vµ b¸u vËt quı hiÕm.		Thu thËp	\script\item\jinhe.lua	1	0	0		
-TÈu ®ång	2	0	169	1	2000	999												\image\item\other\ÑÌÇ¹a1.spr	\image\item\other\ÑÌÇ¹a0.spr	Dµi h¬n 1 mĞt, lµ lo¹i kú m«n binh khİ.		Thu thËp		1	0	0		
+TÈu ®ång	2	0	169	1	2000	999												\image\item\other\quest_012a1.spr	\image\item\other\quest_012a0.spr	Dµi h¬n 1 mĞt, lµ lo¹i kú m«n binh khİ.		Thu thËp		1	0	0		
 §¸ löa	2	0	170	1	1000	999												\image\item\other\secr_029a1.spr	\image\item\other\secr_029a0.spr	§¸ löa th­êng gÆp ®­îc gãi trong v¶i dÇu.		Thu thËp		1	0	0		
 ThiÕt Kú	2	0	171	1	1000	999												\image\item\other\coll_129a1.spr	\image\item\other\coll_129a0.spr	Cê b»ng s¾t cã hai mÆt tr¾ng ®en.		Thu thËp		1	0	0		
 Bµn ThiÕt Kú	2	0	172	1	2000	999												\image\item\other\coll_130a1.spr	\image\item\other\coll_130a0.spr	Bµn cê s¾t mµu ®en tuyÒn lµm tõ s¾t nam ch©m.		Thu thËp		1	0	0		
@@ -220,7 +220,7 @@ B¨ng T©m T¸n	2	0	233	1	0	1														Thuèc gi¶i do §­êng Xu©n ®Æc chÕ, cã thÓ
 Hång ThÊu Cèt ®inh	2	0	234	1	0	1														¸m khİ kú qu¸i t×m ®­îc trªn thi thÓ Hµnh thi ë Giang T©n th«n.		NhiÖm vô		1	2	0		
 Hãa Thi Thñy	2	0	235	1	0	20														ChÊt kŞch ®éc do §éc Si ®Æc chÕ, yªu qu¸i còng khã sèng næi.		NhiÖm vô		1	2	0		
 Th©u Thiªn Ho¸n NhËt	2	0	236	1	0	1														C¹m bÉy cña §­êng Hång L­îng, cã thÓ chuyÓn hãa ®èi ph­¬ng cã thuéc tİnh ©m thµnh ®èi ph­¬ng tÇm th­êng.		NhiÖm vô		1	2	0		
-Th­ D­¬ng NghiÖp	2	0	237	1	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	Th­ D­¬ng NghiÖp göi cho KhÊu ChuÈn.		NhiÖm vô		1	2	0		
+Th­ D­¬ng NghiÖp	2	0	237	0	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	Th­ D­¬ng NghiÖp göi cho KhÊu ChuÈn.		NhiÖm vô		1	2	0		
 HÇu Töu	2	0	238	1	0	1												\image\item\other\coll_012a1.spr	\image\item\other\coll_012a0.spr	Mü töu chÕ tõ men b¸ch qu¶ thiªn nhiªn cña khØ h¸i xuèng, ®¸nh HÇu V­¬ng ë Nga My s¬n r¬i ra.		NhiÖm vô		1	2	0		
 §¹t Ma kiÕm phæ	2	0	239	1	0	1												\image\item\book\book_gra001a1.spr	\image\item\book\book_gra001a0.spr	Vâ häc mËt tŞch ThiÕu L©m ph¸i.		NhiÖm vô		1	2	0		
 Ng­ng Háa Th¹ch	2	0	240	1	0	5												\image\item\other\coll_084a1.spr	\image\item\other\coll_084a0.spr	§¸ ®­îc ng­ng kÕt ®Şa háa.		NhiÖm vô		1	2	0		
@@ -251,17 +251,17 @@ Tiªu Dao Du	2	0	267	1	0	1												\image\item\book\book_gra001a1.spr	\image\i
 §¹o §øc kinh	2	0	268	1	0	1												\image\item\book\book_gra001a1.spr	\image\item\book\book_gra001a0.spr	Kinh ®iÓn cña §¹o gia, thÓ hiÖn t­ t­ëng L·o Tö, ng­êi s¸ng lËp ra §¹o gia.		NhiÖm vô		1	2	1		
 ThiÖn ¸c lÖnh	2	0	269	1	0	1												\image\item\other\skius_008a1.spr	\image\item\other\skius_008a0.spr	LÖnh bµi cã chøc n¨ng hµnh xö trong vâ l©m.		NhiÖm vô		1	2	1		
 ThŞt thèi	2	0	270	1	0	1												\image\item\other\quest_045a1.spr	\image\item\other\quest_045a0.spr	ThŞt thèi cña Hµnh thi r¬i ra.		NhiÖm vô		1	2	1		
-Vâ §ang hé phï	2	0	271	1	0	1												\image\item\other\skius_011a1.spr	\image\item\other\skius_011a0.spr	§Ö tö Vâ §ang lu«n mang bªn m×nh.		NhiÖm vô		1	2	1		
+Vâ §ang hé phï	2	0	271	0	0	1												\image\item\other\skius_011a1.spr	\image\item\other\skius_011a0.spr	§Ö tö Vâ §ang lu«n mang bªn m×nh.		NhiÖm vô		1	2	1		
 Linh Hå HuyÕt	2	0	272	1	0	1												\image\item\other\fulife_005a1.spr	\image\item\other\fulife_005a0.spr	M¸u Linh Hå cã thÓ xua ®uæi tµ ma.		NhiÖm vô		1	2	1		
 LÖnh bµi bİ Èn	2	0	273	1	0	1												\image\item\other\skius_010a1.spr	\image\item\other\skius_010a0.spr	Trªn lÖnh bµi cã h×nh ngän löa.		NhiÖm vô		1	2	1		
 ¤ M«ng Bé l­îc	2	0	274	1	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	Ghi râ kÕ ho¹ch cña ¤ M«ng Bé		NhiÖm vô		1	2	1		
 Hµi cèt ®Ö tö Vâ §ang	2	0	275	1	0	1												\image\item\other\secr_017a1.spr	\image\item\other\secr_017a0.spr	Hµi cèt ®Ö tö Vâ §ang ®êi thø 2.		NhiÖm vô		1	2	1		
 KhiÕu Hãa kª	2	0	276	1	0	10												\image\item\other\quest_051a1.spr	\image\item\other\quest_051a0.spr	Thùc phÈm th«ng dông		NhiÖm vô		1	2	1		
-Th­ göi TiÕt Nh¹n	2	0	278	1	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	Do Long T¹i Thiªn ®İch th©n viÕt.		NhiÖm vô		1	2	1		
-Th­ göi Lôc Phñ qu¶n gia	2	0	279	1	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	Do Long T¹i Thiªn ®İch th©n viÕt.		NhiÖm vô		1	2	1		
+Th­ göi TiÕt Nh¹n	2	0	278	0	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	Do Long T¹i Thiªn ®İch th©n viÕt.		NhiÖm vô		1	2	1		
+Th­ göi Lôc Phñ qu¶n gia	2	0	279	0	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	Do Long T¹i Thiªn ®İch th©n viÕt.		NhiÖm vô		1	2	1		
 M¶nh giÊy nhá	2	0	280	1	0	1												\image\item\other\coll_137a1.spr	\image\item\other\coll_137a0.spr	Trªn cã viÕt ch÷.		NhiÖm vô		1	2	1		
 Lêi nh¾n cña Vâ Tiªu	2	0	281	1	0	1												\image\item\other\quest_026a1.spr	\image\item\other\quest_026a0.spr	Lêi nh¾n cña Vâ Tiªu göi cho cha tr­íc khi ch¹y trèn.		NhiÖm vô		1	2	1		
-Di th­ cña L­ M¹nh	2	0	282	1	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	Di th­ L­ M¹nh ®Ó l¹i tr­íc khi l©m chung.		NhiÖm vô	\script\task\tong\ÈÎÎñµÀ¾ß½Å±¾\Â¬ÃÍµÄÒÅÊé.lua	1	2	1		
+Di th­ cña L­ M¹nh	2	0	282	0	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	Di th­ L­ M¹nh ®Ó l¹i tr­íc khi l©m chung.		NhiÖm vô	\script\task\tong\ÈÎÎñµÀ¾ß½Å±¾\Â¬ÃÍµÄÒÅÊé.lua	1	2	1		
 Gan Kim Cang hæ	2	0	283	1	0	1												\image\item\usable\medi_006a1.spr	\image\item\usable\medi_006a0.spr	Gan hæ v­¬ng rÊt quı, gan hæ th­êng kh«ng thÓ s¸nh ®­îc.		NhiÖm vô		1	2	1		
 Lang HuyÕt tinh hoa	2	0	284	1	0	10												\image\item\other\fulife_006a1.spr	\image\item\other\fulife_006a0.spr	M¸u cña linh sãi cã thÓ trŞ th­¬ng.		NhiÖm vô		1	2	1		
 Thiªn S¬n tuyÕt liªn diÖp	2	0	285	1	0	1												\image\item\usable\medi_003a1.spr	\image\item\usable\medi_003a0.spr	TuyÕt liªn mäc trªn ®Ønh Thiªn s¬n v« cïng hiÕm cã, ®¸ng gi¸ ngµn vµng.		NhiÖm vô		1	2	1		
@@ -311,7 +311,7 @@ B¸t qu¸i ®å 8	2	0	328	1	0	1												\image\item\other\coll_071a1.spr	\image\i
 R­¬ng chøa ®å	2	0	329	1	0	5												\image\item\other\secr_027a1.spr	\image\item\other\secr_027a0.spr	R­¬ng chøa vËt phÈm cña Qu©n Tèng		NhiÖm vô	\script\task\WeekEnd\box_item.lua	1	3	0		
 R­¬ng thuèc	2	0	330	1	0	5												\image\item\other\secr_027a1.spr	\image\item\other\secr_027a0.spr	R­¬ng chøa d­îc phÈm cña Qu©n Tèng		NhiÖm vô	\script\task\WeekEnd\box_medication.lua	1	3	0		
 R­¬ng trang bŞ	2	0	331	1	0	5												\image\item\other\secr_027a1.spr	\image\item\other\secr_027a0.spr	R­¬ng chøa trang bŞ cña Qu©n Tèng		NhiÖm vô	\script\task\WeekEnd\box_.equipment.lua	1	3	0		
-R­¬ng tµng th­	2	0	332	1	0	5												\image\item\other\secr_027a1.spr	\image\item\other\secr_027a0.spr	R­¬ng chøa c¸c lo¹i th­ tŞch cña Qu©n Tèng		NhiÖm vô	\script\task\WeekEnd\box_book.lua	1	3	0		
+R­¬ng tµng th­	2	0	332	5	0	5												\image\item\other\secr_027a1.spr	\image\item\other\secr_027a0.spr	R­¬ng chøa c¸c lo¹i th­ tŞch cña Qu©n Tèng		NhiÖm vô	\script\task\WeekEnd\box_book.lua	1	3	0		
 Tµng KiÕm Chİ	2	0	333	1	0	1												\image\item\other\coll_067a1.spr	\image\item\other\coll_067a0.spr	Dïng ghi chĞp lŞch tr×nh cña ng­êi ch¬i trong Tµng KiÕm s¬n trang.		NhiÖm vô	\script\ÖĞÔ­¶şÇø\ÏåÑô\npc\²Ø½£Ê¹Õß.lua	1	2	0		
 HuyÕt ph¸ch	2	0	334	1	0	1												\image\item\other\fulife_005a1.spr	\image\item\other\fulife_005a0.spr	HÊp thu thÇn hiÖu cña KiÕm chñng trong s¬n trang sÏ ph¸t ra ¸nh s¸ng mµu ®á huyÕt.		NhiÖm vô		1	2	1		
 B¨ng tinh	2	0	335	1	0	1												\image\item\other\secr_004a1.spr	\image\item\other\secr_004a0.spr	HÊp thu thÇn hiÖu cña KiÕm chñng trong s¬n trang sÏ ph¸t ra ¸nh s¸ng mµu xanh nh¹t.		NhiÖm vô		1	2	1		
@@ -348,7 +348,7 @@ D­îc huyÕt	2	0	365	1	0	1												\image\item\other\fulife_004a1.spr	\image\it
 Da h­¬u	2	0	366	1	0	10												\image\item\other\orskin_006a1.spr	\image\item\other\orskin_006a0.spr	Cã thÓ  may ¸o l«ng chèng l¹nh.		NhiÖm vô			2	1		
 Miªu LÜnh Tİn tiªu	2	0	367	1	0	1												\image\item\other\quest_055a1.spr	\image\item\other\quest_055a0.spr	Dïng lµm tİn hiÖu ®Ó gäi sø gi¶ Miªu LÜnh.		NhiÖm vô	\script\task\world\´óÀí\Lv10\ÃçÁëÁ¦Ê¿.lua		2	1		
 Béi §ao	2	0	368	1	0	10												\image\item\other\coll_144a1.spr	\image\item\other\coll_144a0.spr	T«i luyÖn tõ ¤ c­¬ng, t­îng tr­ng cho th©n phËn cña Thæ Ty		NhiÖm vô			2	1		
-Th­ cña Miªu LÜnh	2	0	369	1	0	1												\image\item\other\coll_111a1.spr	\image\item\other\coll_111a0.spr	LÊy ®­îc tõ Tİn sø Miªu LÜnh.		NhiÖm vô			2	1		
+Th­ cña Miªu LÜnh	2	0	369	0	0	1												\image\item\other\coll_111a1.spr	\image\item\other\coll_111a0.spr	LÊy ®­îc tõ Tİn sø Miªu LÜnh.		NhiÖm vô			2	1		
 Miªu LÜnh LÖnh bµi	2	0	370	1	0	1												\image\item\other\quest_008a1.spr	\image\item\other\quest_008a0.spr	Téc tr­ëng Miªu LÜnh lu«n mang theo bªn m×nh, trªn cã kh¾c vËt tæ		NhiÖm vô			2	1		
 Nanh D¹ Hæ	2	0	371	1	0	10												\image\item\other\coll_003a1.spr	\image\item\other\coll_003a0.spr	Nanh cña Tö D¹ Hæ trong Phông Nh·n ®éng.		NhiÖm vô			2	1		
 B¹ch §Çu §iªu Vò	2	0	372	1	0	10												\image\item\other\quest_056a1.spr	\image\item\other\quest_056a0.spr	L«ng d­íi cæ cña B¹ch §Çu §iªu, dïng lµm trang trİ.		NhiÖm vô			2	1		
@@ -360,7 +360,7 @@ B¸nh tæ	2	0	377	1	0	1												\image\item\other\quest_061a1.spr	\image\item\o
 B¸nh İt mÆn	2	0	378	1	0	1												\image\item\other\holi_003a1.spr	\image\item\other\holi_003a0.spr	Mãn ¨n næi tiÕng Thµnh §«, mÒm dÎo th¬m ngon		NhiÖm vô			2	1		
 M¶nh b¶n ®å §¹i Lı (cò)	2	0	379	1	0	10												\image\item\other\secr_009a1.spr	\image\item\other\secr_009a0.spr	Ghi chĞp l¹i nhiÒu t­ liÖu cña thµnh §¹i Lı nh­ng ®· bŞ H¾c Tinh Tinh lÊy ®i.		NhiÖm vô			2	1		
 MËt hµm Xi Háa gi¸o	2	0	380	1	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	MËt hµm t×m ®­îc trªn m×nh cña A Tu La.		NhiÖm vô	\script\task\world\´óÀí\Lv20\ò¿»ğ½ÌÃÜº¯.lua		2	1		
-ChiÕu th­ Tiªn Hoµng	2	0	381	1	0	1												\image\item\other\quest_062a1.spr	\image\item\other\quest_062a0.spr	ChiÕu th­ viÕt r»ng sau khi Tiªn Hoµng tho¸i vŞ do nhŞ hoµng tö §oµn Tè ThuËn kÕ vŞ. Kh«ng biÕt chiÕu th­ nµy lµ thËt hay gi¶ hay lµ t×m §æng Giµ La nhê gi¸m ®Şnh		NhiÖm vô			2	1		
+ChiÕu th­ Tiªn Hoµng	2	0	381	2	0	1												\image\item\other\quest_062a1.spr	\image\item\other\quest_062a0.spr	ChiÕu th­ viÕt r»ng sau khi Tiªn Hoµng tho¸i vŞ do nhŞ hoµng tö §oµn Tè ThuËn kÕ vŞ. Kh«ng biÕt chiÕu th­ nµy lµ thËt hay gi¶ hay lµ t×m §æng Giµ La nhê gi¸m ®Şnh		NhiÖm vô			2	1		
 Ph¸o hiÖu thiÕu d©y ch¸y	2	0	382	1	0	1												\image\item\other\holi_001a1.spr	\image\item\other\holi_001a0.spr	T×m ®­îc ph¸o hiÖu trªn m×nh KiÒn §¹t Bµ, nh­ng h×nh nh­ kh«ng cã kİp næ.		NhiÖm vô			2	1		
 Kİp næ	2	0	383	1	0	1												\image\item\other\quest_063a1.spr	\image\item\other\quest_063a0.spr	T×m ®­îc kİp næ trªn m×nh KhÈn Na La		NhiÖm vô			2	1		
 Ph¸o hiÖu	2	0	384	1	0	1												\image\item\other\holi_012a1.spr	\image\item\other\holi_012a0.spr	Tam hoµng tö §oµn Tè Kh¸nh dïng ®Ó liªn l¹c víi thñ h¹, ®èt ph¸o xong tam hoµng tö sÏ xuÊt hiÖn.		NhiÖm vô	\script\task\world\´óÀí\Lv80\Èı»Ê×Ó¶ÎËØÇì.lua		2	1		
@@ -374,12 +374,12 @@ S¸ch c«ng lao Tô B¶o Trai	2	0	391	1	0	1												\image\item\other\coll_067a1.
 Thİ LuyÖn Qu¶	2	0	392	1	0	999												\image\item\other\secr_002a1.spr	\image\item\other\secr_002a0.spr	Sö dông cã thÓ n©ng cao vâ c«ng b¶n th©n			\script\item\shilianguo.lua	1	0	1		
 Bét phÊn mµu ®en	2	0	393	1	0	1												\image\item\other\coll_110a1.spr	\image\item\other\coll_110a0.spr	Lo¹i bét phÊn thÇn bİ ®­îc ph¸t hiÖn trong qu¸ tr×nh luyÖn d­îc		NhiÖm vô			0	0		
 Cñi l¹	2	0	394	1	0	1												\image\item\other\wood_001a1.spr	\image\item\other\wood_001a0.spr	Lo¹i cñi quı cã tİnh ®µn håi tèt do ®­îc nung trong löa nhiÖt ®é cao		NhiÖm vô			0	0		
-Khu Ma Linh Phï	2	0	395	1	0	1												\image\item\other\secr_036a1.spr	\image\item\other\secr_036a0.spr	Cã thÓ diÖt trõ oan hån d· quû		NhiÖm vô			0	0		
+Khu Ma Linh Phï	2	0	395	0	0	1												\image\item\other\secr_036a1.spr	\image\item\other\secr_036a0.spr	Cã thÓ diÖt trõ oan hån d· quû		NhiÖm vô			0	0		
 H­íng dÉn ®ua ThuyÒn rång	2	0	396	1	0	1												\image\item\other\coll_067a1.spr	\image\item\other\coll_067a0.spr	H­íng dÉn quy t¾c thi ®Êu ThuyÒn rång		NhiÖm vô	\script\online\dragonboat06\item\introduce_book.lua		2	0		
 Sæ tay chÕ t¹o vò khİ	2	0	397	1	0	999												\image\item\other\secr_037a1.spr	\image\item\other\secr_037a0.spr	Ghi l¹i ph­¬ng ph¸p chÕ t¹o vò khİ th­îng ®¼ng.		ThÇn bİ			0	0		
-C©y B¸t Nh·	2	0	398	1	0	1												\image\item\other\Ê÷ÖÖa1.spr	\image\item\other\Ê÷ÖÖa0.spr	H¹t gièng c©y B¸t Nh· §a MËt.<enter><color=Gold>(Cã thÓ trång ë T©y Thµnh §«)		NhiÖm vô	\script\online\plant\seed_item.lua		0	1		
+C©y B¸t Nh·	2	0	398	1	20000	1												\image\item\other\Ê÷ÖÖa1.spr	\image\item\other\Ê÷ÖÖa0.spr	H¹t gièng c©y B¸t Nh· §a MËt.<enter><color=Gold>(Cã thÓ trång ë T©y Thµnh §«)		NhiÖm vô	\script\online\plant\seed_item.lua		0	1		
 B¾c Lôc L©m lÖnh	2	0	399	1	0	1												\image\item\other\±±ÂÌÁÖÁîa1.spr	\image\item\other\±±ÂÌÁÖÁîa0.spr	HiÖu lÖnh cña Minh chñ s¬n tr¹i ph­¬ng B¾c kh«ng ai d¸m bÊt tu©n		NhiÖm vô			2	1		
-Trôc ¶nh Th­¬ng	2	0	400	1	0	1												\image\item\other\ÖğÓ°Ç¹a1.spr	\image\item\other\ÖğÓ°Ç¹a0.spr	C©y th­¬ng cña Doanh Thiªn NhËm ®éi tr­ëng thŞ vÖ cña Hoµng ®Õ, tuy ®· søt mÎ nh­ng vÉn trµn ®Çy s¸t khİ		NhiÖm vô			2	1		
+Trôc ¶nh Th­¬ng	2	0	400	100	0	1												\image\item\other\ÖğÓ°Ç¹a1.spr	\image\item\other\ÖğÓ°Ç¹a0.spr	C©y th­¬ng cña Doanh Thiªn NhËm ®éi tr­ëng thŞ vÖ cña Hoµng ®Õ, tuy ®· søt mÎ nh­ng vÉn trµn ®Çy s¸t khİ		NhiÖm vô			2	1		
 TuyÖt T×nh Th¹ch	2	0	401	1	0	1												\image\item\other\¾øÇéÊ¯a1.spr	\image\item\other\¾øÇéÊ¯a0.spr	Tİn vËt L·nh H­¬ng L¨ng sinh thêi tÆng cho ng­êi yªu.		NhiÖm vô			2	1		
 LÖnh bµi tæng qu¶n ngo¹i viÖn	2	0	402	1	0	1												\image\item\other\ÍâÔº×Ü¹ÜÑüÅÆa1.spr	\image\item\other\ÍâÔº×Ü¹ÜÑüÅÆa0.spr	Tæng ngo¹i qu¶ndïng ®Ó triÖu tËp Gia ®inh		NhiÖm vô			2	1		
 LÖnh bµi tæng qu¶n néi viÖn	2	0	403	1	0	1												\image\item\other\ÄÚÔº×Ü¹ÜÑüÅÆa1.spr	\image\item\other\ÄÚÔº×Ü¹ÜÑüÅÆa0.spr	Dïng ®Ó triÖu tËp gia ®inh vµ tú n÷.		NhiÖm vô			2	1		
@@ -471,8 +471,8 @@ Cöu Th¸i Hoa BiÖn	2	0	487	1	0	999														VËt phÈm thÇn bİ rít trong B¸ch H
 §ç Quyªn Lé	2	0	489	1	0	999														VËt phÈm cao cÊp rít trong B¸ch Hoa L©m cña Thóy Yªn, cã thÓ t×m s­ phô ®Ó ®æi phÇn th­ëng cao cÊp		§· khãa			2	1		
 MÉu §¬n Lé	2	0	490	1	0	999														VËt phÈm cao cÊp rít trong B¸ch Hoa L©m cña Thóy Yªn, cã thÓ t×m s­ phô ®Ó ®æi phÇn th­ëng cao cÊp		§· khãa			2	1		
 Mai QuÕ Lé	2	0	491	1	0	999														VËt phÈm th­îng h¹ng rít trong B¸ch Hoa L©m cña Thóy Yªn, cã thÓ t×m s­ phô ®Ó ®æi phÇn th­ëng th­îng h¹ng		§· khãa			2	1		
-Linh phï	2	0	492	1	0	999														VËt phÈm s¬ cÊp rít trong Táa Yªu Th¸p cña C«n L«n, cã thÓ t×m s­ phô ®Ó ®æi phÇn th­ëng s¬ cÊp		§· khãa			2	1		
-Thiªn C­¬ng Phï	2	0	493	1	0	999														VËt phÈm cao cÊp rít trong Táa Yªu Th¸p cña C«n L«n, cã thÓ t×m s­ phô ®Ó ®æi phÇn th­ëng cao cÊp		§· khãa			2	1		
+Linh phï	2	0	492	0	0	999														VËt phÈm s¬ cÊp rít trong Táa Yªu Th¸p cña C«n L«n, cã thÓ t×m s­ phô ®Ó ®æi phÇn th­ëng s¬ cÊp		§· khãa			2	1		
+Thiªn C­¬ng Phï	2	0	493	0	0	999														VËt phÈm cao cÊp rít trong Táa Yªu Th¸p cña C«n L«n, cã thÓ t×m s­ phô ®Ó ®æi phÇn th­ëng cao cÊp		§· khãa			2	1		
 §µo Méc KiÕm	2	0	494	1	0	999														VËt phÈm Trung cÊp rít trong Táa Yªu Th¸p cña C«n L«n, cã thÓ t×m s­ phô ®Ó ®æi phÇn th­ëng Trung cÊp		§· khãa			2	1		
 Khu Ma H­¬ng	2	0	495	1	0	999														VËt phÈm th­îng h¹ng rít trong Táa Yªu Th¸p cña C«n L«n, cã thÓ t×m s­ phô ®Ó ®æi phÇn th­ëng th­îng h¹ng		§· khãa			2	1		
 TrÊn Yªu Linh	2	0	496	1	0	999														VËt phÈm thÇn bİ rít trong Táa Yªu Th¸p cña C«n L«n, cã thÓ t×m s­ phô ®Ó ®æi phÇn th­ëng thÇn bİ		§· khãa			2	1		
@@ -483,7 +483,7 @@ Ngò hµnh Kú	2	0	500	1	0	999														VËt phÈm thÇn bİ rít trong Th¸nh ®Şa cñ
 T¶n Nh©n Hoµn	2	0	501	1	0	999														VËt phÈm cao cÊp rít trong Th¸nh ®Şa cña Minh gi¸o, cã thÓ t×m s­ phô ®Ó ®æi phÇn th­ëng cao cÊp		§· khãa			2	1		
 Hé Ph¸p §¸i	2	0	502	1	0	999														VËt phÈm th­îng h¹ng rít trong Th¸nh ®Şa cña Minh gi¸o, cã thÓ t×m s­ phô ®Ó ®æi phÇn th­ëng th­îng h¹ng		§· khãa			2	1		
 Tiªu Dao Béi	2	0	503	1	0	999														VËt phÈm thÇn bİ rít trong Th¸nh ®Şa cña Minh gi¸o, cã thÓ t×m s­ phô ®Ó ®æi phÇn th­ëng thÇn bİ		§· khãa			2	1		
-C©y B¸t Nh· nhá	2	0	504	1	0	1												\image\item\other\°ãÈôÊ÷ÖÖ(x).spr	\image\item\other\°ãÈôÊ÷ÖÖ(d).spr	H¹t gièng c©y B¸t Nh· nhá.<enter><color=Gold>(Cã thÓ trång ë BiÖn Kinh, Thµnh §«, TuyÒn Ch©u)		NhiÖm vô	\script\online\plant\seed_item_xiao.lua		0	1		
+C©y B¸t Nh· nhá	2	0	504	1	10000	1												\image\item\other\°ãÈôÊ÷ÖÖ(x).spr	\image\item\other\°ãÈôÊ÷ÖÖ(d).spr	H¹t gièng c©y B¸t Nh· nhá.<enter><color=Gold>(Cã thÓ trång ë BiÖn Kinh, Thµnh §«, TuyÒn Ch©u)		NhiÖm vô	\script\online\plant\seed_item_xiao.lua		0	1		
 Giang hå chØ nam	2	0	505	2	0	1												\image\item\other\coll_024a1.spr	\image\item\other\coll_024a0.spr	Ghi l¹i nh÷ng kinh nghiÖm giang hå cña c¸c bËc tiÒn bèi, rÊt h÷u İch ®èi víi T©n Thñ		NhiÖm vô	\script\task\teach\ĞÂÊÖÖ¸Òıbook.lua	1	2	0		
 D­¬ng Häa PhiÕn	2	0	506	1	0	1												\image\item\other\coll_057a1.spr	\image\item\other\coll_057a0.spr	Phİa trªn cã vÏ hoa v¨n rÊt ®Ñp, bøc tranh kh«ng ph¶i lµ tranh ë Trung Nguyªn		§· khãa			2	1		
 D­¬ng Häa C¬	2	0	507	1	0	1												\image\item\usable\rich_004a1.spr	\image\item\usable\rich_004a0.spr	Cã thÓ ph¸t s¸ng.		§· khãa			2	1		
@@ -529,8 +529,8 @@ Bã thï du	2	0	551	1	0	99												\image\item\usable\medi_001a1.spr	\image\ite
 TiÓu Nh©n s©m qu¶	2	0	552	1	0	1												\image\item\other\Ğ¡ÈË²Î¹ûa1.spr	\image\item\other\Ğ¡ÈË²Î¹ûa0.spr	§¹o gia mËt qu¶<enter><color=Gold>Sö dông mËt tŞch tèc ®é luyÖn c«ng t¨ng gÊp 2, duy tr× 4 giê		ThÇn bİ	\script\item\item_billing\xiaorenshenguo.lua		0	1		
 §¹i Nh©n s©m	2	0	553	1	0	1												\image\item\other\´óÈË²Î¹ûa1.spr	\image\item\other\´óÈË²Î¹ûa0.spr	§¹o gia mËt qu¶ <enter><color=Gold>Sö dông mËt tŞch tèc ®é luyÖn c«ng t¨ng gÊp 4 lÇn, duy tr× 4 giê		ThÇn bİ	\script\item\item_billing\darenshenguo.lua		0	1		
 Tu Ch©n YÕu QuyÕt	2	0	554	1	0	999												\image\item\other\ĞŞÕæÒª¾÷a1.spr	\image\item\other\ĞŞÕæÒª¾÷a0.spr	T©m ®¾c vâ häc cña c¸c vŞ tiÒn bèi truyÒn l¹i.<enter><color=Gold>(chøa 1000 ®iÓm tu luyÖn)		ThÇn bİ	\script\item\item_billing\xiuzhenyaojue.lua		0	1		
-Cµn Kh«n phï	2	0	555	1	0	1												\image\item\other\Ç¬À¤·ûa1.spr	\image\item\other\Ç¬À¤·ûa0.spr	Cã thÓ t¹m xãa bá h¹n chÕ giao dŞch cña mét vµi vËt phÈm quı nµo ®ã<enter><color=Gold>(thİch hî sö dông: §«ng Ph­¬ng Long Ch©u, C¸t T­êng, Nh­ ı, H»ng Nga NguyÖt Vò §ai, HËu NghŞ L¹c D­¬ng Hoµn, Bé Trang BŞ S­ M«n 4)		ThÇn bİ	\script\item\item_billing\qiankunfu.lua		0	1		
-ThÕ Th©n phï	2	0	556	1	0	99												\image\item\other\ÌæÉí·ûa1.spr	\image\item\other\ÌæÉí·ûa0.spr	Sö dông tr­íc khi nh©n vËt träng th­¬ng sÏ kh«ng bŞ trõng ph¹t ®ång thêi håi sinh ®Çy sinh lùc; sö dông sau khi nh©n vËt träng th­¬ng sÏ cã møc ®é trõng ph¹t nh­ng kh«ng bŞ ¶nh h­ëng néi ngo¹i th­¬ng		ThÇn bİ	\script\item\item_billing\tishenfu.lua		0	1		
+Cµn Kh«n phï	2	0	555	0	0	1												\image\item\other\Ç¬À¤·ûa1.spr	\image\item\other\Ç¬À¤·ûa0.spr	Cã thÓ t¹m xãa bá h¹n chÕ giao dŞch cña mét vµi vËt phÈm quı nµo ®ã<enter><color=Gold>(thİch hî sö dông: §«ng Ph­¬ng Long Ch©u, C¸t T­êng, Nh­ ı, H»ng Nga NguyÖt Vò §ai, HËu NghŞ L¹c D­¬ng Hoµn, Bé Trang BŞ S­ M«n 4)		ThÇn bİ	\script\item\item_billing\qiankunfu.lua		0	1		
+ThÕ Th©n phï	2	0	556	0	0	99												\image\item\other\ÌæÉí·ûa1.spr	\image\item\other\ÌæÉí·ûa0.spr	Sö dông tr­íc khi nh©n vËt träng th­¬ng sÏ kh«ng bŞ trõng ph¹t ®ång thêi håi sinh ®Çy sinh lùc; sö dông sau khi nh©n vËt träng th­¬ng sÏ cã møc ®é trõng ph¹t nh­ng kh«ng bŞ ¶nh h­ëng néi ngo¹i th­¬ng		ThÇn bİ	\script\item\item_billing\tishenfu.lua		0	1		
 ThuÇn Thó Tiªu_TiÓu Niªn Thó	2	0	557	1	0	99														Dïng ®Ó huÊn luyÖn thó, sö dông cã thÓ gäi TiÓu Niªn Thó.		ThÇn bİ						
 ThuÇn Thó Tiªu_Thá rõng	2	0	558	1	0	99														Dïng ®Ó huÊn luyÖn Thá rõng, sö dông cã thÓ gäi Thá rõng.		ThÇn bİ						
 ThuÇn Thó Tiªu_M· HÇu	2	0	559	1	0	99														Dïng ®Ó huÊn luyÖn M· HÇu, sö dông cã thÓ gäi M· HÇu.		ThÇn bİ						
@@ -593,13 +593,13 @@ Tr­ B¶o B¶o_B¶o §iÓn	2	0	615	1	0	1												\image\item\other\coll_067a1.spr	\
 Tr­ B¶o B¶o	2	0	616	1	0	1												\image\item\other\Ğ¡°×Öía1.spr	\image\item\other\Ğ¡°×Öía0.spr	N¨m Hîi ®· ®Õn, Tr­ B¶o B¶o ®Õn ban phóc lµnh cho b¹n! NhÊn chuét ph¶i cã thÓ gäi 1 con Tr­ B¶o B¶o theo sau 5 ngµy.<enter><color=Gold>(Mµu s¾c vµ giíi tİnh ngÉu nhiªn)		NhiÖm vô	\script\online\´º½Ú»î¶¯\spring2007\feed_pig\feed_pig.lua		0	1		
 Kh«ng	2	0	617	1	0	1												\image\item\other\Ğ¡°×Öía1.spr	\image\item\other\Ğ¡°×Öía0.spr	N¨m Hîi ®· ®Õn, Tr­ B¶o B¶o ®Õn ban phóc lµnh cho b¹n! NhÊn chuét ph¶i cã thÓ gäi Tr­ B¶o B¶o xuÊt hiÖn.		NhiÖm vô	\script\online\´º½Ú»î¶¯\spring2007\feed_pig\feed_pig.lua		0	1		
 Tr­ B¶o B¶o TiÓu H¾c	2	0	618	1	0	1												\image\item\other\Ğ¡ºÚÖía1.spr	\image\item\other\Ğ¡ºÚÖía0.spr	N¨m Hîi ®· ®Õn, Tr­ B¶o B¶o ®Õn ban phóc lµnh cho b¹n! NhÊn chuét ph¶i cã thÓ gäi 1 Tr­ B¶o B¶o TiÓu H¾c theo sau 5 ngµy.<enter><color=Gold>(Tr­ B¶o B¶o mµu ®en, giíi tİnh ngÉu nhiªn)		NhiÖm vô	\script\online\´º½Ú»î¶¯\spring2007\feed_pig\feed_pig.lua		0	1		
-TiÓu H¾c Tr­ Phï	2	0	619	1	0	1												\image\item\other\Ğ¡ºÚÖía1.spr	\image\item\other\Ğ¡ºÚÖía0.spr	TriÖu gäi TiÓu H¾c Tr­.		NhiÖm vô	\script\online\qixi07\item\xiaoheizhufu.lua		1	1		
+TiÓu H¾c Tr­ Phï	2	0	619	0	0	1												\image\item\other\Ğ¡ºÚÖía1.spr	\image\item\other\Ğ¡ºÚÖía0.spr	TriÖu gäi TiÓu H¾c Tr­.		NhiÖm vô	\script\online\qixi07\item\xiaoheizhufu.lua		1	1		
 Tr­ B¶o B¶o TiÓu B¹ch	2	0	620	1	0	1												\image\item\other\Ğ¡°×Öía1.spr	\image\item\other\Ğ¡°×Öía0.spr	N¨m Hîi ®· ®Õn, Tr­ B¶o B¶o ®Õn ban phóc lµnh cho b¹n! NhÊn chuét ph¶i cã thÓ gäi 1 Tr­ B¶o B¶o TiÓu B¹ch theo sau 5 ngµy.<enter><color=Gold>(Tr­ B¶o B¶o mµu tr¾ng, giíi tİnh ngÉu nhiªn)		NhiÖm vô	\script\online\´º½Ú»î¶¯\spring2007\feed_pig\feed_pig.lua		0	1		
-TiÓu B¹ch Tr­ Phï	2	0	621	1	0	1												\image\item\other\Ğ¡°×Öía1.spr	\image\item\other\Ğ¡°×Öía0.spr	TriÖu gäi TiÓu B¹ch Tr­.		NhiÖm vô	\script\online\qixi07\item\xiaobaizhufu.lua		1	1		
+TiÓu B¹ch Tr­ Phï	2	0	621	0	0	1												\image\item\other\Ğ¡°×Öía1.spr	\image\item\other\Ğ¡°×Öía0.spr	TriÖu gäi TiÓu B¹ch Tr­.		NhiÖm vô	\script\online\qixi07\item\xiaobaizhufu.lua		1	1		
 Tr­ B¶o B¶o Nh­ ı	2	0	622	1	0	1												\image\item\other\Ğ¡°×Öía1.spr	\image\item\other\Ğ¡°×Öía0.spr	N¨m Hîi ®· ®Õn, Tr­ B¶o B¶o ®Õn ban phóc lµnh cho b¹n! NhÊn chuét ph¶i cã thÓ gäi 1 con Tr­ B¶o B¶o Nh­ ı theo sau 5 ngµy.<enter><color=Gold>(Cã thÓ chØ ®Şnh mµu s¾c vµ giíi tİnh cña Tr­ B¶o B¶o)		NhiÖm vô	\script\online\´º½Ú»î¶¯\spring2007\feed_pig\feed_pig.lua		0	1		
 Kh«ng	2	0	623	1	0	1												\image\item\other\Ğ¡ºÚÖía1.spr	\image\item\other\Ğ¡ºÚÖía0.spr	N¨m Hîi ®· ®Õn, Tr­ B¶o B¶o ®Õn ban phóc lµnh cho b¹n! NhÊn chuét ph¶i cã thÓ gäi H¾c Ca Ca TiÓu H¾c		NhiÖm vô	\script\online\´º½Ú»î¶¯\spring2007\feed_pig\feed_pig.lua		0	1		
 KimTr­ B¶o B¶o	2	0	624	1	0	1												\image\item\other\Ğ¡½ğÖía1.spr	\image\item\other\Ğ¡½ğÖía0.spr	N¨m Hîi ®· ®Õn, Tr­ B¶o B¶o ®Õn ban phóc lµnh cho b¹n! NhÊn chuét ph¶i cã thÓ gäi 1 Kim Tr­ B¶o B¶o theo sau 5 ngµy.<enter><color=Gold>(Tr­ B¶o B¶o mµu vµng giíi tİnh ngÉu nhiªn )		NhiÖm vô	\script\online\´º½Ú»î¶¯\spring2007\feed_pig\feed_pig.lua		0	1		
-TiÓu Kim Tr­ Phï	2	0	625	1	0	1												\image\item\other\Ğ¡½ğÖía1.spr	\image\item\other\Ğ¡½ğÖía0.spr	TriÖu gäi TiÓu Kim Tr­.		NhiÖm vô	\script\online\qixi07\item\xiaojinzhufu.lua		1	1		
+TiÓu Kim Tr­ Phï	2	0	625	0	0	1												\image\item\other\Ğ¡½ğÖía1.spr	\image\item\other\Ğ¡½ğÖía0.spr	TriÖu gäi TiÓu Kim Tr­.		NhiÖm vô	\script\online\qixi07\item\xiaojinzhufu.lua		1	1		
 C¶n Tr­ Bæng	2	0	626	1	0	1												\image\item\other\coll_036a1.spr	\image\item\other\coll_036a0.spr	Dïng ®Ó ®uæi Tr­ B¶o B¶o ®i, gióp b¹n cã c¬ héi nhËn mét Tr­ B¶o B¶o kh¸c.<enter><color=Gold>Bá Tr­ B¶o B¶o hiÖn t¹i		NhiÖm vô	\script\online\´º½Ú»î¶¯\spring2007\feed_pig\feed_pig.lua		0	1		
 Tói tiÓu phóc Kim Tr­	2	0	627	1	0	8												\image\item\other\quest_012a1.spr	\image\item\other\quest_012a0.spr	Mau xem bªn trong lµ c¸i g× ®i! V¹n sù nh­ ı! Cã hiÖu lùc ®Õn ngµy 25/02/2007		§· khãa	\script\online\´º½Ú»î¶¯\item\red_bag_use.lua		2	1		
 TiÓu Hång Bao Kim Tr­	2	0	628	1	0	1												\image\item\other\holi_011a1.spr	\image\item\other\holi_011a0.spr	Mau xem bªn trong lµ c¸i g× ®i! Cung hû ph¸t tµi! Cã hiÖu lùc ®Õn ngµy 25/02/2007		§· khãa	\script\online\´º½Ú»î¶¯\item\red_bag_use.lua		2	1		
@@ -645,7 +645,7 @@ Con bµi ®em c­îc	2	0	667	1	0	99												\image\item\other\holi_008a1.spr	\ima
 Con bµi 2 ®em c­îc	2	0	668	1	0	99												\image\item\other\holi_008a1.spr	\image\item\other\holi_008a0.spr	Muèn thµnh ®æ hiÖp ph¶i xem vËn may, chóc may m¾n!		§· khãa	\script\online\labor_2007\mah_jong_goods_use.lua		2	1		
 Con bµi 3 ®em c­îc	2	0	669	1	0	99												\image\item\other\holi_008a1.spr	\image\item\other\holi_008a0.spr	Muèn thµnh ®æ hiÖp ph¶i xem vËn may, chóc may m¾n!		§· khãa	\script\online\labor_2007\mah_jong_goods_use.lua		2	1		
 Con bµi 4 ®em c­îc	2	0	670	1	0	99												\image\item\other\holi_008a1.spr	\image\item\other\holi_008a0.spr	Muèn thµnh ®æ hiÖp ph¶i xem vËn may, chóc may m¾n!		§· khãa	\script\online\labor_2007\mah_jong_goods_use.lua		2	1		
-Hoa S¬n ThÇn Phï	2	0	671	1	0	1												\image\item\usable\fu_004a1.spr	\image\item\usable\fu_004a0.spr	TruyÒn tèng phï ®Æc biÖt.<enter><color=Gold>Trùc tiÕp chuyÓn ®Õn Hoa S¬n, kh«ng bŞ h¹n chÕ.		NhiÖm vô	\script\online\´º½Ú»î¶¯\spring2007\hua_shan\goto_huashan_fu.lua		0	1		
+Hoa S¬n ThÇn Phï	2	0	671	0	0	1												\image\item\usable\fu_004a1.spr	\image\item\usable\fu_004a0.spr	TruyÒn tèng phï ®Æc biÖt.<enter><color=Gold>Trùc tiÕp chuyÓn ®Õn Hoa S¬n, kh«ng bŞ h¹n chÕ.		NhiÖm vô	\script\online\´º½Ú»î¶¯\spring2007\hua_shan\goto_huashan_fu.lua		0	1		
 T¹c ®¹n ®¹i TuyÕt cÇu	2	0	672	1	0	1												\image\item\happy\much_snowa1.spr	\image\item\happy\much_snowa0.spr	1 bao lín.<enter><color=Gold>(chøa 20 T¹c ®¹n ®¹i tuyÕt cÇu)		NhiÖm vô	\script\online\´º½Ú»î¶¯\item\big_snow_boom_use.lua		0	1		
 §¹i TuyÕt CÇu	2	0	673	1	0	1												\image\item\happy\snowball_big_a1.spr	\image\item\happy\snowball_big_a0.spr	1 bao lín.<enter><color=Gold>(chøa 20 ®¹i tuyÕt cÇu)		NhiÖm vô	\script\online\´º½Ú»î¶¯\item\big_snow_ball_use.lua		0	1		
 GiÊy cóng tÕ	2	0	674	1	0	1												\image\item\other\fu_002a1.spr	\image\item\other\fu_002a0.spr	Sau khi sö dông cã thÓ sö dông thªm 1 mËt ®å nhiÖm vô Thanh Minh, nhiÒu nhÊt 8 c¸i 1 ngµy.<enter>NhÊp chuét ph¶i sö dông. 		NhiÖm vô	\script\online\qingming08\item\fu_item.lua		0	1		
@@ -665,7 +665,7 @@ Trang phôc n÷ T©y Vùc	2	0	687	1	0	1												\image\item\other\Î÷ÓòÅ®×Ó×°Êøa1.
 LÖnh bµi NhÊt PhÈm ®­êng	2	0	688	1	0	10												\image\item\other\skius_008a1.spr	\image\item\other\skius_008a0.spr	T©y H¹ LÖnh bµi NhÊt PhÈm ®­êng, ng­êi cña NhÊt PhÈm ®­êng ®em theo bªn ng­êi ®Ó tá râ th©n phËn.		NhiÖm vô			2	1		
 Thuèc gi¶i r­îu	2	0	689	1	0	10												\image\item\usable\heal_018a1.spr	\image\item\usable\heal_018a0.spr	Lµm b»ng hoa s¾n d©y, c«ng dông gi¶i r­îu rÊt tèt.		NhiÖm vô			2	1		
 YÕm cña Xu©n ThËp Tam N­¬ng	2	0	690	1	0	1												\image\item\other\´ºÊ®ÈıÄïµÄ¶Ç¶µa1.spr	\image\item\other\´ºÊ®ÈıÄïµÄ¶Ç¶µa0.spr	VËt t­ cña Xu©n ThËp Tam N­¬ng, rÊt tinh tÕ vµ mÒm m¹i, l­u l¹i h­¬ng th¬m khi ch¹m vµo.		NhiÖm vô			2	1		
-Th­ mêi NhÊt PhÈm ®­êng	2	0	691	1	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	MËt th­ cña NhÊt PhÈm ®­êng ®Ó chiªu mé lùc l­îng, ®iÒu kiÖn ®­a ra cho mäi ng­êi ®Òu kh«ng gièng nhau.		NhiÖm vô			2	1		
+Th­ mêi NhÊt PhÈm ®­êng	2	0	691	0	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	MËt th­ cña NhÊt PhÈm ®­êng ®Ó chiªu mé lùc l­îng, ®iÒu kiÖn ®­a ra cho mäi ng­êi ®Òu kh«ng gièng nhau.		NhiÖm vô			2	1		
 Ph¸o hiÖu Lôc PhiÕn m«n	2	0	692	1	0	1												\image\item\other\holi_012a1.spr	\image\item\other\holi_012a0.spr	¸m hiÖu Lôc PhiÕn m«n th­êng dïng, sö dông ë ®Şa ®iÓm ®­îc chØ ®Şnh cã thÓ triÖu tËp ng­êi cña Lôc PhiÕn m«n ë gÇn ®ã? (nhËn chuét ph¶i ®Ó sö dông)		NhiÖm vô	\script\task\world\xibei\taskitem\liushanmen_fireworks.lua		2	1		
 B¶n ®å tuyÕn ®­êng ¸p gi¶i	2	0	693	1	0	1												\image\item\other\coll_067a1.spr	\image\item\other\coll_067a0.spr	Viªn Phi V©n giao cho b¹n b¶n ®å tuyÕn ®­êng ¸p gi¶i s¸t thñ Oa Oa, nhÊp chuét ph¶i xem tuyÕn ®­êng cô thÓ.		NhiÖm vô	\script\task\world\xibei\taskitem\yasongluxiantu.lua		2	1		
 §¹n khãi	2	0	694	1	0	1												\image\item\other\secr_019a1.spr	\image\item\other\secr_019a0.spr	Ng­êi h¹ l­u dïng ®Ó trèn ch¹y, khi nĞm sinh ra khãi mï mª hoÆc kÎ thï vµ thõa c¬ bá trèn.		NhiÖm vô			2	1		
@@ -675,23 +675,23 @@ Thñ cÊp cña Di Tu Kh¸ch	2	0	697	1	0	1												\image\item\other\ò°Ğë¿ÍµÄÊ×¼¶a
 MËt d­îc NhÊt PhÈm ®­êng	2	0	698	1	0	1												\image\item\usable\heal_017a1.spr	\image\item\usable\heal_017a0.spr	MËt d­îc trŞ th­¬ng cña NhÊt PhÈm ®­êng, t¸c dông gi¶m ®au, g©y mª.		NhiÖm vô			2	1		
 Táa Hån T«n	2	0	699	1	0	1												\image\item\other\suohunzun_a1.spr	\image\item\other\suohunzun_a0.spr	B×nh ®Ó phong Ên oan hån quû m«n cña §Ö Tö C«n L«n, nghe ®­îc tiÕng kªu th¶m thiÕt cña oan hån trong b×nh.		NhiÖm vô			2	1		
 M¶nh Háa LuyÖn Kim §¬n	2	0	700	1	0	1												\image\item\other\coll_080a1.spr	\image\item\other\coll_080a0.spr	Th¸i Th­îng L·o Qu©n trong lóc thó c­ìi Kim La C©u v« t×nh ®Ó r¬i kim ®¬n xuèng trÇn, ng­êi luyÖn ®¬n lu«n m¬ ­íc cã ®­îc nã.		NhiÖm vô			2	1		
-MËt th­ T©y H¹	2	0	701	1	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	MËt th­ liªn l¹c gi÷a T©y H¹ Ph¸p V­¬ng vµ Phi Th­êng §¹o Nh©n.		NhiÖm vô			2	1		
+MËt th­ T©y H¹	2	0	701	0	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	MËt th­ liªn l¹c gi÷a T©y H¹ Ph¸p V­¬ng vµ Phi Th­êng §¹o Nh©n.		NhiÖm vô			2	1		
 Háa Hå VÜ	2	0	702	1	0	10												\image\item\other\»ğºüÎ²a1.spr	\image\item\other\»ğºüÎ²a0.spr	§u«i cña Xİch LuyÖn Háa Hå trong Cæ D­¬ng ®éng, tuy bŞ chÆt nh­ng vÉn kh«ng ngõng ®Ëp.		NhiÖm vô			2	1		
 Li Long Tu	2	0	703	1	0	10												\image\item\other\ó¤ÁúĞëa1.spr	\image\item\other\ó¤ÁúĞëa0.spr	R©u cña LiÖt Nham Li Long trong Cæ D­¬ng ®éng, cøng dai nh­ thĞp.		NhiÖm vô			2	1		
-C«n Lu©n trÊn yªu phï	2	0	704	1	0	1												\image\item\usable\rich_008a1.spr	\image\item\usable\rich_008a0.spr	Bïa chó DiÖp Tö Thu cho b¹n, cã thÓ giÕt chÕt Thó Cæ D­¬ng trong Cæ D­¬ng ®éng.		NhiÖm vô			2	1		
+C«n Lu©n trÊn yªu phï	2	0	704	0	0	1												\image\item\usable\rich_008a1.spr	\image\item\usable\rich_008a0.spr	Bïa chó DiÖp Tö Thu cho b¹n, cã thÓ giÕt chÕt Thó Cæ D­¬ng trong Cæ D­¬ng ®éng.		NhiÖm vô			2	1		
 HuyÕt Hån Tinh Ph¸ch	2	0	705	1	0	1												\image\item\other\coll_032a1.spr	\image\item\other\coll_032a0.spr	Tinh ph¸ch lÊy ®­îc tõ Thó Cæ D­¬ng, m¸u nhÔ nh¹i vµ ®Çy ma qu¸i.		NhiÖm vô			2	1		
 Tô Linh TØ Thñ	2	0	706	1	0	1												\image\item\other\¾ÛÁéØ°Ê×a1.spr	\image\item\other\¾ÛÁéØ°Ê×a0.spr	Dao g¨m ng­ng kÕt linh khİ C«n L«n, cÇn lÊy m¸u ng­êi ®Ó më linh khİ (nhÊp chuét ph¶i sö dông)		NhiÖm vô	\script\Î÷±±Çø\¹ÅÑô¶´¶ş²ã\npc\ÑªÄ§ÈË.lua		2	1		
 Nöa miÕng Ngäc Béi	2	0	707	1	0	1												\image\item\other\°ë¿éÓñÅåa1.spr	\image\item\other\°ë¿éÓñÅåa0.spr	Nöa miÕng ngäc béi trong vµ xanh, trªn ®ã cã ch÷ 'DiÖp'.		NhiÖm vô			2	1		
 R­îu Nho	2	0	708	1	0	10												\image\item\other\ÆÏÌÑ¾Æa1.spr	\image\item\other\ÆÏÌÑ¾Æa0.spr	Do nho t­¬i vµ kh« lªn men ñ thµnh, truyÒn ®Òn theo ®­êng t¬ lôa cña Th­¬ng nh©n Ba T­, h­¬ng th¬m thoang tho¶ng.		NhiÖm vô			2	1		
 LÖnh bµi Xi Háa gi¸o	2	0	709	1	0	1												\image\item\other\skius_008a1.spr	\image\item\other\skius_008a0.spr	LÖnh bµi gi¸o chóng Xi Háa gi¸o mang theo ®Ó tá râ th©n phËn.		NhiÖm vô			2	1		
 Kim T¬ DiÖn Tr¸o	2	0	710	1	0	10												\image\item\other\½ğË¿ÃæÕÖa1.spr	\image\item\other\½ğË¿ÃæÕÖa0.spr	MÆt n¹ lµm tõ t¬ vµ v¶i b«ng, ng­êi trém mé ®eo ®Ó ng¨n khİ ®éc, läc mïi l¹.		NhiÖm vô			2	1		
-§¹i Tèng MËt Th¸m Th­ Hµm	2	0	711	1	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	Th­ tiÕp nhËn nhiÖm vô cña MËt Th¸m §¹i Tèng, d­êng nh­ nh¾c ®Õn lùc l­îng thÇn bİ trong V­¬ng L¨ng.		NhiÖm vô			2	1		
-M« Kim Phï	2	0	712	1	0	1												\image\item\other\Ãş½ğ·ûa1.spr	\image\item\other\Ãş½ğ·ûa0.spr	§en nh¸nh trong suèt, s¸ng bãng khi ®Ó d­íi löa, ng­êi trém mé dïng ®Ó trõ tµ.		NhiÖm vô			2	1		
+§¹i Tèng MËt Th¸m Th­ Hµm	2	0	711	0	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	Th­ tiÕp nhËn nhiÖm vô cña MËt Th¸m §¹i Tèng, d­êng nh­ nh¾c ®Õn lùc l­îng thÇn bİ trong V­¬ng L¨ng.		NhiÖm vô			2	1		
+M« Kim Phï	2	0	712	0	0	1												\image\item\other\Ãş½ğ·ûa1.spr	\image\item\other\Ãş½ğ·ûa0.spr	§en nh¸nh trong suèt, s¸ng bãng khi ®Ó d­íi löa, ng­êi trém mé dïng ®Ó trõ tµ.		NhiÖm vô			2	1		
 §o¹n Thñy Chö	2	0	713	1	0	4												\image\item\other\coll_040a1.spr	\image\item\other\coll_040a0.spr	Chïy ®¸, ®Æt ë ®Şa h×nh kh¸c nhau cã thÓ thay ®æi phong thñy xung quanh.		NhiÖm vô			2	1		
 La Canh	2	0	714	1	0	1												\image\item\other\ÂŞ¸ıa1.spr	\image\item\other\ÂŞ¸ıa0.spr	C«ng cô ®o l­êng ®Ó ®Şnh h­íng cña ng­êi xem phong thñy. Do 2 m¶nh néi bµn vµ ngo¹i bµn ghĞp thµnh, kim ë gi÷a chØ ph­¬ng h­íng (nhÊp chuét ph¶i sö dông)		NhiÖm vô	\script\task\world\xibei\taskitem\luogeng.lua		2	1		
 Ph¸ Phong Chïy	2	0	715	1	0	1												\image\item\cloth\tool_003a1.spr	\image\item\cloth\´¸×Ó.spr	VËt phong thñy, kÕt hîp víi §o¹n Thñy Chö cã thÓ thay ®æi phong thñy (nhÊp chuét ph¶i sö dông)		NhiÖm vô	\script\task\world\xibei\taskitem\pofengchui.lua		2	1		
 T©y H¹ Ph¸p V­¬ng MËt Hµm	2	0	716	1	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	MËt hµm T©y H¹ Ph¸p V­¬ng giao cho Tr¶o V­¬ng, néi dung ®Ò cËp ph­¬ng ph¸p lÊy b¶o tµng V­¬ng L¨ng mé tÇng 2 (nhÊp chuét ph¶i sö dông)		NhiÖm vô	\script\task\world\xibei\taskitem\xixiafawangmihan.lua		2	1		
-Phi Th­êng §¹o Phï	2	0	717	1	0	1												\image\item\other\secr_036a1.spr	\image\item\other\secr_036a0.spr	Bïa do Phi Th­êng §¹o Nh©n chÕ ra, theo mËt hµm cña ph¸p v­¬ng th× cã thÓ lÊy ®­îc b¶o tµng V­¬ng L¨ng mé tÇng 2 lµ viÖc rÊt quan träng.		NhiÖm vô			2	1		
+Phi Th­êng §¹o Phï	2	0	717	0	0	1												\image\item\other\secr_036a1.spr	\image\item\other\secr_036a0.spr	Bïa do Phi Th­êng §¹o Nh©n chÕ ra, theo mËt hµm cña ph¸p v­¬ng th× cã thÓ lÊy ®­îc b¶o tµng V­¬ng L¨ng mé tÇng 2 lµ viÖc rÊt quan träng.		NhiÖm vô			2	1		
 TÇn V­¬ng Phèi KiÕm MÆc §Êu	2	0	718	1	0	1												\image\item\other\modou_a1.spr	\image\item\other\modou_a0.spr	Phèi KiÕm cña TÇn Thñy Hoµng, thanh kiÕm mµu ®en máng, dµi vµ nhÑ, s©u kh«ng thÊy ®¸y. Tuy ®· l©u n¨m nh­ng vÉn rÊt s¾c bĞn.		NhiÖm vô			2	1		
 Minh Phong Ngäc Béi	2	0	719	1	0	1												\image\item\other\quest_013a1.spr	\image\item\other\quest_013a0.spr	VËt ®Şnh t×nh cña T­ M· Minh Phong cho TiÕt Tö Qu©n, ãng ¸nh trong suèt.		NhiÖm vô			2	1		
 Thiªn Niªn ¤ Méc	2	0	720	1	0	20												\image\item\other\wood_005a1.spr	\image\item\other\wood_005a0.spr	Gç ngµn n¨m, mÆt gç s¸ng bãng. Kh«ng phai mµu, môc n¸t, ®óng lµ gç quı.		NhiÖm vô			2	1		
@@ -701,7 +701,7 @@ Tİch D­¬ng c¨n	2	0	723	1	0	5												\image\item\other\ÁÒÑô¸ùa1.spr	\image\it
 Bao h¸i thuèc cña T«n Ph­¬ng Nh©n	2	0	724	1	0	1												\image\item\other\coll_038a1.spr	\image\item\other\coll_038a0.spr	T«n Ph­¬ng Nh©n giao cho b¹n ®Õn sa m¹c thu thËp gãi Tİch D­¬ng C¨n cã c¸c lo¹i c«ng cô ®Ó h¸i thuèc.		NhiÖm vô			2	1		
 Tİch D­¬ng Thñy	2	0	725	1	0	1												\image\item\usable\heal_018a1.spr	\image\item\usable\heal_018a0.spr	T«n Ph­¬ng Nh©n dïng Tİch D­¬ng C¨n chÕ thuèc, cã thÓ diÖt tËn gèc D­îc Nh©n Th¶o ë D­îc V­¬ng ®éng.		NhiÖm vô			2	1		
 Ph­¬ng Thuèc D­îc Nh©n	2	0	726	1	0	1												\image\item\other\slife_001a1.spr	\image\item\other\slife_001a0.spr	Ph­¬ng thuèc D­îc Nh©n do D­îc V­¬ng tèn nhiÒu c«ng søc nghiªn cøu mµ thµnh.		NhiÖm vô			2	1		
-T©y H¹ Ph¸p V­¬ng Th­ Hµm	2	0	727	1	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	Th­ liªn l¹c D­îc V­¬ng cña T©y H¹ Ph¸p V­¬ng.		NhiÖm vô			2	1		
+T©y H¹ Ph¸p V­¬ng Th­ Hµm	2	0	727	0	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	Th­ liªn l¹c D­îc V­¬ng cña T©y H¹ Ph¸p V­¬ng.		NhiÖm vô			2	1		
 Ph­¬ng Thuèc D­îc Nh©n ngôy t¹o	2	0	728	1	0	1												\image\item\other\slife_001a1.spr	\image\item\other\slife_001a0.spr	Ph­¬ng Thuèc ngôy t¹o cña T«n Ph­¬ng Nh©n, chØ söa ®æi hµm l­îng thuèc, kh«ng ai biÕt ®ã lµ thuèc ngôy t¹o		NhiÖm vô			2	1		
 KÑo Hå L«	2	0	729	1	0	10												\image\item\other\±ùÌÇºùÂ«a1.spr	\image\item\other\±ùÌÇºùÂ«a0.spr	Ph­¬ng ph¸p lµm kÑo hå l« gia truyÒn cña §­êng Hå L« ë Phông T­êng, ¨n rÊt võa miÖng, giµ trÎ ®Òu thİch, ngon nhÊt §¹i Tèng.		NhiÖm vô			2	1		
 KÑo Hå L« (Mª)	2	0	730	1	0	10												\image\item\other\±ùÌÇºùÂ«a1.spr	\image\item\other\±ùÌÇºùÂ«a0.spr	KÑo Hå L« tÈm thuèc mª, bÒ ngoµi ch¼ng kh¸c g× KÑo Hå L« b×nh th­êng, cã thÓ dô ®­îc s¸t thñ Oa Oa ë Cæ D­¬ng ®éng tÇng 2? (nhÊp chuét ph¶i ®Ó sö dông).		NhiÖm vô	\Script\Î÷±±Çø\¹ÅÑô¶´Ò»²ã\npc\ÍŞÍŞÉ±ÊÖ.lua		2	1		
@@ -721,7 +721,7 @@ B¶o r­¬ng tÇng 4 Tö Quang C¸c	2	0	743	1	0	1												\image\item\other\quest_0
 B¶o r­¬ng tÇng 5 Tö Quang C¸c	2	0	744	1	0	1												\image\item\other\quest_069a1.spr	\image\item\other\quest_069a0.spr	V­ît qua tÇng 5 Tö Quang C¸c, thu ®­îc chiÕn lîi phÈm cña TiÕt Hoµnh Thó		NhiÖm vô	\script\missions\tong_mission\item\conf_toll_prize.lua		1	1		
 B¶o r­¬ng tÇng 6 Tö Quang C¸c	2	0	745	1	0	1												\image\item\other\quest_069a1.spr	\image\item\other\quest_069a0.spr	V­ît qua tÇng 6 Tö Quang C¸c, thu ®­îc chiÕn lîi phÈm cña Tö Quang ThÇn Thó		NhiÖm vô	\script\missions\tong_mission\item\conf_toll_prize.lua		1	1		
 NhÊt PhÈm Kim Cang LÖnh	2	0	746	1	0	1												\image\item\other\skius_008a1.spr	\image\item\other\skius_008a0.spr	LÖnh bµi ThËp §¹i Kim Cang NhÊt PhÈm §­êng, nh÷ng ng­êi cã ®­îc thø nµy th× ®Òu lµ nh÷ng cao thñ tuyÖt kü ®Çy m×nh.		NhiÖm vô			2	1		
-Th­ cña DiÖp L·o	2	0	747	1	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	DiÖp L·o ë Phông T­êng viÕt cho con trai DiÖp Tö Thu ®ang häc ®¹o trªn nói C«n L«n, lêi lÏ chÊt chøa sù th­¬ng nhí.		NhiÖm vô			2	1		
+Th­ cña DiÖp L·o	2	0	747	0	0	1												\image\item\other\secr_022a1.spr	\image\item\other\secr_022a0.spr	DiÖp L·o ë Phông T­êng viÕt cho con trai DiÖp Tö Thu ®ang häc ®¹o trªn nói C«n L«n, lêi lÏ chÊt chøa sù th­¬ng nhí.		NhiÖm vô			2	1		
 Gãi ®å cña DiÖp L·o	2	0	748	1	0	1												\image\item\other\coll_038a1.spr	\image\item\other\coll_038a0.spr	Do DiÖp L·o Phông T­êng mang cho con trai DiÖp Tö Thu ®ang häc ®¹o ë C«n L«n		NhiÖm vô			2	1		
 Th­¬ng d­îc Lôc PhiÕn M«n	2	0	749	1	0	1												\image\item\usable\heal_018a1.spr	\image\item\usable\heal_018a0.spr	Th­¬ng d­îc do Lôc PhiÕn M«n chÕ luyÖn, trŞ th­¬ng rÊt tèt, vËt cÇn cã cho quan phñ khi truy n· ph¹m nh©n.		NhiÖm vô			2	1		
 NhÊt PhÈm Kim Cang LÖnh_§o¹n Tı	2	0	750	1	0	1												\image\item\other\skius_008a1.spr	\image\item\other\skius_008a0.spr	LÖnh bµi NhÊt PhÈm §­êng \'ThËp §¹i Kim Cang\', bªn trªn cã kh¾c hai ch÷ \'§o¹n Tı\'.		NhiÖm vô			2	1		
@@ -732,7 +732,7 @@ NhÊt PhÈm Kim Cang LÖnh_Oa Oa	2	0	754	1	0	1												\image\item\other\skius_0
 NhÊt PhÈm Th¸c B¹t LÖnh	2	0	755	1	0	1												\image\item\other\skius_008a1.spr	\image\item\other\skius_008a0.spr	LÖnh bµi cao cÊp cña NhÊt PhÈm §­êng, bªn trªn cã hai ch÷ \'Th¸c B¹t\'.		NhiÖm vô			2	1		
 Tiªn ®¬n C«n L«n	2	0	756	1	0	1												\image\item\usable\heal_002a1.spr	\image\item\usable\heal_002a0.spr	Linh ®¬n diÖu d­îc do C«n L«n ph¸i ®Æc chÕ, rÊt cã hiÖu qu¶ víi ng­êi bŞ th­¬ng do nhiÔm tµ khİ.		NhiÖm vô			2	1		
 C« hån t«n	2	0	757	1	0	1												\image\item\other\suohunzun_a1.spr	\image\item\other\suohunzun_a0.spr	Lµ mét chiÕc b×nh cã c« hån phong Ên, cã thÓ gäi hån ë hµnh lang quû m«n? (NhÊn phİm ph¶i sö dông)		NhiÖm vô	\script\ÖĞÔ­¶şÇø\¹íÃÅ»ØÀÈ\npc\Ô¹»êÖ®Íõ.lua		2	1		
-Phï tr¶m yªu C«n L«n	2	0	758	1	0	1												\image\item\other\secr_036a1.spr	\image\item\other\secr_036a0.spr	Phï ®uæi ma cña C«n L«n ph¸i, ma quû khã trèn tho¸t khái.		NhiÖm vô			2	1		
+Phï tr¶m yªu C«n L«n	2	0	758	0	0	1												\image\item\other\secr_036a1.spr	\image\item\other\secr_036a0.spr	Phï ®uæi ma cña C«n L«n ph¸i, ma quû khã trèn tho¸t khái.		NhiÖm vô			2	1		
 C«n Lu©n §µo méc kiÕm	2	0	759	1	0	1												\image\item\other\quest_016a1.spr	\image\item\other\quest_016a0.spr	B¶o kiÕm cã chøa ph¸p lùc t¨ng c­êng cña C«n L«n, bªn ngoµi tr«ng rÊt b×nh th­êng, nh­ng cã t¸c dông trŞ yªu tµ.		NhiÖm vô			2	1		
 Dung m¹o D­îc V­¬ng	2	0	760	1	0	1												\image\item\other\quest_049a1.spr	\image\item\other\quest_049a0.spr	Bé hãa trang dùa theo h×nh ¶nh cña d­îc v­¬ng ¢u D­¬ng Häa, khi ®eo vµo sÏ gièng hÖt d­îc v­¬ng, thËt gi¶ khã ph©n.		NhiÖm vô			2	1		
  Tö Quang MËt Báa	2	0	761	1	0	1												\image\item\other\secr_003a1.spr	\image\item\other\secr_003a0.spr	Cã thÓ dïng bÊt cø vËt phÈm r¬i ra tõ Boss ®i hîp thµnh		NhiÖm vô	\script\missions\tong_mission\item\item_ziguangmibao.lua		0	1		
@@ -1577,11 +1577,11 @@ L«i Linh Ch©u	2	0	30080	0	0	1000												\image\item\other\coll_039a1.spr	\im
 Hoang Háa Chi T©m	2	0	30082	0	0	1000												\image\item\other\orsilk_008a1.spr	\image\item\other\orsilk_008a0.spr	B¶o vËt cña Hoang Háa L­u Kim (Ch©n th©n) mang theo		NhiÖm vô		1	1	1		
 U Minh Ti	2	0	31001	1	0	1												\image\item\other\orsilk_011a1.spr	\image\item\other\orsilk_011a0.spr	Sîi t¬ thÇn kú, cã t¸c dông Èn vËt thÓ		NhiÖm vô		1	2	1		
 Tõ Th¹ch Kú DŞ	2	0	31002	1	0	1												\image\item\other\tianguashia1.spr	\image\item\other\tianguashia0.spr	Tõ Th¹ch kú dŞ cã thÓ chØ râ ph­¬ng h­íng		NhiÖm vô		1	2	1		
-TrËn Phï 1	2	0	31003	1	0	1												\image\item\other\secr_036a1.spr	\image\item\other\secr_036a0.spr	TrËn Phï Tinh X¶o		NhiÖm vô		1	1	1		
-TrËn Phï 2	2	0	31004	1	0	1												\image\item\other\secr_036a1.spr	\image\item\other\secr_036a0.spr	TrËn Phï Tinh X¶o		NhiÖm vô		1	1	1		
-Phï TruyÒn Tèng-Phong Ên	2	0	31005	1	0	1												\image\item\usable\rich_008a1.spr	\image\item\usable\rich_008a0.spr	Phï TruyÒn Tèng cã cÊm chÕ		NhiÖm vô		1	1	1		
-Phï TruyÒn Tèng-Gi¶i Khãa	2	0	31006	1	0	1												\image\item\usable\rich_008a1.spr	\image\item\usable\rich_008a0.spr	Phï TruyÒn Tèng ®· hñy cÊm chÕ, sö dông Phï TruyÒn Tèng-Gi¶i Khãa, cã thÓ chuyÓn ®Õn Quû M«n Håi Lang (214,231)		NhiÖm vô	\script\isolate\functions\translife10\items\jfdcsf_item.lua	1	2	1		
+TrËn Phï 1	2	0	31003	0	0	1												\image\item\other\secr_036a1.spr	\image\item\other\secr_036a0.spr	TrËn Phï Tinh X¶o		NhiÖm vô		1	1	1		
+TrËn Phï 2	2	0	31004	0	0	1												\image\item\other\secr_036a1.spr	\image\item\other\secr_036a0.spr	TrËn Phï Tinh X¶o		NhiÖm vô		1	1	1		
+Phï TruyÒn Tèng-Phong Ên	2	0	31005	0	0	1												\image\item\usable\rich_008a1.spr	\image\item\usable\rich_008a0.spr	Phï TruyÒn Tèng cã cÊm chÕ		NhiÖm vô		1	1	1		
+Phï TruyÒn Tèng-Gi¶i Khãa	2	0	31006	0	0	1												\image\item\usable\rich_008a1.spr	\image\item\usable\rich_008a0.spr	Phï TruyÒn Tèng ®· hñy cÊm chÕ, sö dông Phï TruyÒn Tèng-Gi¶i Khãa, cã thÓ chuyÓn ®Õn Quû M«n Håi Lang (214,231)		NhiÖm vô	\script\isolate\functions\translife10\items\jfdcsf_item.lua	1	2	1		
 Chøng minh thùc lùc	2	0	31007	1	0	1												\image\item\other\skius_012a1.spr	\image\item\other\skius_012a0.spr	§¸nh b¹i §µo Hoa §¶o Chñ Hoµng Long		NhiÖm vô		1	2	1		
 Ên Th©n y	2	0	31008	1	0	1												\image\item\other\coll_139a1.spr	\image\item\other\coll_139a0.spr	B¶o y ®­îc chÕ t¹o tinh x¶o		NhiÖm vô		1	1	1		
-Trang Phôc Th­¬ng §éi	2	0	31009	1	0	1												\image\item\other\quest_049a1.spr	\image\item\other\quest_049a0.spr	Trang phôc th­¬ng ®éi		NhiÖm vô		1	1	1		
-Th­ tiÕn cö chuyÓn sinh phôc sinh 5	2	0	31010	1	0	1												\image\item\other\spec_002a1.spr	\image\item\other\spec_002a0.spr	Mang th­ tİn nµy ®Õn TuyÒn Ch©u t×m B¾c §Èu L·o Nh©n cã thÓ thùc hiÖn phôc sinh chuyÓn sinh 5		NhiÖm vô		1	1	1		
+Trang Phôc Th­¬ng §éi	2	0	31009	5	0	1												\image\item\other\quest_049a1.spr	\image\item\other\quest_049a0.spr	Trang phôc th­¬ng ®éi		NhiÖm vô		1	1	1		
+Th­ tiÕn cö chuyÓn sinh phôc sinh 5	2	0	31010	0	0	1												\image\item\other\spec_002a1.spr	\image\item\other\spec_002a0.spr	Mang th­ tİn nµy ®Õn TuyÒn Ch©u t×m B¾c §Èu L·o Nh©n cã thÓ thùc hiÖn phôc sinh chuyÓn sinh 5		NhiÖm vô		1	1	1		

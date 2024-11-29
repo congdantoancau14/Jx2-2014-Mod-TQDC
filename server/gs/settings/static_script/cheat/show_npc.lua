@@ -1,5 +1,6 @@
 Include("\\settings\\static_script\\cheat\\list_npcs.lua");
 TB_NPC = new(KTabFile,"\\settings\\npcs.txt");
+TB_TRAINING_NPC = new(KTabFile,"\\settings\\npc\\npc_replace_name_new.txt");
 -- GROUPY NPC VIEW
 tNpcIndexs = {}
 nLastIndex = 0;
@@ -13,8 +14,12 @@ tNpcs = {}
 MAX_NPC = 0;
 CUR_NPC = 0;
 
+tTrainingNpcs = {}
+nTrainingNpcCount = 0;
+
 function main_show_npc()
 	init_npclist();
+	init_training_npc_list();
 	local tSay = {
 		"Input npc name/inputNpcName",
 		"Show npc list/showNpcList",
@@ -24,6 +29,7 @@ function main_show_npc()
 		"Show talking npcs/showTalkingNpcs",
 		"Show fighting npcs/showFightingNpcs",
 		"Tπo trang tr›/createDecorators",
+		"Create training monsters/createTrainingNpcs",
 		"Hi”n thﬁ All npcs tπi Linh B∂o S¨n/#showAllNpcs(0)",
 		"Hi”n thﬁ Talk npcs tπi Linh B∂o S¨n/#showAllNpcs(1)",
 		"Hi”n thﬁ Fight npcs tπi Linh B∂o S¨n/#showAllNpcs(2)",
@@ -38,6 +44,48 @@ end;
 -------------------------------------------------------------------------------
 -- 								NPC VIEW
 -------------------------------------------------------------------------------
+
+szDisplayName = ""
+szModelName = ""
+
+function createTrainingNpcs()
+	AskClientForString("_request_training_npc_name_callback","Monster name",1,64,"NhÀp t™n monster");
+end;
+
+function _request_training_npc_name_callback(string)
+	szDisplayName = string
+	if szDisplayName == nil or szDisplayName == "" then 
+		return 0;
+	end
+	szModelName = getModelName(szDisplayName);
+	print("\nszDisplayName",szDisplayName);
+	print("szModelName",szModelName);
+	if szModelName ~= "" then 
+		AskClientForNumber("_request_training_npc_number_callback",1,1000,"NhÀp sË l≠Óng monster");
+	end
+end;
+
+function _request_training_npc_number_callback(number)
+	if number == 0 then 
+		return 0;
+	end
+	for i=1,number do 
+		CreateNpc(szModelName,szDisplayName,GetWorldPos())
+	end
+end;
+
+function getModelName(szDisplayName)
+	for i=1,nTrainingNpcCount do 
+		if szDisplayName == tTrainingNpcs[i][1] then
+			return tTrainingNpcs[i][2];
+		end
+	end
+	return "";
+end;
+
+function init_training_npc_list()
+	tTrainingNpcs, nTrainingNpcCount = getListTrainingNpcFromFile();
+end;
 
 function showAllNpcs(nType, tNpcs)
 	if tNpcs == nil then
@@ -495,6 +543,25 @@ function search(tNpcs,nType,nBegin,nEnd)
 	return index;
 end;
 
+function getListTrainingNpcFromFile()
+	local tData = {}
+	
+	local nCount = TB_TRAINING_NPC:getRow();
+	local k=0;
+	for i=2,nCount do
+		local szName = TB_TRAINING_NPC:getCell(i,1);
+		local szModel = TB_TRAINING_NPC:getCell(i,2);
+		
+		if szName ~= "" then
+			k = k+1;
+			tData[k] = {}
+			tinsert(tData[k],szName);
+			tinsert(tData[k],szModel);
+		end
+	end
+	
+	return tData, k;
+end;
 
 function getListFromFile()
 	-- local nLenRow = TB_NPC:getCol(1);

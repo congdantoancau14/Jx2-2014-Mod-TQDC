@@ -2,18 +2,29 @@ Include("\\script\\mod\\expand_box\\expand_box_head.lua");
 THIS_FILE = "\\script\\mod\\carriage\\npc_xevanchuyen.lua";
 tbInBagItems = {}
 nStoreId = 2;
+nNpcIndex = nil;
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 function main()
-	-- local nCarriageId = BIAOCHE_TASKGROUP:GetTask(BIAOCHE_TASKGROUP.BIAOCHE_INDEX);
-	-- "ChÊt nhê ®å lªn xe"
+	nNpcIndex = GetTargetNpc();  -- Disable this will store items with rolename
+	local nCarriageId = BIAOCHE_TASKGROUP:GetTask(BIAOCHE_TASKGROUP.BIAOCHE_INDEX);
+	-- print(nNpcIndex,nCarriageId);
 	
-	init(nStoreId);
+	-- init(nStoreId);	-- Store items with player rolename as filename
+	init(nStoreId,nNpcIndex); -- Store items with npcindex as filename
+	
+	local szHead = format("T×nh tr¹ng hµng trªn xe: %d/%d",ITEM_COUNT,MAX_CARRIAGE_ITEMS)
+	if nNpcIndex ~= nCarriageId then 
+		szHead = "<color=red>ChÊt nhê ®å lªn xe<color>. "..szHead;
+	end
+	
 	local tbSay = {
 		"\n>> ChÊt lªn khay/putintray",
 		"\n>> ChÊt ®å lªn xe/#showThingsIn(0)",
 		"\n>> Dì ®å xuèng xe/#showThingsOut(0)",
 		"\n>> §Ëy n¾p thïng xe/nothing",
 	}
-	Say(format("T×nh tr¹ng hµng trªn xe: %d/%d",MAX_ITEM_COUNT,MAX_CARRIAGE_ITEMS),getn(tbSay),tbSay);
+	Say(szHead,getn(tbSay),tbSay);
 end;
 -------------------------------------------------------------------------------
 function putintray()
@@ -50,7 +61,7 @@ end
 
 
 function puttrayin(t)
-	if getn(t) > GetStoreFreeRoomCarriage() then 
+	if getn(t) > GetStoreFreeRoom(nStoreId,nNpcIndex) then 
 		Talk(1,"","<color=red>Xe qu¸ ®Çy, kh«ng thÓ chÊt thªm nhiÒu ®å!<color>");
 		return 0;
 	end
@@ -61,7 +72,7 @@ function puttrayin(t)
 		end
 		local nCount = get_item_count(t, t[i][2], t[i][3], t[i][4]);
 		local object = {t[i][5],{t[i][2],t[i][3],t[i][4]},nCount};
-		insertrowtodata(object,nStoreId);
+		insertrowtodata(object,nStoreId,nNpcIndex);
 		Msg2Player(format("§· bá %s x%d vµo xe chë ®å",t[i][5],nCount));
 	end
 end;
@@ -148,38 +159,38 @@ function showThingsIn(nNav)
 end;
 
 function putthispage(nPage,nBegin,nEnd)
-	if nEnd - nBegin > GetStoreFreeRoomCarriage() then 
+	if nEnd - nBegin > GetStoreFreeRoom(nStoreId,nNpcIndex) then 
 		Talk(1,"","<color=red>Xe qu¸ ®Çy, kh«ng thÓ chÊt thªm nhiÒu ®å!<color>");
 		return 0;
 	end
 	for i=nBegin, nEnd do 
 		local object = tbInBagItems[i];
 		DelItem(object[2][1],object[2][2],object[2][3],object[3]);
-		insertrowtodata(object,nStoreId);
+		insertrowtodata(object,nStoreId,nNpcIndex);
 		Msg2Player(format("§· bá %s x%d vµo xe chë ®å",tbInBagItems[i][1],tbInBagItems[i][3]));
 	end
 	showThingsIn(0);
 end;
 
 function putallin()
-	if getn(tbInBagItems) > GetStoreFreeRoomCarriage() then 
+	if getn(tbInBagItems) > GetStoreFreeRoom(nStoreId,nNpcIndex) then 
 		Talk(1,"","<color=red>Xe qu¸ ®Çy, kh«ng thÓ chÊt thªm nhiÒu ®å!<color>");
 		return 0;
 	end
 	DelItemsByList(tbInBagItems);
-	inserttabletodata(tbInBagItems,nStoreId);
+	inserttabletodata(tbInBagItems,nStoreId,nNpcIndex);
 	Msg2Player("§· bá tÊt c¶ vµo xe chë ®å");
 end;
 
 
 function putonein(index)
-	if MAX_ITEM_COUNT == MAX_CARRIAGE_ITEMS then 
+	if ITEM_COUNT == MAX_CARRIAGE_ITEMS then 
 		Talk(1,"","<color=red>Xe qu¸ ®Çy, kh«ng thÓ chÊt thªm ®å!<color>");
 		return 0;
 	end
 	local object = tbInBagItems[index];
 	DelItem(object[2][1],object[2][2],object[2][3],object[3]);
-	insertrowtodata(object,nStoreId);
+	insertrowtodata(object,nStoreId,nNpcIndex);
 	Msg2Player(format("§· bá %s x%d vµo xe ®å",tbInBagItems[index][1],tbInBagItems[index][3]));
 	showThingsIn(0);
 end;
@@ -259,7 +270,7 @@ function takethispage(nPage,nBegin,nEnd)
 	for i=nBegin, nEnd do 
 		local object = TB_ITEMS[i];
 		AddItem(object[2][1],object[2][2],object[2][3],object[3]);
-		RemoveItemFromFile(object,nStoreId);
+		RemoveItemFromFile(object,nStoreId,nNpcIndex);
 	end
 	showThingsOut(0);
 end;
@@ -267,7 +278,7 @@ end;
 function takeoneout(index)
 	local object = TB_ITEMS[index];
 	AddItem(object[2][1],object[2][2],object[2][3],object[3]);
-	RemoveItemFromFile(object,nStoreId);
+	RemoveItemFromFile(object,nStoreId,nNpcIndex);
 	showThingsOut(0);
 end;
 
@@ -276,8 +287,8 @@ function takeallout()
 	local nOverflow = 0;
 	
 	AddItemsByList(TB_ITEMS);
-	if MAX_ITEM_COUNT > nFreeRoom then 
-		nOverflow = MAX_ITEM_COUNT - nFreeRoom;
+	if ITEM_COUNT > nFreeRoom then 
+		nOverflow = ITEM_COUNT - nFreeRoom;
 		local tMoveItems = tablesplit(TB_ITEMS, 1, nFreeRoom);
 		local tDropItems = tablesplit(TB_ITEMS, nFreeRoom+1, nOverflow);
 		if getn(tDropItems) > 0 then
@@ -285,7 +296,7 @@ function takeallout()
 		end
 	end
 
-	erasedata(nStoreId);
+	erasedata(nStoreId,nNpcIndex);
 end;
 
 

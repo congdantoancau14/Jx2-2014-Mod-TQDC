@@ -50,27 +50,32 @@ function main_store_box(nThisBoxId)
 	local nReturn = GetTask(TASK_RETURN_BOX);
 	
 	if isHaveKey == 0 then 
-		if nBoxId == 0 then 
+		if nBoxId == 0 or nBoxId == 1 then 
+			Talk(1,"",sPlayerName.."Ta muèn göi ®å ë ®©y. Nhê ng­¬i tr«ng cÈn thËn gióp ta!\n\n"
+				..sNpcName.."Hoan nghªnh kh¸ch quan! C¶m ¬n kh¸ch quan ®· tin t­ëng! PhÝ göi ®å lµ <color=white>10 l­îng b¹c<color>."
+			)
+			
 			if Pay(1000) ~= 1 then 
-				Talk(1,"",sNpcName.."PhÝ göi ®å chÝ cã <color=white>10 l­îng b¹c<color> rÎ m¹t mµ ng­¬i còng kh«ng cã. §óng lµ mét tªn khè r¸ch ¸o «m!")
+				Talk(2,"","...",sNpcName.."PhÝ göi ®å chÝ cã <color=white>10 l­îng b¹c<color> rÎ m¹t mµ ng­¬i còng kh«ng cã. §óng lµ mét tªn khè r¸ch ¸o «m!")
 				return 0;
 			end
-			Talk(2,"",sPlayerName.."Ta muèn göi ®å ë ®©y. Nhê ng­¬i tr«ng cÈn thËn gióp ta!",
-				sNpcName.."Hoan nghªnh kh¸ch quan! C¶m ¬n kh¸ch quan ®· tin t­ëng! PhÝ göi ®å lµ <color=white>10 l­îng b¹c<color>. §©y lµ ch×a khãa r­¬ng. Xin h·y gi÷ cÈn thËn!"
-			)
-			-- DelItem from carriage
-			init(2);
-			local nIndex = GetItemIndexFromFile(box[1],box[2],box[3]);
-			local object = TB_ITEMS[nIndex];
-			local nRemove = RemoveItemFromFile(object,nStoreId);
-			local nDel = DelItem(box[1],box[2],box[3],1);
-			local nAdd = AddItem(key[1],key[2],key[3],1);
-			
-			if nRemove == 1 or nDel == 1 then
-				SetTask(TASK_BOX_ID,nThisBoxId);
-			else
-				Talk(1,"",sNpcName.."Ng­¬i kh«ng cã ®å ®¹c g× c¶ g× göi g× ë ®©y?");
+			if nBoxId == 1 then 
+				-- DelItem from carriage
+				init(2);
+				local nIndex = GetItemIndexFromFile(box[1],box[2],box[3]);
+				local object = TB_ITEMS[nIndex];
+				local nRemove = RemoveItemFromFile(object,nStoreId);
+				local nDel = DelItem(box[1],box[2],box[3],1);
+				if nRemove ~= 1 or nDel ~= 1 then
+					Talk(1,"",sNpcName.."Ng­¬i kh«ng cã ®å ®¹c g× c¶ g× göi g× ë ®©y? Tr¶ l¹i ng­¬i ®©y!");
+					Earn(1000);
+					return 0;
+				end
 			end
+			SetTask(TASK_BOX_ID,nThisBoxId);
+			local nAdd = AddItem(key[1],key[2],key[3],1);
+			Talk(1,"",sNpcName.."§©y lµ ch×a khãa r­¬ng. Xin h·y gi÷ cÈn thËn!")
+			
 			-- return 0; -- Disable this line or change to return 1 will openbox in Thñ khè
 		else
 			if nBoxId == nThisBoxId then 
@@ -91,9 +96,9 @@ function main_store_box(nThisBoxId)
 		if nBoxId ~= 0 then 
 			if nBoxId ~= nThisBoxId then 
 				Say(sNpcName.."M· sè trªn ch×a khãa <color=red>kh«ng ph¶i ë ®©y<color>. Ng­¬i kh«ng göi ®å ë chç ta. Ng­¬i tíi nhÇm chç råi.",3,
-					format("Ta muèn göi ®å ë ®©y. Nhê ng­¬i liªn l¹c víi thñ khè kh¸c chuyÓn ®å cña ta ®Õn ®©y./#move_box_confirm(%d)",nThisBoxId),
-					"Ta kh«ng nhí n¬i göi ®å./lost_box",
-					"§óng lµ nhÇm lÉn, xin th«ng c¶m! ;)/no_box");
+					format("Ta muèn chuyÓn ®å cña ta ®Õn ®©y./#move_box_confirm(%d)",nThisBoxId),
+					"Nh­ng ta kh«ng nhí n¬i göi ®å./lost_box",
+					"§óng lµ nhÇm lÉn, xin th«ng c¶m! (^m^)/no_box");
 				return 0;
 			end
 			if nReturn == 1 then
@@ -182,7 +187,7 @@ end;
 
 function get_store_box()
 	Talk(1,"",sNpcName.."C¶m ¬n ®· sö dông dÞch vô ë chç ta. HÑn gÆp l¹i! R­¬ng ®å cña ng­¬i ®©y...")
-	SetTask(TASK_BOX_ID,0);
+	SetTask(TASK_BOX_ID,1);
 	SetTask(TASK_RETURN_BOX,0);
 	DelItem(key[1],key[2],key[3],1);
 	AddItem(box[1],box[2],box[3],1);

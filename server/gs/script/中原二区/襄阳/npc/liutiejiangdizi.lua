@@ -251,7 +251,7 @@ function main()
 	if nDate >= 20130925 then
 		tinsert(strtab,1,"RÌn l¹i vò khİ/NangCapLevelVuKhi_Menu")
 	end
-	if nDate <= 20141012 then
+	if nDate <= 20441012 then
 		tinsert(strtab,1,"Trang bŞ L«i Hæ/LoiHo_Menu")
 	end
 --	local nDate = tonumber(date("%Y%m%d%H"));

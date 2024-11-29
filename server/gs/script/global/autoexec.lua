@@ -165,6 +165,7 @@ function main()
 	new_year_09();
 	AddNpcTieuQuyen();
 	AddFuShen(); 			-- Added at 29/07/2020
+	new_year_2006_npc();			-- Added at 23/11/2020
 	Add_1108_npc(); 		-- Added at 29/07/2020
 	Add_0910_npc();
 	Add_wuyi_npc();
@@ -731,6 +732,19 @@ function AddFuShen()
 		nNpcIndex = CreateNpc("NguyÖt L·o", "Phóc thÇn", 100, 1461, 2967);
 		SetNpcScript(nNpcIndex, "\\script\\online\\´º½Ú»î¶¯\\ÈªÖİ¸£Éñ.lua");
 	end
+end;
+
+function new_year_2006_npc()
+	local nNpcIndex = 0;
+	-- local nDate = tonumber(date("%m%d"));
+	-- if nDate >= 0123 and nDate < 0222 then
+		nNpcIndex = CreateNpc("TiÓu nhŞ T©y Nam", "Chñ tiÖm sñi c¶o", 200,1273,2833);
+		SetNpcScript(nNpcIndex, "\\script\\online\\´º½Ú»î¶¯\\ãê¾©½È×ÓÂ¥ÀÏ°å.lua");
+		nNpcIndex = CreateNpc("TiÓu nhŞ T©y Nam", "Chñ tiÖm sñi c¶o", 300,1760,3420);
+		SetNpcScript(nNpcIndex, "\\script\\online\\´º½Ú»î¶¯\\³É¶¼½È×ÓÂ¥ÀÏ°å.lua");
+		nNpcIndex = CreateNpc("TiÓu nhŞ T©y Nam", "Chñ tiÖm sñi c¶o", 100,1491,3144);
+		SetNpcScript(nNpcIndex, "\\script\\online\\´º½Ú»î¶¯\\ÈªÖİ½È×ÓÂ¥ÀÏ°å.lua");
+	-- end
 end;
 
 function ApplyRelayInitData()

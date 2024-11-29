@@ -8,7 +8,4 @@ if oly_IsActivityOpen() ~= 0 then
 	if oly_GetActivityOpenDays() * 24 * 3600 == OLY_ACTIVITY_DURATION then
 		ApplyRelayShareData(Oly_Record.szKey,Oly_Record.nKey1,Oly_Record.nKey2,Oly_CallBack_Script,"oly_CallBack_TGL_ReSet");
 	end
-	--全服点火次数每日清理
-	local s = SDB("olympic_addfire", 0, 0);
-	s:delete()
 end
