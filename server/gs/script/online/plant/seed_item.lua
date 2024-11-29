@@ -5,8 +5,12 @@ Include("\\settings\\static_script\\cheat\\event\\event_init.lua");
 
 function OnUse()
 	Create_Map_Trigger();
+	if GetFightState() == 0 then
+		Talk(1,"","Tr¹ng th¸i hßa b×nh kh«ng thÓ dÉn linh khİ vµo h¹t gièng");
+		return 0;
+	end;
 	if GetPlayerRoute() == 0 then
-		Talk(1,"","Ng­êi ch­a gia nhËp m«n ph¸i kh«ng ®­îc sö dông h¹t gièng");
+		Talk(1,"","Ng­êi ch­a gia nhËp m«n ph¸i kh«ng c? kh¶ n¨ng dÉn linh khİ vµo h¹t gièng");
 		return 0;
 	end;
 	if checktime() == 0 then

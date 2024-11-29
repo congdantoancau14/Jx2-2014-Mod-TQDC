@@ -13,9 +13,12 @@ outboxfilepath = "";
 inboxfilepath = "";
 g_send_to = "";
 g_storebox = "";
+g_mailboxname = "";
 
 THE_FILE = "\\script\\misc\\mail_carrier.lua";
 NPC_NAME = "<color=green>Chñ B­u côc<color>: ";
+
+g_tSenders = {}
 
 ------------------------------------------------------------------------
 function main()
@@ -86,7 +89,7 @@ end;
 function takething()
 	g_storebox = player_rolename;
 	local tSays = {
-		"Ta muèn nhËn ®å ta ng­êi göi håi n·y/taketemp",
+		"Ta muèn nhËn ®å cã ng­êi göi håi n·y/taketemp",
 		"Nghe nãi cã ng­êi göi ®å cho ta/showSenders",
 		"Quay l¹i sau!/nothing"
 	}
@@ -97,7 +100,7 @@ end;
 function taketemp()
 	g_storebox = "temp";
 	makeDirectory(g_tbDirectoryName[g_nStoreId]..g_storebox.."/")
-	showSenders(1)
+	showSenders()
 	
 	-- szStoreFileName = format("temp/%s.txt",player_rolename);
 	-- -- init(g_nStoreId);	-- Store items with player rolename as filename
@@ -108,10 +111,11 @@ end;
 
 
 function takefrom(nSenderIndex)
-	local szSender = tSenders[nSenderIndex][2];
+	local szSender = g_tSenders[nSenderIndex][2];
 	local szTakeFrom = totelex(szSender);
 	szStoreFileName = format("%s/%s.txt",g_storebox,szTakeFrom);
 	print(szStoreFileName)
+	g_mailboxname = szTakeFrom;
 	-- init(g_nStoreId);	-- Store items with player rolename as filename
 	init(g_nStoreId,szStoreFileName); -- Store items with npcindex as filename
 	--init(g_nStoreId,0); -- Store items with playername npcindex as filename
@@ -119,39 +123,77 @@ function takefrom(nSenderIndex)
 end;
 ------------------------------------------------------------------------
 
-function showSenders(temp)
+nPage = 1;
+nItemsPerPage = 25;
+
+function showSenders(nNav)
 	local szSender = "";
-	inboxfilepath = g_tbDirectoryName[g_nStoreId]..player_rolename.."/inbox.txt";
-	tSenders = getSenders(player_rolename);
+	local nSenders = 0;
 	
-	if temp == 1 then
+	if g_storebox == "temp" then
 		inboxfilepath = g_tbDirectoryName[g_nStoreId].."temp/senders.txt";
-		tSenders = getSenders();
+		g_tSenders = getSenders();
+		nSenders = getn(g_tSenders);
+		if nSenders == 0 then
+			Talk(1,"",NPC_NAME.."HiÖn kh«ng cã ai göi ®å ë ®©y!");
+			return 0;
+		end
+	else
+		inboxfilepath = g_tbDirectoryName[g_nStoreId]..player_rolename.."/inbox.txt";
+		g_tSenders = getSenders(player_rolename);
+		nSenders = getn(g_tSenders);
+		if nSenders == 0 then
+			Talk(1,"",NPC_NAME.."Kh«ng cã ai göi ®å cho c¸c h¹ c¶!");
+			return 0;
+		end
 	end
 	--print(inboxfilepath)
-	
-	if getn(tSenders) == 0 then
-		Talk(1,"",NPC_NAME.."Kh«ng cã ai göi ®å cho c¸c h¹ c¶!");
-		return 0;
+
+	nNav = nNav or 0;
+	nPage = nPage + nNav;
+	local nPages = ceil(nSenders/nItemsPerPage);
+	local nBegin = (nPage-1) * nItemsPerPage + 1;
+	local nEnd = nBegin + nItemsPerPage;
+	if nSenders < nEnd then
+		nEnd = nSenders;
 	end
 	
-	local tSays = {}
-	for i=1,getn(tSenders) do
-		tinsert(tSays,format("Thêi gian: [%s] : %s/#takefrom(%d)",tSenders[i][1],telex2tones(tSenders[i][2]),i));
-	end;
-	tinsert(tSays,"Kh«ng nhËn n÷a/nothing");
+	local nMaxItems = nSenders;
+	local szHead = format("Trang <color=yellow>%d<color>/%d. "
+		.."Tæng céng <color=yellow>%d<color> ng­êi göi. §ang hiÓn thÞ: %d - %d"
+		,nPage,nPages,nMaxItems,nBegin,nEnd);
 	
-	Say( NPC_NAME.."Quý kh¸ch nhËn ®å tõ ai?",getn(tSays),tSays);
+	local tbSay = {}
+	for i=nBegin,nEnd do
+		tinsert(tbSay,format("[%d] Thêi gian: [%s] : %s/#takefrom(%d)",i,g_tSenders[i][1],telex2tones(g_tSenders[i][2]),i));
+	end;
+	-- insert page navigation
+	if nPage < nPages then 
+		tinsert(tbSay, format(">> Trang kÕ >>/#showSenders(%d)",1))
+	else
+		tinsert(tbSay, format("<<<< Trang ®Çu <<<</#showSenders(%d)",-nPages+1))
+	end
+	if nPage > 1 then 
+		tinsert(tbSay, format("<< Trang tr­íc <</#showSenders(%d)",-1))
+	else
+		tinsert(tbSay, format(">>>> Trang cuèi >>>>/#showSenders(%d)",nPages-nPage))
+	end
+	-- close dialog
+	tinsert(tbSay,"Kh«ng nhËn n÷a/nothing");
+	-- show dialog
+	Say( NPC_NAME.."Quý kh¸ch nhËn ®å tõ ai?\n"..szHead,getn(tbSay),tbSay);
 	
 	--takefrom(szSender);
 end;
 
+
+
 function getSenders()
 	local tSenders = {}
-	--print("getSenders>>inboxfilepath",inboxfilepath);
+	print("getSenders>>inboxfilepath",inboxfilepath);
 	local TB_DATAITEMS = new(KTabFile, inboxfilepath);
 	local nCount = TB_DATAITEMS:getRow();
-	-- print("nCount",nCount);
+	print("nCount",nCount);
 	local k = 0;
 	for i=1,nCount do
 		local sDate = TB_DATAITEMS:getCell(i,1);
@@ -163,7 +205,7 @@ function getSenders()
 		end
 	end
 	-- print("k",k);
-	TabFile_Unload(ITEM_FILEPATH); -- THIS IS VERY IMPORTANT COMMAND !!! PLEASE TAKE NOTICE THAT AND REMEMBER IT!!!
+	TabFile_Unload(inboxfilepath); -- THIS IS VERY IMPORTANT COMMAND !!! PLEASE TAKE NOTICE THAT AND REMEMBER IT!!!
 	return tSenders, k;
 end;
 ------------------------------------------------------------------------
@@ -181,10 +223,10 @@ function OnPutinCheck(param, idx, genre, detail, particular)
 		Talk(1,"","VËt phÈm ®· khãa kh«ng thÓ göi ®i!");
 		return 0;
 	end
-	if genre ~= 2 and genre ~= 1 then 
-		Talk(1,"","VËt nµy kh«ng phï hîp bá vµo gãi hµng");
-		return 0;
-	end
+	--if genre ~= 2 and genre ~= 1 then 
+		--Talk(1,"","VËt nµy kh«ng phï hîp bá vµo gãi hµng");
+		--return 0;
+	--end
 	
 	local nCount = GetItemParam(idx, 1) -- Get from archive_box.lua, seem not to work
 	local nItemMapID = GetItemParam(idx, 0)
@@ -212,6 +254,36 @@ function OnPutinComplete(param)
 	writetomailbox(outboxfilepath,telex2tones(g_send_to))
 end
 
+
+function burnletterformmailbox(file_path, mailboxname)
+	local file = openfile(file_path, "w");
+	print(file_path,file);
+	
+	for i=1, getn(g_tSenders) do
+		if g_tSenders[i] == nil then
+			break;
+		end
+		print(g_tSenders[i][2],mailboxname)
+		if g_tSenders[i][2] == mailboxname then
+			tremove(g_tSenders,i);
+			i = i-1;
+			print("removed",mailboxname);
+		end
+	end
+	
+	local string = tabletostring(g_tSenders);
+	
+	write(file,string);
+	closefile(file)
+end;
+
+function tabletostring(table)
+	local string = "";
+	for i=1, getn(table) do
+		string = string..table[i][1]..tab..table[i][2]..endl
+	end
+	return string;
+end;
 
 function writetomailbox(file_path, mailboxname)
 	local file = openfile(file_path, "a+");
@@ -253,7 +325,12 @@ function showThingsOut(nNav)
 	
 	local t = TB_ITEMS;
 	
-	nPageOut = xb_generateNavigation(g_nStoreId,nPageOut,nNav,t,DIRECT_TAKEOUT);
+	if getn(t) == 0 then
+		Talk(1,"",NPC_NAME.."Xin th«ng c¶m. Hµng trong ®¬n ®· ®­îc lÊy hÕt ®i! Chóng t«i sÏ thanh lÝ hãa ®¬n!");
+		burnletterformmailbox(inboxfilepath,g_mailboxname);
+	else
+		nPageOut = xb_generateNavigation(g_nStoreId,nPageOut,nNav,t,DIRECT_TAKEOUT);
+	end
 	
 end;
 

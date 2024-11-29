@@ -172,22 +172,19 @@ end;
 
 function ET_OnTimerReset()
 	if GetTask(TE_TASK_EAT_VOLUME) == nil then
-	print("ET_OnTimerReset",GetTask(TE_TASK_EAT_VOLUME))
 		SetTask(TE_TASK_EAT_VOLUME,0);
-		print("ET_OnTimerReset",GetTask(TE_TASK_EAT_VOLUME))
 	end
 	if GetTask(TE_TASK_DRINK_VOLUME) == nil then
 		SetTask(TE_TASK_DRINK_VOLUME,0);
 	end
 	
 	local nVolume = 0;
-	nVolume = GetTask(TE_TASK_EAT_VOLUME)
-print("ET_OnTimerReset",nVolume,FULL_VOLUME)
+	nVolume = GetTask(TE_TASK_EAT_VOLUME) or 0;
 	if nVolume < FULL_VOLUME then 
 		SetTask(TE_TASK_STATE_ATE,0);
 	end
 	
-	nVolume = GetTask(TE_TASK_DRINK_VOLUME)
+	nVolume = GetTask(TE_TASK_DRINK_VOLUME) or 0;
 	if nVolume < FULL_VOLUME then 
 		SetTask(TE_TASK_STATE_DRUNK,0);
 	end
@@ -216,8 +213,8 @@ function ET_GetItemInTableIndex(g,d,p)
 end;
 
 function getSleepVolume(bCurrent)
-	local nTimeStartSleep = GetTask(TE_TASK_SLEEP_START)
-	local nTimeEndedSleep = GetTask(TE_TASK_SLEEP_ENDED)
+	local nTimeStartSleep = GetTask(TE_TASK_SLEEP_START) or 0; -- Prevent nil value on server startup
+	local nTimeEndedSleep = GetTask(TE_TASK_SLEEP_ENDED) or 0;
 	if bCurrent == 1 then
 		nTimeEndedSleep = GetTime();
 	end

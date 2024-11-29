@@ -160,6 +160,8 @@ function tableofobjectstostring(table)
 	local string = "";
 	local tab = "\t";
 	local endl = "\n";
+	local space = " ";
+	local empty = "";
 	
 	if t ~= nil then 
 		for i=1,getn(t) do 
@@ -167,10 +169,23 @@ function tableofobjectstostring(table)
 				for j=1,getn(t[i]) do 
 					if type(t[i][j]) == "table" then
 						for k=1,getn(t[i][j]) do 
-							string = string..t[i][j][k]..tab;
+							if type(t[i][j][k]) == "table" then
+								string = string..oneleveltabletostring(t[i][j][k])..tab;
+							else
+								if t[i][j] ~= nil then
+									string = string..t[i][j][k]..tab;
+								else
+									--string = string..empty..tab;
+									string = string..space..tab;
+								end
+							end;
 						end
 					else
-						string = string..t[i][j]..tab;
+						if t[i][j] ~= nil then
+							string = string..t[i][j]..tab;
+						else
+							string = string..space..tab;
+						end
 					end 
 				end
 			else
@@ -184,8 +199,19 @@ function tableofobjectstostring(table)
 			end
 		end
 	end
-	
+	-- print(string);
 	return string;
+end;
+
+function oneleveltabletostring(table)
+	local string = "";
+	for i=1, getn(table) do
+		string = string..table[i];
+		if i < getn(table) then
+			string = string.."\t";
+		end
+	end;
+	return trim(string);
 end;
 
 function tableofobjectstostring_original(table)

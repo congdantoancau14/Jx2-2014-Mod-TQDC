@@ -273,6 +273,12 @@ function AddRestingPlaces()
 		{model,npc1,200,1372,2615,script},
 		{model,npc1,204,1357,3229,script},
 		{model,npc1,303,1490,3109,script},
+		{model,npc1,205,1595,2972,script},
+		{model,npc1,0,script},
+		{model,npc1,0,script},
+		{model,npc1,0,script},
+		{model,npc1,0,script},
+		{model,npc1,0,script},
 		
 		{model,npc1,6016,1451,2934,script},
 		{model,npc1,6100,1836,3526,script}, -- Quúnh k?t
@@ -303,6 +309,7 @@ function AddWaterWells()
 		{model,npc2,102,1522,2827,script},
 		{model,npc2,102,1393,2785,script},
 		{model,npc2,105,1411,3154,script},
+		{model,npc2,105,1524,2988,script},
 		{model,npc1,106,1303,2937,script},
 		{model,npc2,107,1312,2763,script},
 		{model,npc1,107,1431,3025,script},

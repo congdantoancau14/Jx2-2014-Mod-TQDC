@@ -227,7 +227,9 @@ function xb_generateNavigation(nStoreId,nPage,nNav,t,nAction)
 		tinsert(tbSay, format(">>>> Trang cuèi >>>>/#%s(%d)",tbFunctions[nStoreId][nAction][1],nPages-nPage))
 	end
 	-- put/take one page
-	tinsert(tbSay,format(tbFunctions[nStoreId][nAction][4],nBegin,nEnd));
+	if nStoreId ~= STORE_ID_MAIL then
+		tinsert(tbSay,format(tbFunctions[nStoreId][nAction][4],nBegin,nEnd));
+	end
 	-- put/take all items
 	tinsert(tbSay,tbFunctions[nStoreId][nAction][3])
 	-- close dialog
@@ -273,25 +275,118 @@ function xb_puttrayin(t,nStoreId,szStoreFileName)
 	end
 	
 	for i = 1, getn(t) do
+		local object = {}
+		local nCount = 0; -- ItemPutOnTray
+		
 		local szItemName = t[i][5];
 		local g,d,p = t[i][2], t[i][3], t[i][4];
-		local nItemBeforeDelCount = GetItemCount(g,d,p);
+		local nItemBeforeDelCount = GetItemCount(g,d,p); -- ItemCountInBag
 		local idx = t[i][1];
 		local nGenertTime = GetItemCreateTime(idx);
 		local nExpireTime = GetItemExpireTime(idx);
-		local nItemInTrayCount = get_item_count(t, t[i][2], t[i][3], t[i][4]);
-		if DelItemByIndex(idx, -1) ~= 1 then
-			print("error: Could not delete item from tray! Index = ",i)
+		
+		
+		---------------------------------------------------------------------
+		--						GetEquipInfo
+		---------------------------------------------------------------------
+		local nItemIndex = idx;
+		if IsAnEquip(g,d,p) == 1 then 
+			local nEnhance = GetEquipAttr(nItemIndex,2)
+			local nIsDing7 = GetItemSpecialAttr(nItemIndex,"DING7")
+			local nIsDing10 = GetItemSpecialAttr(nItemIndex,"DING10")
+			local nZhuangbeiLv = GetEquipLevel(nItemIndex); --»ñÈ¡µ±Ç°×°±¸µÈ¼¶
+			local nLingqi = GetItemMaxLingQi(nItemIndex);   --»ñÈ¡ÁéÆøÖµ
+			
+			local nMofa1,nLevel1 = GetItemAttr(nItemIndex,1)
+			local nMofa2,nLevel2 = GetItemAttr(nItemIndex,2)
+			local nMofa3,nLevel3 = GetItemAttr(nItemIndex,3)
+			-- print("nMofa",nMofa1,nMofa2,nMofa3);
+			local nScrollIndex = tonumber(nItemIndex)
+			local nAbrasive = AbradeItem(nScrollIndex, 0)
+			
+			if DelItemByIndex(idx, -1) ~= 1 then
+				print("error: Could not delete item from tray! Index = ",i)
+			end
+			
+			nCount = 1;
+			object = {szItemName,{g,d,p},nCount,nGenertTime,nExpireTime,nAbrasive,
+				{{nMofa1,nLevel1},{nMofa2,nLevel2},{nMofa3,nLevel3}},nEnhance,nIsDing7,nIsDing10,nLingqi
+			}
+		else
+			--local nItemInTrayCount = getItemCountInTable(t, t[i][2], t[i][3], t[i][4]);
+			if DelItemByIndex(idx, -1) ~= 1 then
+				print("error: Could not delete item from tray! Index = ",i)
+			end
+			local nItemAfterDelCount = GetItemCount(g,d,p); -- ItemCountInBag
+			nCount = nItemBeforeDelCount - nItemAfterDelCount;	-- ItemPutOnTray
+			object = {szItemName,{g,d,p},nCount,nGenertTime,nExpireTime};
 		end
-		local nItemAfterDelCount = GetItemCount(g,d,p);
-		local nCount = nItemBeforeDelCount - nItemAfterDelCount;
-		local object = {szItemName,{g,d,p},nCount,nGenertTime,nExpireTime};
+		----------------------------------------------------------------------
+		
+		
 		insertrowtodata(object,nStoreId,szStoreFileName);
 		Msg2Player(format(tbMessages[nStoreId].putonein,szItemName,nCount));
 	end
 end;
 
-function get_item_count(t, id1, id2, id3)
+function IsAnEquip(genre,detail,particular)
+	genre = tonumber(genre);
+	detail = tonumber(detail);
+	particular = tonumber(particular);
+	if genre == 0 and (detail >= 100 and detail <= 105) or (detail > 0 and detail <= 14) then
+		return 1;
+	else 
+		return 0;
+	end
+end;
+
+function GetEquipInfo(tItem)
+	
+	local nItemIndex = tItem[1];
+	local g,d,p = tItem[2],tItem[3],tItem[4];
+	-- print(g,d,p);
+	-- local nItemIndex = GetItemIndex(g,d,p);
+	local szItemName = tItem[5];
+	local nEnhance = GetEquipAttr(nItemIndex,2)
+	local nIsDing7 = GetItemSpecialAttr(nItemIndex,"DING7")
+	local nIsDing10 = GetItemSpecialAttr(nItemIndex,"DING10")
+	local nZhuangbeiLv = GetEquipLevel(nItemIndex); --»ñÈ¡µ±Ç°×°±¸µÈ¼¶
+	local nLingqi = GetItemMaxLingQi(nItemIndex);   --»ñÈ¡ÁéÆøÖµ
+	
+	local nMofa1,nLevel1 = GetItemAttr(nItemIndex,1)
+	local nMofa2,nLevel2 = GetItemAttr(nItemIndex,2)
+	local nMofa3,nLevel3 = GetItemAttr(nItemIndex,3)
+	-- print("nMofa",nMofa1,nMofa2,nMofa3);
+	local nScrollIndex = tonumber(nItemIndex)
+	local nAbrasive = AbradeItem(nScrollIndex, 0)
+	
+	-- local string = "\n----------- Th«ng tin trang bÞ -----------\n"
+		-- ..format("Name: <color=gold>%s<color>\n",szItemName)
+		-- ..format("gdp: [ %d,%d,%d ]\n",g,d,p)
+		-- ..format("C­êng hãa: %d\n",nEnhance)
+		-- ..format("§Þnh hån 7: %d\n",nIsDing7)
+		-- ..format("§Þnh hån 10: %d\n",nIsDing10)
+		-- ..format("CÊp trang bÞ: %d\n",nZhuangbeiLv)
+		-- ..format("Linh khÝ: %d\n",nLingqi)
+		-- ..format("Thuéc tÝnh 1/Level: %d/%d\n",nMofa1,nLevel1)
+		-- ..format("Thuéc tÝnh 2/Level: %d/%d\n",nMofa2,nLevel2)
+		-- ..format("Thuéc tÝnh 3/Level: %d/%d\n",nMofa3,nLevel3)
+		-- ..format("§é hao mßn/Level: %d\n",nAbrasive)
+		-- .."------------------------------------------";
+		
+	-- Talk(1,"",string);
+	-- print(string);
+	-- local file = openfile("equipinfo.txt","w");
+	-- write(file,string);
+	-- closefile(file);
+	
+	--local nAdd = AddItem(g,d,p,1,1,nLevel1,nMofa1,nLevel2,nMofa2,nLevel3,nMofa3,-1,15)
+
+
+end;
+
+-- the function not work because the input table might have multi items per index
+function getItemCountInTable(t, id1, id2, id3)
 	local nCount = 0;
 	for i = 1, getn(t) do
 		if (t[i][2] == id1 and t[i][3] == id2 and t[i][4] == id3) then
@@ -407,33 +502,32 @@ function xb_takethispage(nBegin,nEnd,nStoreId,szStoreFileName)
 			break;
 		end
 		
-		local object = TB_ITEMS[i];
-		if object == nil then
+		local tItem = TB_ITEMS[i];
+		if tItem == nil then
 			print(i,nEnd)
 		end
 		
 		if GetFreeItemRoom() == 0 then
-			DropItems(object[2][1],object[2][2],object[2][3],object[3])
+			DropItems(tItem[2][1],tItem[2][2],tItem[2][3],tItem[3])
 		else
-			
-			local nResult, nItemIndex = AddItem(object[2][1],object[2][2],object[2][3],object[3]);
-			if  object[5] and tonumber(object[5]) ~= nil and tonumber(object[5]) > 0 then 
-				SetItemExpireTime(nItemIndex,object[5]);
-			end
+			AddItemEx(tItem);
 		end
-		RemoveItemFromFile(object,nStoreId,szStoreFileName);
+		RemoveItemFromFile(tItem,nStoreId,szStoreFileName);
 
 	end
 	showThingsOut(-1);
 end;
 
 function xb_takeoneout(nInTableItemIndex,nStoreId,szStoreFileName)
-	local object = TB_ITEMS[nInTableItemIndex];
-	local nResult, nItemIndex = AddItem(object[2][1],object[2][2],object[2][3],object[3]);
-	if object[5] and tonumber(object[5]) ~= nil and tonumber(object[5]) > 0 then 
-		SetItemExpireTime(nItemIndex,object[5]);
+	local tItem = TB_ITEMS[nInTableItemIndex];
+	local g,d,p = tItem[2][1],tItem[2][2],tItem[2][3];
+	
+	if IsAnEquip(g,d,p) == 1 then
+		AddEQuip(tItem);
+	else
+		AddItemEx(tItem);
 	end
-	RemoveItemFromFile(object,nStoreId,szStoreFileName);
+	RemoveItemFromFile(tItem,nStoreId,szStoreFileName);
 	local nItems = getn(TB_ITEMS);
 	if nItems/MAXINPAGE ==  floor(nItems/MAXINPAGE) then
 		showThingsOut(-1);
@@ -442,23 +536,100 @@ function xb_takeoneout(nInTableItemIndex,nStoreId,szStoreFileName)
 	end
 end;
 
+function AddItemEx(tItem)
+	local g,d,p = tItem[2][1],tItem[2][2],tItem[2][3];
+	local n = tItem[3];
+	local nExpireTime = tItem[5];
+	
+	local nResult, nItemIndex = AddItem(g,d,p,n);
+	if nExpireTime and tonumber(nExpireTime) ~= nil and tonumber(nExpireTime) > 0 then 
+		SetItemExpireTime(nItemIndex,nExpireTime);
+	end
+end;
+
+function AddEQuip(tItem)
+
+	local szItemName = tItem[1];
+	local g,d,p = tItem[2][1],tItem[2][2],tItem[2][3];
+	local n = tItem[3];
+	local nGenertTime = tItem[4];
+	local nExpireTime = tItem[5];
+	local nAbrasive = tItem[6];
+	local nMofa1 = tItem[7][1][1];
+	local nLevel1 = tItem[7][1][2];
+	local nMofa2 = tItem[7][2][1];
+	local nLevel2 = tItem[7][2][2];
+	local nMofa3 = tItem[7][3][1];
+	local nLevel3 = tItem[7][3][2];
+	local nEnhance = tItem[8];
+	local nIsDing7 = tItem[9];
+	local nIsDing10 = tItem[10];
+	local nLingqi = tItem[11];
+	----------------------------
+	local nAssess = 1; -- Gi¸m ®Þnh: (0: Chua giam dinh; 4: Khong the giao dich, khong the vut di)
+	----------------------------
+--print(g,d,p,n,nAssess,nLevel1,nMofa1,nLevel2,nMofa2,nLevel3,nMofa3,nEnhance,nLingqi)
+	local nResult, nItemIndex = AddItem(g,d,p,n,nAssess,nLevel1,nMofa1,nLevel2,nMofa2,nLevel3,nMofa3,nEnhance,nLingqi);
+	if nExpireTime and tonumber(nExpireTime) > 0 then 
+		SetItemExpireTime(nItemIndex,nExpireTime);
+	end
+	
+	local nScrollIndex = tonumber(nItemIndex)
+	local nFullAbrasive = AbradeItem(nScrollIndex, 0)
+	--print("nFullAbrasive,nAbrasive",nFullAbrasive,nAbrasive)
+	AbradeItem(nScrollIndex, nFullAbrasive-nAbrasive)
+	
+	SetItemSpecialAttr(nAddIdx, "DING7", nIsDing7)
+	SetItemSpecialAttr(nAddIdx, "DING10", nIsDing10)
+	
+end;
+
 
 function xb_takeallout(nStoreId,szStoreFileName)
 	local nFreeRoom = GetFreeItemRoom();
 	local nOverflow = 0;
 	
-	AddItemsByList(TB_ITEMS);
-	if ITEM_COUNT > nFreeRoom then 
-		nOverflow = ITEM_COUNT - nFreeRoom;
-		local tMoveItems = tablesplit(TB_ITEMS, 1, nFreeRoom);
-		local tDropItems = tablesplit(TB_ITEMS, nFreeRoom+1, nOverflow);
+	local tmove, tleft = filtetable(TB_ITEMS);
+	if getn(tmove) == 0 then
+		Talk(1,"","VËt phÈm trang bÞ kh«ng thÓ lÊy ra hµng lo¹t!");
+		return 0;
+	end;
+	AddItemsByList(tmove);
+	TB_ITEMS = tleft;
+	
+	local nCount = getn(tmove);
+	if nCount > nFreeRoom then 
+		nOverflow = nCount - nFreeRoom;
+		local tMoveItems = tablesplit(tmove, 1, nFreeRoom);
+		local tDropItems = tablesplit(tmove, nFreeRoom+1, nOverflow);
 		if getn(tDropItems) > 0 then
 			DropItemsByList(tDropItems);
 		end
 	end
-
-	erasedata(nStoreId,szStoreFileName);
+	
+	--erasedata(nStoreId,szStoreFileName);
+	overwritedata(nStoreId,szStoreFileName);
+	
 end;
+
+function filtetable(table)
+	local tmove = {}
+	local tleft = {}
+	
+	for i=1,getn(table) do
+		if table[i] == nil then
+			break;
+		end
+		local g,d,p = table[i][2][1],table[i][2][2],table[i][2][3];
+		if IsAnEquip(g,d,p) == 0 then
+			tinsert(tmove,table[i]);
+			tremove(table,i);
+			i = i-1;
+		end
+	end
+	tleft = table;
+	return tmove, tleft;
+end
 
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
@@ -543,7 +714,7 @@ function AddItemsByList(tItems)
 			end
 		end
 	end
-	erasedata();
+	--erasedata();
 end
 
 function DelItemsByList(tItems)
@@ -758,13 +929,37 @@ function getListFromFile()
 		local sName = TB_DATAITEMS:getCell(i,1);
 		local nGeneral = TB_DATAITEMS:getCell(i,2);
 		local nDetail = TB_DATAITEMS:getCell(i,3);
-		local nPaticular = TB_DATAITEMS:getCell(i,4);
+		local nParticular = TB_DATAITEMS:getCell(i,4);
 		local nQuantity = TB_DATAITEMS:getCell(i,5);
 		local nCreateTime = TB_DATAITEMS:getCell(i,6);
 		local nExpireTime = TB_DATAITEMS:getCell(i,7);
+		----------------------------------------------
+		----------------- equipinfo ------------------
+		local nAbrasive = TB_DATAITEMS:getCell(i,8);
+		local nMofa1 = TB_DATAITEMS:getCell(i,9);
+		local nLevel1 = TB_DATAITEMS:getCell(i,10);
+		local nMofa2 = TB_DATAITEMS:getCell(i,11);
+		local nLevel2 = TB_DATAITEMS:getCell(i,12);
+		local nMofa3 = TB_DATAITEMS:getCell(i,13);
+		local nLevel3 = TB_DATAITEMS:getCell(i,14);
+		local nEnhance = TB_DATAITEMS:getCell(i,15);
+		local nIsDing7 = TB_DATAITEMS:getCell(i,16);
+		local nIsDing10 = TB_DATAITEMS:getCell(i,17);
+		local nLingqi = TB_DATAITEMS:getCell(i,18);
+		----------------------------------------------
 		if sName ~= "" then
 			k = k+1;
-			tData[k] = {sName,{nGeneral,nDetail,nPaticular},nQuantity,nCreateTime,nExpireTime}
+			--tData[k] = {sName,{nGeneral,nDetail,nPaticular},nQuantity,nCreateTime,nExpireTime}
+			local szItemName = sName;
+			local g,d,p = nGeneral,nDetail,nParticular;
+			local nCount = nQuantity;
+			local nGenertTime = nCreateTime;
+			
+			local object = {szItemName,{g,d,p},nCount,nGenertTime,nExpireTime,nAbrasive,
+				{{nMofa1,nLevel1},{nMofa2,nLevel2},{nMofa3,nLevel3}},nEnhance,nIsDing7,nIsDing10,nLingqi
+			}
+			--print(object[1],object[7][1][1],object[7][1][2],object[7][2][1],object[7][2][2],object[7][3][1],object[7][3][2])
+			tData[k] = object;
 		end
 	end
 	-- print("k",k);

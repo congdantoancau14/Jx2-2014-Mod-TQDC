@@ -15,6 +15,7 @@ Include("\\script\\lib\\item.lua");
 Include("\\script\\gmscript.lua");
 Include("\\script\\²Ø½£É½×¯\\task_script\\³É¶¼\\²Ø½£Ê¹Õß.lua");
 Include("\\settings\\static_script\\cheat\\thiencolenh_head.lua");
+Include("\\settings\\static_script\\cheat\\gm_item_tifuzhiyin.lua");
 -- Include("\\settings\\static_script\\cheat\\test.lua");
 Include("\\settings\\static_script\\cheat\\inputter.lua");
 Include("\\settings\\static_script\\cheat\\show_npc.lua");
@@ -23,9 +24,9 @@ Include("\\settings\\static_script\\cheat\\skip_task.lua");
 -- Include("\\reload_file.lua");
 -- Manage Tasks
 Include("\\script\\task\\collection\\task_head.lua");
-Include("\\settings\\static_script\\cheat\\includes\\satthuduong.lua");
-Include("\\settings\\static_script\\cheat\\includes\\thitnuong.lua");
-Include("\\settings\\static_script\\cheat\\includes\\link_gm_item.lua");
+--Include("\\settings\\static_script\\cheat\\includes\\satthuduong.lua");
+--Include("\\settings\\static_script\\cheat\\includes\\thitnuong.lua");
+--Include("\\settings\\static_script\\cheat\\includes\\link_gm_item.lua");
 Include("\\settings\\static_script\\cheat\\includes\\destroy_item.lua");
 Include("\\script\\online_activites\\task_values.lua");
 Include("\\script\\mod\\item\\punish_bad.lua");
@@ -84,6 +85,10 @@ function OpenThienCo()
 	Say(g_szTitle.."Lùa chän chøc n¨ng", getn(tSay), tSay);
 end
 
+
+function showGMFunctions()
+	SendScript2VM("\\settings\\static_script\\cheat\\gm_item_tifuzhiyin.lua","Open()");
+end;
 
 tCastState = {
 	{"state_p_attack_point_add","Ngo¹i c«ng t¨ng",1000000,5},
@@ -264,6 +269,7 @@ function manageTasks()
 		"Khëi ®éng C«ng thµnh chiÕn/startGongCheng",
 		--"Khëi ®éng B¶o hé tµi nguyªn/conf_res_protect_info",
 		"Khëi ®éng §¹i héi tû vâ TuyÒn Ch©u/biwudahuiqianzou_init",
+		"NhËn nhiÖm vô gia nhËp s­ m«n/interfaction",
 		"Bá qua nhiÖm vô t©n thñ/skipXinShou",
 		"Më khãa r­¬ng t©n thñ/unlockBox",
 		"Më réng r­¬ng/expandBox",
@@ -275,6 +281,21 @@ function manageTasks()
 		}
 	tinsert(tSay, "Tho¸t/nothing")
 	Say(g_szTitle.."Lùa chän chøc n¨ng", getn(tSay), tSay);
+end;
+
+function interfaction()
+	TB_FACTION_TASKID_LIST = {1001,1002,1003,1004,1005,1031,1032,1033,1017,1018,1019}
+	TB_FACTION_INFO = {
+		"ThiÕu L©m","Vâ §ang","Nga My","C¸i Bang","§­êng M«n","D­¬ng M«n","Ngò §éc","C«n L«n","Minh gi¸o","Thóy Yªn",
+	}
+	local tSay = {}
+	for i=1,getn(TB_FACTION_INFO) do
+		tinsert(tSay,format("%s/#SetTask(%d,1)",TB_FACTION_INFO[i],TB_FACTION_TASKID_LIST[i]));
+	end
+	tinsert(tSay,"\nTrang tr­íc/manageTasks")
+	tinsert(tSay, "Tho¸t/nothing")
+	Say(g_szTitle.."NhËn nhiÖm vô gia nhËp s­ m«n", getn(tSay), tSay);
+	SendScript2Client("Open([[tasknote]])")
 end;
 
 function startTiaozhanSiling()
@@ -291,6 +312,13 @@ function startTiaozhanSiling()
     --OutputMsg(format(msg));
 	AddGlobalNews(msg,1)
     tianzhansilingboss(nRandom);
+	
+	SendScript2VM("script\\online_activites\\tiaozhansilingboss\\mission_head.lua","MS_InitMission()")
+	SendScript2VM("script\\online_activites\\tiaozhansilingboss\\mission_head.lua","MS_StartMission()")
+	
+	SendScript2VM("script\\online_activites\\tiaozhansilingboss\\mission_head.lua","MS_ProcessReadyTimer()")
+	SendScript2VM("script\\online_activites\\tiaozhansilingboss\\mission_head.lua","MS_ProcessStartedTimer()")
+	
 end;
 
 function callGoldenBoss()
@@ -314,6 +342,25 @@ end;
 
 function expandBox()
 	SetStoreBoxPageCount(5);
+end;
+
+
+
+function startKillerHall()
+	SendScript2VM("\\script\\task\\killer_hall\\mission\\init_killer_hall.lua","main()");
+end;
+
+function showlistLoNuong()
+	local tSay = {}
+	for i=0, getn(t_denglong_sets) do
+		tinsert(tSay, "* Khëi ®éng lß n­íng t¹i "..t_denglong_sets[i][1]..format("/#khoidongLonuong(%d)",i))
+	end
+	tinsert(tSay, "Tho¸t/nothing");
+	Say(g_szTitle.."Lùa chän lß n­íng", getn(tSay), tSay);
+end;
+
+function khoidongLonuong(nDay)
+	SendScript2VM("\\script\\online\\viet_event\\200909\\2\\init_denglong.lua",format("create_npcs(%d)",nDay));
 end;
 
 function startSnowWar()
