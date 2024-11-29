@@ -12,30 +12,62 @@ TB_ITEMS = {}
 -------------------------------------------------------------------------------
 
 function GetItemsInBag()
-	local tItems = GetAllItem();
-	local tItemsInBag = {}
-	for i=1,getn(tItems) do 
-		local g,d,p = GetItemInfoByIndex(tItems[i]);
-		local szName = GetItemName(tItems[i]);
+	local tbItems = GetAllItem();
+	local tbItemsInBag = {}
+	
+	local tbItemsNotAllow = getnerateNotAllowedItems(tbItems);
+	
+	for i=1,getn(tbItems) do 
+		local idx = tbItems[i];
+		local g,d,p = GetItemInfoByIndex(idx);
+		local szName = GetItemName(idx);
+		-- local nLock = GetItemSpecialAttr(idx,"LOCK");
+		-- local nGenertTime = GetItemCreateTime(idx);
+		-- local nExpireTime = GetItemExpireTime(idx);
 		local nCount = GetItemCount(g,d,p);
 		if nCount > 0 then
-			local tItem = {szName,{g,d,p},nCount}
-			if CheckExistItem(tItemsInBag,tItem) == 0 then 
-				tinsert(tItemsInBag,tItem);
+			local item = {szName,{g,d,p},nCount}
+			local nExistItemIndex = CheckExistItem(tbItemsInBag,item);
+			local nNotAllowdItem = CheckExistItem(tbItemsNotAllow,item);
+
+			if nExistItemIndex == 0 and nNotAllowdItem == 0 then
+				tinsert(tbItemsInBag,item);
 			end
+
 		end
 	end
-	return tItemsInBag;
+	return tbItemsInBag;
+end;
+
+function getnerateNotAllowedItems(tbItems)
+	local tbItemsNotAllow = {}
+	for i=1,getn(tbItems) do 
+		local idx = tbItems[i];
+		local g,d,p = GetItemInfoByIndex(idx);
+		local szName = GetItemName(idx);
+		local nLock = GetItemSpecialAttr(idx,"LOCK");
+		-- local nGenertTime = GetItemCreateTime(idx);
+		local nExpireTime = GetItemExpireTime(idx);
+		if nLock == 1 or nExpireTime > 0 then
+			-- print(szName);
+			local item = {szName,{g,d,p}}
+			tinsert(tbItemsNotAllow,item);
+		end
+	end
+	-- print(getn(tbItemsNotAllow))
+	return tbItemsNotAllow;
 end;
 
 -- return 1 is duplicated
-function CheckExistItem(tItems,tItem)
-	for i=1,getn(tItems) do 
-		if (tItems[i][2][1] == tItem[2][1]
-			and tItems[i][2][2] == tItem[2][2]
-			and tItems[i][2][3] == tItem[2][3]
+function CheckExistItem(tbItems,item)
+	for i=1,getn(tbItems) do 
+		if (tbItems[i][2][1] == item[2][1]
+			and tbItems[i][2][2] == item[2][2]
+			and tbItems[i][2][3] == item[2][3]
+			-- and tbItems[i][4] == item[4]
+			-- and tbItems[i][5] == item[5]
 			) then 
-			return 1;
+			return i;
 		end
 	end
 	return 0;

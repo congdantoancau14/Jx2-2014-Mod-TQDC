@@ -8,6 +8,9 @@ Include("\\script\\class\\ktabfile.lua");
 -- ITEM_FILEPATH = "data/expand_box/"..player_rolename..".txt";
 -- TB_DATAITEMS = new(KTabFile, ITEM_FILEPATH);
 
+STORE_ID_EXPAND_BOX = 1;
+STORE_ID_CARRIAGE = 2;
+
 MAX_EXPAND_BOX_ITEMS = 1000;
 MAX_CARRIAGE_ITEMS = 100;
 
@@ -16,6 +19,8 @@ TB_ITEMS = {}
 
 WRITE_FILE = 1;
 READ_FILE = 2;
+
+MaxPutinCount = 60;
 
 tExpandBoxs = {
 	{201,{200,1490,2951},"§«ng BiÖn Kinh"},
@@ -45,6 +50,261 @@ tExpandBoxs = {
 }
 -------------------------------------------------------------------------------
 --								FUNCTIONS
+-------------------------------------------------------------------------------
+
+
+tbFunctions = {
+	[1] = {
+		[1] = {
+			[1] = "showThingsIn",
+			[2] = "[%d] %s x%d/#putonein(%d)",
+			[3] = "CÊt toµn bé vµo r­¬ng/putallin",
+			[4] = "\nCÊt vËt phÈm ë trang nµy vµo r­¬ng/#putthispage(%d,%d)",
+			[5] = "Kh«ng cÊt g×/nothing",
+			[6] = "Hµnh trang kh«ng cã vËt phÈm phï hîp bá vµo r­¬ng",
+		},
+		[2] = {
+			[1] = "showThingsOut",
+			[2] = "[%d] %s x%d/#takeoneout(%d)",
+			[3] = "LÊy tÊt c¶ ra hµnh trang/takeallout",
+			[4]	= "\nLÊy tÊt c¶ vËt phÈm ë trang nµy/#takethispage(%d,%d)",
+			[5] = "Kh«ng lÊy n÷a/nothing",
+			[6] = "R­¬ng trèng",
+		},
+	},
+}
+
+DIRECT_PUTIN = 1;
+DIRECT_TAKEOUT = 2;
+
+
+function generateNavigation(nStoreId,nPage,nNav,t,nAction)
+	local nMaxItems = getn(t);
+
+	if nMaxItems < 1 then 
+		Talk(1,"",tbFunctions[nStoreId][nAction][6]);
+		return 0;
+	end
+	
+	local tbSay = {}
+	local nMaxinPage = 5;
+	local nPages = ceil(nMaxItems/nMaxinPage);
+	
+	local nBegin = 0;
+	
+	nPage = nPage + nNav;
+	
+	if nPage == 1 then 
+		nBegin = 1;
+	else
+		nBegin = (nPage-1) * nMaxinPage + 1;	
+	end
+	local nLastPageReached = nBegin;
+	local nEnd = 0
+	
+	if nPage == nPages then
+		local nOverflow = nMaxItems - nLastPageReached;
+		-- print("nOverflow = nMaxItems - nLastPageReached",  nOverflow,nMaxItems, nLastPageReached)
+		nEnd = nBegin + nOverflow;
+	else
+		nEnd = nBegin + nMaxinPage - 1;
+	end
+	
+	if nPage > nPages then 
+		nPage = nPages;
+		-- Talk(1,"","§· ®Õn trang cuèi");
+		-- return 0;
+	end
+	
+	-- print(nBegin,nEnd);
+	
+	local szHead = format("Trang <color=yellow>%d<color>/%d. "
+		.."Tæng céng <color=yellow>%d<color> vËt phÈm. §ang hiÓn thÞ vËt phÈm: %d - %d"
+		,nPage,nPages,nMaxItems,nBegin,nEnd);
+	
+	for i = nBegin, nEnd do 
+		tinsert(tbSay,format(tbFunctions[nStoreId][nAction][2],i,t[i][1],t[i][3],i));
+	end
+	
+	local nEmptyLine = nMaxinPage - (nEnd - nBegin + 1);
+	if nEmptyLine < nMaxinPage then 
+		for i=1, nEmptyLine do 
+			tinsert(tbSay," ");
+		end
+	end
+	
+	if nPage < nPages then 
+		tinsert(tbSay, format("Trang kÕ/#%s(1)",tbFunctions[nStoreId][nAction][1]))
+	else
+		tinsert(tbSay, format("Trang ®Çu/#%s(%d)",tbFunctions[nStoreId][nAction][1],-nPages+1))
+	end
+	if nPage > 1 then 
+		tinsert(tbSay, format("Trang tr­íc/#%s(-1)",tbFunctions[nStoreId][nAction][1]))
+	else
+		tinsert(tbSay, format("Trang cuèi/#%s(%d)",tbFunctions[nStoreId][nAction][1],nPages-nPage))
+	end
+	tinsert(tbSay,format(tbFunctions[nStoreId][nAction][3],nBegin,nEnd));
+	tinsert(tbSay,tbFunctions[nStoreId][nAction][4])
+
+	tinsert(tbSay,tbFunctions[nStoreId][nAction][5]);
+	Say(szHead,getn(tbSay),tbSay);
+	return nPage;
+end;
+
+
+
+
+tbMessages = {
+	[1] = {
+		overload = "<color=red>R­¬ng ®· ®Çy, kh«ng thÓ chøa thªm nhiÒu ®å!<color>",
+		putallin = "§· cÊt tÊt c¶ vµo r­¬ng ®å!",
+		putonein = "§· cÊt %s x%d vµo r­¬ng ®å!",
+		putoneoverload = "<color=red>R­¬ng qu¸ ®Çy, kh«ng thÓ chøa thªm ®å!<color>",
+	},
+	[2] = {
+		overload = "<color=red>Xe qu¸ ®Çy, kh«ng thÓ chÊt thªm nhiÒu ®å!<color>",
+		putallin = "§· bá tÊt c¶ vµo xe chë ®å!",
+		putonein = "§· bá %s x%d vµo xe chë ®å!",
+		putoneoverload = "<color=red>Xe qu¸ ®Çy, kh«ng thÓ chÊt thªm ®å!<color>",
+	}
+}
+
+
+
+function xb_puttrayin(t,nStoreId,nNpcIndex)
+	if MAX_ITEM ~= nil and MAX_ITEM > 0 and getn(t) > GetStoreFreeRoom(nStoreId,nNpcIndex) then 
+		Talk(1,"",tbMessages[nStoreId].overload);
+		return 0;
+	end
+	
+	for i = 1, getn(t) do
+		local szItemName = t[i][5];
+		local g,d,p = t[i][2], t[i][3], t[i][4];
+		local nItemBeforeDelCount = GetItemCount(g,d,p);
+		local idx = t[i][1];
+		local nGenertTime = GetItemCreateTime(idx);
+		local nExpireTime = GetItemExpireTime(idx);
+		local nItemInTrayCount = get_item_count(t, t[i][2], t[i][3], t[i][4]);
+		if DelItemByIndex(idx, -1) ~= 1 then
+			print("error: Could not delete item from tray! Index = ",i)
+		end
+		local nItemAfterDelCount = GetItemCount(g,d,p);
+		local nCount = nItemBeforeDelCount - nItemAfterDelCount;
+		local object = {szItemName,{g,d,p},nCount,nGenertTime,nExpireTime};
+		insertrowtodata(object,nStoreId,nNpcIndex);
+		Msg2Player(format(tbMessages[nStoreId].putonein,szItemName,nCount));
+	end
+end;
+
+function get_item_count(t, id1, id2, id3)
+	local nCount = 0;
+	for i = 1, getn(t) do
+		if (t[i][2] == id1 and t[i][3] == id2 and t[i][4] == id3) then
+			nCount = nCount + 1;
+		end
+	end
+	return nCount;
+end
+
+
+function checkOverload(nPutinItems,nStoreId,nNpcIndex)
+	if nStoreId == STORE_ID_EXPAND_BOX then 
+		MAX_ITEM = MAX_EXPAND_BOX_ITEMS;
+	elseif nStoreId == STORE_ID_CARRIAGE then 
+		MAX_ITEM = MAX_CARRIAGE_ITEMS;
+	end
+	if MAX_ITEM ~= nil and MAX_ITEM > 0 and nPutinItems > GetStoreFreeRoom(nStoreId,nNpcIndex) then
+		if nPutinItems == 1 then 
+			Talk(1,"",tbMessages[nStoreId].putoneoverload);
+		else
+			Talk(1,"",tbMessages[nStoreId].overload);
+		end
+		return 1;
+	end
+	return 0;
+end;
+
+function xb_putthispage(tItems,nBegin,nEnd,nStoreId,nNpcIndex)
+	local nItem = nEnd - nBegin + 1;
+	if checkOverload(nItem,nStoreId,nNpcIndex) == 1 then 
+		return 0;
+	end
+	for i=nBegin, nEnd do 
+		local object = tItems[i];
+		DelItem(object[2][1],object[2][2],object[2][3],object[3]);
+		insertrowtodata(object,nStoreId,nNpcIndex);
+		Msg2Player(format(tbMessages[nStoreId].putonein,tItems[i][1],tItems[i][3]));
+	end
+	showThingsIn(0);
+end;
+
+function xb_putonein(tItems,nInTableItemIndex,nStoreId,nNpcIndex)
+	if checkOverload(1,nStoreId,nNpcIndex) == 1 then 
+		return 0;
+	end
+	local object = tItems[nInTableItemIndex];
+	DelItem(object[2][1],object[2][2],object[2][3],object[3]);
+	insertrowtodata(object,nStoreId,nNpcIndex);
+	Msg2Player(format(tbMessages[nStoreId].putonein,object[1],object[3]));
+	showThingsIn(0);
+end;
+
+function xb_putallin(tItems,nStoreId,nNpcIndex)
+	if checkOverload(getn(tItems),nStoreId,nNpcIndex) == 1 then 
+		return 0;
+	end
+	DelItemsByList(tItems);
+	inserttabletodata(tItems,nStoreId,nNpcIndex);
+	Msg2Player(tbMessages[nStoreId].putallin)
+end;
+
+
+
+function xb_takethispage(nBegin,nEnd,nStoreId,nNpcIndex)
+	if nEnd - nBegin > GetFreeItemRoom() then 
+		Talk(1,"","<color=red>Hµnh trang qu¸ ®Çy!<color>");
+		return 0;
+	end
+	for i=nBegin, nEnd do 
+		local object = TB_ITEMS[i];
+		local nResult, nItemIndex = AddItem(object[2][1],object[2][2],object[2][3],object[3]);
+		if object[5] ~= nil and tonumber(object[5]) > 0 then 
+			SetItemExpireTime(nItemIndex,object[5]);
+		end
+		RemoveItemFromFile(object,nStoreId,nNpcIndex);
+	end
+	showThingsOut(0);
+end;
+
+function xb_takeoneout(nInTableItemIndex,nStoreId,nNpcIndex)
+	local object = TB_ITEMS[nInTableItemIndex];
+	local nResult, nItemIndex = AddItem(object[2][1],object[2][2],object[2][3],object[3]);
+	if object[5] ~= nil and tonumber(object[5]) > 0 then 
+		SetItemExpireTime(nItemIndex,object[5]);
+	end
+	RemoveItemFromFile(object,nStoreId,nNpcIndex);
+	showThingsOut(0);
+end;
+
+
+function xb_takeallout(nStoreId,nNpcIndex)
+	local nFreeRoom = GetFreeItemRoom();
+	local nOverflow = 0;
+	
+	AddItemsByList(TB_ITEMS);
+	if ITEM_COUNT > nFreeRoom then 
+		nOverflow = ITEM_COUNT - nFreeRoom;
+		local tMoveItems = tablesplit(TB_ITEMS, 1, nFreeRoom);
+		local tDropItems = tablesplit(TB_ITEMS, nFreeRoom+1, nOverflow);
+		if getn(tDropItems) > 0 then
+			DropItemsByList(tDropItems);
+		end
+	end
+
+	erasedata(nStoreId,nNpcIndex);
+end;
+
+-------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
 
 function getBoxId(m,x,y)
@@ -89,7 +349,6 @@ end;
 
 function getAllowItems()
 	local tItems = GetItemsInBag();
-	-- print(getn(tItems));
 	local tAllowItems = {}
 	local t = tItems;
 	for i=1, getn(t) do 
@@ -97,7 +356,6 @@ function getAllowItems()
 			tinsert(tAllowItems,t[i]);
 		end
 	end
-	-- print(getn(tAllowItems))
 	return tAllowItems;
 end;
 
@@ -106,9 +364,9 @@ function AddItemsByList(tItems)
 	-- print("tItems",getn(tItems));
 	for i = 1,getn(tItems) do
 		if gf_Judge_Room_Weight(1,100) == 1 then
-			local nItemIndex = AddItem(tItems[i][2][1],tItems[i][2][2],tItems[i][2][3],tItems[i][3]);
-			if tItems[i][4] ~= nil then 
-				SetItemExpireTime(nItemIndex,tItems[i][4]);
+			local nAddResult, nItemIndex = AddItem(tItems[i][2][1],tItems[i][2][2],tItems[i][2][3],tItems[i][3]);
+			if object[5] ~= nil and tonumber(object[5]) > 0 then 
+				SetItemExpireTime(nItemIndex,object[5]);
 			end
 		end
 	end
@@ -168,74 +426,32 @@ end;
 
 
 function erasedata(nStoreId,nNpcIndex)
-	generateItemFilePath(0,nStoreId,nNpcIndex);
+	generateItemFilePath(WRITE_FILE,nStoreId,nNpcIndex);
 	local file = openfile(ITEM_FILEPATH, "w")
 	write(file,"");
 	closefile(file)
 end;
 
 function overwritedata(nStoreId,nNpcIndex)
-	generateItemFilePath(0,nStoreId,nNpcIndex);
+	generateItemFilePath(WRITE_FILE,nStoreId,nNpcIndex);
 	local file = openfile(ITEM_FILEPATH, "w")
 	for i=1,ITEM_COUNT do 
-		write(file,rowtostring(TB_ITEMS[i]));
+		write(file,tabletostring(TB_ITEMS[i]));
 	end
 	closefile(file)
 end;
 
 function inserttabletodata(table,nStoreId,nNpcIndex)
-	generateItemFilePath(0,nStoreId,nNpcIndex);
+	generateItemFilePath(WRITE_FILE,nStoreId,nNpcIndex);
 	local file = openfile(ITEM_FILEPATH, "a+")
 	write(file,tabletostring(table));
 	closefile(file)
 end;
 
 function insertrowtodata(object,nStoreId,nNpcIndex)
-	generateItemFilePath(0,nStoreId,nNpcIndex);
-	local file = openfile(ITEM_FILEPATH, "a+")
-	write(file,rowtostring(object))
-	closefile(file)
+	inserttabletodata(object,nStoreId,nNpcIndex)
 end;
 
-function rowtostring(table)
-	local t = table;
-	local string = "";
-	local tab = "\t";
-	local endl = "\n";
-	
-	if t ~= nil then 
-		string = string..t[1]..tab;
-		if type(t[2]) == "table" then 
-			string = string..t[2][1]..tab..t[2][2]..tab..t[2][3]..tab;
-		end
-		string = string..t[3]..endl;
-	end
-	return string;
-end;
-
-function tabletostring(table)
-	local t = table;
-	local string = "";
-	local tab = "\t";
-	local endl = "\n";
-	for i=1, getn(t) do 
-		string = string..t[i][1]..tab;
-		if type(t[i][2]) == "table" then 
-			string = string..t[i][2][1]..tab..t[i][2][2]..tab..t[i][2][3]..tab;
-		end
-		string = string..t[i][3]..endl;
-	end	
-	return string;
-end;
-
-
-function isNummeric(str)
-	if trim(str) == tostring(tonumber(str)) then
-		return 1;
-	else
-		return 0;
-	end
-end;
 
 -- nAction value: nil,0,1 is write to file, 2 is read from file
 function generateItemFilePath(nAction, nStoreId, nNpcIndex)
@@ -282,10 +498,11 @@ function getListFromFile()
 		local nDetail = TB_DATAITEMS:getCell(i,3);
 		local nPaticular = TB_DATAITEMS:getCell(i,4);
 		local nQuantity = TB_DATAITEMS:getCell(i,5);
-		local nExpireTime = TB_DATAITEMS:getCell(i,6);
+		local nCreateTime = TB_DATAITEMS:getCell(i,6);
+		local nExpireTime = TB_DATAITEMS:getCell(i,7);
 		if sName ~= "" then
 			k = k+1;
-			tData[k] = {sName,{nGeneral,nDetail,nPaticular},nQuantity,nExpireTime}
+			tData[k] = {sName,{nGeneral,nDetail,nPaticular},nQuantity,nCreateTime,nExpireTime}
 		end
 	end
 	-- print("k",k);
@@ -296,7 +513,7 @@ end;
 
 function init(nStoreId, nNpcIndex)
 	-- print("expand_box >> init >> nNpcIndex",nNpcIndex)
-	generateItemFilePath(2,nStoreId,nNpcIndex)
+	generateItemFilePath(READ_FILE,nStoreId,nNpcIndex)
 	-- print(nStoreId,ITEM_FILEPATH);
 	TB_DATAITEMS = {}
 	TB_DATAITEMS = new(KTabFile, ITEM_FILEPATH);

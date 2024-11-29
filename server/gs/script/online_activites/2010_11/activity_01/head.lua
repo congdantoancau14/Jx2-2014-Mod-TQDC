@@ -5,7 +5,7 @@ NT_ActivityID = 16;
 
 NT_TitleTable = 
 {
-	{"", 0, 0, 50}, -- Original 0,0,76
+	{"", 0, 0, 76}, -- Original 0,0,76
 	{"C¶m", 65, 19, 2},
 	{"Sæ Mòi", 65, 20, 2},
 	{"Tiªu Ch¶y", 65, 21, 2},

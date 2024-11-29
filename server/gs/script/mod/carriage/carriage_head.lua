@@ -4,10 +4,10 @@ Include("\\script\\mod\\carriage\\npc_xevanchuyen.lua");
 
 MAX_DISTANCE = 70;
 BIAOCHE_TASKGROUP =  TaskManager:Create(11,10);
-BIAOCHE_TASKGROUP.BIAOCHE_INDEX = 41;
-BIAOCHE_TASKGROUP.RENT_MAP = 42;
-BIAOCHE_TASKGROUP.RENT_TIME = 43;
-BIAOCHE_TASKGROUP.LAST_MAP = 44;
+BIAOCHE_TASKGROUP.BIAOCHE_INDEX 	 = 41;
+BIAOCHE_TASKGROUP.RENT_MAP			 = 42;
+BIAOCHE_TASKGROUP.RENT_TIME			 = 43;
+BIAOCHE_TASKGROUP.LAST_MAP			 = 44;
 
 tHuanCheLing = {2,1,29004}
 npc_name = "";
@@ -143,8 +143,9 @@ end;
 
 function returnCarriage(nForce)
 	npc_name = format("<color=green>%s<color>: ",GetTargetNpcName());
-	init(nStoreId);
-	-- print(nStoreId,MAX_ITEM_COUNT,getn(TB_ITEMS));
+	local nCarriageId = BIAOCHE_TASKGROUP:GetTask(BIAOCHE_TASKGROUP.BIAOCHE_INDEX);
+	init(nStoreId,nCarriageId);
+	-- print(nStoreId,ITEM_COUNT,getn(TB_ITEMS));
 	
 	local nMap,nPosX,nPosY = GetWorldPos();
 	local tPos = {{nPosX,nPosY},}
@@ -170,7 +171,7 @@ function returnCarriage(nForce)
 		);
 		return 0;
 	end
-	print("nOldMap",nOldMap);
+	-- print("nOldMap",nOldMap);
 	local nPayHelpReturn = 0;
 	if nMap == nNpcMapID and nMap ~= nOldMap then
 		if nForce ~= 1 then
@@ -185,8 +186,7 @@ function returnCarriage(nForce)
 		end
 	end
 	
-	if MAX_ITEM_COUNT > 0 then 
-		print(MAX_ITEM_COUNT);
+	if ITEM_COUNT > 0 then 
 		Talk(1,"",npc_name.."Ng­¬i bá quªn ®å trªn xe k×a! §i ®©u mµ véi vµng thÕ?!!")
 		return 0;
 	end
@@ -216,6 +216,10 @@ function returnCarriage(nForce)
 end;
 
 function lost_lingpai()
+	if BigGetItemCount(tHuanCheLing[1],tHuanCheLing[2],tHuanCheLing[3]) >= 1 then 
+		Talk(1,"","KiÓm tra kÜ l¹i trong hµnh trang xem. NÕu kh«ng cã th× h·y ®i hái Thñ khè xem sao, biÕt ®©u ng­¬i göi ë ®ã. Phµm lµm viÖc g× còng ph¶i cÈn thËn chø. TiÓu tiÕt thÕ nµy kh«ng lµm ®­îc th× sao lµm ®­îc ®¹i sù?!!")
+		return 0;
+	end
 	Talk(1,"",npc_name.."Giang hå nhiÒu chuyÖn hçn lo¹n, lµm mÊt vËt nä vËt kia còng lµ chuyÖn dÔ hiÓu. Ta cã thÓ th«ng c¶m cho ng­¬i. Nh­ng phÝ cÊp l¹i lµ <color=gray>10 l­îng b¹c<color>");
 	if Pay(1000) ~= 1 then 
 		Talk(1,"",npc_name.."Ng­¬i mÊt xe råi mÊt c¶ tiÒn sao? GÆp c­íp ch¨ng? Khèn n¹n nhØ!")

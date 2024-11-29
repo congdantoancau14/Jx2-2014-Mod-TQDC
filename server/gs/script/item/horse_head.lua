@@ -1,8 +1,10 @@
 HORSE_CARRY = 6000;
-nState = 0;
+nRidingState = 0;
 nSavedG = 0;
 nSavedD = 0;
 nSavedP = 0;
+STATE_RIDED = 1
+STATE_UNRIDED = 0
 
 tHorses = {
 	{"Ki÷u Hoa","ki÷u"},
@@ -64,48 +66,56 @@ tHorses = {
 	{"ThÛ MÈt Sıng","thi’t d≠¨ng"},
 }
 
-function getState()
-	return nState;
+function GetRidingState()
+	return nRidingState;
 end;
 
-function OnEquipCallBack(nItemIndex, nStateAdd)
+function SetCarry()
+	CastState("state_max_carry_point_add",HORSE_CARRY,-1);
+end;
+
+function RestoreCarry()
+	CastState("state_max_carry_point_add",-HORSE_CARRY,-1);
+end;
+
+function OnEquipCallBack(nItemIndex, nRidingStateAdd)
 	
-	if nState < 1 then 
-		CastState("state_max_carry_point_add",HORSE_CARRY,-1);
+	if nRidingState < 1 then 
+		SetCarry()
 		KillFollower();
-		nState = 1;
+		nRidingState = 1;
 	end
 	
-	-- print(nState);
+	-- print(nRidingState);
 end;
 
-function OnUnEquipCallBack(nItemIndex, nStateAdd)
+function OnUnEquipCallBack(nItemIndex, nRidingStateAdd)
 	
 	-- nItemIndex = checkHorse()
 	-- print(nItemIndex);
 	
 	local nG, nD, nP	= GetItemInfoByIndex(nItemIndex);
 	
-	if nState == 1 then 
-		CastState("state_max_carry_point_add",-HORSE_CARRY,-1);
+	if nRidingState == 1 then 
+		RestoreCarry()
 		
 		local szItemName = GetItemName(nG, nD, nP);
 		local index = search(szItemName);
 		summonHorse(index,szItemName);
-		nState = nState + nStateAdd;
+		nRidingState = nRidingState + nRidingStateAdd;
 		
 		nSavedG = nG;
 		nSavedD = nD;
 		nSavedP = nP;
 		szSaveHorseName = szItemName;
-	elseif nState == 0 then
+	elseif nRidingState == 0 then
 		KillFollower();
-		nState = nState + nStateAdd;
+		nRidingState = nRidingState + nRidingStateAdd;
 	else
 		print("Error: horse_head.lua >> OnUnEquipCallBack get unexpected value");
 	end
 	
-	-- print(nState);
+	-- print(nRidingState);
 end
 
 function checkHorse()
@@ -159,7 +169,7 @@ function confirmed_release()
 	local nEquipG, nEquipD, nEquipP	= GetPlayerEquipInfo(nEquipPos);
 	local szItemName				= GetItemName(nEquipG, nEquipD, nEquipP);
 	
-	-- print(nState);
+	-- print(nRidingState);
 	-- print(nEquipG, nEquipD, nEquipP)
 	
 	if nEquipIDX == 0 then

@@ -113,7 +113,7 @@ AKCD_TABLE = {
 	
 	[125] = {
 		nAcitvityID = 125,
-		tTaskGroup = {7, 9},
+		tTaskGroup = {7, 12},
 		szTaskName = "Trõ gian diÖt b¹o",
 		szStartName = "Th«n tr­ëng",
 		nDaySeq = 1, --ÈÎÎñ±äÁ¿ÖØÖÃ±ê¼Ç
@@ -200,7 +200,7 @@ AKCD_TABLE = {
 	
 	[128] = {
 		nAcitvityID = 128,
-		tTaskGroup = {10, 9},
+		tTaskGroup = {10, 13},
 		szTaskName = "B¸ch §éc BÊt X©m",
 		szStartName = "Th«n tr­ëng",
 		szSayWhat = "§¹i Liªu lín m¹nh, c¸c chiÕn sÜ trªn th¶o nguyªn ®ang cÇn sù gióp søc. §¹i hiÖp cã thÓ gióp ®ì kh«ng?",
@@ -305,7 +305,7 @@ AKCD_TABLE = {
 	
 	[140] = {
 		nAcitvityID = 140,
-		tTaskGroup = {9, 11},
+		tTaskGroup = {9, 13},
 		szTaskName = "Trõ gian diÖt b¹o",
 		szStartName = "Th«n tr­ëng",
 		nDaySeq = 1, --ÈÎÎñ±äÁ¿ÖØÖÃ±ê¼Ç
@@ -392,7 +392,7 @@ AKCD_TABLE = {
 	
 	[145] = {
 		nAcitvityID = 145,
-		tTaskGroup = {6, 12},
+		tTaskGroup = {6, 13},
 		szTaskName = "Trõ gian diÖt b¹o",
 		szStartName = "Lôc Tróc ¤ng",
 		nDaySeq = 1, --ÈÎÎñ±äÁ¿ÖØÖÃ±ê¼Ç

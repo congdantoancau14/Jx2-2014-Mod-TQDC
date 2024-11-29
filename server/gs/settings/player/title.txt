@@ -1,4 +1,4 @@
-GENRE	DETAIL_TYPE	CONTENT	UNREPLACABLE	UNREMOVABLE	VERSION	EXPIRE	TYPE	SCRIPTFILE	EQUIPFUN	UNEQUIPFUN	ICONPATH	REMARK				
+GENRE	DETAIL_TYPE	CONTENT	UNREPLACABLE	UNREMOVABLE	VERSION	EXPIRE	TYPE	SCRIPTFILE	EQUIPFUN	UNEQUIPFUN	ICONPATH	REMARK	Column1	Column2	Column3	Column4
 1	1	Bπch m∑ v≠¨ng tˆ	0	0	0	0	0	\script\global\playertitle.lua	Equip	UnEquip	\UImage\ŒÂ––Õº±Í\≥∆∫≈.spr	GENRE: X≠ng hi÷u loπi lÌn				
 1	2	Si™u c p so∏i ca	0	0	0	0	0	\script\global\playertitle.lua	Equip	UnEquip	\UImage\ŒÂ––Õº±Í\≥∆∫≈.spr	DETAIL_TYPE: X≠ng hi÷u loπi nh·				
 1	3	Tuy÷t Æπi m∑nh nam	0	0	0	0	0	\script\global\playertitle.lua	Equip	UnEquip	\UImage\ŒÂ––Õº±Í\≥∆∫≈.spr	CONTENT: X≠ng hi÷u nÈi dung (bao gÂm thay ÆÊi k˝ hi÷u Æ∆c bi÷t)				
@@ -367,16 +367,20 @@ GENRE	DETAIL_TYPE	CONTENT	UNREPLACABLE	UNREMOVABLE	VERSION	EXPIRE	TYPE	SCRIPTFIL
 65	1	Du Hi÷p	0	0	0	0	5	\script\global\playertitle.lua	Equip	UnEquip	\UImage\ŒÂ––Õº±Í\”Œœ¿.spr					
 65	2	¶ng D≠¨ng	0	0	0	0	5	\script\global\playertitle.lua	Equip	UnEquip	\UImage\ŒÂ––Õº±Í\”•—Ô.spr					
 65	3	Chi’n CuÂng	0	0	0	0	5	\script\global\playertitle.lua	Equip	UnEquip	\UImage\ŒÂ––Õº±Í\’ΩøÒ.spr					
-65	19	C∂m	0	0	0	0	3	\script\global\playertitle.lua	Equip	UnEquip	\UImage\ŒÂ––Õº±Í\≥∆∫≈.spr	
-65	20	SÊ mÚi	0	0	0	0	3	\script\global\playertitle.lua	Equip	UnEquip	\UImage\ŒÂ––Õº±Í\≥∆∫≈.spr	
-65	21	Ti™u ch∂y	0	0	0	0	3	\script\global\playertitle.lua	Equip	UnEquip	\UImage\ŒÂ––Õº±Í\≥∆∫≈.spr	
-65	22	Ho	0	0	0	0	3	\script\global\playertitle.lua	Equip	UnEquip	\UImage\ŒÂ––Õº±Í\≥∆∫≈.spr	
-65	23	Nh¯c Æ«u	0	0	0	0	3	\script\global\playertitle.lua	Equip	UnEquip	\UImage\ŒÂ––Õº±Í\≥∆∫≈.spr	
-65	24	ßau bÙng	0	0	0	0	3	\script\global\playertitle.lua	Equip	UnEquip	\UImage\ŒÂ––Õº±Í\≥∆∫≈.spr	
-65	25	Ch„ng m∆t	0	0	0	0	3	\script\global\playertitle.lua	Equip	UnEquip	\UImage\ŒÂ––Õº±Í\≥∆∫≈.spr	
-65	26	Th©n th” c≠Íng tr∏ng	0	0	0	0	3	\script\global\playertitle.lua	Equip	UnEquip	\UImage\ŒÂ––Õº±Í\≥∆∫≈.spr	
-65	27	Tinh th«n hoπt b∏t	0	0	0	0	3	\script\global\playertitle.lua	Equip	UnEquip	\UImage\ŒÂ––Õº±Í\≥∆∫≈.spr	
-65	28	T¯ chi linh hoπt	0	0	0	0	3	\script\global\playertitle.lua	Equip	UnEquip	\UImage\ŒÂ––Õº±Í\≥∆∫≈.spr	
+65	19	C∂m	0	0	0	0	3	\script\global\playertitle.lua	Equip	UnEquip	\UImage\ŒÂ––Õº±Í\≥∆∫≈.spr					
+65	20	SÊ mÚi	0	0	0	0	3	\script\global\playertitle.lua	Equip	UnEquip	\UImage\ŒÂ––Õº±Í\≥∆∫≈.spr					
+65	21	Ti™u ch∂y	0	0	0	0	3	\script\global\playertitle.lua	Equip	UnEquip	\UImage\ŒÂ––Õº±Í\≥∆∫≈.spr					
+65	22	Ho	0	0	0	0	3	\script\global\playertitle.lua	Equip	UnEquip	\UImage\ŒÂ––Õº±Í\≥∆∫≈.spr					
+65	23	Nh¯c Æ«u	0	0	0	0	3	\script\global\playertitle.lua	Equip	UnEquip	\UImage\ŒÂ––Õº±Í\≥∆∫≈.spr					
+65	24	ßau bÙng	0	0	0	0	3	\script\global\playertitle.lua	Equip	UnEquip	\UImage\ŒÂ––Õº±Í\≥∆∫≈.spr					
+65	25	Ch„ng m∆t	0	0	0	0	3	\script\global\playertitle.lua	Equip	UnEquip	\UImage\ŒÂ––Õº±Í\≥∆∫≈.spr					
+65	26	Th©n th” c≠Íng tr∏ng	0	0	0	0	3	\script\global\playertitle.lua	Equip	UnEquip	\UImage\ŒÂ––Õº±Í\≥∆∫≈.spr					
+65	27	Tinh th«n hoπt b∏t	0	0	0	0	3	\script\global\playertitle.lua	Equip	UnEquip	\UImage\ŒÂ––Õº±Í\≥∆∫≈.spr					
+65	28	T¯ chi linh hoπt	0	0	0	0	3	\script\global\playertitle.lua	Equip	UnEquip	\UImage\ŒÂ––Õº±Í\≥∆∫≈.spr					
+65	29	S¯c sËng trµn Æ«y	0	0	0	0	3	\script\global\playertitle.lua	Equip	UnEquip	\UImage\ŒÂ––Õº±Í\≥∆∫≈.spr					
+65	30	ß„i c¨m	0	0	0	0	3	\script\global\playertitle.lua	Equip	UnEquip	\UImage\ŒÂ––Õº±Í\≥∆∫≈.spr					
+65	31	Kh∏t n≠Ìc	0	0	0	0	3	\script\global\playertitle.lua	Equip	UnEquip	\UImage\ŒÂ––Õº±Í\≥∆∫≈.spr					
+65	32	BuÂn ngÒ	0	0	0	0	3	\script\global\playertitle.lua	Equip	UnEquip	\UImage\ŒÂ––Õº±Í\≥∆∫≈.spr					
 66	1	Ch› T´n V≠¨ng Gi∂	0	0	0	0	5	\script\global\playertitle.lua	Equip	UnEquip	\UImage\µ⁄»˝∞Ê\wŒ‰ªÍ∂∑∆«\Œ‰ •.spr					
 66	2	ßÈc BÈ Thi™n Hπ	0	0	0	0	5	\script\global\playertitle.lua	Equip	UnEquip	\UImage\µ⁄»˝∞Ê\wŒ‰ªÍ∂∑∆«\∞‘Õı.spr					
 66	3	V‚ l©m hµo ki÷t	0	0	0	0	5	\script\global\playertitle.lua	Equip	UnEquip	\UImage\µ⁄»˝∞Ê\wŒ‰ªÍ∂∑∆«\Ã©∂∑.spr					

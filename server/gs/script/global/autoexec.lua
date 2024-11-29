@@ -208,11 +208,87 @@ function main()
 	AddLoPhi();
 	AddNguCac();
 	AddExpandBox();
+	AddJubaopen();
+	AddWaterWells();
 end;
 
 -------------------------------------------------------------------------------
 --							END OF MAIN FUNCTIONS
 -------------------------------------------------------------------------------
+
+function AddWaterWells()
+	local model = "Ng­êi v« h×nh";
+	local npc1 = "GiÕng n­íc";
+	local npc2 = "Suèi n­íc";
+	local script = "\\script\\online\\eating\\npc_wells.lua";
+	CreateNpcList({
+		{model,npc1,100,1456,2897,script},
+		{model,npc2,102,1522,2827,script},
+		{model,npc2,102,1393,2785,script},
+		{model,npc2,105,1411,3154,script},
+		{model,npc1,106,1303,2937,script},
+		{model,npc1,107,1312,2763,script},
+		{model,npc1,107,1431,3025,script},
+		
+		{model,npc1,200,1334,2642,script},
+		{model,npc1,201,1405,2800,script},
+		{model,npc2,201,1545,2807,script},
+		{model,npc2,202,1397,2802,script},
+		{model,npc1,202,1414,3015,script},
+		{model,npc1,202,1586,3039,script},
+		{model,npc2,202,1398,2714,script},
+		{model,npc2,203,1580,2804,script},
+		{model,npc2,204,1413,3233,script},
+		{model,npc2,205,1606,2837,script},
+		{model,npc1,205,1588,3228,script},
+		{model,npc2,205,1862,2911,script},
+		{model,npc1,205,1644,3226,script},
+		{model,npc2,209,1607,3079,script},
+		{model,npc1,208,1501,2725,script},
+		{model,npc1,211,1542,3148,script},
+		
+		{model,npc1,300,1866,3403,script},
+		{model,npc1,300,1862,3527,script},
+		{model,npc1,300,1780,3783,script},
+		{model,npc1,300,1964,3492,script},
+		{model,npc1,300,1685,3591,script},
+		{model,npc1,303,1719,3004,script},
+		{model,npc2,303,1657,3295,script},
+		{model,npc1,305,1646,2875,script},
+		{model,npc2,308,1410,2965,script},
+		{model,npc1,308,1466,2932,script},
+		{model,npc1,310,1369,3204,script},
+		{model,npc1,310,1293,3019,script},
+		{model,npc2,311,1400,2631,script},
+		{model,npc2,312,1960,3295,script},
+		{model,npc1,312,1699,3655,script},
+		
+		{model,npc1,350,1379,2855,script},
+		{model,npc1,350,1338,3030,script},
+		{model,npc1,350,1345,2936,script},
+		{model,npc1,350,1578,2904,script},
+		{model,npc2,406,1310,2899,script},
+		{model,npc1,408,1325,2749,script},
+		
+		{model,npc1,500,1837,3148,script},
+		{model,npc1,500,1722,3269,script},
+		{model,npc1,500,1601,3155,script},
+		{model,npc1,504,1302,3149,script},
+		{model,npc1,507,1658,3403,script},
+		{model,npc1,507,1730,3384,script},
+		{model,npc1,507,1626,3351,script},
+		
+		
+	});
+end;
+
+function AddJubaopen()
+	CreateNpcList({
+		{"Lß n­íng lín", "Tô b¶o bån",200,1451,2744,""},
+		{"Lß n­íng lín", "Tô b¶o bån",200,1510,2803,""},
+	});
+end;
+
 function AddExpandBox()
 	SendScript2VM("\\script\\mod\\expand_box\\expand_box_head.lua","create_expand_boxs()");
 end;
@@ -988,7 +1064,10 @@ function AddNpcQz()
     local nNpcIndexLys = CreateNpc("Du Ph­¬ng ®¹i phu", "L©m D­îc S­", 100, 1558, 2958);
     SetNpcScript(nNpcIndexLys, "\\script\\ÖÐÔ­Ò»Çø\\ãê¾©\\npc\\²ÉÒ©Ñ§Ï°.lua");
 	
-	local nNpcIndexYzzc = CreateNpc("TiÓu nhÞ Trung Nguyªn", "Chñ dÞch tr¹m", 100, 1472, 2860);
+	local nNpcIndexYzzc = CreateNpc("TiÓu nhÞ Trung Nguyªn", "Chñ dÞch tr¹m", 100,1472,2860);
+    SetNpcScript(nNpcIndexYzzc, "\\script\\½­ÄÏÇø\\ÈªÖÝ\\npc\\yizhanzhuchiren.lua");
+	
+	local nNpcIndexYzzc = CreateNpc("TiÓu nhÞ Trung Nguyªn", "Chñ dÞch tr¹m", 803,1624,3175);
     SetNpcScript(nNpcIndexYzzc, "\\script\\½­ÄÏÇø\\ÈªÖÝ\\npc\\yizhanzhuchiren.lua");
 	
 	local nNpcIndexSqsr = CreateNpc("Chñ tiÖm v¶i T©y Nam", "Th­¬ng nh©n tr¸i c©y", 100, 1445, 2979);

@@ -98,3 +98,7 @@ HOUR	MIN	SCRIPT	d	DESC
 23	1	\script\online\tong_feast\tf_sysclear.lua		
 23	40	\script\task\weekend\weekend_timer.lua		
 23	58	\script\missions\tong_mission\mission\close_all_mission.lua		
+7	00	\script\online\eating\timer.lua		
+12	00	\script\online\eating\timer.lua		
+17	00	\script\online\eating\timer.lua		
+21	00	\script\online\eating\timer.lua		

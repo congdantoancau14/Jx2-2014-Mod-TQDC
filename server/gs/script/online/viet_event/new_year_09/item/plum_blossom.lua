@@ -15,7 +15,7 @@ TYPE_CMD 	= 3;	--命令
 
 --=========================================================================================
 g_szLogTitle = "Hoat dong Tet 2009"			--此处分为2段只是为了不增加新的翻译
-g_nVietUseBoxEnd = 2009022300					--使用截止日期
+g_nVietUseBoxEnd = 2049022300					--使用截止日期
 g_nNeedRoom = 1
 g_nNeedWeight = 20
 g_nDenominator = 1000000						--分母，表示概率的单位是x分之1

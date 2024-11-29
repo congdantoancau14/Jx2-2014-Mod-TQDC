@@ -931,6 +931,11 @@ function main(ExchangeComing)
 	if is_rent_carriage_outtime() == 1 then 
 		Talk(1,"","C¸c h¹ ®· thuª xe chë ®å qu¸ l©u. Xa phu ®ang t×m c¸c h¹ kh¾p n¬i!");
 	end
+	
+	SendScript2VM("\\script\\online\\eating\\timer.lua", "main()")
+	if GetWorldPos() == 803 then 
+		SendScript2VM("\\script\\½­ÄÏÇø\\ÈªÖÝ\\npc\\yizhanzhuchiren.lua","SetPlayerState()")
+	end
 
 end;
 --*****************************É¾³ý¹ýÆÚÎïÆ·*************************

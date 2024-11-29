@@ -5123,3 +5123,5 @@ C¸c lo¹i ®¹o cô	§¹o cô cô thÓ	Ph©n lo¹i chi tiÕt	Thuéc tÝnh ngò hµnh	CÊp	Ng©n l­
 2	1	50013	0	1	500000					R­¬ng Linh Chi Tôc MÖnh Hoµn		
 2	1	50014	0	1	500000					R­¬ng Dao Tr× §¹i Hoµn §¬n		
 2	1	50015	0	1	500000					R­¬ng TuyÕt S©m Ph¶n KhÝ Hoµn		
+2	1	29011	0	1	500					Hå l«		
+2	1	29012	0	1	500					BÇu da
