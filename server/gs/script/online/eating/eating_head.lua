@@ -86,18 +86,26 @@ function ET_OnItemUse(nItemIndex)
 				--TE:SetTask(TE.TASK_EAT_VOLUME,0)
 				return 0;
 			end
+			
 			local nNewVolume = nVolumeAte+nItemVolume;
 			if nNewVolume >= FULL_VOLUME then 
 				TE:SetTask(TE.TASK_STATE_ATE,1)
-				local check = ET_RemoveTitle(65, 30, nItemIndex);
-				if check == 1 then
-					TE:SetTask(TE.TASK_EAT_VOLUME,nNewVolume - FULL_VOLUME)
-					TE:SetTask(TE.TASK_TIME_EATING,GetTime())
-				end
-			else
+	
+				ET_RemoveTitle(65, 30, nItemIndex);
+
+				TE:SetTask(TE.TASK_EAT_VOLUME,nNewVolume - FULL_VOLUME)
+				TE:SetTask(TE.TASK_TIME_EATING,GetTime())
 				
+			else
 				TE:SetTask(TE.TASK_EAT_VOLUME,nNewVolume)
-				Msg2Player("§· ¨n chót Ýt mµ d­êng nh­ ch­a lÊp c¬n ®ãi.");
+				if check_ate() ~= 1 then
+					Msg2Player("§· ¨n chót Ýt mµ d­êng nh­ ch­a lÊp c¬n ®ãi.");
+				else
+					local g,d,p = GetItemInfoByIndex(nItemIdx);
+					if g ~= 1 or d~= 1 or p ~=1 then -- B¸nh ng«
+						Msg2Player("Ch­a ®ãi c¬m kh«ng nªn ¨n qu¸ nhiÒu thøc ¨n.")
+					end
+				end
 				
 			end
 		else
@@ -131,9 +139,12 @@ function ET_OnItemUse(nItemIndex)
 					TE:SetTask(TE.TASK_TIME_DRINK,GetTime())
 				end
 			else
-				
 				TE:SetTask(TE.TASK_DRINK_VOLUME,nNewVolume)
-				Msg2Player("§· uèng chót Ýt mµ d­êng nh­ ch­a ®· c¬n kh¸t.");
+				if check_drunk() ~= 1 then	
+					Msg2Player("§· uèng chót Ýt mµ d­êng nh­ ch­a ®· c¬n kh¸t.");
+				else
+					Msg2Player("Ch­a kh¸t n­íc kh«ng nªn uèng qu¸ nhiÒu n­íc.");
+				end
 			end
 		else
 			Msg2Player("H×nh nh­ n­íc uèng bÞ háng råi.");
@@ -239,15 +250,7 @@ function ET_RemoveTitle(type1, type2, nItemIdx, nActionType)
 		
 		return 1;
 	else
-		if type2 == 30 then 
-			local g,d,p = GetItemInfoByIndex(nItemIdx);
-			if g ~= 1 or d~= 1 or p ~=1 then
-				Msg2Player("Ch­a ®ãi c¬m kh«ng nªn ¨n qu¸ nhiÒu thøc ¨n.")
-			end
-		end
-		if type2 == 31 then 
-			Msg2Player("Ch­a kh¸t n­íc kh«ng nªn uèng qu¸ nhiÒu n­íc.")
-		end
+		
 		return 0
 	end
 end

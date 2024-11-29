@@ -65,8 +65,8 @@ function OpenThienCo()
 		-- "Add Items/showInputter",
 		"Get Last talked NPC infomation/getNPCInfo",
 		"Get this position coordinate/getPosition",
-		"Manage tasks/manageTasks",
-		"GM functions/showGMFunctions",
+		"[[ Manage tasks ]]/manageTasks",
+		">> GM functions <</showGMFunctions",
 		-- "§i Vâ L©m minh/#goToWorld(1)",
 		-- "§i BiÖn Kinh/#goToWorld(2)",
 		"ChuyÓn tr¹ng th¸i nh©n vËt/changeState",
@@ -85,9 +85,9 @@ end
 
 
 tCastState = {
-	{"state_p_attack_point_add","Ngo¹i c«ng t¨ng",1000000000},
-	{"state_m_attack_point_add","Néi kÝch t¨ng",1000000000},
-	{"state_damage_point","S¸t th­¬ng t¨ng",1000000000},
+	{"state_p_attack_point_add","Ngo¹i c«ng t¨ng",100000000},
+	{"state_m_attack_point_add","Néi kÝch t¨ng",100000000},
+	{"state_damage_point","S¸t th­¬ng t¨ng",100000000},
 	{"state_max_carry_point_add","Søc lùc t¨ng",100000},
 }
 

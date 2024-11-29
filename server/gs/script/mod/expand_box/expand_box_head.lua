@@ -105,7 +105,22 @@ tbFunctions = {
 		},
 	},
 	[2] = {		-- carriage (carrier)
-		
+		[1] = {
+			[1] = "showThingsIn",
+			[2] = "[%d] %s x%d/#putonein(%d)",
+			[3] = "ChÊt toµn bé lªn xe/putallin",
+			[4] = "\nCÊt vËt phÈm ë trang nµy vµo xe/#putthispage(%d,%d)",
+			[5] = "Kh«ng cÊt g×/nothing",
+			[6] = "Hµnh trang kh«ng cã vËt phÈm phï hîp bá vµo xe",
+		},
+		[2] = {
+			[1] = "showThingsOut",
+			[2] = "[%d] %s x%d/#takeoneout(%d)",
+			[3] = "LÊy tÊt c¶ ra hµnh trang/takeallout",
+			[4]	= "\nLÊy tÊt c¶ vËt phÈm ë trang nµy/#takethispage(%d,%d)",
+			[5] = "Kh«ng lÊy n÷a/nothing",
+			[6] = "Xe trèng",
+		},
 	},
 }
 
@@ -130,6 +145,9 @@ function xb_generateNavigation(nStoreId,nPage,nNav,t,nAction)
 	---------------
 	local nBegin = 0;
 	nPage = nPage + nNav;
+	if nPage < 1 then
+		nPage = 1;
+	end
 	if nPage == 1 then 
 		nBegin = 1;
 	else
@@ -138,6 +156,7 @@ function xb_generateNavigation(nStoreId,nPage,nNav,t,nAction)
 	local nLastPageReached = nBegin;
 	---------------
 	local nEnd = 0
+	--print(nPage.."-"..nPages.."-"..nMaxItems.."-"..nBegin.."-"..nEnd);
 	if nPage == nPages then
 		local nOverflow = nMaxItems - nLastPageReached;
 		-- print("nOverflow = nMaxItems - nLastPageReached",  nOverflow,nMaxItems, nLastPageReached)
@@ -153,7 +172,7 @@ function xb_generateNavigation(nStoreId,nPage,nNav,t,nAction)
 		-- return 0;
 	end
 	
-	
+	--print(nPage.."-"..nPages.."-"..nMaxItems.."-"..nBegin.."-"..nEnd);
 	--------------- Create table ---------------
 	local szHead = format("Trang <color=yellow>%d<color>/%d. "
 		.."Tæng céng <color=yellow>%d<color> vËt phÈm. §ang hiÓn thÞ vËt phÈm: %d - %d"
@@ -300,11 +319,14 @@ function xb_putallin(tItems,nStoreId,nNpcIndex)
 		
 		return 0;
 	end
-	local tExceptItems = {{"Ch×a Khãa R­¬ng",{2,1,29005}}} -- only for expand_box (store-box) not for carriage
-	--DelItemsByList(tItems, tExceptItems);
-	--print ("getn(tExceptItems)"..getn(tExceptItems));
-	--print ("xb_putallin>>getn(tItems):"..getn(tItems))
-	tItems = removeItemsFromTable(tExceptItems, tItems)
+	if  nStoreId == 1 then
+		local tExceptItems = {{"Ch×a Khãa R­¬ng",{2,1,29005}}} -- only for expand_box (store-box) not for carriage
+		--DelItemsByList(tItems, tExceptItems);
+		--print ("getn(tExceptItems)"..getn(tExceptItems));
+		--print ("xb_putallin>>getn(tItems):"..getn(tItems))
+		
+		tItems = removeItemsFromTable(tExceptItems, tItems)
+	end
 	DelItemsByList(tItems);
 	inserttabletodata(tItems,nStoreId,nNpcIndex);
 	Msg2Player(tbMessages[nStoreId].putallin)
@@ -434,7 +456,7 @@ function create_small_expand_boxs()
 end;
 
 function isItemAllow(g,d,p)
-	if g == 2 then 
+	if g == 2 or g == 1 then -- g=1: vat pham thu thap/than bi/nhiem vu; g=2: vat pham sinh hoat
 		return 1;
 	end
 	return 0;
@@ -445,7 +467,7 @@ function getAllowItems()
 	local tAllowItems = {}
 	local t = tItems;
 	for i=1, getn(t) do 
-		if (t[i][2][1] == 2) then -- Only accept (allow) vat pham thu thap va vat pham than bi
+		if isItemAllow(t[i][2][1]) == 1 then
 			tinsert(tAllowItems,t[i]);
 		end
 	end

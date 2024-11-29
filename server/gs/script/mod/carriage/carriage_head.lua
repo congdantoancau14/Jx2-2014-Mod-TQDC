@@ -54,7 +54,7 @@ end;
 
 function createCarriage(nLost)
 	
-	local npc_name = format("<color=green>%s<color>: ",GetTargetNpcName());
+	npc_name = format("<color=green>%s<color>: ",GetTargetNpcName());
 	
 	local nMap,nPosX,nPosY = GetWorldPos();
 	local tPos = {{nPosX,nPosY},}
@@ -94,12 +94,11 @@ function createCarriage(nLost)
 				Talk(1,"",npc_name.."Sao ng­¬i bÊt cÈn vËy? Mµ th«i, thÊy bé d¹ng ®¸ng th­¬ng cña ng­¬i th× ta còng cho ng­¬i thuª xe míi. NÕu t×m thÊy xe cò th× mang tr¶ l¹i ng­êi ta.");
 			end
 		else
-			if Pay(1000000) == 1 then 
-				Talk(1,"",npc_name.."§­îc th«i. Tr­íc hÕt ng­¬i ph¶i ®Òn ta 100 l­îng vµng. Cßn tiÒn thuª míi th× chót tÝnh tiÕp.");
-			else
-				Talk(1,"",npc_name.."Ng­¬i lµm mÊt råi, ®· kh«ng cã tiÒn ®Òn bï cßn ®ßi thuª n÷a µ! Ta t¹m tha cho ng­¬i. Mau cuèn xÐo ®i chç kh¸c.")
-				return 0;
-			end
+			Say("Chi phÝ ®Òn bï xe lµ <color=gold>100 l­îng vµng<color>. Ng­¬i cã tr¶ ®ñ kh«ng ®Êy?",2,
+				"Ng­¬i coi th­êng ta sao?/payLost",
+				"Th«i sau nµy tÝnh tiÕp/nothing"
+			);
+			return 0;
 		end
 	end
 	
@@ -107,6 +106,13 @@ function createCarriage(nLost)
 		Talk(1,"",npc_name.."Kh«ng cã tiÒn mµ còng ®ßi thuª xe sao? BiÕn ®i chç kh¸c cho ta lµm ¨n");
 		return 0;
 	end
+	
+	giveCarriage();
+end;
+
+function giveCarriage()
+	local nOldNpcIdx = BIAOCHE_TASKGROUP:GetTask(BIAOCHE_TASKGROUP.BIAOCHE_INDEX);
+	
 	if GetItemCount(tHuanCheLing[1],tHuanCheLing[2],tHuanCheLing[3]) < 1 then 
 		AddItem(tHuanCheLing[1],tHuanCheLing[2],tHuanCheLing[3],1);
 	end
@@ -138,6 +144,16 @@ function createCarriage(nLost)
 		g_NpcAI:setAI(nNpcIdx,AT_SM_MOVE);
 		
 		--SetNpcTempData(nNpcIdx, 1, nBCType)
+	end
+end;
+
+function payLost()
+	if Pay(1000000) == 1 then 
+		Talk(1,"",npc_name.."§­îc th«i. Tr­íc hÕt ng­¬i ph¶i ®Òn ta 100 l­îng vµng. Cßn tiÒn thuª míi th× chót tÝnh tiÕp.");
+		createCarriage();
+	else
+		Talk(1,"",npc_name.."Ng­¬i lµm mÊt råi, ®· kh«ng cã tiÒn ®Òn bï cßn ®ßi thuª n÷a µ! Ta t¹m tha cho ng­¬i. Mau cuèn xÐo ®i chç kh¸c.")
+		return 0;
 	end
 end;
 

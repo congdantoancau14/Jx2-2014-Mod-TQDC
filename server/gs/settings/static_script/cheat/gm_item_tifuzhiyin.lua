@@ -1262,12 +1262,40 @@ function Get_Other()
 		"K¸ n®ng sËng/Life_Skill",
 		"Luy÷n max skill tr n ph∏i/#luyenMaxTranPhai()",
 		"Thay ÆÊi h÷ ph∏i kh∏c/JoinRoute_UpdateLevel",
+		"Th®ng c p/#ChangeLevel(1)",
+		"Gi∏ng c p/#ChangeLevel(-1)",
+		"ßﬁnh c p/ChangeLevel",
 		
 		"\nTrang tr≠Ìc/Open",
 		"Ra kh·i/nothing",
 	};
 	SelectSay(szSay);	
 end
+
+function ChangeLevel(nDir)
+	if nDir == -1 or nDir == 1 then
+		SetLevel(GetLevel()+nDir,1);
+		Msg2Player("ß∑ Æﬁnh c p: "..GetLevel());
+		SetCurrentNpcSFX(PIdx2NpcIdx(PlayerIndex),901,1,1);
+		SetCurrentNpcSFX(PIdx2NpcIdx(),917,1,1)
+	elseif nDir == 0 then
+		SetLevel(1,1);
+		Msg2Player("ß∑ Æﬁnh c p: "..GetLevel());
+		SetCurrentNpcSFX(PIdx2NpcIdx(PlayerIndex),901,1,1);
+		SetCurrentNpcSFX(PIdx2NpcIdx(),917,1,1)
+	else
+		AskClientForNumber("_change_level_callback",1,99,"NhÀp c p ÆÈ");
+		return 1;
+	end
+	Get_Other()
+end;
+
+function _change_level_callback(input)
+	SetLevel(input,1);
+	Msg2Player("ß∑ Æﬁnh c p: "..input);
+	SetCurrentNpcSFX(PIdx2NpcIdx(PlayerIndex),901,1,1);
+	SetCurrentNpcSFX(PIdx2NpcIdx(),917,1,1)
+end;
 
 function chuyensinh()
 	local tRebornFaction = {
@@ -1293,6 +1321,8 @@ function reborn(nType)
 		SetTask(1538,SetByte(GetTask(1538),1,0),0);
 	end
 	Msg2Player("ß∑ chuy”n sinh!");
+	SetCurrentNpcSFX(PIdx2NpcIdx(PlayerIndex),901,1,1);
+	SetCurrentNpcSFX(PIdx2NpcIdx(),917,1,1)
 	-- Say("ß∑ chuy”n sinh! ß®ng nhÀp lπi Æ” c„ hi÷u l˘c.",1,"Tho∏t/exitgame");
 end;
 

@@ -2,7 +2,7 @@ Include("\\script\\mod\\expand_box\\expand_box_head.lua");
 THIS_FILE = "\\script\\mod\\carriage\\npc_xevanchuyen.lua";
 MAX_ITEM = MAX_CARRIAGE_ITEMS;
 g_tbInBagItems = {}
-g_nStoreId = STORE_ID_CARRIAGE;
+nStoreId = STORE_ID_CARRIAGE;
 nNpcIndex = nil;
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
@@ -11,8 +11,8 @@ function main()
 	local nCarriageId = BIAOCHE_TASKGROUP:GetTask(BIAOCHE_TASKGROUP.BIAOCHE_INDEX);
 	-- print(nNpcIndex,nCarriageId);
 	
-	-- init(g_nStoreId);	-- Store items with player rolename as filename
-	init(g_nStoreId,nNpcIndex); -- Store items with npcindex as filename
+	-- init(nStoreId);	-- Store items with player rolename as filename
+	init(nStoreId,nNpcIndex); -- Store items with npcindex as filename
 	
 	local szHead = format("T×nh tr¹ng hµng trªn xe: %d/%d",ITEM_COUNT,MAX_CARRIAGE_ITEMS)
 	if nNpcIndex ~= nCarriageId then 
@@ -63,7 +63,7 @@ function OnPutinComplete(param)
 		-- end
 	-- end
 	
-	xb_puttrayin(t,g_nStoreId,nNpcIndex);
+	xb_puttrayin(t,nStoreId,nNpcIndex);
 	
 end
 
@@ -72,67 +72,6 @@ end
 nPageIn = 1;
 
 function showThingsIn(nNav)
-	if nNav == nil or nNav == 0 then
-		nNav = 0;
-		nPageIn = 1;
-	end
-	--print(nPageIn.."-"..nNav);
-	g_tbInBagItems = getAllowItems();
-	--print(getn(g_tbInBagItems))
-	local t = g_tbInBagItems;
-
-	nPageIn = xb_generateNavigation(g_nStoreId,nPageIn,nNav,t,DIRECT_PUTIN);
-end;
-
-
-
-nPageOut = 1;
-
-
-function showThingsOut(nNav)
-	if nNav == nil then
-		nNav = 0;
-		nPageOut = 1;
-	end
-	
-	local t = TB_ITEMS;
-	nPageOut = xb_generateNavigation(g_nStoreId,nPageOut,nNav,t,DIRECT_TAKEOUT);
-end;
-
-
-function putthispage(nBegin,nEnd)
-	xb_putthispage(g_tbInBagItems,nBegin,nEnd,g_nStoreId,nNpcIndex)
-end;
-
-function putonein(nInTableItemIndex)
-	xb_putonein(g_tbInBagItems,nInTableItemIndex,g_nStoreId,nNpcIndex)
-end;
-
-function putallin()
-	xb_putallin(g_tbInBagItems,g_nStoreId,nNpcIndex)
-end;
-
-function takethispage(nBegin,nEnd)
-	xb_takethispage(nBegin,nEnd,g_nStoreId,nNpcIndex)
-end;
-
-function takeoneout(nInTableItemIndex)
-	xb_takeoneout(nInTableItemIndex,g_nStoreId,nNpcIndex)
-end;
-
-function takeallout()
-	xb_takeallout(g_nStoreId,nNpcIndex)
-end;
-
-function nothing()
-end;
-
-
-
-
--------------------------------------------------------------
-
-function showThingsIn_original(nNav)
 	if nNav == nil then
 		nNav = 0;
 		nPageIn = 1;
@@ -212,44 +151,46 @@ function showThingsIn_original(nNav)
 	
 end;
 
-function putthispage_original(nPage,nBegin,nEnd)
-	if nEnd - nBegin > GetStoreFreeRoom(g_nStoreId,nNpcIndex) then 
+function putthispage(nPage,nBegin,nEnd)
+	if nEnd - nBegin > GetStoreFreeRoom(nStoreId,nNpcIndex) then 
 		Talk(1,"","<color=red>Xe qu¸ ®Çy, kh«ng thÓ chÊt thªm nhiÒu ®å!<color>");
 		return 0;
 	end
 	for i=nBegin, nEnd do 
 		local object = g_tbInBagItems[i];
 		DelItem(object[2][1],object[2][2],object[2][3],object[3]);
-		insertrowtodata(object,g_nStoreId,nNpcIndex);
+		insertrowtodata(object,nStoreId,nNpcIndex);
 		Msg2Player(format("§· bá %s x%d vµo xe chë ®å",g_tbInBagItems[i][1],g_tbInBagItems[i][3]));
 	end
 	showThingsIn(0);
 end;
 
-function putallin_original()
-	if getn(g_tbInBagItems) > GetStoreFreeRoom(g_nStoreId,nNpcIndex) then 
+function putallin()
+	if getn(g_tbInBagItems) > GetStoreFreeRoom(nStoreId,nNpcIndex) then 
 		Talk(1,"","<color=red>Xe qu¸ ®Çy, kh«ng thÓ chÊt thªm nhiÒu ®å!<color>");
 		return 0;
 	end
 	DelItemsByList(g_tbInBagItems);
-	inserttabletodata(g_tbInBagItems,g_nStoreId,nNpcIndex);
+	inserttabletodata(g_tbInBagItems,nStoreId,nNpcIndex);
 	Msg2Player();
 end;
 
 
-function putonein_original(index)
+function putonein(index)
 	if ITEM_COUNT == MAX_CARRIAGE_ITEMS then 
 		Talk(1,"","<color=red>Xe qu¸ ®Çy, kh«ng thÓ chÊt thªm ®å!<color>");
 		return 0;
 	end
 	local object = g_tbInBagItems[index];
 	DelItem(object[2][1],object[2][2],object[2][3],object[3]);
-	insertrowtodata(object,g_nStoreId,nNpcIndex);
+	insertrowtodata(object,nStoreId,nNpcIndex);
 	Msg2Player(format("§· bá %s x%d vµo xe ®å",g_tbInBagItems[index][1],g_tbInBagItems[index][3]));
 	showThingsIn(0);
 end;
 
-function showThingsOut_original(nNav)
+nPageOut = 1;
+
+function showThingsOut(nNav)
 	if nNav == nil then
 		nNav = 0;
 		nPageOut = 1;
@@ -325,4 +266,32 @@ function showThingsOut_original(nNav)
 	tinsert(tbSay,"Kh«ng lÊy n÷a/nothing");
 	Say (szHead,getn(tbSay),tbSay);
 	
+end;
+
+
+function putthispage(nBegin,nEnd)
+	xb_putthispage(g_tbInBagItems,nBegin,nEnd,nStoreId,nNpcIndex)
+end;
+
+function putonein(nInTableItemIndex)
+	xb_putonein(g_tbInBagItems,nInTableItemIndex,nStoreId,nNpcIndex)
+end;
+
+function putallin()
+	xb_putallin(g_tbInBagItems,nStoreId,nNpcIndex)
+end;
+
+function takethispage(nBegin,nEnd)
+	xb_takethispage(nBegin,nEnd,nStoreId,nNpcIndex)
+end;
+
+function takeoneout(nInTableItemIndex)
+	xb_takeoneout(nInTableItemIndex,nStoreId,nNpcIndex)
+end;
+
+function takeallout()
+	xb_takeallout(nStoreId,nNpcIndex)
+end;
+
+function nothing()
 end;
