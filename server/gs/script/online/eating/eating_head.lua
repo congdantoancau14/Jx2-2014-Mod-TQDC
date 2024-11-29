@@ -171,15 +171,23 @@ function ET_ClearAllState()
 end;
 
 function ET_OnTimerReset()
+	if GetTask(TE_TASK_EAT_VOLUME) == nil then
+	print("ET_OnTimerReset",GetTask(TE_TASK_EAT_VOLUME))
+		SetTask(TE_TASK_EAT_VOLUME,0);
+		print("ET_OnTimerReset",GetTask(TE_TASK_EAT_VOLUME))
+	end
+	if GetTask(TE_TASK_DRINK_VOLUME) == nil then
+		SetTask(TE_TASK_DRINK_VOLUME,0);
+	end
+	
 	local nVolume = 0;
 	nVolume = GetTask(TE_TASK_EAT_VOLUME)
-	print("\n");
-	print(GetName().." GetTask(TE_TASK_EAT_VOLUME)",GetTask(TE_TASK_EAT_VOLUME))
+print("ET_OnTimerReset",nVolume,FULL_VOLUME)
 	if nVolume < FULL_VOLUME then 
 		SetTask(TE_TASK_STATE_ATE,0);
 	end
+	
 	nVolume = GetTask(TE_TASK_DRINK_VOLUME)
-	print(GetName().." GetTask(TE_TASK_DRINK_VOLUME)",GetTask(TE_TASK_DRINK_VOLUME))
 	if nVolume < FULL_VOLUME then 
 		SetTask(TE_TASK_STATE_DRUNK,0);
 	end
@@ -187,6 +195,9 @@ function ET_OnTimerReset()
 end;
 
 function ET_OnTimerResetSleep()
+	if GetTask(TE_TASK_SLEEP_VOLUME) == nil then
+		SetTask(TE_TASK_SLEEP_VOLUME,0);
+	end
 	local nVolume = getSleepVolume(1);
 	print(GetName().." GetTask(TE_TASK_SLEEP_VOLUME)",GetTask(TE_TASK_SLEEP_VOLUME))
 	if nVolume < FULL_VOLUME_SLEEP then 
@@ -221,7 +232,7 @@ end;
 function ET_OnSleep()
 	if check_slept() == 1 then
 		Talk(1,"","Kh«ng nªn ngñ qu¸ nhiÒu")
-		return 0;
+		--return 0;
 	end
 	SetTask(TE_TASK_SLEEP_START,GetTime())
 	SetTask(TE_TASK_SLEEP_ENDED,0)

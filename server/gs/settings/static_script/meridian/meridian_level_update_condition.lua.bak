@@ -85,40 +85,10 @@ t_meridian_level_condition =
 	[5] = 
 		{
 			sz_name = "Vâ Hoµng",
-			t_require = 
-				{
-					trans_count = 6,
-					level = 90,
-				},
-			t_ib_consume =
-				{
-					exp = 0,
-					t_item =
-						{
-							{2, 95,  204, 20, "Thiªn Cang LÖnh"	},
-							{2, 1, 30370, 20, "Thiªn M«n Kim LÖnh"	},
-						},
-				},
-			global_msg = 1,
 		},
 	[6] = 
 		{
 			sz_name = "Vâ Th¸nh",
-			t_require = 
-				{
-					trans_count = 6,
-					level = 90,
-				},
-			t_ib_consume =
-				{
-					exp = 0,
-					t_item =
-						{
-							{2, 95,  204, 20, "Thiªn Cang LÖnh"	},
-							{2, 1, 30370, 20, "Thiªn M«n Kim LÖnh"	},
-						},
-				},
-			global_msg = 1,
 		},
 }
 

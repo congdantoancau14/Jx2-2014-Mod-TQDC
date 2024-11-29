@@ -20,12 +20,13 @@ function main()
         SetTask(VET_201008_02_TASK_DATE_QINGGONGYAN,nDate)
         SetTask(VET_201008_02_TASK_NUM_QINGGONGYAN,0)
     end
-    if GetTask(VET_201008_02_TASK_NUM_QINGGONGYAN) >= 9 then
+	local nCount = GetItemCount(VET_201008_02_TB_ITEM_LIST[2][2],VET_201008_02_TB_ITEM_LIST[2][3],VET_201008_02_TB_ITEM_LIST[2][4])
+    if GetTask(VET_201008_02_TASK_NUM_QINGGONGYAN) >= 9 and nCount < 1 then
         Talk(1,"",VET_201008_02_TB_STR_LIST[13])
         return
     end
     local nDifTime = GetTime()-GetTask(VET_201008_02_TASK_TIME_QINGGONGYAN)
-    if nDifTime < 30 then
+    if nDifTime < 30  and nCount < 1  then
         Talk(1,"",format(VET_201008_02_TB_STR_LIST[14],30-nDifTime))
         return
     end

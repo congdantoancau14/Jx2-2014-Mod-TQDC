@@ -6,26 +6,21 @@ Include("\\settings\\static_script\\meridian\\meridian_title.lua")
 --1=ÒÑ´ï³É
 --0=Î´´ï³É
 function CheckCondition(nLevel, bNotify)
-	print(format("[%s]undefined meridian level %d", GetName(), nLevel))
-	return 0
-	
---	if 4 ~= nLevel then
---		return 0
---	end
---	if 1 ~= meridianlevel_check_require(nLevel, bNotify) then
---		return 0
---	end
---	--Íê³ÉÈÎÎñÌõ¼şÅĞ¶Ï
---	return 1;
+	if 6 ~= nLevel then
+		return 0
+	end
+	if 1 ~= meridianlevel_check_require(nLevel, bNotify) then
+		return 0
+	end
+	--Íê³ÉÈÎÎñÌõ¼şÅĞ¶Ï
+	return 1;
 end
 
 --»ñÈ¡Ö¸¶¨Ñ¨Î»Ö¸¶¨µÈ¼¶µÄÌØÊâĞèÇóÃèÊöÎÄ±¾
 --·µ»ØszDescription
 function GetConditionDesc(nLevel)
-	--local szNpcDesc = format("¼¤»î%s¾³½ç¿ÉÕÒ<color=yellow>ÔÀ²»Èº<color>³å»÷¾³½çÆ¿¾±", meridianlevel_getname(nLevel - 1))
-	--local str = format("%s\n»ò%s", format("Íê³É%sÏµÁĞÈÎÎñ","??"), szNpcDesc)
-	
-	local str=""
+	local szNpcDesc = format("Kİch ho¹t c¶nh giíi %s cã thÓ t×m <color=yellow>Nh¹c BÊt QuÇn<color> khai th«ng", meridianlevel_getname(nLevel - 1))
+	local str = format("%s\nhoÆc%s", format("Hoµn thµnh %s d·y nhiÖm vô","V?Th¸nh"), szNpcDesc)
 	return str;
 end
 
@@ -41,7 +36,7 @@ end
 --1=²Ù×÷³É¹¦
 --0=²Ù×÷Ê§°Ü
 function DoAfterLevelUpdateCallBack(nNewLevel)
-	--merdiantitle_check_add_title(0)--¾­ÂöÌí¼Ó³ÆºÅ
+	merdiantitle_check_add_title(0)--¾­ÂöÌí¼Ó³ÆºÅ
 	return 1;
 end
 

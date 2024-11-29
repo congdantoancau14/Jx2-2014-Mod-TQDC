@@ -1597,9 +1597,9 @@ function UpSuper()
 	ModifyPopur(10000) -- ßi”m Luy÷n
 	
 	--Hieu Bang
-	AddTitle(69,1);
-	AddTitle(69,2);
-	AddTitle(72,10);
+	--AddTitle(69,1);
+	--AddTitle(69,2);
+	--AddTitle(72,10);
 	
 	-- Hieu CS
 	AddTitle(61,5);

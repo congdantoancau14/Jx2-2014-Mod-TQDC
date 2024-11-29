@@ -2446,7 +2446,7 @@ function Add3Festival()
 	
 	local nMonth = tonumber(date("%m"))
 	if nMonth ~= 9 then
-		return 0;
+		--return 0;
 	end
 	local nNpcIndex = CreateNpc("Thiªn V­¬ng Bang Chñ", "Chu niªn kh¸nh sø",100,1440,2785)
 	SetNpcScript(nNpcIndex, "\\script\\online\\3festival\\emissary_npc.lua")

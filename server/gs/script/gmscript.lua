@@ -158,7 +158,7 @@ function AddWeapon(tp)   ---Ôö¼ÓÎäÆ÷
 end
 
 function CollectionTaskStart(nMapId, nNpcId, nObjId, nObjType)
-	print("gmscript > CollectionTaskStart run");
+	print("gmscript>>CollectionTaskStart");
 	SetGlbValue(100, 333)
 end
 
@@ -168,7 +168,7 @@ end
 
 
 function createDataCall(nRandomSeed)
-	print("gmscript > createDataCall run");
+	print("gmscript>>createDataCall>>createCollecEvent");
 	--randomseed(nRandomSeed);
 
 	createCollecEvent();

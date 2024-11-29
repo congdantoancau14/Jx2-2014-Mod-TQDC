@@ -1,0 +1,50 @@
+Include("\\script\\lib\\string.lua");
+--Include("\\script\\lib\\item.lua");
+THIS_FILE = "\\settings\\static_script\\test\\test.lua"
+Include("\\script\\mod\\expand_box\\expand_box_head.lua");
+
+function OnUse()
+	Msg2Player("test is called!");
+	--printFormattedPos();
+	Msg2Player(replace("coong cha nhuw nusi thasi sown, nghixa mej nhuw nuwowsc trong nguoofn chary ra","oo","))
+end;
+
+function testwritefile()
+	local filePath = "test/";
+	local strFileName = "testfile.txt";
+	local strString = "abc";
+	
+	local file = openfile(filePath..strFileName,  "w+")
+	if file == nil then
+		execute(format("mkdir -p %s", filePath))
+		file = openfile(filePath..strFileName,  "w+")
+	end
+	write(file,tostring(strString));
+	closefile(file);
+end;
+
+function testEffect()
+	SetCurrentNpcSFX(PIdx2NpcIdx(PlayerIndex),929,1,0);
+	SetTimerTime(SetCurrentNpcSFX(PIdx2NpcIdx(PlayerIndex),917,1,0),5)
+end;
+
+function test2()
+	print(strlower("HIGOFDHIOGF"));
+	print(strupper("fdhsiogifgf"));
+end;
+
+function test0()
+	CastState("state_stamina_restore_per8f",1,0);
+		local str = "Open[[item]]";
+		SendScript2Client(str);
+		Msg2Player(str);
+		--Talk(1,"","ok");
+		--PlaySound("\\sound\\sound_i016.wav");
+end;
+
+
+function printFormattedPos()
+	local m,x,y = GetWorldPos();
+	print(format("\n[ %d,%d,%d ]",m,x,y))
+	Msg2Player(format("\n[ %d,%d,%d ]",m,x,y))
+end;

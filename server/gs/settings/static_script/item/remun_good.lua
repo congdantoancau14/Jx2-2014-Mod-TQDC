@@ -69,7 +69,7 @@ function checkItemInTable(table,str)
 	str = unmarks(str);
 	
 	--local file = openfile("searching_result.txt", "w")
-	print("getn(table):",getn(table));
+	--print("getn(table):",getn(table));
 	
 	for index, value in table do
 		--write(file,value[1].."\n");
@@ -126,7 +126,7 @@ function init()
 	tinsert(tbListofTables,TB_ITEMS);
 	tinsert(tbListofTables,TB_USABLEITEMS);
 	tinsert(tbListofTables,TB_QUESTITEMS);
-	print("remun_good>>init() is called!");
+	--print("remun_good>>init() is called!");
 end
 
 
@@ -159,7 +159,7 @@ local file = openfile("loadingdata_result.txt", "w")
 	
 
 	closefile(file);
-	print("remun_good.lua>>getListFromFile>>load end! Number of item:",nCount);
+	--print("remun_good.lua>>getListFromFile>>load end! Number of item:",nCount);
 	return tData, k;
 end;
 -----------------------------------------------------------------------------------------
@@ -336,7 +336,7 @@ function onOneParam(t, nAction)
 				Talk(1,"",format("VÀt ph»m [<color=yellow>%s<color>] kh´ng tÂn tπi!",t[1]));
 				result = 0;
 			else
-				print("remun_good.lua>>onOneParam>>nIndex:"..nIndex);
+				--print("remun_good.lua>>onOneParam>>nIndex:"..nIndex);
 				g = tbCurrentItems[nIndex][2][1];
 				d = tbCurrentItems[nIndex][2][2];
 				p = tbCurrentItems[nIndex][2][3];
@@ -423,11 +423,12 @@ function addItemAndLog(nIndex, szName)
 	end
 	local result = AddItem(g,d,p,q);
 	local szItemCode = format("{%d,%d,%d}",g,d,p);
-	Msg2Player("M∑ vÀt ph»m: "..szItemCode);
-	local file = openfile("additem_log.lua", "a+")
 	if szName == nil or szName == "" then
 		szName = GetItemName(g,d,p);
 	end
+	Msg2Player("T™n vÀt ph»m: "..szName.."\nM∑ vÀt ph»m: "..szItemCode);
+	
+	local file = openfile("additem_log.lua", "a+")
 	if nIndex ~= 0 then
 		local szLog = format("{'%s',%s},\n",tbCurrentItems[nIndex][1],szItemCode);
 		write(file,szLog);

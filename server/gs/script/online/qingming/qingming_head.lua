@@ -36,8 +36,8 @@ LeavePointTab = {	--记录从陵墓出来时的坐标
 --==================================相关函数===================================================
 --判断节日是否开放
 function Is_QingMing_Opened()	
-	local nDate = tonumber(date("%Y%m%d"));
-	if QINGMING_SWITCH == TRUE and nDate >= 20060331 and nDate <=20460409 then
+	local nDate = tonumber(date("%m%d"));
+	if QINGMING_SWITCH == TRUE and nDate >= 0331 and nDate <=0409 then
 		return TRUE;
 	else
 		return FALSE;

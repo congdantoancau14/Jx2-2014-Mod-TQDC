@@ -3910,6 +3910,12 @@
 14_Type=2
 14_Point=78,263
 14_Content=\Image\obj\box\YellowPoint.spr
+15_Type=1
+15_Point=48,301
+15_Content=Mai Trang
+16_Type=2
+16_Point=48,313
+16_Content=\Image\obj\box\RedPoint.spr
 
 
 
@@ -4368,18 +4374,13 @@
 108_Type=2
 108_Point=470,102
 108_Content=\Image\obj\box\YellowPoint.spr
+
 109_Type=1
-109_Point=120,390
-109_Content=ThuyÒn phu C« §¶o
+109_Point=760,423
+109_Content=§«ng H¶i H¶i T©n 1
 110_Type=2
-110_Point=120,402
-110_Content=\Image\obj\box\YellowPoint.spr
-111_Type=1
-111_Point=767,430
-111_Content=§«ng h¶i H¶i t©n 1
-112_Type=2
-112_Point=767,442
-112_Content=\Image\obj\box\RedPoint.spr
+110_Point=760,435
+110_Content=\Image\obj\box\RedPoint.spr
 
 [105]
 1_Type=1
@@ -4504,10 +4505,10 @@
 4_Point=612,162
 4_Content=\Image\obj\box\YellowPoint.spr
 5_Type=1
-5_Point=170,30
+5_Point=155,16
 5_Content=B¾c TuyÒn Ch©u
 6_Type=2
-6_Point=170,42
+6_Point=155,28
 6_Content=\Image\obj\box\RedPoint.spr
 
 

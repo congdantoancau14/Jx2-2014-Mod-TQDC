@@ -1,4 +1,5 @@
 Include("\\script\\mod\\expand_box\\expand_box_head.lua");
+Include("\\script\\mod\\carriage\\carriage_head.lua");
 THIS_FILE = "\\script\\mod\\carriage\\npc_xevanchuyen.lua";
 MAX_ITEM = MAX_CARRIAGE_ITEMS;
 g_tbInBagItems = {}
@@ -15,12 +16,13 @@ function main()
 	-- print(nNpcIndex,nCarriageId);
 	
 	-- init(g_nStoreId);	-- Store items with player rolename as filename
-	init(g_nStoreId,nCarriageName); -- Store items with npcindex as filename
+	init(g_nStoreId,szStoreFileName); -- Store items with npcindex as filename
 	--init(g_nStoreId,0); -- Store items with playername n?p?c?i?n?d?e?x? as filename
 	
 	local szHead = format("T×nh tr¹ng hµng trªn xe: %d/%d",ITEM_COUNT,MAX_CARRIAGE_ITEMS)
 	if GetTargetNpc() ~= nCarriageId then 
 		szHead = "<color=red>ChÊt nhê ®å lªn xe<color>. "..szHead;
+		--print("GetTargetNpc() ~= nCarriageId ",GetTargetNpc(),nCarriageId)
 	end
 	
 	local tbSay = {
@@ -329,4 +331,10 @@ function showThingsOut_original(nNav)
 	tinsert(tbSay,"Kh«ng lÊy n÷a/nothing");
 	Say (szHead,getn(tbSay),tbSay);
 	
+end;
+
+function checkItemNumber(nCarriageId)
+	init(STORE_ID_CARRIAGE,nCarriageId);
+	-- print(STORE_ID_CARRIAGE,ITEM_COUNT,getn(TB_ITEMS));
+	return ITEM_COUNT;
 end;

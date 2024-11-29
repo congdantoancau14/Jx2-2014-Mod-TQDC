@@ -10,6 +10,13 @@ Include("\\script\\class\\ktabfile.lua");
 
 STORE_ID_EXPAND_BOX = 1;
 STORE_ID_CARRIAGE = 2;
+STORE_ID_MAIL = 3;
+
+g_tbDirectoryName = {
+	[1] = "data/expand_box/",
+	[2] = "data/carriage/",
+	[3] = "data/mail/",
+}
 
 MAX_EXPAND_BOX_ITEMS = 1000;
 MAX_CARRIAGE_ITEMS = 100;
@@ -21,6 +28,7 @@ WRITE_FILE = 1;
 READ_FILE = 2;
 
 MaxPutinCount = 60;
+MAXINPAGE = 5;
 
 -- [boxid],{mapcoor},[mapname]
 tExpandBoxs = {
@@ -122,12 +130,30 @@ tbFunctions = {
 			[6] = "Xe trèng",
 		},
 	},
+	[3] = {		-- mail attactments
+		[1] = {
+			[1] = "showThingsIn",
+			[2] = "[%d] %s x%d/#putonein(%d)",
+			[3] = "Göi toµn bé/putallin",
+			[4] = "\nGöi vËt phÈm ë trang nµy/#putthispage(%d,%d)",
+			[5] = "Kh«ng göi n÷a/nothing",
+			[6] = "Hµnh trang kh«ng cã vËt phÈm phï hîp bá vµo gãi ®å",
+		},
+		[2] = {
+			[1] = "showThingsOut",
+			[2] = "[%d] %s x%d/#takeoneout(%d)",
+			[3] = "LÊy tÊt c¶ ra hµnh trang/takeallout",
+			[4]	= "\nLÊy tÊt c¶ vËt phÈm ë trang nµy/#takethispage(%d,%d)",
+			[5] = "Kh«ng lÊy n÷a/nothing",
+			[6] = "Gãi hµng trèng",
+		},
+	},
 }
 
 DIRECT_PUTIN = 1;
 DIRECT_TAKEOUT = 2;
-
-
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 function xb_generateNavigation(nStoreId,nPage,nNav,t,nAction)
 --print("page"..nPage);
 	local nMaxItems = getn(t);
@@ -141,8 +167,7 @@ function xb_generateNavigation(nStoreId,nPage,nNav,t,nAction)
 	
 	--------------- Initial and calculate ---------------
 	local tbSay = {}
-	local nMaxinPage = 5;
-	local nPages = ceil(nMaxItems/nMaxinPage);
+	local nPages = ceil(nMaxItems/MAXINPAGE);
 	---------------
 	local nBegin = 0;
 	nPage = nPage + nNav;
@@ -152,7 +177,7 @@ function xb_generateNavigation(nStoreId,nPage,nNav,t,nAction)
 	if nPage == 1 then 
 		nBegin = 1;
 	else
-		nBegin = (nPage-1) * nMaxinPage + 1;	
+		nBegin = (nPage-1) * MAXINPAGE + 1;	
 	end
 	local nLastPageReached = nBegin;
 	---------------
@@ -163,7 +188,7 @@ function xb_generateNavigation(nStoreId,nPage,nNav,t,nAction)
 		-- print("nOverflow = nMaxItems - nLastPageReached",  nOverflow,nMaxItems, nLastPageReached)
 		nEnd = nBegin + nOverflow;
 	else
-		nEnd = nBegin + nMaxinPage - 1;
+		nEnd = nBegin + MAXINPAGE - 1;
 	end
 	-- print(nBegin,nEnd);
 	---------------
@@ -184,22 +209,22 @@ function xb_generateNavigation(nStoreId,nPage,nNav,t,nAction)
 		tinsert(tbSay,format(tbFunctions[nStoreId][nAction][2],i,t[i][1],t[i][3],i));
 	end
 	-- insert last page empty lines
-	local nEmptyLine = nMaxinPage - (nEnd - nBegin + 1);
-	if nEmptyLine < nMaxinPage then 
+	local nEmptyLine = MAXINPAGE - (nEnd - nBegin + 1);
+	if nEmptyLine < MAXINPAGE then 
 		for i=1, nEmptyLine do 
 			tinsert(tbSay," ");
 		end
 	end
 	-- insert page navigation
 	if nPage < nPages then 
-		tinsert(tbSay, format("Trang kÕ/#%s(1)",tbFunctions[nStoreId][nAction][1]))
+		tinsert(tbSay, format(">> Trang kÕ >>/#%s(1)",tbFunctions[nStoreId][nAction][1]))
 	else
-		tinsert(tbSay, format("Trang ®Çu/#%s(%d)",tbFunctions[nStoreId][nAction][1],-nPages+1))
+		tinsert(tbSay, format("<<<< Trang ®Çu <<<</#%s(%d)",tbFunctions[nStoreId][nAction][1],-nPages+1))
 	end
 	if nPage > 1 then 
-		tinsert(tbSay, format("Trang tr­íc/#%s(-1)",tbFunctions[nStoreId][nAction][1]))
+		tinsert(tbSay, format("<< Trang tr­íc <</#%s(-1)",tbFunctions[nStoreId][nAction][1]))
 	else
-		tinsert(tbSay, format("Trang cuèi/#%s(%d)",tbFunctions[nStoreId][nAction][1],nPages-nPage))
+		tinsert(tbSay, format(">>>> Trang cuèi >>>>/#%s(%d)",tbFunctions[nStoreId][nAction][1],nPages-nPage))
 	end
 	-- put/take one page
 	tinsert(tbSay,format(tbFunctions[nStoreId][nAction][4],nBegin,nEnd));
@@ -213,6 +238,7 @@ function xb_generateNavigation(nStoreId,nPage,nNav,t,nAction)
 	return nPage;
 end;
 
+-------------------------------------------------------------------------------
 
 
 
@@ -228,12 +254,18 @@ tbMessages = {
 		putallin = "§· bá tÊt c¶ vµo xe chë ®å!",
 		putonein = "§· bá %s x%d vµo xe chë ®å!",
 		putoneoverload = "<color=red>Xe qu¸ ®Çy, kh«ng thÓ chÊt thªm ®å!<color>",
+	},
+	[3] = {
+		overload = "<color=red>B­u côc qu¸ t¶i, kh«ng thÓ nhËn thªm nhiÒu ®å!<color>",
+		putallin = "§· bá tÊt c¶ vµo gãi ®å!",
+		putonein = "§· bá %s x%d vµo gãi ®å!",
+		putoneoverload = "<color=red>B­u côc qu¸ t¶i, kh«ng thÓ nhËn thªm ®å!<color>",
 	}
 }
 
-
-
+-------------------------------------------------------------------------------
 function xb_puttrayin(t,nStoreId,szStoreFileName)
+	--print("[",MAX_ITEM ,getn(t) , GetStoreFreeRoom(nStoreId,szStoreFileName),"]")
 	if MAX_ITEM ~= nil and MAX_ITEM > 0 and getn(t) > GetStoreFreeRoom(nStoreId,szStoreFileName) then 
 		Talk(1,"",tbMessages[nStoreId].overload);
 		
@@ -286,7 +318,7 @@ function checkOverload(nPutinItems,nStoreId,szStoreFileName)
 	end
 	return 0;
 end;
-
+-------------------------------------------------------------------------------
 function xb_putthispage(tItems,nBegin,nEnd,nStoreId,szStoreFileName)
 	local nPutinItems = nEnd - nBegin + 1;
 	if checkOverload(nPutinItems,nStoreId,szStoreFileName) == 1 then 
@@ -314,7 +346,12 @@ function xb_putonein(tItems,nInTableItemIndex,nStoreId,szStoreFileName)
 	DelItem(object[2][1],object[2][2],object[2][3],object[3]);
 	insertrowtodata(object,nStoreId,szStoreFileName);
 	Msg2Player(format(tbMessages[nStoreId].putonein,object[1],object[3]));
-	showThingsIn(0);
+	local nItems = getn(tItems);
+	if nItems/MAXINPAGE ==  floor(nItems/MAXINPAGE) then
+		showThingsIn(-1);
+	else
+		showThingsIn(0);
+	end
 end;
 
 function xb_putallin(tItems,nStoreId,szStoreFileName)
@@ -335,7 +372,7 @@ function xb_putallin(tItems,nStoreId,szStoreFileName)
 	Msg2Player(tbMessages[nStoreId].putallin)
 	
 end;
-
+-------------------------------------------------------------------------------
 
 function xb_takethispage(nBegin,nEnd,nStoreId,szStoreFileName)
 	if nEnd - nBegin > GetFreeItemRoom() then 
@@ -374,9 +411,15 @@ function xb_takethispage(nBegin,nEnd,nStoreId,szStoreFileName)
 		if object == nil then
 			print(i,nEnd)
 		end
-		local nResult, nItemIndex = AddItem(object[2][1],object[2][2],object[2][3],object[3]);
-		if  object[5] and tonumber(object[5]) ~= nil and tonumber(object[5]) > 0 then 
-			SetItemExpireTime(nItemIndex,object[5]);
+		
+		if GetFreeItemRoom() == 0 then
+			DropItems(object[2][1],object[2][2],object[2][3],object[3])
+		else
+			
+			local nResult, nItemIndex = AddItem(object[2][1],object[2][2],object[2][3],object[3]);
+			if  object[5] and tonumber(object[5]) ~= nil and tonumber(object[5]) > 0 then 
+				SetItemExpireTime(nItemIndex,object[5]);
+			end
 		end
 		RemoveItemFromFile(object,nStoreId,szStoreFileName);
 
@@ -391,7 +434,12 @@ function xb_takeoneout(nInTableItemIndex,nStoreId,szStoreFileName)
 		SetItemExpireTime(nItemIndex,object[5]);
 	end
 	RemoveItemFromFile(object,nStoreId,szStoreFileName);
-	showThingsOut(0);
+	local nItems = getn(TB_ITEMS);
+	if nItems/MAXINPAGE ==  floor(nItems/MAXINPAGE) then
+		showThingsOut(-1);
+	else
+		showThingsOut(0);
+	end
 end;
 
 
@@ -541,7 +589,7 @@ function DropItemsByList(tItems)
 		DropItems(t[i][2][1],t[i][2][2],t[i][2][3],t[i][3]);
 	end
 end;
-
+-------------------------------------------------------------------------------
 function GetItemIndexFromFile(g,d,p)
 	for i=1, ITEM_COUNT do 
 		if(	g == tonumber(TB_ITEMS[i][2][1])
@@ -573,6 +621,7 @@ end;
 -- take all out action
 function erasedata(nStoreId,szStoreFileName)
 	generateItemFilePath(WRITE_FILE,nStoreId,szStoreFileName);
+	print("erasedata>>ITEM_FILEPATH:",ITEM_FILEPATH)
 	local file = openfile(ITEM_FILEPATH, "w")
 	write(file,"");
 	closefile(file)
@@ -595,16 +644,20 @@ end;
 
 -- takeout action
 function overwritedata(nStoreId,szStoreFileName)
+	--print("overwritedata>>szStoreFileName",szStoreFileName)
 	generateItemFilePath(WRITE_FILE,nStoreId,szStoreFileName);
+	--print("overwritedata>>ITEM_FILEPATH",ITEM_FILEPATH)
 	local file = openfile(ITEM_FILEPATH, "w");
 	local string = tableofobjectstostring(TB_ITEMS);
 	write(file,string);
 	closefile(file)
 	
 	local logfile = openfile(ITEM_LOG_FILEPATH, "a+")
-	local timenow = date("%y%m%d%H%M%S");
-	write(logfile,"takeout:"..timenow..":\n"..string);
-	closefile(logfile);
+	if logfile then
+		local timenow = date("%y%m%d%H%M%S");
+		write(logfile,"putin:"..timenow..":\n"..string);
+		closefile(logfile);
+	end
 end;
 
 -- putin action
@@ -616,9 +669,11 @@ function inserttabletodata(table,nStoreId,szStoreFileName)
 	closefile(file)
 	
 	local logfile = openfile(ITEM_LOG_FILEPATH, "a+")
-	local timenow = date("%y%m%d%H%M%S");
-	write(logfile,"putin:"..timenow..":\n"..string);
-	closefile(logfile);
+	if logfile then
+		local timenow = date("%y%m%d%H%M%S");
+		write(logfile,"putin:"..timenow..":\n"..string);
+		closefile(logfile);
+	end
 end;
 
 function insertrowtodata(object,nStoreId,szStoreFileName)
@@ -626,38 +681,55 @@ function insertrowtodata(object,nStoreId,szStoreFileName)
 	inserttabletodata(table,nStoreId,szStoreFileName)
 end;
 
-
+-------------------------------------------------------------------------------
 -- nAction value: nil,0,1 is write to file, 2 is read from file
 function generateItemFilePath(nAction, nStoreId, szStoreFileName)
 	player_rolename = GetName();
 	player_rolename = totelex(player_rolename);
 	
-	local file_name = player_rolename;
+	local file_name = player_rolename..".txt";
 	if szStoreFileName ~= nil and szStoreFileName ~= 0 and szStoreFileName ~= "" then 
 		file_name = szStoreFileName;
 	end
 	
-	if nStoreId == nil or nStoreId == 0 or nStoreId == 1 then 
-		if nAction == nil or nAction == 0 or nAction == 1 then		-- write to file
-			ITEM_FILEPATH = "data/expand_box/"..file_name..".txt";
-			ITEM_LOG_FILEPATH = "data/logs/expand_box/"..file_name..".txt";
-		else														-- read from file
-			ITEM_FILEPATH = "\\data\\expand_box\\"..file_name..".txt";
-			--ITEM_LOG_FILEPATH = "\\data\\logs\\expand_box\\"..file_name..".txt";
-		end
-	else
-		if nAction == nil or nAction == 0 or nAction == 1 then
-			ITEM_FILEPATH = "data/carriage/"..file_name..".txt";
-			ITEM_LOG_FILEPATH = "data/logs/carriage/"..file_name..".txt";
-		else
-			ITEM_FILEPATH = "\\data\\carriage\\"..file_name..".txt";
-			--ITEM_LOG_FILEPATH = "\\data\\logs\\carriage\\"..file_name..".txt";
-		end
+	-- if nStoreId == nil or nStoreId == 0 or nStoreId == 1 then 
+		-- if nAction == nil or nAction == 0 or nAction == 1 then		-- write to file
+			-- ITEM_FILEPATH = "data/expand_box/"..file_name;
+			-- ITEM_LOG_FILEPATH = "data/logs/expand_box/"..file_name;
+		-- else														-- read from file
+			-- ITEM_FILEPATH = "\\data\\expand_box\\"..file_name;
+			-- --ITEM_LOG_FILEPATH = "\\data\\logs\\expand_box\\"..file_name;
+		-- end
+	-- else
+		-- if nAction == nil or nAction == 0 or nAction == 1 then
+			-- ITEM_FILEPATH = "data/carriage/"..file_name;
+			-- ITEM_LOG_FILEPATH = "data/logs/carriage/"..file_name;
+		-- else
+			-- ITEM_FILEPATH = "\\data\\carriage\\"..file_name;
+			-- --ITEM_LOG_FILEPATH = "\\data\\logs\\carriage\\"..file_name;
+		-- end
+	-- end
+	
+	if nStoreId == nil or nStoreId == 0 then
+		nStoreId = 1;
+	end
+	
+	-- default nAction = 1 -- write to file
+	ITEM_FILEPATH = g_tbDirectoryName[nStoreId]..file_name;
+	ITEM_LOG_FILEPATH = g_tbDirectoryName[nStoreId].."logs/"..file_name;
+	
+	--print("ITEM_FILEPATH",ITEM_FILEPATH)
+	makeDirectory(g_tbDirectoryName[nStoreId],file_name)
+	makeDirectory(g_tbDirectoryName[nStoreId].."logs/",file_name)
+	
+	
+	if nAction == 2 then -- read from file
+		ITEM_FILEPATH = "\\"..gsub(ITEM_FILEPATH,"/","\\");
+		ITEM_LOG_FILEPATH = "\\"..gsub(ITEM_LOG_FILEPATH,"/","\\");
 	end
 	
 	
-	
-	-- print(ITEM_FILEPATH);
+	-- print("ITEM_FILEPATH",ITEM_FILEPATH);
 	-- print("ITEM_LOG_FILEPATH",ITEM_LOG_FILEPATH);
 end;
 
@@ -668,6 +740,10 @@ function GetStoreFreeRoom(nStoreId,szStoreFileName)
 	if nStoreId == STORE_ID_EXPAND_BOX then 
 		return MAX_EXPAND_BOX_ITEMS - ITEM_COUNT;
 	elseif nStoreId == STORE_ID_CARRIAGE then
+		return MAX_CARRIAGE_ITEMS - ITEM_COUNT;
+	elseif nStoreId == STORE_ID_MAIL then
+		return MAX_CARRIAGE_ITEMS - ITEM_COUNT;
+	else
 		return MAX_CARRIAGE_ITEMS - ITEM_COUNT;
 	end
 end;
@@ -698,18 +774,18 @@ end;
 
 
 function init(nStoreId, szStoreFileName)
-	--print("expand_box >> init >> szStoreFileName",szStoreFileName)
+	--print("---------- expand_box >> init >> szStoreFileName",szStoreFileName)
 	generateItemFilePath(READ_FILE,nStoreId,szStoreFileName)
 	TB_DATAITEMS = {}
 	TB_DATAITEMS = new(KTabFile, ITEM_FILEPATH);
 	TB_ITEMS, ITEM_COUNT = getListFromFile();
-	--print("nStoreId:",nStoreId);
-	--print("ITEM_FILEPATH",ITEM_FILEPATH)
-	--print("TB_ITEMS",getn(TB_ITEMS))
-	--print("ITEM_COUNT",ITEM_COUNT)
+	-- print("nStoreId:",nStoreId);
+	-- print("ITEM_FILEPATH",ITEM_FILEPATH)
+	-- print("TB_ITEMS",getn(TB_ITEMS))
+	-- print("ITEM_COUNT",ITEM_COUNT)
 end
 
-
+-------------------------------------------------------------------------------
 function nothing() 
 	--pullKey()
 end;
@@ -719,3 +795,4 @@ function pullKey()
 		AddItem(key[1],key[2],key[3],1)
 	end
 end;
+

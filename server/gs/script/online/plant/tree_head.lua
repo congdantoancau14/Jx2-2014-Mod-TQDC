@@ -117,8 +117,8 @@ function Get_Time_String(nSecond)
 end;
 --判断是不是在０８年元宵节活动期间
 function Check_YuanXiao08_Date()
-	local nTime = tonumber(date("%Y%m%d%H"));
-	if nTime >= 2008031200 and nTime <= 2048031623 then
+	local nTime = tonumber(date("%m%d%H"));
+	if nTime >= 031200 and nTime <= 031623 then
 		return 1;
 	else
 		return 0;

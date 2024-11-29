@@ -1,5 +1,5 @@
 Include("\\script\\lib\\item.lua");
-Include("\\script\\mod\\carriage\\carriage_head.lua");
+--Include("\\script\\mod\\carriage\\carriage_head.lua");
 
 key = {2,1,29005}	-- Khãa
 box = {2,1,29006}	-- R­¬ng

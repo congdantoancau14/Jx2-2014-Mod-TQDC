@@ -410,7 +410,7 @@ function checkItemInTable(table,str)
 				tinsert(tDupplicates,index); -- continue searching
 			end
 		else
-			print("unexpected value, expected table. Current value: ",value);
+			print("punish_bad>>checkItemInTable>>unexpected value, expected table. Current value: ",value);
 		end
 	end
 	if isExist == 0 then -- refind with relative accuracy

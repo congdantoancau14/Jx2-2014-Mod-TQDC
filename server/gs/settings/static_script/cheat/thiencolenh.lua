@@ -66,7 +66,7 @@ function OpenThienCo()
 		-- "Add Items/showInputter",
 		"Get Last talked NPC infomation/getNPCInfo",
 		"Get this position coordinate/getPosition",
-		"[[ Manage tasks ]]/manageTasks",
+		">> Manage tasks <</manageTasks",
 		">> GM functions <</showGMFunctions",
 		-- "§i Vâ L©m minh/#goToWorld(1)",
 		-- "§i BiÖn Kinh/#goToWorld(2)",
@@ -84,20 +84,13 @@ function OpenThienCo()
 	Say(g_szTitle.."Lùa chän chøc n¨ng", getn(tSay), tSay);
 end
 
-function test()
-
-	CreateNpc("L·nh qu©n t­îng binh m·","Ngùa",GetWorldPos());
-
-
-	--SummonNpc("Ma Ni T¨ng");
-
-end;
 
 tCastState = {
 	{"state_p_attack_point_add","Ngo¹i c«ng t¨ng",1000000,5},
 	{"state_m_attack_point_add","Néi kÝch t¨ng",1000000,5},
 	{"state_damage_point","S¸t th­¬ng t¨ng",1000000,5},
 	{"state_max_carry_point_add","Søc lùc t¨ng",20000,60},
+	
 }
 
 function changeState()
@@ -201,6 +194,7 @@ function increase_attack(nIndex)
 	local nTime = 60*tCastState[nIndex][4];
 	CastState(tCastState[nIndex][1],tCastState[nIndex][3],18*nTime)
 	StartTimeGuage(tCastState[nIndex][2],nTime)
+	SyncCustomState(1,9908,1,tCastState[nIndex][3]);
 end;
 
 function reloadFile(id)
@@ -261,7 +255,7 @@ function manageTasks()
 		"TiÕn vµo Tµng KiÕm s¬n trang/goTangKiem",
 		"Khëi ®éng lß n­íng/showlistLoNuong",
 		"Khëi ®éng Tø linh ®Ønh/startTiaozhanSiling",
-		format("Thªm %d §µn H­¬ng méc vµo Tø Linh ®Ønh/#addTanXiangMu(%d)",50,50),
+		format("Thªm %d §µn H­¬ng méc vµo Tø Linh ®Ønh/#addTanXiangMu(%d)",100,100),
 		"Khëi ®éng nhiÖm vô hµnh c­íc/createCollecEvent",
 		"Khëi ®éng S¸t thñ ®­êng/startKillerHall",
 		"Khëi ®éng Cao thñ s­ m«n/#call_faction_bt_boss(0,0,0,1)",
@@ -421,7 +415,7 @@ function getNPCInfo()
 	if isEmpty(nNpcIndex) or isEmpty(script) or isEmpty(name) then
 		Msg2Player("Kh«ng thÓ do th¸m th«ng tin. C¸c h¹ ch­a ®èi tho¹i víi npc nµo!")
 	else
-		local sMessage = "* NPC Index: "..nNpcIndex
+		local sMessage = "\n* NPC Index: "..nNpcIndex
 			.."\n* NPC Name: [ "..name.." ]"
 			..format("\n* Coordinate: %d,%d,%d",m,x,y)
 			.."\n* NPC Script path: "..script

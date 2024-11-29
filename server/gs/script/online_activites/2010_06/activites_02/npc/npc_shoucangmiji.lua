@@ -14,8 +14,8 @@ function main()
         local tbSel = {VET_201006_02_TB_STRING_LIST[2].."/change_school_book",VET_201006_02_TB_STRING_LIST[3].."/gf_DoNothing"}
         local nDate = tonumber(date("%y%m%d"));
 --	   if nDate >= 120224 and nDate <= 120311 then
---		tinsert(tbSel, 1, "Ta muèn ®æi 1 cuèn mËt tÞch 70 cao cÊp ngÉu nhiªn (5 Tu ch©n yÕu quyÕt + 400 S«c«la)/BuyVET_70_GAOJIMIJI");
-		--tinsert(tbSel, 1, "Ta muèn ®æi 1 cuèn mËt tÞch 70 cao cÊp ngÉu nhiªn (tiªu hao 2 Hoµng Kim §¹i Hång Bao(999 vµng)/BuyVET_70_GAOJIMIJI_New");
+		tinsert(tbSel, 1, "Ta muèn ®æi 1 cuèn mËt tÞch 70 cao cÊp ngÉu nhiªn (5 Tu ch©n yÕu quyÕt + 400 S«c«la)/BuyVET_70_GAOJIMIJI");
+		tinsert(tbSel, 1, "Ta muèn ®æi 1 cuèn mËt tÞch 70 cao cÊp ngÉu nhiªn (tiªu hao 2 Hoµng Kim §¹i Hång Bao(999 vµng)/BuyVET_70_GAOJIMIJI_New");
 		tinsert(tbSel, 1,"Ta muèn mua mét cuèn mËt tÞch/MatTichSoCap_Mua_Page1");
 		tinsert(tbSel, 1,"LuyÖn nhanh MËt tÞch phô/MatTichPhu_Fast");
 		tinsert(tbSel, 1,"LuyÖn nhanh MËt tÞch chÝnh/MatTichChinh_Fast");
@@ -88,10 +88,10 @@ end
 
 function BuyVET_70_GAOJIMIJI()
 	local nDate = tonumber(date("%y%m%d"));
-	if nDate < 120224 or nDate > 120311 then
-		Talk(1, "", "Ho¹t ®éng ®· qu¸ h¹n thêi gian råi");
-		return 
-	end
+	--if nDate < 120224 or nDate > 120311 then
+		--Talk(1, "", "Ho¹t ®éng ®· qu¸ h¹n thêi gian råi");
+		--return 
+	--end
 	
 	if  GetTranslifeCount() == 1 then
 		VIET_MATTICH_TIMES = 2

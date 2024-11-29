@@ -3016,4 +3016,4 @@ ID	Thêi gian hiÖu qu¶ cÊp 1	Thêi gian hiÖu qu¶ cÊp 2	Thêi gian hiÖu qu¶ cÊp 3	Th
 10000									0	state_add_allability	350;0		0	state_burst_enhance_rate	240;0		0	state_critical_damage_increase	500;250	Kh¸ng tÊt c¶ t¨ng:/1 <enter>Tèc ®é thi triÓn vâ c«ng t¨ng/2% <enter>S¸t th­¬ng b¹o kİch + /3									1
 010295									0	state_def_critical_point_increase	450;100		0	state_def_critical_damage_increase	880;100					Phßng thñ b¹o kİch +/1<enter>Gi¶m th­¬ng b¹o kİch +/2								1;1	1
 10001									0	state_stamina_restore_per8f	1000;0									Mçi nöa gi©y thÓ lùc håi phôc 1% 									1
-10002									0	state_max_carry_point_add	200000;0									Søc lùc+/1									1
+10002									0	state_max_carry_point_add	100000;100									Søc lùc+/1									1

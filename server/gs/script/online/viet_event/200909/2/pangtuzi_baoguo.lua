@@ -9,6 +9,8 @@ Include("\\script\\vng\\award\\feature_award.lua")
 --Event
 Include("\\settings\\static_script\\cheat\\event\\event_init.lua");
 
+SPACING_TIME = 15 -- thêi gian gi·n c¸ch hai lÇn click vµo lß nuíng: MÆc ®?nh: 45 gi©y
+
 function main()
 	-- if GetTask(TSK_THONUONG_ACCEPT) ~= 1 then
 		-- Talk(1, "", "B¹n ch­a nhËn nhiÖm vô nªn kh«ng thÓ tham gia bµn tiÖc.");
@@ -53,9 +55,9 @@ function main()
 	-- value: sè lÇn ¨n 	
 	-- ?gm ds Msg2Player(GetByte(GetTask(100),3))	
 	
-	-- thêi gian gi·n c¸ch hai lÇn click vµo lß nuíng lµ 45 gi©y
-	if GetTime() - GetTask(GET_PANGTUZI_TIME_ID) < 15 then
-		Talk(1,"","B¹n cßn "..GetTask(GET_PANGTUZI_TIME_ID) + 45 - GetTime().." gi©y míi cã thÓ tiÕp tôc th­ëng thøc ThÞt N­íng.")
+	
+	if GetTime() - GetTask(GET_PANGTUZI_TIME_ID) < SPACING_TIME then
+		Talk(1,"","B¹n cßn "..GetTask(GET_PANGTUZI_TIME_ID) + SPACING_TIME - GetTime().." gi©y míi cã thÓ tiÕp tôc th­ëng thøc ThÞt N­íng.")
 		return 0
 	end
 	
@@ -116,9 +118,9 @@ function main()
 		AddItem(1,1,13,1)
 	end
 	
-	-- doi 45 gi©y míi cã thÓ ¨n ®­îc n÷a	
+	-- doi SPACING_TIME gi©y míi cã thÓ ¨n ®­îc n÷a	
 	local szNPCName = GetNpcName(nSelfIndex);
-	StartTimeGuage(szNPCName,45,0,1) --StartTimeGuage("ThÞt N­íng",45,0,1)	
+	StartTimeGuage(szNPCName,SPACING_TIME,0,1) --StartTimeGuage("ThÞt N­íng",45,0,1)	
 	
 		
 	if GetTask(TSK_THONUONG_ACCEPT) == 1 then

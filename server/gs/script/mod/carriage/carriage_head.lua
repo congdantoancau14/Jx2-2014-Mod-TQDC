@@ -1,6 +1,6 @@
 Include("\\script\\misc\\taskmanager.lua");
 Include("\\script\\lib\\npccmdhead.lua");
-Include("\\script\\mod\\carriage\\npc_xevanchuyen.lua");
+--Include("\\script\\mod\\carriage\\npc_xevanchuyen.lua");
 
 MAX_DISTANCE = 70;
 BIAOCHE_TASKGROUP =  TaskManager:Create(11,10);
@@ -171,8 +171,8 @@ end;
 
 function returnCarriage(nForce)
 	npc_name = format("<color=green>%s<color>: ",GetTargetNpcName());
-	local nCarriageId = GetTask(BIAOCHE_INDEX);
-	init(STORE_ID_CARRIAGE,nCarriageId);
+	--local nCarriageId = GetTask(BIAOCHE_INDEX);
+	--init(STORE_ID_CARRIAGE,nCarriageId);
 	-- print(STORE_ID_CARRIAGE,ITEM_COUNT,getn(TB_ITEMS));
 	
 	local nMap,nPosX,nPosY = GetWorldPos();
@@ -214,10 +214,11 @@ function returnCarriage(nForce)
 		end
 	end
 	
-	init(STORE_ID_CARRIAGE, GetTask(BIAOCHE_NAME));
+	--init(STORE_ID_CARRIAGE, GetTask(BIAOCHE_NAME));
 	--print("BIAOCHE_NAME:"..GetTask(BIAOCHE_NAME));
 	--print("ITEM_COUNT:",ITEM_COUNT)
-	if ITEM_COUNT > 0 then 
+	local itemCount = SendScript2VM("\\script\\online\\qianhe_tower\\qht_head.lua", format("checkItemNumber(%s)", GetTask(BIAOCHE_NAME)));	
+	if itemCount > 0 then --ITEM_COUNT > 0 then 
 		Talk(1,"",npc_name.."Ng­¬i bá quªn ®å trªn xe k×a! §i ®©u mµ véi vµng thÕ?!!")
 		return 0;
 	end
