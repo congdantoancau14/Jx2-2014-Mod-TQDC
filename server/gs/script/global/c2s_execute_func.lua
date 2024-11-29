@@ -9,6 +9,7 @@ Include("\\script\\global\\get_offline_point.lua")
 --Include("\\script\\lib\\task_id_manage.lua")
 Include("\\script\\task\\global_task\\gtask_data.lua");
 function main(dwParam)
+--print("dwParam"..dwParam);
         if dwParam >= 65536 then
                 code = floor(dwParam / 65536);
                 dwParam = mod(dwParam, 65536);

@@ -5,11 +5,11 @@ tRouteMap = {}
 
 function OnUse()
 	move_carriage()
-	-- BIAOCHE_TASKGROUP:SetTask(BIAOCHE_TASKGROUP.BIAOCHE_INDEX,0);
-	-- BIAOCHE_TASKGROUP:SetTask(BIAOCHE_TASKGROUP.RENT_MAP,0);
-	-- print("\nBIAOCHE_TASKGROUP:GetTask(BIAOCHE_TASKGROUP.BIAOCHE_INDEX)",BIAOCHE_TASKGROUP:GetTask(BIAOCHE_TASKGROUP.BIAOCHE_INDEX))
-	-- print("BIAOCHE_TASKGROUP:GetTask(BIAOCHE_TASKGROUP.RENT_MAP)",BIAOCHE_TASKGROUP:GetTask(BIAOCHE_TASKGROUP.RENT_MAP))
-	-- print("BIAOCHE_TASKGROUP:GetTask(BIAOCHE_TASKGROUP.RENT_TIME)",BIAOCHE_TASKGROUP:GetTask(BIAOCHE_TASKGROUP.RENT_TIME))
+	-- SetTask(BIAOCHE_INDEX,0);
+	-- SetTask(BIAOCHE_RENT_MAP,0);
+	-- print("\nGetTask(BIAOCHE_INDEX)",GetTask(BIAOCHE_INDEX))
+	-- print("GetTask(BIAOCHE_RENT_MAP)",GetTask(BIAOCHE_RENT_MAP))
+	-- print("GetTask(BIAOCHE_RENT_TIME)",GetTask(BIAOCHE_RENT_TIME))
 end;
 
 function move_carriage()
@@ -20,10 +20,10 @@ function move_carriage()
 	
 	local nCurTime = GetTime();
 	
-	local nOldCarIndex = BIAOCHE_TASKGROUP:GetTask(BIAOCHE_TASKGROUP.BIAOCHE_INDEX);
-	-- print("\n ________________________");
-	-- print("\n move_carriage >> nOldCarIndex",nOldCarIndex);
-	local nOldMap = BIAOCHE_TASKGROUP:GetTask(BIAOCHE_TASKGROUP.LAST_MAP);
+	local nOldCarIndex = GetTask(BIAOCHE_INDEX);
+	--print("\n ________________________");
+	--print("\n move_carriage >> nOldCarIndex",nOldCarIndex);
+	local nOldMap = GetTask(BIAOCHE_LAST_MAP);
 	
 	local nNpcMapID,nNpcPosX,nNpcPosY = GetNpcWorldPos(nOldCarIndex);
 	local nDistance = abs(nPosX-nNpcPosX)+abs(nPosY-nNpcPosY);
@@ -31,6 +31,8 @@ function move_carriage()
 	-- print(nDistance);
 	
 	local nNewMap = nMap;
+	
+	--print(nNewMap.."-"..nOldMap);
 	if nOldCarIndex ~= 0 then
 		if nNewMap == nOldMap then
 			if nDistance > MAX_DISTANCE then 
@@ -57,11 +59,13 @@ function moveBiaoChe(nCarIndex,pos)
 end;
 
 function createBiaoChe()
-	local nCarIndex = CreateNpc("Xe vËn chuyÓn","Xe chë ®å",GetWorldPos());
+	local nCarriageName = GetTask(BIAOCHE_NAME);
+	local nCarIndex = CreateNpc("Xe vËn chuyÓn",nCarriageName,GetWorldPos());
 	SetNpcScript(nCarIndex,"\\script\\mod\\carriage\\npc_xevanchuyen.lua");
-	BIAOCHE_TASKGROUP:SetTask(BIAOCHE_TASKGROUP.BIAOCHE_INDEX, nCarIndex);
+	SetTask(BIAOCHE_INDEX, nCarIndex);
+	--print("huancheling>>createBiaoChe>>nCarIndex:"..nCarIndex);
 	local nMap = GetWorldPos();
-	BIAOCHE_TASKGROUP:SetTask(BIAOCHE_TASKGROUP.LAST_MAP, nMap);
+	SetTask(BIAOCHE_LAST_MAP, nMap);
 	if nCarIndex ~= 0 then
 	
 		-- local nNpcID = GetNpcID(nCarIndex);

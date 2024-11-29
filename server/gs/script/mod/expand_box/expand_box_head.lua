@@ -232,8 +232,8 @@ tbMessages = {
 
 
 
-function xb_puttrayin(t,nStoreId,nNpcIndex)
-	if MAX_ITEM ~= nil and MAX_ITEM > 0 and getn(t) > GetStoreFreeRoom(nStoreId,nNpcIndex) then 
+function xb_puttrayin(t,nStoreId,szStoreFileName)
+	if MAX_ITEM ~= nil and MAX_ITEM > 0 and getn(t) > GetStoreFreeRoom(nStoreId,szStoreFileName) then 
 		Talk(1,"",tbMessages[nStoreId].overload);
 		
 		return 0;
@@ -253,7 +253,7 @@ function xb_puttrayin(t,nStoreId,nNpcIndex)
 		local nItemAfterDelCount = GetItemCount(g,d,p);
 		local nCount = nItemBeforeDelCount - nItemAfterDelCount;
 		local object = {szItemName,{g,d,p},nCount,nGenertTime,nExpireTime};
-		insertrowtodata(object,nStoreId,nNpcIndex);
+		insertrowtodata(object,nStoreId,szStoreFileName);
 		Msg2Player(format(tbMessages[nStoreId].putonein,szItemName,nCount));
 	end
 end;
@@ -269,13 +269,13 @@ function get_item_count(t, id1, id2, id3)
 end
 
 
-function checkOverload(nPutinItems,nStoreId,nNpcIndex)
+function checkOverload(nPutinItems,nStoreId,szStoreFileName)
 	if nStoreId == STORE_ID_EXPAND_BOX then 
 		MAX_ITEM = MAX_EXPAND_BOX_ITEMS;
 	elseif nStoreId == STORE_ID_CARRIAGE then 
 		MAX_ITEM = MAX_CARRIAGE_ITEMS;
 	end
-	if MAX_ITEM ~= nil and MAX_ITEM > 0 and nPutinItems > GetStoreFreeRoom(nStoreId,nNpcIndex) then
+	if MAX_ITEM ~= nil and MAX_ITEM > 0 and nPutinItems > GetStoreFreeRoom(nStoreId,szStoreFileName) then
 		if nPutinItems == 1 then 
 			Talk(1,"",tbMessages[nStoreId].putoneoverload);
 		else
@@ -286,9 +286,9 @@ function checkOverload(nPutinItems,nStoreId,nNpcIndex)
 	return 0;
 end;
 
-function xb_putthispage(tItems,nBegin,nEnd,nStoreId,nNpcIndex)
+function xb_putthispage(tItems,nBegin,nEnd,nStoreId,szStoreFileName)
 	local nPutinItems = nEnd - nBegin + 1;
-	if checkOverload(nPutinItems,nStoreId,nNpcIndex) == 1 then 
+	if checkOverload(nPutinItems,nStoreId,szStoreFileName) == 1 then 
 		return 0;
 	end
 
@@ -299,25 +299,25 @@ function xb_putthispage(tItems,nBegin,nEnd,nStoreId,nNpcIndex)
 	for i=nBegin, nEnd do 
 		local object = tItems[i];
 		DelItem(object[2][1],object[2][2],object[2][3],object[3]);
-		insertrowtodata(object,nStoreId,nNpcIndex);
+		insertrowtodata(object,nStoreId,szStoreFileName);
 		Msg2Player(format(tbMessages[nStoreId].putonein,tItems[i][1],tItems[i][3]));
 	end
 	showThingsIn(0);
 end;
 
-function xb_putonein(tItems,nInTableItemIndex,nStoreId,nNpcIndex)
-	if checkOverload(1,nStoreId,nNpcIndex) == 1 then 
+function xb_putonein(tItems,nInTableItemIndex,nStoreId,szStoreFileName)
+	if checkOverload(1,nStoreId,szStoreFileName) == 1 then 
 		return 0;
 	end
 	local object = tItems[nInTableItemIndex];
 	DelItem(object[2][1],object[2][2],object[2][3],object[3]);
-	insertrowtodata(object,nStoreId,nNpcIndex);
+	insertrowtodata(object,nStoreId,szStoreFileName);
 	Msg2Player(format(tbMessages[nStoreId].putonein,object[1],object[3]));
 	showThingsIn(0);
 end;
 
-function xb_putallin(tItems,nStoreId,nNpcIndex)
-	if checkOverload(getn(tItems),nStoreId,nNpcIndex) == 1 then 
+function xb_putallin(tItems,nStoreId,szStoreFileName)
+	if checkOverload(getn(tItems),nStoreId,szStoreFileName) == 1 then 
 		
 		return 0;
 	end
@@ -330,13 +330,13 @@ function xb_putallin(tItems,nStoreId,nNpcIndex)
 		tItems = removeItemsFromTable(tExceptItems, tItems)
 	end
 	DelItemsByList(tItems);
-	inserttabletodata(tItems,nStoreId,nNpcIndex);
+	inserttabletodata(tItems,nStoreId,szStoreFileName);
 	Msg2Player(tbMessages[nStoreId].putallin)
 	
 end;
 
 
-function xb_takethispage(nBegin,nEnd,nStoreId,nNpcIndex)
+function xb_takethispage(nBegin,nEnd,nStoreId,szStoreFileName)
 	if nEnd - nBegin > GetFreeItemRoom() then 
 		Talk(1,"","<color=red>Hµnh trang qu¸ ®Çy!<color>");
 		
@@ -370,24 +370,24 @@ function xb_takethispage(nBegin,nEnd,nStoreId,nNpcIndex)
 		if  object[5] and tonumber(object[5]) ~= nil and tonumber(object[5]) > 0 then 
 			SetItemExpireTime(nItemIndex,object[5]);
 		end
-		RemoveItemFromFile(object,nStoreId,nNpcIndex);
+		RemoveItemFromFile(object,nStoreId,szStoreFileName);
 
 	end
 	showThingsOut(0);
 end;
 
-function xb_takeoneout(nInTableItemIndex,nStoreId,nNpcIndex)
+function xb_takeoneout(nInTableItemIndex,nStoreId,szStoreFileName)
 	local object = TB_ITEMS[nInTableItemIndex];
 	local nResult, nItemIndex = AddItem(object[2][1],object[2][2],object[2][3],object[3]);
 	if object[5] and tonumber(object[5]) ~= nil and tonumber(object[5]) > 0 then 
 		SetItemExpireTime(nItemIndex,object[5]);
 	end
-	RemoveItemFromFile(object,nStoreId,nNpcIndex);
+	RemoveItemFromFile(object,nStoreId,szStoreFileName);
 	showThingsOut(0);
 end;
 
 
-function xb_takeallout(nStoreId,nNpcIndex)
+function xb_takeallout(nStoreId,szStoreFileName)
 	local nFreeRoom = GetFreeItemRoom();
 	local nOverflow = 0;
 	
@@ -401,7 +401,7 @@ function xb_takeallout(nStoreId,nNpcIndex)
 		end
 	end
 
-	erasedata(nStoreId,nNpcIndex);
+	erasedata(nStoreId,szStoreFileName);
 end;
 
 -------------------------------------------------------------------------------
@@ -439,8 +439,8 @@ function create_expand_boxs()
 	local name = "R­¬ng lín";
 	local t = tExpandBoxs;
 	for i=1, getn(t) do 
-		local nNpcIndex = CreateNpc(model,name,t[i][2][1],t[i][2][2],t[i][2][3])
-		SetNpcScript(nNpcIndex,script);
+		local szStoreFileName = CreateNpc(model,name,t[i][2][1],t[i][2][2],t[i][2][3])
+		SetNpcScript(szStoreFileName,script);
 	end
 	
 	create_small_expand_boxs();
@@ -452,8 +452,8 @@ function create_small_expand_boxs()
 	local name = "R­¬ng ®å";
 	local t = tSmallExpandBoxs;
 	for i=1, getn(t) do 
-		local nNpcIndex = CreateNpc(model,name,t[i][2][1],t[i][2][2]+3,t[i][2][3])
-		SetNpcScript(nNpcIndex,script);
+		local szStoreFileName = CreateNpc(model,name,t[i][2][1],t[i][2][2]+3,t[i][2][3])
+		SetNpcScript(szStoreFileName,script);
 	end
 end;
 
@@ -546,7 +546,7 @@ function GetItemIndexFromFile(g,d,p)
 	return 0;
 end;
 
-function RemoveItemFromFile(tItem,nStoreId,nNpcIndex)
+function RemoveItemFromFile(tItem,nStoreId,szStoreFileName)
 	local result = 0;
 	for i=1, ITEM_COUNT do 
 		if (	tItem[2][1] == TB_ITEMS[i][2][1]
@@ -558,59 +558,55 @@ function RemoveItemFromFile(tItem,nStoreId,nNpcIndex)
 			break
 		end
 	end
-	overwritedata(nStoreId,nNpcIndex);
+	overwritedata(nStoreId,szStoreFileName);
 	return result;
 end;
 
 
-function erasedata(nStoreId,nNpcIndex)
-	generateItemFilePath(WRITE_FILE,nStoreId,nNpcIndex);
+function erasedata(nStoreId,szStoreFileName)
+	generateItemFilePath(WRITE_FILE,nStoreId,szStoreFileName);
 	local file = openfile(ITEM_FILEPATH, "w")
 	write(file,"");
 	closefile(file)
-	
 end;
 
-function overwritedata_original(nStoreId,nNpcIndex)
-	generateItemFilePath(WRITE_FILE,nStoreId,nNpcIndex);
+function overwritedata_original(nStoreId,szStoreFileName)
+	generateItemFilePath(WRITE_FILE,nStoreId,szStoreFileName);
 	local file = openfile(ITEM_FILEPATH, "w")
 	for i=1,ITEM_COUNT do 
 		write(file,tableofobjectstostring(TB_ITEMS[i]));
 	end
 	closefile(file)
-	
 end;
 
-function overwritedata(nStoreId,nNpcIndex)
-	generateItemFilePath(WRITE_FILE,nStoreId,nNpcIndex);
+function overwritedata(nStoreId,szStoreFileName)
+	generateItemFilePath(WRITE_FILE,nStoreId,szStoreFileName);
 	local file = openfile(ITEM_FILEPATH, "w")
 	write(file,tableofobjectstostring(TB_ITEMS));
 	closefile(file)
-	
 end;
 
-function inserttabletodata(table,nStoreId,nNpcIndex)
-	generateItemFilePath(WRITE_FILE,nStoreId,nNpcIndex);
+function inserttabletodata(table,nStoreId,szStoreFileName)
+	generateItemFilePath(WRITE_FILE,nStoreId,szStoreFileName);
 	local file = openfile(ITEM_FILEPATH, "a+")
 	write(file,tableofobjectstostring(table));
 	closefile(file)
-	
 end;
 
-function insertrowtodata(object,nStoreId,nNpcIndex)
+function insertrowtodata(object,nStoreId,szStoreFileName)
 	local table = {object}
-	inserttabletodata(table,nStoreId,nNpcIndex)
+	inserttabletodata(table,nStoreId,szStoreFileName)
 end;
 
 
 -- nAction value: nil,0,1 is write to file, 2 is read from file
-function generateItemFilePath(nAction, nStoreId, nNpcIndex)
+function generateItemFilePath(nAction, nStoreId, szStoreFileName)
 	player_rolename = GetName();
 	player_rolename = totelex(player_rolename);
 	
 	local file_name = player_rolename;
-	if nNpcIndex ~= nil then 
-		file_name = nNpcIndex;
+	if szStoreFileName ~= nil and szStoreFileName ~= 0 and szStoreFileName ~= "" then 
+		file_name = szStoreFileName;
 	end
 	
 	if nStoreId == nil or nStoreId == 0 or nStoreId == 1 then 
@@ -631,9 +627,14 @@ function generateItemFilePath(nAction, nStoreId, nNpcIndex)
 end;
 
 
-function GetStoreFreeRoom(nStoreId,nNpcIndex)
-	generateItemFilePath(READ_FILE,nStoreId,nNpcIndex);
-	return MAX_EXPAND_BOX_ITEMS - ITEM_COUNT;
+function GetStoreFreeRoom(nStoreId,szStoreFileName)
+	generateItemFilePath(READ_FILE,nStoreId,szStoreFileName);
+	
+	if nStoreId == STORE_ID_EXPAND_BOX then 
+		return MAX_EXPAND_BOX_ITEMS - ITEM_COUNT;
+	elseif nStoreId == STORE_ID_CARRIAGE then
+		return MAX_CARRIAGE_ITEMS - ITEM_COUNT;
+	end
 end;
 
 function getListFromFile()
@@ -661,17 +662,18 @@ function getListFromFile()
 end;
 
 
-function init(nStoreId, nNpcIndex)
-	-- print("expand_box >> init >> nNpcIndex",nNpcIndex)
-	generateItemFilePath(READ_FILE,nStoreId,nNpcIndex)
-	-- print(nStoreId,ITEM_FILEPATH);
+function init(nStoreId, szStoreFileName)
+	print("expand_box >> init >> szStoreFileName",szStoreFileName)
+	generateItemFilePath(READ_FILE,nStoreId,szStoreFileName)
 	TB_DATAITEMS = {}
 	TB_DATAITEMS = new(KTabFile, ITEM_FILEPATH);
 	TB_ITEMS, ITEM_COUNT = getListFromFile();
-	-- print("ITEM_FILEPATH",ITEM_FILEPATH)
-	-- print("TB_ITEMS",getn(TB_ITEMS))
-	-- print("ITEM_COUNT",ITEM_COUNT)
+	print("nStoreId:",nStoreId);
+	print("ITEM_FILEPATH",ITEM_FILEPATH)
+	print("TB_ITEMS",getn(TB_ITEMS))
+	print("ITEM_COUNT",ITEM_COUNT)
 end
+
 
 function nothing() 
 	--pullKey()

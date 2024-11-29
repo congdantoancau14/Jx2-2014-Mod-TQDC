@@ -35,6 +35,10 @@ function countRows()
 	return nRows;
 end;
 
+function checkEmptyRow(string)
+	return string == "" or string == nil;
+end;
+
 function getNumber()
 	AskClientForNumber("showShop",1,MAX_SHOP,"NhËp m· gian hµng");
 end;

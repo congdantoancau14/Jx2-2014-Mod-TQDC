@@ -1,5 +1,6 @@
 Include("\\script\\lib\\globalfunctions.lua");
 Include("\\settings\\static_script\\cheat\\event\\event_init.lua");
+Include("\\script\\online\\eating\\eating_head.lua");
 
 ListGif_1 = {
 	-- {"Thiªn M«n Kim LÖnh", 20, {2,1,30370,1},0},
@@ -214,6 +215,7 @@ function OnUse(nItemIndex)
 		end
 		bonus();
 	end
+	ET_OnItemUse(nItemIndex)
 end
 
 function getExpireTime(days)

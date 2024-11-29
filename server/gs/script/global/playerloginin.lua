@@ -141,7 +141,10 @@ function ItemLockAlert()
 	end
 end
 
+
+
 function main(ExchangeComing)
+
 	local nPlayerRoute = GetPlayerRoute();
 	--NOTE: it MUST be the 1st one calling for resetting things by SunZhuoshi
 	--< Added by SunZhuoshi

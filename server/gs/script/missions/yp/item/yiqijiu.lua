@@ -1,6 +1,8 @@
 Include("\\script\\missions\\yp\\yp_head.lua")
+Include("\\script\\online\\eating\\eating_head.lua")
 
-function OnUse()
+nItemIndex = 0;
+function OnUse(nItemIndex)
 	Say("Dïng sÏ t¨ng <color=yellow>50 ®iÓm<color> th©n thiÖn víi ®éi tr­ëng, tr­íc khi dïng h·y kÕt h¶o h÷u víi ®éi tr­ëng tr­íc, b»ng kh«ng khi dïng sÏ kh«ng nhËn ®­îc hiÖu qu¶. §ång ý dïng?",
 		2,
 		"\n§óng/confirm_use",
@@ -38,5 +40,6 @@ function confirm_use_final(nCount)
 	end	
 	if DelItem(tPVPItemInfo[16][2],tPVPItemInfo[16][3],tPVPItemInfo[16][4],nCount) == 1 then
 		ModifyFriendliness(GetName(GetTeamMember(0)),50*nCount);
+		ET_OnItemUse(nItemIndex)
 	end
 end

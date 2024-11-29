@@ -4,18 +4,22 @@ MAX_ITEM = MAX_CARRIAGE_ITEMS;
 g_tbInBagItems = {}
 g_nStoreId = STORE_ID_CARRIAGE;
 nNpcIndex = nil;
+szStoreFileName = "unknown";
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
 function main()
-	nNpcIndex = GetTargetNpc();  -- Disable this will store items with rolename
-	local nCarriageId = BIAOCHE_TASKGROUP:GetTask(BIAOCHE_TASKGROUP.BIAOCHE_INDEX);
+	nNpcIndex = GetTargetNpc(); 
+	local nCarriageName = GetNpcName(nNpcIndex);
+	szStoreFileName = nCarriageName;
+	local nCarriageId = GetTask(BIAOCHE_INDEX);
 	-- print(nNpcIndex,nCarriageId);
 	
 	-- init(g_nStoreId);	-- Store items with player rolename as filename
-	init(g_nStoreId,nNpcIndex); -- Store items with npcindex as filename
+	init(g_nStoreId,nCarriageName); -- Store items with npcindex as filename
+	--init(g_nStoreId,0); -- Store items with playername n?p?c?i?n?d?e?x? as filename
 	
 	local szHead = format("T×nh tr¹ng hµng trªn xe: %d/%d",ITEM_COUNT,MAX_CARRIAGE_ITEMS)
-	if nNpcIndex ~= nCarriageId then 
+	if GetTargetNpc() ~= nCarriageId then 
 		szHead = "<color=red>ChÊt nhê ®å lªn xe<color>. "..szHead;
 	end
 	
@@ -63,7 +67,7 @@ function OnPutinComplete(param)
 		-- end
 	-- end
 	
-	xb_puttrayin(t,g_nStoreId,nNpcIndex);
+	xb_puttrayin(t,g_nStoreId,szStoreFileName);
 	
 end
 
@@ -101,27 +105,27 @@ end;
 
 
 function putthispage(nBegin,nEnd)
-	xb_putthispage(g_tbInBagItems,nBegin,nEnd,g_nStoreId,nNpcIndex)
+	xb_putthispage(g_tbInBagItems,nBegin,nEnd,g_nStoreId,szStoreFileName)
 end;
 
 function putonein(nInTableItemIndex)
-	xb_putonein(g_tbInBagItems,nInTableItemIndex,g_nStoreId,nNpcIndex)
+	xb_putonein(g_tbInBagItems,nInTableItemIndex,g_nStoreId,szStoreFileName)
 end;
 
 function putallin()
-	xb_putallin(g_tbInBagItems,g_nStoreId,nNpcIndex)
+	xb_putallin(g_tbInBagItems,g_nStoreId,szStoreFileName)
 end;
 
 function takethispage(nBegin,nEnd)
-	xb_takethispage(nBegin,nEnd,g_nStoreId,nNpcIndex)
+	xb_takethispage(nBegin,nEnd,g_nStoreId,szStoreFileName)
 end;
 
 function takeoneout(nInTableItemIndex)
-	xb_takeoneout(nInTableItemIndex,g_nStoreId,nNpcIndex)
+	xb_takeoneout(nInTableItemIndex,g_nStoreId,szStoreFileName)
 end;
 
 function takeallout()
-	xb_takeallout(g_nStoreId,nNpcIndex)
+	xb_takeallout(g_nStoreId,szStoreFileName)
 end;
 
 function nothing()
@@ -213,26 +217,26 @@ function showThingsIn_original(nNav)
 end;
 
 function putthispage_original(nPage,nBegin,nEnd)
-	if nEnd - nBegin > GetStoreFreeRoom(g_nStoreId,nNpcIndex) then 
+	if nEnd - nBegin > GetStoreFreeRoom(g_nStoreId,szStoreFileName) then 
 		Talk(1,"","<color=red>Xe qu¸ ®Çy, kh«ng thÓ chÊt thªm nhiÒu ®å!<color>");
 		return 0;
 	end
 	for i=nBegin, nEnd do 
 		local object = g_tbInBagItems[i];
 		DelItem(object[2][1],object[2][2],object[2][3],object[3]);
-		insertrowtodata(object,g_nStoreId,nNpcIndex);
+		insertrowtodata(object,g_nStoreId,szStoreFileName);
 		Msg2Player(format("§· bá %s x%d vµo xe chë ®å",g_tbInBagItems[i][1],g_tbInBagItems[i][3]));
 	end
 	showThingsIn(0);
 end;
 
 function putallin_original()
-	if getn(g_tbInBagItems) > GetStoreFreeRoom(g_nStoreId,nNpcIndex) then 
+	if getn(g_tbInBagItems) > GetStoreFreeRoom(g_nStoreId,szStoreFileName) then 
 		Talk(1,"","<color=red>Xe qu¸ ®Çy, kh«ng thÓ chÊt thªm nhiÒu ®å!<color>");
 		return 0;
 	end
 	DelItemsByList(g_tbInBagItems);
-	inserttabletodata(g_tbInBagItems,g_nStoreId,nNpcIndex);
+	inserttabletodata(g_tbInBagItems,g_nStoreId,szStoreFileName);
 	Msg2Player();
 end;
 
@@ -244,7 +248,7 @@ function putonein_original(index)
 	end
 	local object = g_tbInBagItems[index];
 	DelItem(object[2][1],object[2][2],object[2][3],object[3]);
-	insertrowtodata(object,g_nStoreId,nNpcIndex);
+	insertrowtodata(object,g_nStoreId,szStoreFileName);
 	Msg2Player(format("§· bá %s x%d vµo xe ®å",g_tbInBagItems[index][1],g_tbInBagItems[index][3]));
 	showThingsIn(0);
 end;

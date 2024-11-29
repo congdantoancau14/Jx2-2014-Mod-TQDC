@@ -4,10 +4,11 @@ Include("\\script\\mod\\carriage\\npc_xevanchuyen.lua");
 
 MAX_DISTANCE = 70;
 BIAOCHE_TASKGROUP =  TaskManager:Create(11,10);
-BIAOCHE_TASKGROUP.BIAOCHE_INDEX 	 = 41;
-BIAOCHE_TASKGROUP.RENT_MAP			 = 42;
-BIAOCHE_TASKGROUP.RENT_TIME			 = 43;
-BIAOCHE_TASKGROUP.LAST_MAP			 = 44;
+BIAOCHE_INDEX 	 = 3058;
+BIAOCHE_RENT_MAP			 = 3059;
+BIAOCHE_RENT_TIME			 = 3060;
+BIAOCHE_LAST_MAP			 = 3061;
+BIAOCHE_NAME				= 3062;
 
 tHuanCheLing = {2,1,29004}
 npc_name = "";
@@ -20,8 +21,8 @@ function rentCarriage()
 	
 	local npc_name = format("<color=green>%s<color>: ",GetTargetNpcName());
 
-	local nNpcIdx = BIAOCHE_TASKGROUP:GetTask(BIAOCHE_TASKGROUP.BIAOCHE_INDEX);
-	print("\nrentCarriage >> GetTask(BIAOCHE_TASKGROUP.BIAOCHE_INDEX): "..nNpcIdx);
+	local nNpcIdx = GetTask(BIAOCHE_INDEX);
+	print("\nrentCarriage >> GetTask(BIAOCHE_INDEX): "..nNpcIdx);
 	
 	if nNpcIdx == 0 then
 		createCarriage()
@@ -36,7 +37,7 @@ function rentCarriage()
 end;
 
 function is_rent_carriage_outtime()
-	local nNpcIdx = BIAOCHE_TASKGROUP:GetTask(BIAOCHE_TASKGROUP.BIAOCHE_INDEX);
+	local nNpcIdx = GetTask(BIAOCHE_INDEX);
 	if nNpcIdx ~= 0 and get_rent_carriage_days() > 1 then 
 		return 1;
 	end
@@ -44,8 +45,10 @@ function is_rent_carriage_outtime()
 end;
 
 function get_rent_carriage_days()
+
 	local nCurTime = GetTime();
-	local nRentTime = BIAOCHE_TASKGROUP:GetTask(BIAOCHE_TASKGROUP.RENT_TIME);
+	local nRentTime = GetTask(BIAOCHE_RENT_TIME);
+
 	if nRentTime == 0 then 
 		return 0;
 	end
@@ -58,9 +61,11 @@ function createCarriage(nLost)
 	
 	local nMap,nPosX,nPosY = GetWorldPos();
 	local tPos = {{nPosX,nPosY},}
-	
-	local nOldNpcIdx = BIAOCHE_TASKGROUP:GetTask(BIAOCHE_TASKGROUP.BIAOCHE_INDEX);
-	local nOldMap = BIAOCHE_TASKGROUP:GetTask(BIAOCHE_TASKGROUP.RENT_MAP);
+	------------------------------------------------------
+	---------------  for losing car ----------------------
+	local nOldNpcIdx = GetTask(BIAOCHE_INDEX); 
+	--print("carriage_head.lua>.createCarriage>>nOldNpcIdx:"..nOldNpcIdx)
+	local nOldMap = GetTask(BIAOCHE_RENT_MAP);
 	
 	local nNpcMapID,nNpcPosX,nNpcPosY = GetNpcWorldPos(nOldNpcIdx);
 	local nDistance = abs(nPosX-nNpcPosX)+abs(nPosY-nNpcPosY);
@@ -101,18 +106,15 @@ function createCarriage(nLost)
 			return 0;
 		end
 	end
+	--------------- end for losing car ----------------------
 	
+	--------------------------------------------------------
+	---------------  for rent new car ----------------------
 	if Pay(51000) ~= 1 then 
 		Talk(1,"",npc_name.."Kh«ng cã tiÒn mµ còng ®ßi thuª xe sao? BiÕn ®i chç kh¸c cho ta lµm ¨n");
 		return 0;
 	end
-	
-	giveCarriage();
-end;
 
-function giveCarriage()
-	local nOldNpcIdx = BIAOCHE_TASKGROUP:GetTask(BIAOCHE_TASKGROUP.BIAOCHE_INDEX);
-	
 	if GetItemCount(tHuanCheLing[1],tHuanCheLing[2],tHuanCheLing[3]) < 1 then 
 		AddItem(tHuanCheLing[1],tHuanCheLing[2],tHuanCheLing[3],1);
 	end
@@ -127,15 +129,23 @@ function giveCarriage()
 	)
 	
 	SetNpcLifeTime(nOldNpcIdx,0);
-	local nNpcIdx = CreateNpc("Xe vËn chuyÓn", "Xe chë ®å", GetWorldPos());
+	
+	local nTemplateNpcIndex = CreateNpc("Dù L­u"," ",GetWorldPos());
+	local szNpcName = nTemplateNpcIndex;
+	SetNpcLifeTime(nTemplateNpcIndex, 0);
+	--print("nTemplateNpcIndex:"..nTemplateNpcIndex)
+	
+	local nNpcIdx = CreateNpc("Xe vËn chuyÓn", szNpcName, GetWorldPos());
 	SetNpcScript(nNpcIdx,"\\script\\mod\\carriage\\npc_xevanchuyen.lua");
-	BIAOCHE_TASKGROUP:SetTask(BIAOCHE_TASKGROUP.BIAOCHE_INDEX,nNpcIdx);
 
-	BIAOCHE_TASKGROUP:SetTask(BIAOCHE_TASKGROUP.RENT_MAP,nMap);
-	BIAOCHE_TASKGROUP:SetTask(BIAOCHE_TASKGROUP.LAST_MAP,nMap);
+	SetTask(BIAOCHE_INDEX,nNpcIdx);
+	SetTask(BIAOCHE_NAME,szNpcName);
+--print("createCarriage>>nNpcIdx:"..nNpcIdx);
+	SetTask(BIAOCHE_RENT_MAP,nMap);
+	SetTask(BIAOCHE_LAST_MAP,nMap);
 	
 	local nTime = GetTime()
-	BIAOCHE_TASKGROUP:SetTask(BIAOCHE_TASKGROUP.RENT_TIME,nTime);
+	SetTask(BIAOCHE_RENT_TIME,nTime);
 	
 	if nNpcIdx ~= 0 then
 	
@@ -145,7 +155,9 @@ function giveCarriage()
 		
 		--SetNpcTempData(nNpcIdx, 1, nBCType)
 	end
+	--------------- end for rent new car ----------------------
 end;
+
 
 function payLost()
 	if Pay(1000000) == 1 then 
@@ -159,16 +171,16 @@ end;
 
 function returnCarriage(nForce)
 	npc_name = format("<color=green>%s<color>: ",GetTargetNpcName());
-	local nCarriageId = BIAOCHE_TASKGROUP:GetTask(BIAOCHE_TASKGROUP.BIAOCHE_INDEX);
-	init(nStoreId,nCarriageId);
-	-- print(nStoreId,ITEM_COUNT,getn(TB_ITEMS));
+	local nCarriageId = GetTask(BIAOCHE_INDEX);
+	init(STORE_ID_CARRIAGE,nCarriageId);
+	-- print(STORE_ID_CARRIAGE,ITEM_COUNT,getn(TB_ITEMS));
 	
 	local nMap,nPosX,nPosY = GetWorldPos();
 	local tPos = {{nPosX,nPosY},}
 
 	
-	local nOldNpcIdx = BIAOCHE_TASKGROUP:GetTask(BIAOCHE_TASKGROUP.BIAOCHE_INDEX);
-	local nOldMap = BIAOCHE_TASKGROUP:GetTask(BIAOCHE_TASKGROUP.RENT_MAP);
+	local nOldNpcIdx = GetTask(BIAOCHE_INDEX);
+	local nOldMap = GetTask(BIAOCHE_RENT_MAP);
 	
 	local nNpcMapID,nNpcPosX,nNpcPosY = GetNpcWorldPos(nOldNpcIdx);
 	local nDistance = abs(nPosX-nNpcPosX)+abs(nPosY-nNpcPosY);
@@ -202,6 +214,9 @@ function returnCarriage(nForce)
 		end
 	end
 	
+	init(STORE_ID_CARRIAGE, GetTask(BIAOCHE_NAME));
+	--print("BIAOCHE_NAME:"..GetTask(BIAOCHE_NAME));
+	--print("ITEM_COUNT:",ITEM_COUNT)
 	if ITEM_COUNT > 0 then 
 		Talk(1,"",npc_name.."Ng­¬i bá quªn ®å trªn xe k×a! §i ®©u mµ véi vµng thÕ?!!")
 		return 0;
@@ -220,9 +235,9 @@ function returnCarriage(nForce)
 		end
 	end
 	
-	BIAOCHE_TASKGROUP:SetTask(BIAOCHE_TASKGROUP.BIAOCHE_INDEX,0);
-	BIAOCHE_TASKGROUP:SetTask(BIAOCHE_TASKGROUP.RENT_MAP,0);
-	BIAOCHE_TASKGROUP:SetTask(BIAOCHE_TASKGROUP.RENT_TIME,0);
+	SetTask(BIAOCHE_INDEX,0);
+	SetTask(BIAOCHE_RENT_MAP,0);
+	SetTask(BIAOCHE_RENT_TIME,0);
 	SetNpcLifeTime(nNpcIdx,0);
 	Earn(50000);
 	DelItem(tHuanCheLing[1],tHuanCheLing[2],tHuanCheLing[3],1);

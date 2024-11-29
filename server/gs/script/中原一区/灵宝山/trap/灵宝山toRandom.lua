@@ -1,6 +1,7 @@
 --
 
 function main()
+print("trap is called")
 	local nResult = 0;
 	while nResult ~= 1 do
 		local nMap = random(100,8910);

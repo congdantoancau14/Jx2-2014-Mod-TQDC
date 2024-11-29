@@ -1,8 +1,23 @@
 function OnUse()
+	getThisPos();
+end;
+
+function getThisPos()
+	local m,x,y = GetWorldPos();
+
+	local string = format("\n[ %d,%d,%d ]",m,x,y);
+	print(string)
+	Msg2Player(string);
+end;
+
+function getTargetNpc()
 	local nNpcIndex = GetTargetNpc()
 	local name = GetNpcName(nNpcIndex);
 	local m,x,y = GetNpcWorldPos(nNpcIndex);
 	local script = GetNpcScript(nNpcIndex);
 	
-	print(format("\n[ %d,%d,%d ]",m,x,y),script)
-end;
+	local string = format("\n[ %d,%d,%d ]",m,x,y)..script;
+	print(string)
+	Msg2Player(string);
+
+end

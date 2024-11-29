@@ -254,7 +254,7 @@ function make_niurou()
 	else
 		strSex = "ThiÕu hiÖp/N÷ hiÖp"
 	end
-	if GetItemCount(1,0,33) == 0 or GetItemCount(2,1,258) == 0  or GetItemCount(2,1,255) == 0 then
+	if GetItemCount(1,1,33) == 0 or GetItemCount(2,1,258) == 0  or GetItemCount(2,1,255) == 0 then
 		Say("Xin lçi, b¹n kh«ng ®ñ vËt liÖu.",0)
 		return 0
 	end
@@ -263,10 +263,10 @@ function make_niurou()
 		return 0
 	end
 	local nRandomNum = random(1,100)
-	if DelItem(1,0,33,1) == 1 and DelItem(2,1,258,1) == 1 and DelItem(2,1,255,1) == 1 then
+	if DelItem(1,1,33,1) == 1 and DelItem(2,1,258,1) == 1 and DelItem(2,1,255,1) == 1 then
 		Pay(3000)
 		if nRandomNum <= 50 then
-			if AddItem(1,0,34,1) == 1 then
+			if AddItem(1,1,34,1) == 1 then
 				WriteLog("[Ho¹t ®éng mïa xu©n ChÕ biÕn sñi c¶o]:"..GetName().."NhËn ®­îc 1 sñi c¶o thÞt bß.")
 				Say("Sñi c¶o th¬m ngon ®©y!"..strSex.."h·y th­ëng thøc!",0)
 				Msg2Player("B¹n nhËn ®­îc 1 sñi c¶o thÞt bß")
@@ -299,7 +299,7 @@ function make_zhurou()
 		Pay(2000)
 		local nRandomNum = random(1,100)
 		if nRandomNum <= 50 then
-			if AddItem(1,0,33,1) == 1 then
+			if AddItem(1,1,33,1) == 1 then
 				WriteLog("[Ho¹t ®éng mïa xu©n ChÕ biÕn sñi c¶o]:"..GetName().."NhËn ®­îc 1 sñi c¶o thÞt heo.")
 				Say("Sñi c¶o th¬m ngon ®©y!"..strSex.."h·y th­ëng thøc!",0)
 				Msg2Player("B¹n nhËn ®­îc 1 sñi c¶o thÞt heo")
@@ -320,7 +320,7 @@ function make_xiaren()
 	else
 		strSex = "ThiÕu hiÖp/N÷ hiÖp"
 	end
-	if GetItemCount(2,1,259) == 0 or GetItemCount(1,0,34) == 0  or GetItemCount(2,1,255) == 0 then
+	if GetItemCount(2,1,259) == 0 or GetItemCount(1,1,34) == 0  or GetItemCount(2,1,255) == 0 then
 		Say("Xin lçi, b¹n kh«ng ®ñ vËt liÖu.",0)
 		return 0
 	end		
@@ -328,11 +328,11 @@ function make_xiaren()
 		Say("Xin lçi, b¹n kh«ng ®ñ tiÒn.",0)
 		return 0
 	end
-	if DelItem(2,1,259,1) == 1 and DelItem(1,0,34,1) == 1 and DelItem(2,1,255,1) == 1 then
+	if DelItem(2,1,259,1) == 1 and DelItem(1,1,34,1) == 1 and DelItem(2,1,255,1) == 1 then
 		Pay(4000)
 		local nRandomNum = random(1,100)
 		if nRandomNum <= 50 then
-			if AddItem(1,0,35,1) == 1 then
+			if AddItem(1,1,35,1) == 1 then
 				WriteLog("[Ho¹t ®éng mïa xu©n ChÕ biÕn sñi c¶o]:"..GetName().."NhËn ®­îc 1 sñi c¶o t«m.")
 				Say("Sñi c¶o th¬m ngon ®©y!"..strSex.."h·y th­ëng thøc!",0)
 				Msg2Player("B¹n nhËn ®­îc 1 sñi c¶o t«m")
@@ -513,7 +513,7 @@ function make_sanxian()
 	else
 		strSex = "ThiÕu hiÖp/N÷ hiÖp"
 	end
-	if GetItemCount(1,0,35) < 3 then
+	if GetItemCount(1,1,35) < 3 then
 		Say("Xin lçi, b¹n kh«ng ®ñ vËt liÖu.",0)
 		return 0
 	end		
@@ -523,7 +523,7 @@ function make_sanxian()
 	end
 	local nRandomNum = random(1,100)
 	if nRandomNum <= 33 then
-		if DelItem(1,0,35,3) == 1 then
+		if DelItem(1,1,35,3) == 1 then
 			Pay(10000)
 			if AddItem(2,1,251,1) == 1 then
 				WriteLog("[Ho¹t ®éng mïa xu©n ChÕ biÕn sñi c¶o]:"..GetName().."NhËn ®­îc 1 sñi c¶o ba mãn.")
@@ -532,7 +532,7 @@ function make_sanxian()
 			end
 		end
 	else
-			DelItem(1,0,35,1)
+			DelItem(1,1,35,1)
 			Pay(10000)
 			Say("Sao thÕ? LÏ nµo l¹i thÊt b¹i? ThËt xin lçi! .",0)
 			Msg2Player("ChÕ biÕn sñi c¶o ba mãn thÊt b¹i.")	

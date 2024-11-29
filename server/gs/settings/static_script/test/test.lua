@@ -6,7 +6,17 @@ function OnUse()
 	test();
 end;
 
+
 function test()
+	
+end;
+
+function test2()
+	print(strlower("HIGOFDHIOGF"));
+	print(strupper("fdhsiogifgf"));
+end;
+
+function test1()
 	local m,x,y = GetWorldPos();
 	CreateNpc("Ma Ni T¨ng","Ma Ni T¨ng",m,x,y);
 	SummonNpc("Cô giµ");

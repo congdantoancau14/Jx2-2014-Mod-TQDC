@@ -381,6 +381,9 @@ GENRE	DETAIL_TYPE	CONTENT	UNREPLACABLE	UNREMOVABLE	VERSION	EXPIRE	TYPE	SCRIPTFIL
 65	30	§ãi c¬m	0	0	0	0	3	\script\global\playertitle.lua	Equip	UnEquip	\UImage\ÎåĞĞÍ¼±ê\³ÆºÅ.spr					
 65	31	Kh¸t n­íc	0	0	0	0	3	\script\global\playertitle.lua	Equip	UnEquip	\UImage\ÎåĞĞÍ¼±ê\³ÆºÅ.spr					
 65	32	Buån ngñ	0	0	0	0	3	\script\global\playertitle.lua	Equip	UnEquip	\UImage\ÎåĞĞÍ¼±ê\³ÆºÅ.spr					
+65	33	Say r­îu	0	0	0	0	3	\script\global\playertitle.lua	Equip	UnEquip	\UImage\ÎåĞĞÍ¼±ê\³ÆºÅ.spr					
+65	34	Béi thùc	0	0	0	0	3	\script\global\playertitle.lua	Equip	UnEquip	\UImage\ÎåĞĞÍ¼±ê\³ÆºÅ.spr					
+65	35	Phï thòng	0	0	0	0	3	\script\global\playertitle.lua	Equip	UnEquip	\UImage\ÎåĞĞÍ¼±ê\³ÆºÅ.spr					
 66	1	Chİ T«n V­¬ng Gi¶	0	0	0	0	5	\script\global\playertitle.lua	Equip	UnEquip	\UImage\µÚÈı°æ\wÎä»ê¶·ÆÇ\ÎäÊ¥.spr					
 66	2	§éc Bé Thiªn H¹	0	0	0	0	5	\script\global\playertitle.lua	Equip	UnEquip	\UImage\µÚÈı°æ\wÎä»ê¶·ÆÇ\°ÔÍõ.spr					
 66	3	Vâ l©m hµo kiÖt	0	0	0	0	5	\script\global\playertitle.lua	Equip	UnEquip	\UImage\µÚÈı°æ\wÎä»ê¶·ÆÇ\Ì©¶·.spr					

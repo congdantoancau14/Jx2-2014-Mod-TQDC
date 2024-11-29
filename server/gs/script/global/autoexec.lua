@@ -193,11 +193,13 @@ function main()
 	AddNpcHacBachVoThuong();
 	AddNpcDaShangRen();
 	AddNpcBienKinh();
+	AddNpcTayBienKinh();
 	AddTrapLinhBaoSon();
 	AddNpcBacThanhDo();
 	AddTrapTuyenChau();
 	AddNpcCayDao();
 	AddGaiBanHoa();
+	AddBanTraiCay();
 	
 	AddMinhGiao();
 	AddDuongMon();
@@ -210,16 +212,53 @@ function main()
 	AddExpandBox();
 	AddJubaopen();
 	AddWaterWells();
+	AddRestingPlaces();
 end;
 
 -------------------------------------------------------------------------------
 --							END OF MAIN FUNCTIONS
 -------------------------------------------------------------------------------
 
+function AddBanTraiCay()
+	-- B¸n tr¸i c©y
+	local nNpcIdx = CreateNpc("ThiÕu niªn trong th«n", "B¸n tr¸i c©y", 507,1722,3414);
+	SetNpcScript(nNpcIdx,"\\script\\Î÷±±Çø\\ÁúÃÅÕò\\npc\\npc_bantraicay.lua");
+end;
+
+function AddRestingPlaces()
+	local model = "Ng­êi v« h×nh";
+	local npc1 = "TiÓu ®×nh";
+	local script = "\\script\\online\\eating\\npc_resting.lua";
+	CreateNpcList({
+		{model,npc1,211,2029,3196,script},
+		{model,npc1,208,1423,2852,script},
+		{model,npc1,100,1246,2989,script},
+		{model,npc1,100,1409,2815,script},
+		{model,npc1,501,1583,3055,script},
+		{model,npc1,305,1715,2790,script},
+		{model,npc1,303,1723,2983,script},
+		{model,npc1,219,1364,3103,script},
+		{model,npc1,202,1448,2789,script},
+		{model,npc1,311,1473,2984,script},
+		{model,npc1,306,1370,2871,script},
+		{model,npc1,401,1597,3107,script},
+		{model,npc1,307,1377,2682,script}, -- Phong §«
+		{model,npc1,504,1410,2891,script},
+		{model,npc1,200,1372,2615,script},
+		{model,npc1,300,1672,3612,script},
+		{model,npc1,6016,1451,2934,script},
+		{model,npc1,6100,1836,3526,script}, -- Quúnh k?t
+		{model,npc1,502,1689,3103,script},	-- Hoa s¬n
+		{model,npc1,0,script},
+		{model,npc1,0,script},
+	});
+end
+
 function AddWaterWells()
 	local model = "Ng­êi v« h×nh";
 	local npc1 = "GiÕng n­íc";
 	local npc2 = "Suèi n­íc";
+	local npc2 = "Vòng n­íc";
 	local script = "\\script\\online\\eating\\npc_wells.lua";
 	CreateNpcList({
 		{model,npc1,100,1456,2897,script},
@@ -227,25 +266,30 @@ function AddWaterWells()
 		{model,npc2,102,1393,2785,script},
 		{model,npc2,105,1411,3154,script},
 		{model,npc1,106,1303,2937,script},
-		{model,npc1,107,1312,2763,script},
+		{model,npc2,107,1312,2763,script},
 		{model,npc1,107,1431,3025,script},
 		
 		{model,npc1,200,1334,2642,script},
-		{model,npc1,201,1405,2800,script},
+		{model,npc3,201,1405,2800,script},
 		{model,npc2,201,1545,2807,script},
 		{model,npc2,202,1397,2802,script},
-		{model,npc1,202,1414,3015,script},
-		{model,npc1,202,1586,3039,script},
-		{model,npc2,202,1398,2714,script},
+		--{model,npc1,202,1414,3015,script}, cèi ®¸
+		{model,npc3,202,1586,3039,script},
+		{model,npc3,202,1398,2714,script},
+		{model,npc1,202,1375,3023,script},
+		{model,npc3,202,1388,2966,script},
+		{model,npc3,202,1344,3162,script},
 		{model,npc2,203,1580,2804,script},
 		{model,npc2,204,1413,3233,script},
-		{model,npc2,205,1606,2837,script},
-		{model,npc1,205,1588,3228,script},
+		{model,npc2,205,1609,2837,script},
+		--{model,npc1,205,1588,3228,script}, -- cèi xay
 		{model,npc2,205,1862,2911,script},
-		{model,npc1,205,1644,3226,script},
-		{model,npc2,209,1607,3079,script},
+		{model,npc3,205,1644,3226,script},
 		{model,npc1,208,1501,2725,script},
-		{model,npc1,211,1542,3148,script},
+		{model,npc3,208,1433,3029,script},
+		{model,npc2,209,1607,3079,script},
+		{model,npc2,211,1542,3148,script},
+		{model,npc2,211,2022,3190,script},
 		
 		{model,npc1,300,1866,3403,script},
 		{model,npc1,300,1862,3527,script},
@@ -254,31 +298,40 @@ function AddWaterWells()
 		{model,npc1,300,1685,3591,script},
 		{model,npc1,303,1719,3004,script},
 		{model,npc2,303,1657,3295,script},
-		{model,npc1,305,1646,2875,script},
+		-- {model,npc1,305,1646,2875,script}, -- cèi xay
 		{model,npc2,308,1410,2965,script},
-		{model,npc1,308,1466,2932,script},
-		{model,npc1,310,1369,3204,script},
+		{model,npc3,308,1466,2932,script},
+		{model,npc3,310,1369,3204,script},
 		{model,npc1,310,1293,3019,script},
 		{model,npc2,311,1400,2631,script},
 		{model,npc2,312,1960,3295,script},
-		{model,npc1,312,1699,3655,script},
+		{model,npc2,312,1699,3655,script},
 		
-		{model,npc1,350,1379,2855,script},
+		{model,npc1,350,1381,2857,script},
 		{model,npc1,350,1338,3030,script},
-		{model,npc1,350,1345,2936,script},
+		{model,npc1,350,1347,2938,script},
 		{model,npc1,350,1578,2904,script},
 		{model,npc2,406,1310,2899,script},
-		{model,npc1,408,1325,2749,script},
+		{model,npc2,408,1325,2749,script},
 		
-		{model,npc1,500,1837,3148,script},
-		{model,npc1,500,1722,3269,script},
-		{model,npc1,500,1601,3155,script},
-		{model,npc1,504,1302,3149,script},
-		{model,npc1,507,1658,3403,script},
-		{model,npc1,507,1730,3384,script},
-		{model,npc1,507,1626,3351,script},
-		
-		
+		-- {model,npc1,500,1837,3148,script}, 	-- cèi xay
+		-- {model,npc1,500,1722,3269,script},	-- cèi xay
+		-- {model,npc1,500,1601,3155,script},	-- cèi xay
+		{model,npc1,500,1718,3011,script},
+		-- {model,npc1,504,1302,3149,script},	-- cèi xay
+		{model,"Vòng n­íc bÈn",504,1352,2841,script},
+		{model,npc1,505,1453,2994,script},
+		--{model,npc1,507,1658,3403,script},	--cèi xay
+		--{model,npc1,507,1730,3384,script},	--cèi xay
+		--{model,npc1,507,1626,3351,script},	--cèi xay
+		{model,npc1,507,1662,3416,script},
+		-- Mª cung sa m¹c
+		{model,npc3,506,1524,2928,script},
+		{model,npc3,506,1286,2927,script},
+		{model,npc3,506,1522,2883,script},
+		{model,npc3,506,1258,2973,script},
+		{model,npc3,506,1320,2687,script},
+		{model,npc3,506,1539,2712,script},
 	});
 end;
 
@@ -423,14 +476,23 @@ end;
 function AddNpcBacThanhDo()
 	local nNpcIdx = CreateNpc("C©y hoa qu¶"," ", 308,1405,3216);
 	SetNpcScript(nNpcIdx, "\\script\\online_activites\\202008\\npc\\npc_cayhoaqua.lua");
+	
+end;
+
+function AddNpcTayBienKinh()
+	local nNpcIndex = CreateNpc("TiÓu nhŞ trung nguyªn", "Chñ tiÖm nhá", 203,1472,2866);
+	SetNpcScript(nNpcIndex, "\\script\\ÖĞÔ­Ò»Çø\\ãê¾©¸®Î÷\\npc\\npc_chutiemnho.lua");
 end;
 
 function AddTrapTuyenChau()
 	for i=1598,1604 do -- Tuyen Chau - Dong Hai khu 1
 		AddMapTrap(100, i*32, 3162*32,"\\script\\½­ÄÏÇø\\ÈªÖİ\\trap\\ÈªÖİto¶«º£º£±õÒ».lua");
 	end
-	for i=1346,1352 do -- Dong Hai khu 2 - Bac Tuyen Chau
-		AddMapTrap(104, i*32, 2856*32,"\\script\\½­ÄÏÇø\\¶«º£º£±õ¶ş\\trap\\¶«º£º£±õ¶ştoÈªÖİ¸®±±.lua");
+	--for i=1346,1352 do -- Dong Hai khu 2 - Bac Tuyen Chau
+		--AddMapTrap(104, i*32, 2856*32,"\\script\\½­ÄÏÇø\\¶«º£º£±õ¶ş\\trap\\¶«º£º£±õ¶ştoÈªÖİ¸®±±.lua");
+	--end
+	for i=1330,1336 do -- Dong Hai khu 2 - Bac Tuyen Chau
+		AddMapTrap(104, i*32, 2842*32,"\\script\\½­ÄÏÇø\\¶«º£º£±õ¶ş\\trap\\¶«º£º£±õ¶ştoÈªÖİ¸®±±.lua");
 	end
 	for i=1394,1400 do -- Tay Tuyen Chau -> Minh Giao
 		AddMapTrap(105, i*32, 3180*32,"\\script\\½­ÄÏÇø\\ÈªÖİ¸®Î÷\\trap\\ÈªÖİ¸®Î÷toÃ÷½Ì.lua");
@@ -442,8 +504,12 @@ function AddTrapTuyenChau()
 end;
 
 function AddTrapLinhBaoSon()
-	for i=1903,1909 do
-		AddMapTrap(218, i*62, 3647*32,"\\script\\ÖĞÔ­Ò»Çø\\Áé±¦É½\\trap\\Áé±¦É½toRandom.lua");
+	--for i=1903,1909 do
+		--AddMapTrap(218, i*62, 3647*32,"\\script\\ÖĞÔ­Ò»Çø\\Áé±¦É½\\trap\\Áé±¦É½toRandom.lua");
+	--end
+	
+	for i=1897,1903 do
+		AddMapTrap(218, i*32, 3649*32,"\\script\\ÖĞÔ­Ò»Çø\\Áé±¦É½\\trap\\Áé±¦É½toRandom.lua");
 	end
 	
 	local tWoods = {
@@ -700,6 +766,10 @@ function AddTrapSanGuo()
 		AddMapTrap(507, i * 32, 3254 * 32, "\\script\\Î÷±±Çø\\ÁúÃÅÕò\\trap\\ÁúÃÅÕòto·ïÏè¸®±±.lua")
 	end
 	
+	for i = 1873, 1881 do -- Long M«n trÊn - Phông T­êng
+		AddMapTrap(507, i * 32, 3460 * 32, "\\script\\Î÷±±Çø\\ÁúÃÅÕò\\trap\\ÁúÃÅÕòto·ïÏè¸®.lua")
+	end
+	
 	for i = 1794, 1800 do -- Long M«n trÊn - H­ng Kh¸nh
 		AddMapTrap(507, i * 32, 3170 * 32, "\\script\\Î÷±±Çø\\ÁúÃÅÕò\\trap\\ÁúÃÅÕòtoĞËÇì.lua")
 	end
@@ -716,22 +786,30 @@ function AddTrapSanGuo()
 		-- AddMapTrap(505, i * 32, 3023 * 32, "\\script\\Î÷±±Çø\\Ò©Íõ¹È\\trap\\Ò©Íõ¹ÈtoĞËÇì.lua")
 	-- end
 	
-	-- for i = 1526, 1532 do -- H­ng Kh¸nh - ThÊt L¹c Nhai 2
-		-- AddMapTrap(6200, i * 32, 3110 * 32, "\\script\\Èı¹úÊÆÁ¦\\ĞËÇì\\trap\\ĞËÇìtoÊ§ÂäÑÂ2.lua")
-	-- end
+	for i = 1526, 1532 do -- H­ng Kh¸nh - ThÊt L¹c Nhai 2
+		AddMapTrap(6200, i * 32, 3110 * 32, "\\script\\Èı¹úÊÆÁ¦\\ĞËÇì\\trap\\ĞËÇìtoÊ§ÂäÑÂ2.lua")
+	end
 	
-	-- for i = 1395, 1402 do -- H­ng Kh¸nh - ThÊt L¹c Nhai 1
-		-- AddMapTrap(6200, i * 32, 3178 * 32, "\\script\\Èı¹úÊÆÁ¦\\ĞËÇì\\trap\\ĞËÇìtoÊ§ÂäÑÂ1.lua")
-	-- end
+	for i = 1395, 1402 do -- H­ng Kh¸nh - ThÊt L¹c Nhai 1
+		AddMapTrap(6200, i * 32, 3178 * 32, "\\script\\Èı¹úÊÆÁ¦\\ĞËÇì\\trap\\ĞËÇìtoÊ§ÂäÑÂ1.lua")
+	end
 
 	---------------------------------------------------------
 	
-	for i = 1796, 1802 do -- Quúnh KÕt - S­¬ng Phong Nhai
-		AddMapTrap(6100, i * 32, 3902 * 32, "\\script\\Èı¹úÊÆÁ¦\\Çí½á\\trap\\Çí½átoËª·çÑÂ.lua")
+	--for i = 1796, 1802 do -- Quúnh KÕt - S­¬ng Phong Nhai
+		--AddMapTrap(6100, i * 32, 3902 * 32, "\\script\\Èı¹úÊÆÁ¦\\Çí½á\\trap\\Çí½átoËª·çÑÂ.lua")
+	--end
+	
+	for i = 1795, 1801 do -- Quúnh KÕt - S­¬ng Phong Nhai
+		AddMapTrap(6100, i * 32, 3895 * 32, "\\script\\Èı¹úÊÆÁ¦\\Çí½á\\trap\\Çí½átoËª·çÑÂ.lua")
 	end
 	
 	for i = 1690, 1696 do -- S­¬ng Phong Nhai -> Quúnh KÕt
 		AddMapTrap(429, i * 32, 2834 * 32, "\\script\\Î÷ÄÏÇø\\Ëª·çÑÂ\\trap\\Ëª·çÑÂtoÇí½á.lua")
+	end
+	
+	for i = 1907, 1913 do -- Quúnh KÕt - ThÊt l¹c Nhai
+		AddMapTrap(6100, i * 32, 3264 * 32, "\\script\\Èı¹úÊÆÁ¦\\Çí½á\\trap\\Çí½átoËª·çÑÂ.lua")
 	end
 end;
 

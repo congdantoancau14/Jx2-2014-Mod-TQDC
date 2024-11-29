@@ -7,12 +7,12 @@ STATE_RIDED = 1
 STATE_UNRIDED = 0
 
 
---szHorseModel = "thiÕt d­¬ng";
-szHorseModel = "L·nh qu©n t­îng binh m·";
+szHorseModel = "thiÕt d­¬ng";
+--szHorseModel = "L·nh qu©n t­îng binh m·";
 
 tHorses = {
 	{"KiÖu Hoa","kiÖu"},
-	{"Niªn Thó","niªn thó to lín"},
+	{"Niªn thó","niªn thó to lín"},
 	{"Léc","thiÕt d­¬ng"},
 	{"Ng­u","mao ng­u"},
 	{"Hæ Tr¾ng","§¹i hæ"},
@@ -149,7 +149,7 @@ end;
 function search(name)
 	local index = 0;
 	for k,v in tHorses do 
-		if strfind(name,v[1]) ~= nil then 
+		if strfind(strlower(name),strlower(v[1])) ~= nil then 
 			index = k;
 			break;
 		end

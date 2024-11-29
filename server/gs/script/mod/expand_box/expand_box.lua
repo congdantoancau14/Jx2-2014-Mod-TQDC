@@ -122,27 +122,27 @@ function showThingsOut(nNav)
 end;
 
 function putthispage(nBegin,nEnd)
-	xb_putthispage(g_tbInBagItems,nBegin,nEnd,g_nStoreId,nNpcIndex)
+	xb_putthispage(g_tbInBagItems,nBegin,nEnd,g_nStoreId)
 end;
 
 function putonein(nInTableItemIndex)
-	xb_putonein(g_tbInBagItems,nInTableItemIndex,g_nStoreId,nNpcIndex)
+	xb_putonein(g_tbInBagItems,nInTableItemIndex,g_nStoreId)
 end;
 
 function putallin()
-	xb_putallin(g_tbInBagItems,g_nStoreId,nNpcIndex)
+	xb_putallin(g_tbInBagItems,g_nStoreId)
 end;
 
 function takethispage(nBegin,nEnd)
-	xb_takethispage(nBegin,nEnd,g_nStoreId,nNpcIndex)
+	xb_takethispage(nBegin,nEnd,g_nStoreId)
 end;
 
 function takeoneout(nInTableItemIndex)
-	xb_takeoneout(nInTableItemIndex,g_nStoreId,nNpcIndex)
+	xb_takeoneout(nInTableItemIndex,g_nStoreId)
 end;
 
 function takeallout()
-	xb_takeallout(g_nStoreId,nNpcIndex)
+	xb_takeallout(g_nStoreId)
 end;
 
 --function nothing() end; Disable this line to use store_box_head.lua/nothing() function to recover the key
