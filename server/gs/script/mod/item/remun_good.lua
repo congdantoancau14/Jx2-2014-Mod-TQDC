@@ -57,9 +57,9 @@ function handleString(szInput,nAction)
 	
 	-- print("handleString::nAction",nAction)
 	if result == 1 then 
-		if tonumber(p) > 0 and nAction == 1 then
+		if tonumber(p) > 0 and nAction == VALUE_ADDITEM then
 			addItem(nIndex);
-		elseif tonumber(p) > 0 and nAction == 2 then
+		elseif tonumber(p) > 0 and nAction == VALUE_DELITEM then
 			if tonumber(q) > 0 then 
 				DelItem(g,d,p,q);
 				result = 1;
@@ -123,18 +123,18 @@ function onOneParam(t, nAction)
 		if d == -1 then d = 1 end
 		local temp = p;
 		p = t[1];
-		if tonumber(p) == -1 then 
+		if tonumber(p) == ACTION_RESET then 
 			g = 2;
 			d = 1;
 			Msg2Player("Reset to default general and detail values");
 			return nil;
-		elseif tonumber(p) == 0 then 
+		elseif tonumber(p) == ACTION_MENU then 
 			p = temp;
 			showNavigation();
 			return nil;
-		elseif tonumber(p) == -2 then
+		elseif tonumber(p) == ACTION_DELETE then
 			inputDelItemString();
-			nAction = 2;
+			nAction = VALUE_DELITEM;
 		end
 	else
 		nIndex = checkItemInTable(tItems,3,t[1]);
@@ -238,6 +238,7 @@ function addItem(nIndex, szName)
 		write(file,szItemCode.."\n");
 	end
 	closefile(file)
+	q = -1; -- No save quantity
 	return result;
 end;
 
