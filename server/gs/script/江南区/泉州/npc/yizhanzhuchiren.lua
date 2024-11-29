@@ -12,11 +12,15 @@ function main()
 		"Ta muèn tham quan d×ch tr¹m/canguan",
 		"T¹i h¹ chØ ghÐ ngang th«i/nothing")
 	else
-		Say(npc_name.."Kh¸ch quan muèn rêi ®i sao?",2,
-		-- "Ta nghØ ë ®©y ®­îc mÊy canh giê råi?",
+		Say(npc_name.."Kh¸ch quan muèn rêi ®i sao?",3,
 		"§óng vËy, ta cã viÖc cÇn ra ngoµi/leaveYiZhan",
+		"Ta nghØ ë ®©y ®­îc mÊy canh giê råi?/askSleepInfo",
 		"Kh«ng ph¶i. Ta vÉn muèn n¸n l¹i mét lóc/nothing")
 	end
+end;
+
+function askSleepInfo()
+	Talk(1,"",format("Kh¸ch quan ®· nghØ ®­îc %s phót",getSleepVolume(1)));
 end;
 
 function leaveYiZhan()

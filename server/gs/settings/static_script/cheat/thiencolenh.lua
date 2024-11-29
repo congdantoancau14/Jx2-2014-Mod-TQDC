@@ -29,6 +29,7 @@ Include("\\settings\\static_script\\cheat\\includes\\link_gm_item.lua");
 Include("\\settings\\static_script\\cheat\\includes\\destroy_item.lua");
 Include("\\script\\online_activites\\task_values.lua");
 Include("\\script\\mod\\item\\punish_bad.lua");
+Include("\\script\\online\\eating\\eating_head.lua");
 
 -- Variables Declaration
 THIS_FILE = "\\settings\\static_script\\cheat\\thiencolenh.lua";
@@ -65,7 +66,7 @@ function OpenThienCo()
 		"Get Last talked NPC infomation/getNPCInfo",
 		"Get this position coordinate/getPosition",
 		"Manage tasks/manageTasks",
-		"Gm functions/showGMFunctions",
+		"GM functions/showGMFunctions",
 		-- "§i Vâ L©m minh/#goToWorld(1)",
 		-- "§i BiÖn Kinh/#goToWorld(2)",
 		"ChuyÓn tr¹ng th¸i nh©n vËt/changeState",
@@ -106,6 +107,7 @@ function changeState()
 		"BËt hiÖu øng quang/ask_effect_number",
 		"T¾t hiÖu øng quang/turn_off_effect",
 		"Håi sinh t¹i vÞ/revive_player",
+		"Xãa hiÖu øng ®ãi kh¸t ngñ/ET_ClearAllState",
 	}
 	tinsert(tSay, "\nTrang chÝnh/OpenThienCo");
 	tinsert(tSay, "Tho¸t/nothing");

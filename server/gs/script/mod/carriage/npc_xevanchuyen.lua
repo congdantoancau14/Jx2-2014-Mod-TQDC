@@ -1,7 +1,7 @@
 Include("\\script\\mod\\expand_box\\expand_box_head.lua");
 THIS_FILE = "\\script\\mod\\carriage\\npc_xevanchuyen.lua";
 MAX_ITEM = MAX_CARRIAGE_ITEMS;
-tbInBagItems = {}
+g_tbInBagItems = {}
 nStoreId = STORE_ID_CARRIAGE;
 nNpcIndex = nil;
 -------------------------------------------------------------------------------
@@ -77,9 +77,9 @@ function showThingsIn(nNav)
 		nPageIn = 1;
 	end
 	
-	tbInBagItems = getAllowItems();
-	-- print(getn(tbInBagItems))
-	local t = tbInBagItems;
+	g_tbInBagItems = getAllowItems();
+	--print(getn(g_tbInBagItems))
+	local t = g_tbInBagItems;
 	local tbSay = {}
 	local nMaxItems = getn(t);
 
@@ -157,21 +157,21 @@ function putthispage(nPage,nBegin,nEnd)
 		return 0;
 	end
 	for i=nBegin, nEnd do 
-		local object = tbInBagItems[i];
+		local object = g_tbInBagItems[i];
 		DelItem(object[2][1],object[2][2],object[2][3],object[3]);
 		insertrowtodata(object,nStoreId,nNpcIndex);
-		Msg2Player(format("§· bá %s x%d vµo xe chë ®å",tbInBagItems[i][1],tbInBagItems[i][3]));
+		Msg2Player(format("§· bá %s x%d vµo xe chë ®å",g_tbInBagItems[i][1],g_tbInBagItems[i][3]));
 	end
 	showThingsIn(0);
 end;
 
 function putallin()
-	if getn(tbInBagItems) > GetStoreFreeRoom(nStoreId,nNpcIndex) then 
+	if getn(g_tbInBagItems) > GetStoreFreeRoom(nStoreId,nNpcIndex) then 
 		Talk(1,"","<color=red>Xe qu¸ ®Çy, kh«ng thÓ chÊt thªm nhiÒu ®å!<color>");
 		return 0;
 	end
-	DelItemsByList(tbInBagItems);
-	inserttabletodata(tbInBagItems,nStoreId,nNpcIndex);
+	DelItemsByList(g_tbInBagItems);
+	inserttabletodata(g_tbInBagItems,nStoreId,nNpcIndex);
 	Msg2Player();
 end;
 
@@ -181,10 +181,10 @@ function putonein(index)
 		Talk(1,"","<color=red>Xe qu¸ ®Çy, kh«ng thÓ chÊt thªm ®å!<color>");
 		return 0;
 	end
-	local object = tbInBagItems[index];
+	local object = g_tbInBagItems[index];
 	DelItem(object[2][1],object[2][2],object[2][3],object[3]);
 	insertrowtodata(object,nStoreId,nNpcIndex);
-	Msg2Player(format("§· bá %s x%d vµo xe ®å",tbInBagItems[index][1],tbInBagItems[index][3]));
+	Msg2Player(format("§· bá %s x%d vµo xe ®å",g_tbInBagItems[index][1],g_tbInBagItems[index][3]));
 	showThingsIn(0);
 end;
 
@@ -270,15 +270,15 @@ end;
 
 
 function putthispage(nBegin,nEnd)
-	xb_putthispage(tItems,nBegin,nEnd,nStoreId,nNpcIndex)
+	xb_putthispage(g_tbInBagItems,nBegin,nEnd,nStoreId,nNpcIndex)
 end;
 
 function putonein(nInTableItemIndex)
-	xb_putonein(tItems,nInTableItemIndex,nStoreId,nNpcIndex)
+	xb_putonein(g_tbInBagItems,nInTableItemIndex,nStoreId,nNpcIndex)
 end;
 
 function putallin()
-	xb_putallin(tItems,nStoreId,nNpcIndex)
+	xb_putallin(g_tbInBagItems,nStoreId,nNpcIndex)
 end;
 
 function takethispage(nBegin,nEnd)

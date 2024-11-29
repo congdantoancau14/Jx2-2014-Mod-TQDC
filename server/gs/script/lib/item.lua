@@ -11,14 +11,15 @@ TB_ITEMS = {}
 --								FUNCTIONS
 -------------------------------------------------------------------------------
 
+-- Distinguish item can-be-putin of all items in bag and add thouse item to a table then return them;
 function GetItemsInBag()
-	local tbItems = GetAllItem();
-	local tbItemsInBag = {}
+	local tbAllItems = GetAllItem();
+	local tbItemsInBag = {} -- can-be-putin items (table result to return)
 	
-	local tbItemsNotAllow = getnerateNotAllowedItems(tbItems);
+	local tbItemsNotAllow = getNotAllowedItems(tbAllItems);
 	
-	for i=1,getn(tbItems) do 
-		local idx = tbItems[i];
+	for i=1,getn(tbAllItems) do 
+		local idx = tbAllItems[i];
 		local g,d,p = GetItemInfoByIndex(idx);
 		local szName = GetItemName(idx);
 		-- local nLock = GetItemSpecialAttr(idx,"LOCK");
@@ -27,10 +28,10 @@ function GetItemsInBag()
 		local nCount = GetItemCount(g,d,p);
 		if nCount > 0 then
 			local item = {szName,{g,d,p},nCount}
-			local nExistItemIndex = CheckExistItem(tbItemsInBag,item);
-			local nNotAllowdItem = CheckExistItem(tbItemsNotAllow,item);
-
-			if nExistItemIndex == 0 and nNotAllowdItem == 0 then
+			local nIndexExistInBagItem = searchItemInTable(item,tbItemsInBag); -- already put in table result (exist) item
+			local nIndexNotAllowedItem = searchItemInTable(item,tbItemsNotAllow);
+			-- if the item is not exist in bag before (dubplicated) and be allowed so it can be added to the table tbItemsInBag
+			if nIndexExistInBagItem == 0 and nIndexNotAllowedItem == 0 then 
 				tinsert(tbItemsInBag,item);
 			end
 
@@ -39,7 +40,8 @@ function GetItemsInBag()
 	return tbItemsInBag;
 end;
 
-function getnerateNotAllowedItems(tbItems)
+-- Get items unable (can not) to be putin expand box
+function getNotAllowedItems(tbItems)
 	local tbItemsNotAllow = {}
 	for i=1,getn(tbItems) do 
 		local idx = tbItems[i];
@@ -58,8 +60,9 @@ function getnerateNotAllowedItems(tbItems)
 	return tbItemsNotAllow;
 end;
 
--- return 1 is duplicated
-function CheckExistItem(tbItems,item)
+-- return index of the item if the item was found
+-- return 0 not found
+function searchItemInTable(item,tbItems)
 	for i=1,getn(tbItems) do 
 		if (tbItems[i][2][1] == item[2][1]
 			and tbItems[i][2][2] == item[2][2]
@@ -74,6 +77,19 @@ function CheckExistItem(tbItems,item)
 end;
 
 
+function removeItemsFromTable(tItemsToRemove, tItems)
+	for i=1, getn(tItems) do
+		for j=1, getn(tItemsToRemove) do
+			if isTheSameItem(tItems[i][2],tItemsToRemove[j][2]) == 1 then
+				tremove(tItems,i);
+				return tItems;
+			end
+		end
+	end
+	return tItems;
+end;
+
+
 function GetItemNameByGDP(g,d,p)
 	for i=1,MAX_ITEM_COUNT do 
 		local t = TB_ITEMS[i];
@@ -85,13 +101,6 @@ function GetItemNameByGDP(g,d,p)
 end;
 
 
-function IsNummeric(str)
-	if trim(str) == tostring(tonumber(str)) then
-		return 1;
-	else
-		return 0;
-	end
-end;
 
 function item_manager_init()
 	TB_ITEMS, MAX_ITEM_COUNT = getListFromFile()
@@ -133,4 +142,81 @@ end;
 
 function GetFreeItemWeight()
 	return GetMaxItemWeight() - GetCurItemWeight();
+end;
+
+function isTheSameItem(t1, t2)
+
+	if t1[1] == t2[1] 
+	and t1[2] == t2[2] 
+	and t1[3] == t2[3]
+	then return 1
+	else return 0
+	end
+end;
+
+-- convert a table of many item to a string
+function tableofobjectstostring(table)
+	local t = table;
+	local string = "";
+	local tab = "\t";
+	local endl = "\n";
+	
+	if t ~= nil then 
+		for i=1,getn(t) do 
+			if type(t[i]) == "table" then
+				for j=1,getn(t[i]) do 
+					if type(t[i][j]) == "table" then
+						for k=1,getn(t[i][j]) do 
+							string = string..t[i][j][k]..tab;
+						end
+					else
+						string = string..t[i][j]..tab;
+					end 
+				end
+			else
+				string = string..t[i]..tab;
+			end 
+			string = string..endl;
+			--print ("tabletostring>>string:"..string);
+			if IsNummeric(string) == 1 then
+				print ("IsNummeric>>tabletostring>>string:["..string.."] This is not an item!");
+				print (tonumber(date("%y%m%d%H%M%S")).."-Something wrong here. String is a nummeric!!!");
+			end
+		end
+	end
+	
+	return string;
+end;
+
+function tableofobjectstostring_original(table)
+	local t = table;
+	local string = "";
+	local tab = "\t";
+	local endl = "\n";
+	
+	if t ~= nil then 
+		for i=1,getn(t) do 
+			if type(t[i]) == "table" then
+				for j=1,getn(t[i]) do
+					if type(t[i][j]) == "table" then
+						for k=1,getn(t[i][j]) do 
+							string = string..t[i][j][k]..tab;
+						end
+					else
+						string = string..t[i][j]..tab;
+					end 
+				end
+			else
+				string = string..t[i]..tab;
+			end 
+			string = string..endl;
+			--print ("tabletostring>>string:"..string);
+			if IsNummeric(string) then
+				print ("tabletostring>>string:"..string);
+				print (tonumber(date("%yyyy%m%d%H%M%S")).."-Something wrong here. String is a nummeric!!!");
+			end
+		end
+	end
+	
+	return string;
 end;

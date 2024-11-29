@@ -22,6 +22,7 @@ READ_FILE = 2;
 
 MaxPutinCount = 60;
 
+-- [boxid],{mapcoor},[mapname]
 tExpandBoxs = {
 	{201,{200,1490,2951},"§«ng BiÖn Kinh"},
 	{202,{200,1299,2992},"Nam BiÖn Kinh"},
@@ -48,13 +49,44 @@ tExpandBoxs = {
 	{402,{400,1450,3068},"Nam §¹i Lý"},
 	{403,{400,1548,2922},"B¾c §¹i Lý"},
 }
+
+tSmallExpandBoxs = {
+	{201,{200,1490,2951},"§«ng BiÖn Kinh"},
+	{202,{200,1299,2992},"Nam BiÖn Kinh"},
+	{203,{200,1268,2771},"T©y BiÖn Kinh"},
+	{301,{300,1909,3609},"§«ng Thµnh §«"},
+	{302,{300,1685,3650},"Nam Thµnh §«"},
+	{303,{300,1692,3452},"T©y Thµnh §«"},
+	{304,{300,1928,3478},"B¾c Thµnh §«"},
+	{350,{350,1388,3072},"Nam T­¬ng D­¬ng"},
+	--{351,{350,1363,2863},"T©y T­¬ng D­¬ng"},	-- need to change coordinate
+	{351,{350,1357,2868},"T©y T­¬ng D­¬ng"}, 
+	{352,{350,1528,2862},"B¾c T­¬ng D­¬ng"},
+	{150,{150,1735,3062},"B¾c D­¬ng Ch©u"},
+	{151,{150,1632,3047},"T©y D­¬ng Ch©u"},
+	{152,{150,1610,3167},"Nam D­¬ng Ch©u"},
+	{153,{150,1742,3201},"§«ng D­¬ng Ch©u"},
+	{100,{100,1517,2859},"B¾c TuyÒn Ch©u"},
+	{101,{100,1381,2905},"T©y TuyÒn Ch©u"},
+	{102,{100,1561,3082},"§«ng TuyÒn Ch©u"},
+	{501,{500,1793,3211},"§«ng Phông T­êng"},
+	{502,{500,1681,3099},"T©y Phông T­êng"},
+	{503,{500,1659,3211},"Nam Phông T­êng"},
+	{504,{500,1835,3045},"B¾c Phông T­êng"},
+	{401,{400,1521,3119},"§«ng §¹i Lý"},
+	{402,{400,1450,3068},"Nam §¹i Lý"},
+	{403,{400,1548,2922},"B¾c §¹i Lý"},
+}
 -------------------------------------------------------------------------------
 --								FUNCTIONS
 -------------------------------------------------------------------------------
 
-
+-- [storeid][action][function]
+-- storeid: expand_box, carriage
+-- action: putin, getout
+-- function: show, takeone, takeall, takepage, nothing, empty
 tbFunctions = {
-	[1] = {
+	[1] = {		-- store box (storage)
 		[1] = {
 			[1] = "showThingsIn",
 			[2] = "[%d] %s x%d/#putonein(%d)",
@@ -72,36 +104,40 @@ tbFunctions = {
 			[6] = "R­¬ng trèng",
 		},
 	},
+	[2] = {		-- carriage (carrier)
+		
+	},
 }
 
 DIRECT_PUTIN = 1;
 DIRECT_TAKEOUT = 2;
 
 
-function generateNavigation(nStoreId,nPage,nNav,t,nAction)
+function xb_generateNavigation(nStoreId,nPage,nNav,t,nAction)
 	local nMaxItems = getn(t);
-
+	
+	--------------- Empty ---------------
 	if nMaxItems < 1 then 
 		Talk(1,"",tbFunctions[nStoreId][nAction][6]);
+		--pullKey()
 		return 0;
 	end
 	
+	--------------- Initial and calculate ---------------
 	local tbSay = {}
 	local nMaxinPage = 5;
 	local nPages = ceil(nMaxItems/nMaxinPage);
-	
+	---------------
 	local nBegin = 0;
-	
 	nPage = nPage + nNav;
-	
 	if nPage == 1 then 
 		nBegin = 1;
 	else
 		nBegin = (nPage-1) * nMaxinPage + 1;	
 	end
 	local nLastPageReached = nBegin;
+	---------------
 	local nEnd = 0
-	
 	if nPage == nPages then
 		local nOverflow = nMaxItems - nLastPageReached;
 		-- print("nOverflow = nMaxItems - nLastPageReached",  nOverflow,nMaxItems, nLastPageReached)
@@ -109,30 +145,31 @@ function generateNavigation(nStoreId,nPage,nNav,t,nAction)
 	else
 		nEnd = nBegin + nMaxinPage - 1;
 	end
-	
+	-- print(nBegin,nEnd);
+	---------------
 	if nPage > nPages then 
 		nPage = nPages;
 		-- Talk(1,"","§· ®Õn trang cuèi");
 		-- return 0;
 	end
 	
-	-- print(nBegin,nEnd);
 	
+	--------------- Create table ---------------
 	local szHead = format("Trang <color=yellow>%d<color>/%d. "
 		.."Tæng céng <color=yellow>%d<color> vËt phÈm. §ang hiÓn thÞ vËt phÈm: %d - %d"
 		,nPage,nPages,nMaxItems,nBegin,nEnd);
-	
+	-- put/take one item
 	for i = nBegin, nEnd do 
 		tinsert(tbSay,format(tbFunctions[nStoreId][nAction][2],i,t[i][1],t[i][3],i));
 	end
-	
+	-- insert last page empty lines
 	local nEmptyLine = nMaxinPage - (nEnd - nBegin + 1);
 	if nEmptyLine < nMaxinPage then 
 		for i=1, nEmptyLine do 
 			tinsert(tbSay," ");
 		end
 	end
-	
+	-- insert page navigation
 	if nPage < nPages then 
 		tinsert(tbSay, format("Trang kÕ/#%s(1)",tbFunctions[nStoreId][nAction][1]))
 	else
@@ -143,10 +180,13 @@ function generateNavigation(nStoreId,nPage,nNav,t,nAction)
 	else
 		tinsert(tbSay, format("Trang cuèi/#%s(%d)",tbFunctions[nStoreId][nAction][1],nPages-nPage))
 	end
-	tinsert(tbSay,format(tbFunctions[nStoreId][nAction][3],nBegin,nEnd));
-	tinsert(tbSay,tbFunctions[nStoreId][nAction][4])
-
+	-- put/take one page
+	tinsert(tbSay,format(tbFunctions[nStoreId][nAction][4],nBegin,nEnd));
+	-- put/take all items
+	tinsert(tbSay,tbFunctions[nStoreId][nAction][3])
+	-- close dialog
 	tinsert(tbSay,tbFunctions[nStoreId][nAction][5]);
+	-- show dialog
 	Say(szHead,getn(tbSay),tbSay);
 	return nPage;
 end;
@@ -174,6 +214,7 @@ tbMessages = {
 function xb_puttrayin(t,nStoreId,nNpcIndex)
 	if MAX_ITEM ~= nil and MAX_ITEM > 0 and getn(t) > GetStoreFreeRoom(nStoreId,nNpcIndex) then 
 		Talk(1,"",tbMessages[nStoreId].overload);
+		
 		return 0;
 	end
 	
@@ -225,10 +266,15 @@ function checkOverload(nPutinItems,nStoreId,nNpcIndex)
 end;
 
 function xb_putthispage(tItems,nBegin,nEnd,nStoreId,nNpcIndex)
-	local nItem = nEnd - nBegin + 1;
-	if checkOverload(nItem,nStoreId,nNpcIndex) == 1 then 
+	local nPutinItems = nEnd - nBegin + 1;
+	if checkOverload(nPutinItems,nStoreId,nNpcIndex) == 1 then 
 		return 0;
 	end
+
+	if nEnd > getn(tItems) then
+		nEnd = getn(tItems);
+	end
+	
 	for i=nBegin, nEnd do 
 		local object = tItems[i];
 		DelItem(object[2][1],object[2][2],object[2][3],object[3]);
@@ -251,27 +297,57 @@ end;
 
 function xb_putallin(tItems,nStoreId,nNpcIndex)
 	if checkOverload(getn(tItems),nStoreId,nNpcIndex) == 1 then 
+		
 		return 0;
 	end
+	local tExceptItems = {{"Ch×a Khãa R­¬ng",{2,1,29005}}} -- only for expand_box (store-box) not for carriage
+	--DelItemsByList(tItems, tExceptItems);
+	--print ("getn(tExceptItems)"..getn(tExceptItems));
+	--print ("xb_putallin>>getn(tItems):"..getn(tItems))
+	tItems = removeItemsFromTable(tExceptItems, tItems)
 	DelItemsByList(tItems);
 	inserttabletodata(tItems,nStoreId,nNpcIndex);
 	Msg2Player(tbMessages[nStoreId].putallin)
+	
 end;
-
 
 
 function xb_takethispage(nBegin,nEnd,nStoreId,nNpcIndex)
 	if nEnd - nBegin > GetFreeItemRoom() then 
 		Talk(1,"","<color=red>Hµnh trang qu¸ ®Çy!<color>");
+		
 		return 0;
 	end
+	
+	local nItems = getn(TB_ITEMS);
+	if nEnd > nItems then
+		nEnd = nItems;
+	end
+	
+	local nLastPageItems = 0;
+	
+	if nItems < 10 then
+		nLastPageItems = nItems - 5;
+	end
+	
 	for i=nBegin, nEnd do 
+		
+		if getn(TB_ITEMS) == nLastPageItems or getn(TB_ITEMS) == 0 then
+			break;
+		end
+		
+		if nEnd > getn(TB_ITEMS) then 
+			nEnd = getn(TB_ITEMS);
+			i = 1;
+		end
+		
 		local object = TB_ITEMS[i];
 		local nResult, nItemIndex = AddItem(object[2][1],object[2][2],object[2][3],object[3]);
-		if object[5] ~= nil and tonumber(object[5]) > 0 then 
+		if  object[5] and tonumber(object[5]) ~= nil and tonumber(object[5]) > 0 then 
 			SetItemExpireTime(nItemIndex,object[5]);
 		end
 		RemoveItemFromFile(object,nStoreId,nNpcIndex);
+
 	end
 	showThingsOut(0);
 end;
@@ -279,7 +355,7 @@ end;
 function xb_takeoneout(nInTableItemIndex,nStoreId,nNpcIndex)
 	local object = TB_ITEMS[nInTableItemIndex];
 	local nResult, nItemIndex = AddItem(object[2][1],object[2][2],object[2][3],object[3]);
-	if object[5] ~= nil and tonumber(object[5]) > 0 then 
+	if object[5] and tonumber(object[5]) ~= nil and tonumber(object[5]) > 0 then 
 		SetItemExpireTime(nItemIndex,object[5]);
 	end
 	RemoveItemFromFile(object,nStoreId,nNpcIndex);
@@ -308,7 +384,11 @@ end;
 -------------------------------------------------------------------------------
 
 function getBoxId(m,x,y)
+	if 350 == m and 1357 == x and 2868 == y then -- T©y T­¬ng D­¬ng
+			return 351;
+	end
 	local t = tExpandBoxs;
+	
 	for i=1,getn(t) do 
 		if t[i][2][1] == m and t[i][2][2] == x and t[i][2][3] == y then 
 			return t[i][1];
@@ -332,10 +412,23 @@ end
 function create_expand_boxs()
 	local script = "\\script\\mod\\expand_box\\expand_box.lua";
 	local model = "B¶o r­¬ng tµi nguyªn";
-	local name = "R­¬ng ®å";
+	local name = "R­¬ng lín";
 	local t = tExpandBoxs;
 	for i=1, getn(t) do 
 		local nNpcIndex = CreateNpc(model,name,t[i][2][1],t[i][2][2],t[i][2][3])
+		SetNpcScript(nNpcIndex,script);
+	end
+	
+	create_small_expand_boxs();
+end;
+
+function create_small_expand_boxs()
+	local script = "\\script\\mod\\expand_box\\expand_box.lua";
+	local model = "R­¬ng tiÒn";
+	local name = "R­¬ng ®å";
+	local t = tSmallExpandBoxs;
+	for i=1, getn(t) do 
+		local nNpcIndex = CreateNpc(model,name,t[i][2][1],t[i][2][2]+3,t[i][2][3])
 		SetNpcScript(nNpcIndex,script);
 	end
 end;
@@ -352,7 +445,7 @@ function getAllowItems()
 	local tAllowItems = {}
 	local t = tItems;
 	for i=1, getn(t) do 
-		if (t[i][2][1] == 2) then 
+		if (t[i][2][1] == 2) then -- Only accept (allow) vat pham thu thap va vat pham than bi
 			tinsert(tAllowItems,t[i]);
 		end
 	end
@@ -365,8 +458,8 @@ function AddItemsByList(tItems)
 	for i = 1,getn(tItems) do
 		if gf_Judge_Room_Weight(1,100) == 1 then
 			local nAddResult, nItemIndex = AddItem(tItems[i][2][1],tItems[i][2][2],tItems[i][2][3],tItems[i][3]);
-			if object[5] ~= nil and tonumber(object[5]) > 0 then 
-				SetItemExpireTime(nItemIndex,object[5]);
+			if tItems[i][5] and tonumber(tItems[i][5]) ~= nil and tonumber(tItems[i][5]) > 0 then 
+				SetItemExpireTime(nItemIndex,tItems[i][5]);	
 			end
 		end
 	end
@@ -374,8 +467,9 @@ function AddItemsByList(tItems)
 end
 
 function DelItemsByList(tItems)
+	
 	local nCount = 0;
-	for i=1, getn(tItems) do
+	for i=1, getn(tItems) do		
 		nCount = GetItemCount(tItems[i][2][1],tItems[i][2][2],tItems[i][2][3]);
 		if nCount ~= 0 then
 			local nDel = DelItem(tItems[i][2][1],tItems[i][2][2],tItems[i][2][3],nCount);
@@ -386,6 +480,26 @@ function DelItemsByList(tItems)
 		end
 	end
 end
+
+function DelItemsByList(tItems, tExceptItems)
+	if (tExceptItems == nil) then
+		tExceptItems = {}
+	end
+	local nCount = 0;
+	for i=1, getn(tItems) do
+		if searchItemInTable(tItems[i], tExceptItems) == 0 then
+			nCount = GetItemCount(tItems[i][2][1],tItems[i][2][2],tItems[i][2][3]);
+			if nCount ~= 0 then
+				local nDel = DelItem(tItems[i][2][1],tItems[i][2][2],tItems[i][2][3],nCount);
+				if nDel == 0 then
+					print("error: expand_box_head >> DelItemByList::could not delete the item");
+					return 0;
+				end
+			end
+		end
+	end
+end
+
 
 function DropItemsByList(tItems)
 	local t = tItems;
@@ -430,26 +544,38 @@ function erasedata(nStoreId,nNpcIndex)
 	local file = openfile(ITEM_FILEPATH, "w")
 	write(file,"");
 	closefile(file)
+	
+end;
+
+function overwritedata_original(nStoreId,nNpcIndex)
+	generateItemFilePath(WRITE_FILE,nStoreId,nNpcIndex);
+	local file = openfile(ITEM_FILEPATH, "w")
+	for i=1,ITEM_COUNT do 
+		write(file,tableofobjectstostring(TB_ITEMS[i]));
+	end
+	closefile(file)
+	
 end;
 
 function overwritedata(nStoreId,nNpcIndex)
 	generateItemFilePath(WRITE_FILE,nStoreId,nNpcIndex);
 	local file = openfile(ITEM_FILEPATH, "w")
-	for i=1,ITEM_COUNT do 
-		write(file,tabletostring(TB_ITEMS[i]));
-	end
+	write(file,tableofobjectstostring(TB_ITEMS));
 	closefile(file)
+	
 end;
 
 function inserttabletodata(table,nStoreId,nNpcIndex)
 	generateItemFilePath(WRITE_FILE,nStoreId,nNpcIndex);
 	local file = openfile(ITEM_FILEPATH, "a+")
-	write(file,tabletostring(table));
+	write(file,tableofobjectstostring(table));
 	closefile(file)
+	
 end;
 
 function insertrowtodata(object,nStoreId,nNpcIndex)
-	inserttabletodata(object,nStoreId,nNpcIndex)
+	local table = {object}
+	inserttabletodata(table,nStoreId,nNpcIndex)
 end;
 
 
@@ -523,4 +649,12 @@ function init(nStoreId, nNpcIndex)
 	-- print("ITEM_COUNT",ITEM_COUNT)
 end
 
-function nothing() end;
+function nothing() 
+	--pullKey()
+end;
+
+function pullKey()
+	if GetItemCount(key[1],key[2],key[3]) < 1 then
+		AddItem(key[1],key[2],key[3],1)
+	end
+end;

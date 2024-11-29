@@ -1,9 +1,9 @@
 Include("\\script\\lib\\item.lua");
 Include("\\script\\mod\\carriage\\carriage_head.lua");
 
-key = {2,1,29005}
-box = {2,1,29006}
-hcl = {2,1,29004}
+key = {2,1,29005}	-- Khãa
+box = {2,1,29006}	-- R­¬ng
+hcl = {2,1,29004}	-- Ho¸n xa lÖnh
 STORE_BOX_WEIGHT = 5000
 TASK_BOX_ID = 3583;
 
@@ -66,7 +66,7 @@ function main_store_box(nThisBoxId)
 				local object = TB_ITEMS[nIndex];
 				local nRemove = RemoveItemFromFile(object,nStoreId);
 				local nDel = DelItem(box[1],box[2],box[3],1);
-				if nRemove ~= 1 or nDel ~= 1 then
+				if nDel ~= 1 and nRemove ~= 1 then
 					Talk(1,"",sNpcName.."Ng­¬i kh«ng cã ®å ®¹c g× c¶ g× göi g× ë ®©y? Tr¶ l¹i ng­¬i ®©y!");
 					Earn(1000);
 					return 0;
@@ -76,7 +76,7 @@ function main_store_box(nThisBoxId)
 			local nAdd = AddItem(key[1],key[2],key[3],1);
 			Talk(1,"",sNpcName.."§©y lµ ch×a khãa r­¬ng. Xin h·y gi÷ cÈn thËn!")
 			
-			-- return 0; -- Disable this line or change to return 1 will openbox in Thñ khè
+			return 0; -- Disable this line or change to return 1 will openbox in Thñ khè
 		else
 			if nBoxId == nThisBoxId then 
 				Say(sNpcName.."Ng­¬i lµm mÊt ch×a khãa sao?",2,
@@ -85,8 +85,9 @@ function main_store_box(nThisBoxId)
 				)
 				return 0
 			else
-				Say(sNpcName.."Ng­¬i lµm mÊt ch×a khãa sao?",2,
-					"Ta lì lµm mÊt råi. Vµ còng kh«ng nhí n¬i göi ®å. Xin h·y gióp t¹i h¹/#lost_key(2)",
+				Say(sNpcName.."Ng­¬i lµm mÊt ch×a khãa sao?",3,
+					"Ta lì lµm mÊt råi/#lost_key(2)",
+					"Ta kh«ng nhí n¬i göi ®å. Xin h·y gióp t¹i h¹/lost_box",
 					"Ta chØ ghÐ qua th«i!/no_box"
 				)
 				return 0
@@ -213,3 +214,4 @@ function getAddress()
 end;
 
 function nothing() end;
+

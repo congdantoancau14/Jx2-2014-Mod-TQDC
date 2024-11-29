@@ -2,7 +2,7 @@ Include("\\script\\mod\\expand_box\\expand_box_head.lua");
 Include("\\script\\mod\\store_box\\store_box_head.lua");
 THIS_FILE = "\\script\\mod\\expand_box\\expand_box.lua";
 
-tItems = {}
+g_tItems = {}
 nStoreId = STORE_ID_EXPAND_BOX;
 
 function main()
@@ -12,11 +12,26 @@ function main()
 	end
 	local nNpcIndex = GetTargetNpc();
 	local m,x,y = GetNpcWorldPos(nNpcIndex);
+	
+	--print(GetNpcName(nNpcIndex));
+	--print(getBoxId(m,x-3,y).."-"..GetTask(TASK_BOX_ID));
+	
+	if GetNpcName(nNpcIndex) == "R­¬ng ®å" and getBoxId(m,x-3,y) == GetTask(TASK_BOX_ID) then
+		OpenBox();
+		return 1;
+	end
+	
 	-- print(getBoxId(m,x,y));
 	if getBoxId(m,x,y) ~= GetTask(TASK_BOX_ID) then 
 		Talk(1,"","Kh«ng ®óng ch×a khãa, kh«ng thÓ më r­¬ng!");
 		return 0;
 	end
+	
+	
+	--if DelItem(key[1],key[2],key[3],1) ~= 1 then
+		--Talk(1,"","Kh«ng cã ch×a khãa, kh«ng thÓ më r­¬ng!\n(<color=gray>Thö hái thñ khè xem sao.<color>)");
+		--return 0;
+	--end
 	
 	init(1);
 	local tbSay = {
@@ -79,11 +94,15 @@ function showThingsIn(nNav)
 		nPageIn = 1;
 	end
 	
-	tItems = getAllowItems();
-	-- print(getn(tItems))
-	local t = tItems;
+	g_tItems = getAllowItems();
+	
+	local tExceptItems = {{"Ch×a Khãa R­¬ng",{2,1,29005}}} -- only for expand_box (store-box) not for carriage
+	g_tItems = removeItemsFromTable(tExceptItems, g_tItems)
+	
+	--print(getn(g_tItems))
+	local t = g_tItems;
 
-	nPageIn = generateNavigation(nStoreId,nPageIn,nNav,t,DIRECT_PUTIN);
+	nPageIn = xb_generateNavigation(nStoreId,nPageIn,nNav,t,DIRECT_PUTIN);
 	
 end;
 
@@ -97,20 +116,20 @@ function showThingsOut(nNav)
 	
 	local t = TB_ITEMS;
 	
-	nPageOut = generateNavigation(nStoreId,nPageOut,nNav,t,DIRECT_TAKEOUT);
+	nPageOut = xb_generateNavigation(nStoreId,nPageOut,nNav,t,DIRECT_TAKEOUT);
 	
 end;
 
 function putthispage(nBegin,nEnd)
-	xb_putthispage(tItems,nBegin,nEnd,nStoreId,nNpcIndex)
+	xb_putthispage(g_tItems,nBegin,nEnd,nStoreId,nNpcIndex)
 end;
 
 function putonein(nInTableItemIndex)
-	xb_putonein(tItems,nInTableItemIndex,nStoreId,nNpcIndex)
+	xb_putonein(g_tItems,nInTableItemIndex,nStoreId,nNpcIndex)
 end;
 
 function putallin()
-	xb_putallin(tItems,nStoreId,nNpcIndex)
+	xb_putallin(g_tItems,nStoreId,nNpcIndex)
 end;
 
 function takethispage(nBegin,nEnd)
@@ -125,5 +144,4 @@ function takeallout()
 	xb_takeallout(nStoreId,nNpcIndex)
 end;
 
-function nothing()
-end;
+--function nothing() end; Disable this line to use store_box_head.lua/nothing() function to recover the key

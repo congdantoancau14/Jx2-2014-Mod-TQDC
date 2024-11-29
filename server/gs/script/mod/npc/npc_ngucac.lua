@@ -12,6 +12,7 @@ end;
 
 function OpenIB()
 	Talk(1,"","Ngù c¸c vÉn ch­a më cöa");
+	
 end;
 
 function nothing() end;

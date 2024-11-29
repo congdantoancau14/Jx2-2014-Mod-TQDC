@@ -359,30 +359,8 @@ function tovni(string)
 	return s;
 end;
 
-
-function tabletostring(table)
-	local t = table;
-	local string = "";
-	local tab = "\t";
-	local endl = "\n";
-	
-	if t ~= nil then 
-		for i=1,getn(t) do 
-			if type(t[i]) == "table" then
-				for j=1,getn(t[i]) do 
-					string = string..t[i][j]..tab;
-				end
-			else
-				string = string..t[i]..tab;
-			end 
-		end
-	end
-	string = string..endl;
-	return string;
-end;
-
-function isNummeric(str)
-	if trim(str) == tostring(tonumber(str)) then
+function IsNummeric(str)
+	if str ~= nil and str ~= "" and trim(str) == tostring(tonumber(str)) then
 		return 1;
 	else
 		return 0;

@@ -2,8 +2,19 @@ Include("\\script\\lib\\string.lua");
 Include("\\script\\lib\\item.lua");
 
 function OnUse()
-	printFormattedPos();
+	test();
 end;
+
+
+function test()
+	
+		local str = "Open[[item]]";
+		SendScript2Client(str);
+		Msg2Player(str);
+		--Talk(1,"","ok");
+		--PlaySound("\\sound\\sound_i016.wav");
+end;
+
 
 function printFormattedPos()
 	local m,x,y = GetWorldPos();
