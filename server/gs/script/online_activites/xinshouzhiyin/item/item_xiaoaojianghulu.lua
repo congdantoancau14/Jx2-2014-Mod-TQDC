@@ -108,6 +108,15 @@ function khaithac(id)
 			if nDel ~= 1 then
 				Talk(1,"","H×nh nh­ ®· x¶y ra vÊn ®Ò víi dông cô khai th¸c.");
 			else
+				if (DoFireworks(890, 1) == 1) then
+					Msg2Player("Thu thËp......");
+					CastState("state_fetter", 1, 5 * 18)
+					ProgressSlot(5 * 18)
+					AbradeDigTool(1, 31, 1)	-- ÏûºÄ²É¼¯¹¤¾ßµÄÄÍ¾Ã
+				else
+					Msg2Player("Kh«ng thÓ lµm ®éng t¸c nµy ë tr¹ng th¸i ngåi")
+				end
+			
 				AddItem(
 					tItem["target_item"][1][2][1],
 					tItem["target_item"][1][2][2],
@@ -118,7 +127,7 @@ function khaithac(id)
 			end
 		else
 			local szMes = "TiÖt! Ta ch­a chuÈn bÞ ®Çy ®ñ dông cô khai th¸c råi!"..enter
-					..tItem["desc"][1][1]..enter;
+					..gf_Colorize(tItem["desc"][1][1],"gray")..enter;
 			for i=1, getn(tCount) do
 				if tCount[i] == 0 then
 					szMes = szMes.."* "..colorize("red",tItem["tool"][i][1])..space
@@ -364,7 +373,7 @@ function createtLuaTrai()
 				colorize("green",tLuaTrai["mater"][i][1]),
 				"x"..colorize("yellow",tLuaTrai["mater"][i][3]))..enter;
 		end
-		Talk(1,"",tLuaTrai["desc"][1][1]..enter.."Kh«ng ®ñ nguyªn liÖu."..enter..szNguyenLieu);
+		Talk(1,"",gf_Colorize(tLuaTrai["desc"][1][1],"gray")..enter.."Kh«ng ®ñ nguyªn liÖu."..enter..szNguyenLieu);
 	end
 end;
 
@@ -412,7 +421,7 @@ function makeThing(nIndex)
 	if nEnough == 0 then
 
 		local szTalk = "TiÖt! Ta ch­a chuÈn bÞ ®ñ nguyªn liÖu\n";
-		szTalk = szTalk..tItem["desc"][1][1].."<enter>";
+		szTalk = szTalk..gf_Colorize(tItem["desc"][1][1],"gray").."<enter>";
 		
 		for i=1,getn(tCounter) do
 			

@@ -1,5 +1,5 @@
 Include("\\script\\mod\\expand_box\\expand_box_head.lua");
-Include("\\script\\mod\\carriage\\carriage_head.lua");
+Include("\\script\\mod\\expand_box\\carriage\\carriage_head.lua");
 THIS_FILE = "\\script\\mod\\carriage\\npc_xevanchuyen.lua";
 MAX_ITEM = MAX_CARRIAGE_ITEMS;
 g_tbInBagItems = {}

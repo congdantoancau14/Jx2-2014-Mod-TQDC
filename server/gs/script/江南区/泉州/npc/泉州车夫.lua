@@ -9,7 +9,7 @@
 
 --Include("\\script\\task\\teach\\teach_main.lua");
 Include("\\script\\lib\\transport_head.lua")
-Include("\\script\\mod\\carriage\\carriage_head.lua");
+Include("\\script\\mod\\expand_box\\carriage\\carriage_head.lua");
 
 function main()
 

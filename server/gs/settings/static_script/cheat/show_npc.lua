@@ -20,7 +20,7 @@ nTrainingNpcCount = 0;
 function main_show_npc()
 	init_npclist();
 	init_training_npc_list();
-	local tSay = {
+	local tSays = {
 		"Input npc name/inputNpcName",
 		"Show npc list/showNpcList",
 		"Show single npc/showSingle",
@@ -33,11 +33,11 @@ function main_show_npc()
 		"Hi”n thﬁ All npcs tπi Linh B∂o S¨n/#showAllNpcs(0)",
 		"Hi”n thﬁ Talk npcs tπi Linh B∂o S¨n/#showAllNpcs(1)",
 		"Hi”n thﬁ Fight npcs tπi Linh B∂o S¨n/#showAllNpcs(2)",
-		"ßi Hoa S¨n/goHoaSon",
+		"ßi Map rÈng/gotoWideMap",
 		"Remove npcs/removen",
 	}
-	tinsert(tSay, "Nothing/nothing");
-	Say("",getn(tSay),tSay);
+	tinsert(tSays, "\nTho∏t/nothing");
+	Say("",getn(tSays),tSays);
 end;
 
 
@@ -147,7 +147,7 @@ end;
 
 function createDecorators(page)
 	if page == nil then page = 1 end
-	tSay = {}
+	tSays = {}
 	local LINE = 5;
 	local nEndPoint = LINE;
 	local nStartPoint = 1;
@@ -166,26 +166,26 @@ function createDecorators(page)
 	end
 	
 	for i=nStartPoint, nEndPoint do
-		tinsert(tSay, "Create "..tDecorators[i][1]..format("/#createDecorator(%d)",i))
+		tinsert(tSays, "Create "..tDecorators[i][1]..format("/#createDecorator(%d)",i))
 	end
 	
 	if nEndPoint < LAST then
-		tinsert(tSay, format("\nTrang k’/#createDecorators(%d)",page+1));
-		tinsert(tSay, format("Trang cuËi/#createDecorators(%d)",last_page));
+		tinsert(tSays, format("\nTrang k’/#createDecorators(%d)",page+1));
+		tinsert(tSays, format("Trang cuËi/#createDecorators(%d)",last_page));
 	end
 	if page > 1 then
 		if nEndPoint < LAST then
-			tinsert(tSay, format("Trang tr≠Ìc/#createDecorators(%d)",page-1));
+			tinsert(tSays, format("Trang tr≠Ìc/#createDecorators(%d)",page-1));
 		else
-			tinsert(tSay, format("\nTrang tr≠Ìc/#createDecorators(%d)",page-1));
+			tinsert(tSays, format("\nTrang tr≠Ìc/#createDecorators(%d)",page-1));
 		end
-		tinsert(tSay, format("Trang Æ«u/#createDecorators(%d)",1));
+		tinsert(tSays, format("Trang Æ«u/#createDecorators(%d)",1));
 	end
 	
-	tinsert(tSay, "Create a random decorator/#createDecorator(0)");
+	tinsert(tSays, "Create a random decorator/#createDecorator(0)");
 	
-	tinsert(tSay, "\nTho∏t/nothing")
-	Say(format("---- Danh s∏ch nh©n vÀt trang tr› ----\nPage %d/%d.",page,last_page),getn(tSay),tSay);
+	tinsert(tSays, "\nTho∏t/nothing")
+	Say(format("---- Danh s∏ch nh©n vÀt trang tr› ----\nPage %d/%d.",page,last_page),getn(tSays),tSays);
 end;
 
 
@@ -205,14 +205,14 @@ function init_npclist()
 end;
 
 function showSingle()
-	local tSay = {
+	local tSays = {
 		"show first npc/#_get_npc_number(1)",
 		format("show last npc/#_get_npc_number(%d)",MAX_NPC),
 		format("show random npc/#_get_npc_number(%d)",random(MAX_NPC)),
 		"input npc index/inputNpcIndex",
 		"close/nothing",
 	}
-	Say("",getn(tSay),tSay);
+	Say("",getn(tSays),tSays);
 end;
 
 
@@ -267,14 +267,14 @@ function showNpcByIndex(nNpcIndex)
 end;
 
 function showNpcNavigation()
-	local tSay = {
+	local tSays = {
 		"next npc/#navigatenpc(1)",
 		"prev npc/#navigatenpc(-1)",
 		format("random npc/#_get_npc_number(%d)",random(MAX_NPC)),
 		"\nback page/showSingle",
 		"stop here/nothing",
 	}
-	Say(format("npc %d/%d",CUR_NPC,MAX_NPC),getn(tSay),tSay);
+	Say(format("npc %d/%d",CUR_NPC,MAX_NPC),getn(tSays),tSays);
 end;
 
 function navigatenpc(nNav)
@@ -292,18 +292,18 @@ function navigatenpc(nNav)
 end;
 
 function showNpcList(nBegin,nEnd)
-	tSay = {}
+	tSays = {}
 	if nBegin == nil then nBegin = 1 end
 	if nEnd == nil or nEnd <= nBegin then nEnd = nBegin + 39 end
-	tinsert(tSay,format("next page/#showNpcList(%d)",nBegin+40));
-	tinsert(tSay,format("prev page/#showNpcList(%d)",nBegin-40));
+	tinsert(tSays,format("next page/#showNpcList(%d)",nBegin+40));
+	tinsert(tSays,format("prev page/#showNpcList(%d)",nBegin-40));
 	for i = nBegin, nEnd do 
-		tinsert(tSay,format("[%d] %s/#showNpcByIndex(%d)",i,tNpcs[i][1],i));
+		tinsert(tSays,format("[%d] %s/#showNpcByIndex(%d)",i,tNpcs[i][1],i));
 	end
-	tinsert(tSay,format("next page/#showNpcList(%d)",nBegin+40));
-	tinsert(tSay,format("prev page/#showNpcList(%d)",nBegin-40));
-	tinsert(tSay,"close/nothing");
-	Say("",getn(tSay),tSay);
+	tinsert(tSays,format("next page/#showNpcList(%d)",nBegin+40));
+	tinsert(tSays,format("prev page/#showNpcList(%d)",nBegin-40));
+	tinsert(tSays,"close/nothing");
+	Say("",getn(tSays),tSays);
 end;
 
 function removeNpc()
@@ -321,8 +321,25 @@ end;
 -------------------------------------------------------------------------------
 -- 								GROUPY NPC VIEW
 -------------------------------------------------------------------------------
-function goHoaSon()
-	NewWorld(502,1571,2912);
+function gotoWideMap()
+	local tMaps = {
+		{"Hoa S¨n",{502,1571,2912}},
+		{"Luy÷n binh tr≠Íng",{817,1502,2999}},
+		{"V‚ tr≠Íng li™n Æ u",{6028,1620,3184}},
+		{"L©m gian tuy™t nguy™n",{8900,1778,3508}},
+	}
+	local tSays = {}
+	for i=1, getn(tMaps) do
+		tinsert(tSays,format("%s/#goto(%d,%d,%d)",tMaps[i][1],tMaps[i][2][1],tMaps[i][2][2],tMaps[i][2][3]))
+	end
+	tinsert(tSays,"\nTho∏t/nothing")
+	Say("",getn(tSays),tSays)
+	--NewWorld(502,1571,2912);
+end;
+
+function goto(m,x,y)
+	NewWorld(m,x,y)
+	main_show_npc()
 end;
 
 function showMixedNpcs()
@@ -350,15 +367,15 @@ end;
 
 function show_group_main()
 	
-	local tSay = {
+	local tSays = {
 		"Show first page/#goPage(1)",
 		"Show last page/#goPage(2)",
 		"Show random page/#goPage(0)",
 		"Show input page/inputPage",
 		"Continue where I left on/continue",
 	}
-	tinsert(tSay, "Close/nothing");
-	Say("",getn(tSay),tSay);
+	tinsert(tSays, "Close/nothing");
+	Say("",getn(tSays),tSays);
 end;
 
 function continue()
@@ -385,23 +402,23 @@ function goPage(nNav)
 end;
 
 function showNavigation()
-	local tSay = {}
+	local tSays = {}
 	if nCurPage <= nPages then
-		tinsert(tSay,"Show next page/#navigate(1)")
+		tinsert(tSays,"Show next page/#navigate(1)")
 	end
 	if nCurPage > 1 then
-		tinsert(tSay,"Show prev page/#navigate(-1)")
+		tinsert(tSays,"Show prev page/#navigate(-1)")
 	end
 	if nCurPage ~= nPages+1 then
-		tinsert(tSay,"Show last page/#goPage(2)");
+		tinsert(tSays,"Show last page/#goPage(2)");
 	end
 	if nCurPage ~= 1 then 
-		tinsert(tSay,"Show first page/#goPage(1)");
+		tinsert(tSays,"Show first page/#goPage(1)");
 	end
-	tinsert(tSay,"Show random page/#goPage(0)");
-	tinsert(tSay,"Go back main/main_show_npc");
-	tinsert(tSay, "Stop here/nothing");
-	Say(format("Current Page <color=yellow>%d<color>/%d",nCurPage,nPages+1),getn(tSay),tSay);
+	tinsert(tSays,"Show random page/#goPage(0)");
+	tinsert(tSays,"Go back main/main_show_npc");
+	tinsert(tSays, "Stop here/nothing");
+	Say(format("Current Page <color=yellow>%d<color>/%d",nCurPage,nPages+1),getn(tSays),tSays);
 end;
 
 function inputPage()

@@ -54,7 +54,7 @@ function nuong(nProductType)
 		
 	else
 		local szMes = "TiÖt! Ta ch­a chuÈn bÞ ®Çy ®ñ nguyªn liÖu råi!"..enter
-				..tItem["desc"][1][1]..enter;
+				..gf_Colorize(tItem["desc"][1][1],"gray")..enter;
 		for i=1, getn(tCount) do
 			if tCount[i] == 0 then
 				szMes = szMes.."* "..colorize("red",tItem["mater"][i][1])..space

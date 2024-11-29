@@ -75,7 +75,7 @@ function OpenThienCo()
 		-- "\nMë r­¬ng/OpenBox",
 		-- "Më t¹p hãa/#Sale(35)",
 		-- "Tiªu hñy vËt phÈm/destroyItems",
-		"NhËn vËt phÈm tiªu hao/getTieuHao",
+		"NhËn vËt phÈm th«ng dông/getCommonItems",
 		"\nX¶ bít ®å khái hµnh trang/destroyListItems",
 		--"\nThanh lÝ hµnh trang/ClearBagAllItem",
 
@@ -238,25 +238,64 @@ function goToWorld(nMapIndex)
 	NewWorld(tMaps[nMapIndex][2],tMaps[nMapIndex][3],tMaps[nMapIndex][4]);
 end;
 
-function getTieuHao()
+function getCommonItems()
 	local tSay = {}
-	for i=1, getn(tTieuHao) do
-		tinsert(tSay, format("NhËn %d %s/#addItem(%d)",tTieuHao[i][3],tTieuHao[i][1],i));
-	end
-	tinsert(tSay, "\nTrang tr­íc/OpenThienCo")
+	tinsert(tSay, "\nGet consum items/getDebugItems")
+	tinsert(tSay, "\nGet debug items/getDebugItems")
+	tinsert(tSay, "\nTrang chÝnh/OpenThienCo")
 	tinsert(tSay, "Tho¸t/nothing")
 	Say(g_szTitle.."Lùa chän chøc n¨ng", getn(tSay), tSay);
 end;
 
-function addItem(id)
-	AddItem(tTieuHao[id][2][1],tTieuHao[id][2][2],tTieuHao[id][2][3],tTieuHao[id][3]);
+
+function getConsumItems()
+	local tSay = {}
+	for i=1, getn(tTieuHao) do
+		tinsert(tSay, format("NhËn %d %s/#addItem(1,%d)",tTieuHao[i][3],tTieuHao[i][1],1,i));
+	end
+	tinsert(tSay, "\nTrang tr­íc/getCommonItems")
+	tinsert(tSay, "Tho¸t/nothing")
+	Say(g_szTitle.."Lùa chän chøc n¨ng", getn(tSay), tSay);
+end;
+
+function getDebugItems()
+	local tSay = {}
+	for i=1, getn(tDebugs) do
+		tinsert(tSay, format("NhËn %d %s/#addItem(2,%d)",tDebugs[i][3],tDebugs[i][1],i));
+	end
+	tinsert(tSay, "\nTrang tr­íc/getCommonItems")
+	tinsert(tSay, "Tho¸t/nothing")
+	Say(g_szTitle.."Lùa chän chøc n¨ng", getn(tSay), tSay);
+end;
+
+function addItem(nTableIndex, nItemIndex)
+	local t = {}
+	if nTableIndex == 1 then
+		t = tTieuHao;
+	elseif nTableIndex == 2 then
+		t = tDebugs;
+	end
+	local id = nItemIndex;
+	AddItem(t[id][2][1],t[id][2][2],t[id][2][3],t[id][3]);
 end;
 
 function manageTasks()
 	local tSay = {
 		"Show npcs/main_show_npc",
 		"Show shops/showShops",
+		"Show activities/showActivities",
+		"Show missions/showMissions",
 		-- "Skip tasks/main_task_skipper",
+		"\nTrang tr­íc/OpenThienCo",
+		}
+	tinsert(tSay, "Tho¸t/nothing")
+	Say(g_szTitle.."Lùa chän chøc n¨ng", getn(tSay), tSay);
+end;
+
+
+function showActivities()
+	local tSay = {
+		
 		"TiÕn vµo Tµng KiÕm s¬n trang/goTangKiem",
 		"Khëi ®éng lß n­íng/showlistLoNuong",
 		"Khëi ®éng Tø linh ®Ønh/startTiaozhanSiling",
@@ -269,6 +308,17 @@ function manageTasks()
 		"Khëi ®éng C«ng thµnh chiÕn/startGongCheng",
 		--"Khëi ®éng B¶o hé tµi nguyªn/conf_res_protect_info",
 		"Khëi ®éng §¹i héi tû vâ TuyÒn Ch©u/biwudahuiqianzou_init",
+		
+
+		"\nTrang tr­íc/manageTasks",
+		}
+	tinsert(tSay, "Tho¸t/nothing")
+	Say(g_szTitle.."Lùa chän chøc n¨ng", getn(tSay), tSay);
+end;
+
+
+function showMissions()
+	local tSay = {
 		"NhËn nhiÖm vô gia nhËp s­ m«n/interfaction",
 		"Bá qua nhiÖm vô t©n thñ/skipXinShou",
 		"Më khãa r­¬ng t©n thñ/unlockBox",
@@ -277,11 +327,13 @@ function manageTasks()
 		"Hoµn thµnh nhiÖm vô kÜ n¨ng sèng/skipTaskLifeSkill",
 		"Bá qua nhiÖm vô hiÖn t¹i/main_task_skipper",
 		
-		"\nTrang tr­íc/OpenThienCo",
+		"\nTrang tr­íc/manageTasks",
 		}
 	tinsert(tSay, "Tho¸t/nothing")
 	Say(g_szTitle.."Lùa chän chøc n¨ng", getn(tSay), tSay);
 end;
+
+
 
 function interfaction()
 	TB_FACTION_TASKID_LIST = {1001,1002,1003,1004,1005,1031,1032,1033,1017,1018,1019}

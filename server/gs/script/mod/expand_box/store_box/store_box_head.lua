@@ -1,5 +1,6 @@
 Include("\\script\\lib\\item.lua");
---Include("\\script\\mod\\carriage\\carriage_head.lua");
+Include("\\script\\mod\\expand_box\\expand_box_head.lua");
+Include("\\script\\mod\\expand_box\\carriage\\carriage_head.lua");
 
 key = {2,1,29005}	-- Khãa
 box = {2,1,29006}	-- R­¬ng
@@ -178,9 +179,12 @@ function move_box_here(nThisBoxId)
 end;
 
 function get_box_confirm()
-	local nNpcIdx = BIAOCHE_TASKGROUP:GetTask(BIAOCHE_TASKGROUP.BIAOCHE_INDEX);
-	if (nNpcIdx == 0 or GetItemCount(hcl[1],hcl[2],hcl[3]) == 0) and GetFreeItemWeight() < STORE_BOX_WEIGHT then 
-		Talk(1,"",sNpcName.."Søc ng­¬i kh«ng thÓ nhÊc næi r­¬ng ®å nµy ®©u. Ph¶i biÕt tù l­îng søc m×nh.");
+	local nNpcIdx = GetTask(BIAOCHE_INDEX);
+	local bIsIndistance = SendScript checkCarriageDistance()
+	if (nNpcIdx == 0 or GetItemCount(hcl[1],hcl[2],hcl[3]) == 0)
+		and bIsIndistance and GetFreeItemWeight() < STORE_BOX_WEIGHT then 
+		Talk(1,"",sNpcName.."Søc ng­¬i kh«ng thÓ nhÊc næi r­¬ng ®å nµy ®©u. Ph¶i biÕt tù l­îng søc m×nh."
+			.."Xa phu quanh thµnh ch¼ng ph¶i lµ cã dÞch vô cho thuª xe ngùa sao? Hay ng­¬i tiÕc rÎ vµi ®ång b¹c?");
 	else
 		get_store_box();
 	end

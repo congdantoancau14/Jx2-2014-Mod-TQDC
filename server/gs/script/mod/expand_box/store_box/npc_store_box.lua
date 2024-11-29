@@ -1,6 +1,6 @@
-Include("\\script\\mod\\expand_box\\expand_box_head.lua");
-Include("\\script\\mod\\store_box\\store_box_head.lua");
-THIS_FILE = "\\script\\mod\\expand_box\\expand_box.lua";
+--Include("\\script\\mod\\expand_box\\expand_box_head.lua"); -- already import in store_box_head.lua file
+Include("\\script\\mod\\expand_box\\store_box\\store_box_head.lua");
+THIS_FILE = "\\script\\mod\\expand_box\\store_box\\npc_store_box.lua";
 
 g_tbInBagItems = {}
 g_nStoreId = STORE_ID_EXPAND_BOX;

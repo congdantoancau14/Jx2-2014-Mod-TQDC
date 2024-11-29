@@ -379,19 +379,3 @@ end
 tab = "\t";
 space = " ";
 endl = "\n";
-
-function makeDirectory(szDir,szFileName)
-	if szFileName == nil then szFileName = "temp"; end;
-	local file = openfile(szDir..szFileName,"a+")
-	--print("makeDirectory:",szDir..szFileName)
-	if file == nil then
-		execute(format("mkdir -p %s", szDir)) -- make (create) directory
-		return 1;
-	else
-		closefile(file)
-		if szFileName == "temp" then
-			remove(szDir) -- delete just created above temp file
-		end
-		return 0;
-	end
-end;

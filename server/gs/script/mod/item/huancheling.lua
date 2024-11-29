@@ -1,5 +1,5 @@
 --Include("\\script\\lib\\globalfunctions.lua");
-Include("\\script\\mod\\carriage\\carriage_head.lua");
+Include("\\script\\mod\\expand_box\\carriage\\carriage_head.lua");
 
 tRouteMap = {}
 
@@ -58,20 +58,4 @@ function moveBiaoChe(nCarIndex,pos)
 	g_NpcAI:setWayPoint(nCarIndex,pos);
 end;
 
-function createBiaoChe()
-	local nCarriageName = GetTask(BIAOCHE_NAME);
-	local nCarIndex = CreateNpc("Xe vËn chuyÓn",nCarriageName,GetWorldPos());
-	SetNpcScript(nCarIndex,"\\script\\mod\\carriage\\npc_xevanchuyen.lua");
-	SetTask(BIAOCHE_INDEX, nCarIndex);
-	--print("huancheling>>createBiaoChe>>nCarIndex:"..nCarIndex);
-	local nMap = GetWorldPos();
-	SetTask(BIAOCHE_LAST_MAP, nMap);
-	if nCarIndex ~= 0 then
-	
-		-- local nNpcID = GetNpcID(nCarIndex);
-		-- print("huancheling >> rebornBiaoChe >> nNpcID",nNpcID);
-		g_NpcAI:setAI(nCarIndex,AT_SM_MOVE);
-		
-		--SetNpcTempData(nCarIndex, 1, nBCType)
-	end
-end;
+

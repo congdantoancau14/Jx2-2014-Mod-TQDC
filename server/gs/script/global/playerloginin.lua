@@ -80,7 +80,7 @@ Include("\\script\\online\\viet_event\\platinum_card\\platinum_head.lua")
 Include("\\script\\vng\\vanmay_daohuu\\vanmay_npc.lua") 
 Include("\\script\\vng\\vng_playerlogin.lua")
 Include("\\script\\biwudahui\\tournament\\tournament_head.lua")
-Include("\\script\\mod\\carriage\\carriage_head.lua");
+Include("\\script\\mod\\expand_box\\carriage\\carriage_head.lua");
 
 g_szThisFile = "\\script\\global\\playerloginin.lua"
 

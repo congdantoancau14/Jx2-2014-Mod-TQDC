@@ -3624,7 +3624,7 @@ end
 
 -- Mua anh HÔng Thi’p
 function GS_ChangeAHL()
-	if gf_Judge_Room_Weight(10,20)~= 1 or GetItemCount(2,1,30230) < 20 then
+	if gf_Judge_Room_Weight(1,20)~= 1 or GetItemCount(2,1,30230) < 20 then
 		Talk(1,"","Bπn kh´ng c„ 20 xu vÀt ph»m ho∆c hµnh trang bπn kh´ng ÆÒ ´ trËng , ÆÈ n∆ng ")
 		return	
 	end

@@ -3,7 +3,7 @@ Include("\\script\\lib\\npccmdhead.lua");
 --Include("\\script\\mod\\carriage\\npc_xevanchuyen.lua");
 
 MAX_DISTANCE = 70;
-BIAOCHE_TASKGROUP =  TaskManager:Create(11,10);
+--BIAOCHE_TASKGROUP =  TaskManager:Create(11,10);
 BIAOCHE_INDEX 	 = 3058;
 BIAOCHE_RENT_MAP			 = 3059;
 BIAOCHE_RENT_TIME			 = 3060;
@@ -135,11 +135,11 @@ function createCarriage(nLost)
 	SetNpcLifeTime(nTemplateNpcIndex, 0);
 	--print("nTemplateNpcIndex:"..nTemplateNpcIndex)
 	
-	local nNpcIdx = CreateNpc("Xe vËn chuyÓn", szNpcName, GetWorldPos());
-	SetNpcScript(nNpcIdx,"\\script\\mod\\carriage\\npc_xevanchuyen.lua");
-
-	SetTask(BIAOCHE_INDEX,nNpcIdx);
+	local nNpcIdx = createBiaoChe(szNpcName);
+	
 	SetTask(BIAOCHE_NAME,szNpcName);
+	--SetTask(BIAOCHE_INDEX,nNpcIdx);
+	
 --print("createCarriage>>nNpcIdx:"..nNpcIdx);
 	SetTask(BIAOCHE_RENT_MAP,nMap);
 	SetTask(BIAOCHE_LAST_MAP,nMap);
@@ -158,6 +158,24 @@ function createCarriage(nLost)
 	--------------- end for rent new car ----------------------
 end;
 
+function createBiaoChe(nCarriageName)
+	local nCarriageName = nCarriageName or GetTask(BIAOCHE_NAME);
+	local nCarIndex = CreateNpc("Xe vËn chuyÓn",nCarriageName,GetWorldPos());
+	SetNpcScript(nCarIndex,"\\script\\mod\\expand_box\\carriage\\npc_xevanchuyen.lua");
+	SetTask(BIAOCHE_INDEX, nCarIndex);
+	--print("huancheling>>createBiaoChe>>nCarIndex:"..nCarIndex);
+	local nMap = GetWorldPos();
+	SetTask(BIAOCHE_LAST_MAP, nMap);
+	if nCarIndex ~= 0 then
+	
+		-- local nNpcID = GetNpcID(nCarIndex);
+		-- print("huancheling >> rebornBiaoChe >> nNpcID",nNpcID);
+		g_NpcAI:setAI(nCarIndex,AT_SM_MOVE);
+		--SetNpcTempData(nCarIndex, 1, nBCType)
+		return nCarIndex;
+	end
+	return 0;
+end;
 
 function payLost()
 	if Pay(1000000) == 1 then 
@@ -167,6 +185,22 @@ function payLost()
 		Talk(1,"",npc_name.."Ng­¬i lµm mÊt råi, ®· kh«ng cã tiÒn ®Òn bï cßn ®ßi thuª n÷a µ! Ta t¹m tha cho ng­¬i. Mau cuèn xÐo ®i chç kh¸c.")
 		return 0;
 	end
+end;
+
+function checkCarriageDistance()
+	
+	local nMap,nPosX,nPosY = GetWorldPos();
+	
+	local nOldNpcIdx = GetTask(BIAOCHE_INDEX);
+	local nOldMap = GetTask(BIAOCHE_RENT_MAP);
+	
+	local nNpcMapID,nNpcPosX,nNpcPosY = GetNpcWorldPos(nOldNpcIdx);
+	local nDistance = abs(nPosX-nNpcPosX)+abs(nPosY-nNpcPosY);
+	
+	if nMap ~= nNpcMapID or nDistance > MAX_DISTANCE then 
+		return 0; 
+	end
+	return 1;
 end;
 
 function returnCarriage(nForce)

@@ -3433,7 +3433,7 @@ end
 --							MODIFIED FUNCTIONS
 -------------------------------------------------------------------------------
 
-function tablesplit(table,nBegin,nEnd)
+function gf_SplitTable(table,nBegin,nEnd)
 	local TABLEEND = getn(table);
 	if nBegin == 1 and nEnd == TABLEEND then 
 		print("The table are trying to splited is the same size with the original.");
@@ -3476,3 +3476,45 @@ function tablesplit(table,nBegin,nEnd)
 	end	
 	return tItemsTake, tItemsLeft or tItemsLeftHeadPart, tItemsLeftEndPart;
 end;
+
+
+
+function gf_MakeDirectory(szDir,szFileName)
+	if szFileName == nil then szFileName = "temp"; end;
+	local file = openfile(szDir..szFileName,"a+")
+	--print("makeDirectory:",szDir..szFileName)
+	if file == nil then
+		execute(format("mkdir -p %s", szDir)) -- make (create) directory
+		return 1;
+	else
+		closefile(file)
+		if szFileName == "temp" then
+			remove(szDir) -- delete just created above temp file
+		end
+		return 0;
+	end
+end;
+
+--给字符串加上颜色(注意Say中的选项里面不能加颜色)
+--szColor=1 是红色
+--szColor=2 是绿色
+--szColor=3 是蓝色
+--szColor=4 是黄色
+--待添加
+function gf_Colorize(szString, snColor)
+    local tbColor = {
+        [1] = "red",
+        [2] = "green",
+        [3] = "blue",
+        [4] = "yellow",
+		[5] = "white",
+		[6] = "black",
+		[7] = "gray",
+    };
+    if type(snColor) == "number" then
+		szString = format("<color=%s>%s<color>", tbColor[nColor], szString);
+	else
+		szString = format("<color=%s>%s<color>", snColor, szString);
+    end
+    return szString;
+end

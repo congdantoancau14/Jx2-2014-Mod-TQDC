@@ -1,4 +1,6 @@
 function main()
-	local nNpcIdx = CreateNpc("Da b¹ch hæ","Da b¹ch hæ",218,1851,3625);
+	local nCurNpcIndex = GetTargetNpc()
+	local m,x,y = GetNpcWorldPos(nCurNpcIndex)
+	local nNpcIdx = CreateNpc("Da b¹ch hæ","Da b¹ch hæ",m,x,y);
 	SetNpcScript(nNpcIdx,"\\script\\caiji\\Ò»À¦°×»¢Ö®Æ¤.lua");
 end;

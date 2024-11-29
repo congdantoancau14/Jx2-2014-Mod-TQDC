@@ -1,6 +1,6 @@
 function main()
 	UWorld1508 = GetTask(1508)
-	if ( UWorld1508 == 10 and  GetLevel() > 7 )  then
+	if ( UWorld1508 == 0 and  GetLevel() > 7 )  then
 		Say("Cã thÓ gióp ta t×m L¨ng Nhi kh«ng? Nã ra ngoµi tõ sím ®Õn giê vÉn ch­a thÊy vÒ.",2,"§ång ý/yes1508","Ta cßn chót viÖc/no1508")
 	elseif ( UWorld1508  >= 5 and  UWorld1508  < 40)  then	
 		Talk(1,"","VÉn ch­a cã tin tøc cña L¨ng Nhi? Ta ph¶i lµm sao b©y giê?")

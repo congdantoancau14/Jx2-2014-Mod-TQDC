@@ -7,7 +7,7 @@
 -- 2005/05/17 PM 16:45
 
 -- ======================================================
-Include("\\script\\mod\\store_box\\store_box_head.lua");
+Include("\\script\\mod\\expand_box\\store_box\\store_box_head.lua");
 ID_ITEMBOX = 805;
 function main()
   nLevel = GetLevel()

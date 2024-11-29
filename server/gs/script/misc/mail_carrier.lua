@@ -51,8 +51,8 @@ function sendtemp()
 	outboxfilepath = g_tbDirectoryName[g_nStoreId]..player_rolename.."/outbox.txt";
 	g_send_to = "temp";
 	inboxfilepath = g_tbDirectoryName[g_nStoreId]..g_send_to.."/senders.txt";
-	makeDirectory(g_tbDirectoryName[g_nStoreId]..player_rolename.."/");
-	makeDirectory(g_tbDirectoryName[g_nStoreId]..g_storebox.."/");
+	gf_MakeDirectory(g_tbDirectoryName[g_nStoreId]..player_rolename.."/");
+	gf_MakeDirectory(g_tbDirectoryName[g_nStoreId]..g_storebox.."/");
 	-- init(g_nStoreId);	-- Store items with player rolename as filename
 	init(g_nStoreId,szStoreFileName); -- Store items with npcindex as filename
 	--init(g_nStoreId,0); -- Store items with playername npcindex as filename
@@ -72,12 +72,12 @@ function _sendto_callback(szInput)
 	-- Msg2Player(g_send_to);
 	outboxfilepath = g_tbDirectoryName[g_nStoreId]..player_rolename.."/outbox.txt";
 	inboxfilepath = g_tbDirectoryName[g_nStoreId]..g_send_to.."/inbox.txt";
-	makeDirectory(g_tbDirectoryName[g_nStoreId]..player_rolename.."/");
-	makeDirectory(g_tbDirectoryName[g_nStoreId]..g_send_to.."/");
+	gf_MakeDirectory(g_tbDirectoryName[g_nStoreId]..player_rolename.."/");
+	gf_MakeDirectory(g_tbDirectoryName[g_nStoreId]..g_send_to.."/");
 	g_storebox = g_send_to;
 	szStoreFileName = format("%s/%s.txt",g_storebox,player_rolename);
 	-- do this before call to init() function because the szStoreFileName will become filename there
-	makeDirectory(g_tbDirectoryName[g_nStoreId]..g_send_to.."/",player_rolename..".txt") 
+	gf_MakeDirectory(g_tbDirectoryName[g_nStoreId]..g_send_to.."/",player_rolename..".txt") 
 	-- init(g_nStoreId);	-- Store items with player rolename as filename
 	init(g_nStoreId,szStoreFileName); -- Store items with npcindex as filename
 	--init(g_nStoreId,0); -- Store items with playername npcindex as filename
@@ -99,7 +99,7 @@ end;
 
 function taketemp()
 	g_storebox = "temp";
-	makeDirectory(g_tbDirectoryName[g_nStoreId]..g_storebox.."/")
+	gf_MakeDirectory(g_tbDirectoryName[g_nStoreId]..g_storebox.."/")
 	showSenders()
 	
 	-- szStoreFileName = format("temp/%s.txt",player_rolename);

@@ -1,4 +1,4 @@
-Include("\\script\\mod\\store_box\\store_box_head.lua");
+Include("\\script\\mod\\expand_box\\store_box\\store_box_head.lua");
 -- ====================== 文件信息 ======================
 
 -- 剑侠情缘onlineII 物品保管人脚本

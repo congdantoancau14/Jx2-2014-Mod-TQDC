@@ -1,4 +1,4 @@
-Include("\\script\\mod\\store_box\\store_box_head.lua");
+--Include("\\script\\mod\\expand_box\\store_box\\store_box_head.lua");
 Include("\\script\\lib\\string.lua");
 Include("\\script\\lib\\item.lua");
 Include("\\script\\lib\\globalfunctions.lua");
@@ -8,14 +8,16 @@ Include("\\script\\class\\ktabfile.lua");
 -- ITEM_FILEPATH = "data/expand_box/"..player_rolename..".txt";
 -- TB_DATAITEMS = new(KTabFile, ITEM_FILEPATH);
 
+TASK_RETURN_BOX = 3584
+
 STORE_ID_EXPAND_BOX = 1;
 STORE_ID_CARRIAGE = 2;
 STORE_ID_MAIL = 3;
 
 g_tbDirectoryName = {
-	[1] = "data/expand_box/",
-	[2] = "data/carriage/",
-	[3] = "data/mail/",
+	[1] = "data/expand_box/store_box/",
+	[2] = "data/expand_box/carriage/",
+	[3] = "data/expand_box/mail/",
 }
 
 MAX_EXPAND_BOX_ITEMS = 1000;
@@ -158,8 +160,9 @@ function xb_generateNavigation(nStoreId,nPage,nNav,t,nAction)
 --print("page"..nPage);
 	local nMaxItems = getn(t);
 	
+	nPage = nPage + nNav;
 	--------------- Empty ---------------
-	if nMaxItems < 1 then 
+	if nMaxItems < 1 or nPage < 1 then 
 		Talk(1,"",tbFunctions[nStoreId][nAction][6]);
 		--pullKey()
 		return 0;
@@ -170,10 +173,7 @@ function xb_generateNavigation(nStoreId,nPage,nNav,t,nAction)
 	local nPages = ceil(nMaxItems/MAXINPAGE);
 	---------------
 	local nBegin = 0;
-	nPage = nPage + nNav;
-	if nPage < 1 then
-		nPage = 1;
-	end
+	
 	if nPage == 1 then 
 		nBegin = 1;
 	else
@@ -333,7 +333,7 @@ function IsAnEquip(genre,detail,particular)
 	genre = tonumber(genre);
 	detail = tonumber(detail);
 	particular = tonumber(particular);
-	if genre == 0 and (detail >= 100 and detail <= 105) or (detail > 0 and detail <= 14) then
+	if genre == 0 then --and (detail >= 100 and detail <= 105) or (detail > 0 and detail <= 14) then
 		return 1;
 	else 
 		return 0;
@@ -522,6 +522,7 @@ function xb_takeoneout(nInTableItemIndex,nStoreId,szStoreFileName)
 	local tItem = TB_ITEMS[nInTableItemIndex];
 	local g,d,p = tItem[2][1],tItem[2][2],tItem[2][3];
 	
+	--print("IsAnEquip(g,d,p)",IsAnEquip(g,d,p))
 	if IsAnEquip(g,d,p) == 1 then
 		AddEQuip(tItem);
 	else
@@ -600,8 +601,8 @@ function xb_takeallout(nStoreId,szStoreFileName)
 	local nCount = getn(tmove);
 	if nCount > nFreeRoom then 
 		nOverflow = nCount - nFreeRoom;
-		local tMoveItems = tablesplit(tmove, 1, nFreeRoom);
-		local tDropItems = tablesplit(tmove, nFreeRoom+1, nOverflow);
+		local tMoveItems = gf_SplitTable(tmove, 1, nFreeRoom);
+		local tDropItems = gf_SplitTable(tmove, nFreeRoom+1, nOverflow);
 		if getn(tDropItems) > 0 then
 			DropItemsByList(tDropItems);
 		end
@@ -661,7 +662,7 @@ function CreateNpcList(tNpcList)
 end
 
 function create_expand_boxs()
-	local script = "\\script\\mod\\expand_box\\expand_box.lua";
+	local script = "\\script\\mod\\expand_box\\store_box\\npc_store_box.lua";
 	local model = "B¶o r­¬ng tµi nguyªn";
 	local name = "R­¬ng lín";
 	local t = tExpandBoxs;
@@ -674,7 +675,7 @@ function create_expand_boxs()
 end;
 
 function create_small_expand_boxs()
-	local script = "\\script\\mod\\expand_box\\expand_box.lua";
+	local script = "\\script\\mod\\expand_box\\store_box\\npc_store_box.lua";
 	local model = "R­¬ng tiÒn";
 	local name = "R­¬ng ®å";
 	local t = tSmallExpandBoxs;
@@ -890,8 +891,8 @@ function generateItemFilePath(nAction, nStoreId, szStoreFileName)
 	ITEM_LOG_FILEPATH = g_tbDirectoryName[nStoreId].."logs/"..file_name;
 	
 	--print("ITEM_FILEPATH",ITEM_FILEPATH)
-	makeDirectory(g_tbDirectoryName[nStoreId],file_name)
-	makeDirectory(g_tbDirectoryName[nStoreId].."logs/",file_name)
+	gf_MakeDirectory(g_tbDirectoryName[nStoreId],file_name)
+	gf_MakeDirectory(g_tbDirectoryName[nStoreId].."logs/",file_name)
 	
 	
 	if nAction == 2 then -- read from file

@@ -1,4 +1,5 @@
 function main()
+	do return nil end
 	UWorld1508 = GetTask(1508)
 	if  UWorld1508 == 30  then
 		Talk(3,"talk1","L¨ng Nhi! Tr­¬ng §¹i ThÈm ®ang t×m ch¸u! H·y mau quay vÒ ®i! Ng­êi lµ? T«i vÒ hay kh«ng vÒ liªn quan g× ®Õn bµ ta? Ng­êi ®õng nhiÒu chuyÖn. Sao ch¸u l¹i nãi thÕ víi mÑ ch¸u?")
