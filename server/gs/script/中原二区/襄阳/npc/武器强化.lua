@@ -13,7 +13,7 @@ function main()
 		"T¨ng cÊp trang bŞ/qianghua",
 		"Söa ®Æc biÖt/xiuli",
 		"Ta muèn trao ®æi mét sè vËt phÈm/showExchangeList",
-		"Hái th¨m tin tøc vÒ c­êng h?a/dating",
+		"Hái th¨m tin tøc vÒ c­êng hãa/dating",
 		"Hái th¨m nh÷ng ®iÒu liªn quan vÒ trang bŞ B¸t Qu¸i/bagua",
 		"N©ng cÊp trang bŞ Tµng KiÕm Hoµng Kim/UpgradeSwordCollector",
 	}

@@ -9,9 +9,16 @@ d = -1
 p = 0
 q = -1
 
+ACTION_MENU 	= 0
+ACTION_RESET 	= -1
+ACTION_DELETE 	= -2
+VALUE_ADDITEM = 1
+VALUE_DELITEM = 2
+
 MAX_ITEM_COUNT_P = 30000
 MAX_ITEM_COUNT = 0
 TB_ITEMS = {}
+
 
 tItems = {
 	{"Cæ Linh Th¹ch",{2,1,30368},"clt"},
