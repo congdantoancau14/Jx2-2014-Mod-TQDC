@@ -257,7 +257,7 @@ end;
 function onTwoParam(t,nAction)
 	local result = 1;
 	local nIndex = 0;
-	if isNummeric(t[2]) == 0 then
+	if isNummeric(t[2]) ~= 1 then
 		talkErrorSyntax();
 	elseif isNummeric(t[1]) == 1 then
 		g = 2;
@@ -332,7 +332,7 @@ function onOneParam(t, nAction)
 			return 1;
 		else
 			nIndex = searchItemInTables(t[1]);
-			if nIndex == 0 and isNummeric(t[1]) == 0 then
+			if nIndex == 0 and isNummeric(t[1]) ~= 1 then
 				Talk(1,"",format("VËt phÈm [<color=yellow>%s<color>] kh«ng tån t¹i!",t[1]));
 				result = 0;
 			else

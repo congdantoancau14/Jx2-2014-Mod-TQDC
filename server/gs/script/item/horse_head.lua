@@ -7,8 +7,30 @@ STATE_RIDED = 1
 STATE_UNRIDED = 0
 
 
-szHorseModel = "thiÕt d­¬ng";
+szHorseModel = "Meng Meng";
 --szHorseModel = "L·nh qu©n t­îng binh m·";
+tHorseModels = {
+	{"Blankly"}, -- ®en
+	{"Tread swallow"}, -- ®á
+	{"Hong xu"},	-- tr¾ng
+	{"Qing Feng"},	-- x¸m
+	{"Meng Meng"},	-- n©u
+	{"Ben Cloud"},	-- vµng
+}
+
+tSwordModels = {
+	{"Bµn Xµ"},		-- N©u
+	{"Tö §iÖn"},	-- t?m
+	{"§o¹n thñy"},	--	chµm (tr¾ng)
+	{"TriÒu D­¬ng kiÕm"},	-- lam
+	{"Th¹ch DuyÖn kiÕm"},	-- x?ch ®á
+	{"§é Hån kiÕm"},		-- x¸m xanh
+	{"Hiªn Viªn kiÕm"},		-- cam
+	{"Truy T×nh kiÕm"},		-- vµng
+	{"Tµng S¸t"},			-- n©u xanh ®á
+}
+
+
 
 tHorses = {
 	{"KiÖu Hoa","kiÖu"},
@@ -20,15 +42,18 @@ tHorses = {
 	{"Hæ V»n","§¹i hæ"},
 	{"Hæ Vµng","hoµng hæ v­¬ng"},
 	{"S­ Tö","háa kú l©n1"},
-	{"L¹c §µ","thiÕt d­¬ng"},
+	{"L¹c §µ","L¹c §µ 1"},
 	{"GÊu","pet_xiongmao"},
-	{"Lõa","thiÕt d­¬ng"},
+	{"Lõa Kh¨n §á",tHorseModels[2][1]},
+	{"Lõa Kh¨n Vµng",tHorseModels[6][1]},
+	{"Lõa Kh¨n Lam",tHorseModels[4][1]},
+	{"Lõa Kh¨n Xanh",tHorseModels[5][1]},
 	{"Hå","háa hå"},
 	{"C¸o","ng©n hå"},
 	{"Xe","tiªu xa tiªu côc"},
 	{"Xa","tiªu xa tiªu côc"},
 	{"Dª","thiÕt d­¬ng"},
-	{"KiÕm","truy t×nh kiÕm"},
+	
 	{"B¹ch Anh","b¸t hïng"},
 	{"B¹ch Hoa","b¸t hïng"},
 	{"B¹ch Hång","b¸t hïng"},
@@ -39,8 +64,18 @@ tHorses = {
 	{"Lang","sãi ®iªn"},
 	{"Tª","cæ d­¬ng thó"},
 	{"T¬ Vµng","thá mËp"},
-	{"Tö Ngäc","truy t×nh kiÕm"},
-	{"ThiÕu D­¬ng","truy t×nh kiÕm"},
+	{"ThiÕu D­¬ng ThÊt",tSwordModels[4][1]},
+	{"V¨n Sö ThÊt",tSwordModels[1][1]},
+	{"C«n H­ Ngäc",tSwordModels[9][1]},
+	{"Th¸i Thanh V«",tSwordModels[8][1]},
+	{"Tö Ngäc tr­êng",tSwordModels[2][1]},
+	{"Gi¸ng V©n XÝch",tSwordModels[5][1]},
+	{"B¹ch Lé Song",tSwordModels[3][1]},
+	{"BÝch Yªn KiÕm",tSwordModels[6][1]},
+	{"Long T­êng KiÕm",tSwordModels[8][1]},
+	{"Hång Quang KiÕm",tSwordModels[7][1]},
+	{"Phong S­¬ng KiÕm",tSwordModels[4][1]},
+	{"KiÕm",tSwordModels[random(getn(tSwordModels))][1]},
 	{"ThuyÒn","tiªu tÇn"},
 	{"Kú l©n","niªn thó to lín"},
 	{" Kú L©n","háa kú l©n1"},
@@ -64,11 +99,13 @@ tHorses = {
 	{"Hoa","kiÕm ®µi"},
 	{"DiÒu","diÒu xanh"},
 	{"Kim Gi¸p H¾c S¬n","thiÕt d­¬ng"},
-	{"B¹ch D­¬ng","thiÕt d­¬ng"},
-	{"Long M·","§¹i long"},
+	{"B¹ch D­¬ng","L¹c §µ 1"},
+	--{"Long M·","§¹i long"},
+	{"Long M·","Ngùa bay"},
 	{"Bß","mao ng­u"},
-	{"Thó Mét Sõng",szHorseModel},
+	{"Thó Mét Sõng","Hong xu"},
 	{"Kim Ngäc T­êng","tiÓu ¸p"},
+	{"TuyÕt Ng©n T­êng","tiÓu ¸p"},
 }
 
 function GetRidingState()
@@ -140,7 +177,7 @@ function summonHorse(index,szItemName)
 	if index ~= 0 then 
 		szHorse = tHorses[index][2];
 	else
-		szHorse = szHorseModel;
+		szHorse = tHorseModels[random(getn(tHorseModels))][1];
 	end
 	--print("horse_head.lua::summonHorse>>szHorse:"..szHorse);
 	SummonNpc(szHorse,szItemName);
@@ -213,7 +250,7 @@ function releaseHorse(index,szItemName)
 	if index ~= 0 then 
 		szHorse = tHorses[index][2];
 	else
-		szHorse = szHorseModel;
+		szHorse = tHorseModels[random(getn(tHorseModels))][1];
 	end
 
 	local nIndex = GetFollower();

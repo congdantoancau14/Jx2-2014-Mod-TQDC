@@ -228,6 +228,7 @@ end;
 function AddRestingPlaces()
 	local model = "Ng­êi v« h×nh";
 	local npc1 = "TiÓu ®×nh";
+	local npc2 = "Bµn trµ";
 	local script = "\\script\\online\\eating\\npc_resting.lua";
 	CreateNpcList({
 		{model,npc1,211,2029,3196,script},
@@ -249,8 +250,16 @@ function AddRestingPlaces()
 		{model,npc1,6016,1451,2934,script},
 		{model,npc1,6100,1836,3526,script}, -- Quúnh k?t
 		{model,npc1,502,1689,3103,script},	-- Hoa s¬n
-		{model,npc1,0,script},
-		{model,npc1,0,script},
+		{model,npc1,428,1547,2545,script},	-- Ng­ng nguyÖt cung
+		{model,npc1,428,1451,2588,script},
+		{model,npc2,300,1712,3579,script},
+		{model,npc2,0,script},
+		{model,npc2,0,script},
+		{model,npc2,0,script},
+		{model,npc2,0,script},
+		{model,npc2,0,script},
+		{model,npc2,0,script},
+		{model,npc2,0,script},
 	});
 end
 
@@ -258,7 +267,7 @@ function AddWaterWells()
 	local model = "Ng­êi v« h×nh";
 	local npc1 = "GiÕng n­íc";
 	local npc2 = "Suèi n­íc";
-	local npc2 = "Vòng n­íc";
+	local npc3 = "Vòng n­íc";
 	local script = "\\script\\online\\eating\\npc_wells.lua";
 	CreateNpcList({
 		{model,npc1,100,1456,2897,script},

@@ -1878,6 +1878,12 @@ maptrap8	普通npc	\image\effect\sfx\其他\
 妖灵水晶	普通npc	\image\passby\356	2	100	150														
 昆仑石	普通npc	\image\passby\357	2	100	80														
 昆仑玉	普通npc	\image\passby\358	2	100	150														
+墨蹄1	普通npc	\image\passby\515	2	90	50														
+墨蹄2	普通npc	\image\passby\515	2	90	50														
+墨蹄3	普通npc	\image\passby\515	2	90	50														
+墨蹄4	普通npc	\image\passby\515	2	90	50														
+墨蹄5	普通npc	\image\passby\515	2	90	50														
+墨蹄6	普通npc	\image\passby\515	2	90	50														
 及时雨宋江	普通npc	\image\enemy\069	2	200	80														
 智多星吴用	普通npc	\image\enemy\087	2	200	90														
 九纹龙史进	普通npc	\image\enemy\175	2	200	80														
@@ -2174,6 +2180,7 @@ BOSS鹰	普通npc	\image\enemy\ying	4	200	60
 宠物霸王鳄	普通npc	\image\passby\bawange	2	100	30														
 宠物胖傻鸟	普通npc	\image\passby\shaniao	2	95	80														
 恩怨台战旗	普通npc	\image\passby\349	2	360	25														
+独角兽	普通npc	\image\passby\540	2	70	30														
 豪华雪人	普通npc	\image\passby\541	4	250	105														
 火神祝融	普通npc	\image\passby\516	2	200	110														
 瞬神夜莺	普通npc	\image\passby\517	2	200	110														
@@ -2233,6 +2240,10 @@ BOSS鹰	普通npc	\image\enemy\ying	4	200	60
 弓手头领	普通npc	\image\enemy\036	3	170	80														
 异族头目	普通npc	\image\enemy\035	3	165	80														
 帮会白羊驼	普通npc	\image\passby\525	2	240	120														
+跟随白羊驼	普通npc	\image\passby\525	2	90	40														
+跟随黑羊驼	普通npc	\image\passby\525	2	90	40														
+跟随灰羊驼	普通npc	\image\passby\525	2	90	40														
+跟随乳白羊驼	普通npc	\image\passby\525	2	90	40														
 白羊小小黑	普通npc	\image\passby\554	2	80	30														
 白羊小小咩	普通npc	\image\passby\554	2	80	30														
 宋箭塔	普通npc	\image\enemy\522	2	250	25														
@@ -2272,4 +2283,3 @@ BOSS鹰	普通npc	\image\enemy\ying	4	200	60
 boss气墙	普通npc			280	60														
 冲天浪	普通npc			280	60														
 吸星阵机关	普通npc			280	60														
-马	普通npc	\image\item\horse\horse_07a1	2	130	60														

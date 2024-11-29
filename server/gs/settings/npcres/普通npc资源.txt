@@ -1874,6 +1874,12 @@ maptrap8
 ÑıÁéË®¾§	npc_mod209.mesh	npc_mod209.Mtl	a.Ani							
 À¥ÂØÊ¯	npc_mod206.mesh	npc_mod206.Mtl	a.Ani							
 À¥ÂØÓñ	npc_mod207.mesh	npc_mod207.Mtl	a.Ani							
+Ä«Ìã1	515.mesh	515a.Mtl	515.Ani							
+Ä«Ìã2	515.mesh	515b.Mtl	515.Ani							
+Ä«Ìã3	515.mesh	515c.Mtl	515.Ani							
+Ä«Ìã4	515.mesh	515d.Mtl	515.Ani							
+Ä«Ìã5	515.mesh	515e.Mtl	515.Ani							
+Ä«Ìã6	515.mesh	515f.Mtl	515.Ani							
 ¼°Ê±ÓêËÎ½­	069.mesh	069a.Mtl	069a.Ani		S_HR	076_½£				
 ÖÇ¶àĞÇÎâÓÃ	087.mesh	087a.Mtl	087a.Ani							
 ¾ÅÎÆÁúÊ·½ø	175.mesh	175b.Mtl	175b.Ani		S_HR	175bw				
@@ -2170,6 +2176,7 @@ BOSSÓ¥	ying.Mesh	ying.Mtl	ying.Ani
 ³èÎï°ÔÍõöù	bawange.Mesh	bawange.Mtl	bawange.Ani							
 ³èÎïÅÖÉµÄñ	shaniao.mesh	shaniao_01.Mtl	shaniao.Ani							
 ¶÷Ô¹Ì¨Õ½Æì	349b.Mesh	349b.Mtl	349.Ani							
+¶À½ÇÊŞ	dujiaoshou.mesh	dujiaoshou.Mtl	dujiaoshou.Ani							
 ºÀ»ªÑ©ÈË	537.mesh	537.Mtl	537.Ani							
 »ğÉñ×£ÈÚ	516.mesh	516.Mtl	516.Ani							
 Ë²ÉñÒ¹İº	517.mesh	517.Mtl	517.Ani							
@@ -2229,6 +2236,10 @@ BOSSÓ¥	ying.Mesh	ying.Mtl	ying.Ani
 ¹­ÊÖÍ·Áì	036.mesh	036d.Mtl	036d.Ani		036d_1	WQ036d¹­				
 Òì×åÍ·Ä¿	035b.mesh	035b.Mtl	035b.Ani							
 °ï»á°×ÑòÍÕ	107.mesh	107a.Mtl	107a.Ani							
+¸úËæ°×ÑòÍÕ	yangtuo.Mesh	baiyangtuo.Mtl	yangtuo.Ani							
+¸úËæºÚÑòÍÕ	yangtuo.Mesh	heibaiyangtuo.Mtl	yangtuo.Ani							
+¸úËæ»ÒÑòÍÕ	yangtuo.Mesh	huiyangtuo.Mtl	yangtuo.Ani							
+¸úËæÈé°×ÑòÍÕ	yangtuo.Mesh	rubaiyangtuo.Mtl	yangtuo.Ani							
 °×ÑòĞ¡Ğ¡ºÚ	J2yang02.mesh	J2yang02.Mtl	J2yang02.Ani							
 °×ÑòĞ¡Ğ¡ßã	J2yang01.mesh	J2yang01.Mtl	J2yang01.Ani							
 ËÎ¼ıËş	522.mesh	522.Mtl	522.Ani							

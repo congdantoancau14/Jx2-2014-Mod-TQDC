@@ -39,12 +39,12 @@ ID	AniPath	HideNpc	HideWeapon	Height	DoubleRide
 Âí24					0
 Âí25					0
 Âí26					0
-ÉÙÑôÆßĞÇ½£	\yujian		1		0
-ÎÄÊ·Æß¾ı½£	\yujian		1		0
-À¥ĞéÓñÑş½£	\yujian		1		0
-ÏÉÓÎ½£	\yujian		1		0
-Ì«ÇåÎŞ³¾½£	\yujian		1		0
-×ÏÓñ³¤·æ	\yujian		1		0
+ÉÙÑôÆßĞÇ½£	\yujian		0		0
+ÎÄÊ·Æß¾ı½£	\yujian		0		0
+À¥ĞéÓñÑş½£	\yujian		0		0
+ÏÉÓÎ½£	\yujian		0		0
+Ì«ÇåÎŞ³¾½£	\yujian		0		0
+×ÏÓñ³¤·æ	\yujian		0		0
 Óñ÷è÷ë	\qilin		1	50	0
 »ğ÷è÷ë	\qilin		1	50	0
 ±ª×Ó	\hu1		1		0
@@ -55,9 +55,9 @@ ID	AniPath	HideNpc	HideWeapon	Height	DoubleRide
 êóÅ£	\maoniu		1	50	0
 êóÅ£2	\maoniu		1	50	0
 êóÅ£3	\maoniu		1	50	0
-»¢3	\hu1		1		0
-±ª×Ó2	\hu1		1		0
-±ª×Ó3	\hu1		1		0
+»¢3	\hu1		0		0
+±ª×Ó2	\hu1		0		0
+±ª×Ó3	\hu1		0		0
 ½ğ÷è÷ë	\qilin		1	50	0
 Ë®÷è÷ë	\qilin		1	50	0
 °×ÍÃ×Ó	\tuzi		1	50	0
@@ -70,7 +70,7 @@ ID	AniPath	HideNpc	HideWeapon	Height	DoubleRide
 »ÒÂæÍÕ	\luotuo		1	50	
 ĞÜÃ¨ÃÈÃÈ	\xiongmao		1	50	
 ÆÆÏş					0
-Ã·»¨Â¹£¨»Æ£©	\lu		1		0
+Ã·»¨Â¹£¨»Æ£©	\lu		0		0
 ÉñÊŞ±ÙĞ°	\bixie		1		0
 ÈıÎ²ºü	\jiuweihu03		1	50	
 »ğºü	\jiuweihu01		1	50	
@@ -87,13 +87,12 @@ ID	AniPath	HideNpc	HideWeapon	Height	DoubleRide
 °×Á«»¨	\lianhuazuo		1	50	
 ºìÁ«»¨	\lianhuazuo		1	50	
 ×ÏÁ«»¨	\lianhuazuo		1	50	
-Ã·»¨Â¹£¨ºì£©	\lu		1		
-Ã·»¨Â¹£¨ºÚ£©	\lu		1		
-Ã·»¨Â¹£¨°×£©	\lu		1		
-ç­ÔÆ³àÏö½£	\yujian		1	50	
-°×Â¶Ëª»ª½£	\yujian		1	50	
-ÎŞÍıÎŞ³¾½£	\yujian		1	50	
-°×ĞÜ3	\baizelingshou		1	50	
+Ã·»¨Â¹£¨ºì£©	\lu		0		
+Ã·»¨Â¹£¨ºÚ£©	\lu		0		
+Ã·»¨Â¹£¨°×£©	\lu		0		
+ç­ÔÆ³àÏö½£	\yujian		0	50	
+°×Â¶Ëª»ª½£	\yujian		0	50	
+ÎŞÍıÎŞ³¾½£	\yujian		0	50	
 ÇØÂíÈÖ³µ	\shihuangzhanche		1	50	1
 ¼ªÏéÏÉº×	\xianhe		1	50	
 ÏéÈğÏÉº×	\xianhe		1	50	
@@ -103,10 +102,10 @@ ID	AniPath	HideNpc	HideWeapon	Height	DoubleRide
 Ñ©â¥	\shizi		1	50	
 ½ğÅ£	\niu				
 Âí23					
-¼ªÏé»Æ½ğ»¢£¨ºì£©	\hu		1		
-¼ªÏé»Æ½ğ»¢£¨»Æ£©	\hu		1		
-¼ªÏé»Æ½ğ»¢£¨ºÚ£©	\hu		1		
-¼ªÏé»Æ½ğ»¢£¨°×£©	\hu		1		
+¼ªÏé»Æ½ğ»¢£¨ºì£©	\hu		0		
+¼ªÏé»Æ½ğ»¢£¨»Æ£©	\hu		0		
+¼ªÏé»Æ½ğ»¢£¨ºÚ£©	\hu		0		
+¼ªÏé»Æ½ğ»¢£¨°×£©	\hu		0		
 Âí27					
 Âí28a					
 Âí28b					
@@ -149,8 +148,8 @@ ID	AniPath	HideNpc	HideWeapon	Height	DoubleRide
 °×ĞÜ1	\baizelingshou		1	50	
 °×ĞÜ2	\baizelingshou		1	50	
 °×ĞÜ4	\baizelingshou		1	50	
-±ÌÓñº®ÑÌ½£	\yujian		1	50	
-ÁúÔ¨»ØÏè½£	\yujian		1	50	
+±ÌÓñº®ÑÌ½£	\yujian		0	50	
+ÁúÔ¨»ØÏè½£	\yujian		0	50	
 Ä¾Å£Á÷Âí	\muniuliuma		1	50	
 ·çâ¥	\shizi		1	50	
 Áéâ¥	\shizi		1	50	
@@ -160,6 +159,38 @@ ID	AniPath	HideNpc	HideWeapon	Height	DoubleRide
 Õ½ÀÇ	\wolf		1	50	
 °×ÀÇ	\wolf		1	50	
 Ï¬Å£	\xiniu		1	50	
-·É½£1	\yujian		1	50	
-·É½£2	\yujian		1	50	
+·É½£1	\yujian		0	50	
+·É½£2	\yujian		0	50	
 ÃÈÃ¨	\mao		1	50	
+°×ĞÜ1	\baizelingshou		1	50	
+°×ĞÜ2	\baizelingshou		1	50	
+°×ĞÜ3	\baizelingshou		1	50	
+°×ĞÜ4	\baizelingshou		1	50	
+¶À½ÇÊŞ1	\dujiaoshou1		1	50	
+¶À½ÇÊŞ2	\dujiaoshou2		1	50	
+¶À½ÇÊŞ3	\dujiaoshou3		1	50	
+¶À½ÇÊŞ4	\dujiaoshou4		1	50	
+¶À½ÇÊŞ5	\dujiaoshou5		1	50	
+·É½£3	\yujian3		1	50	
+·É½£4	\yujian4		1	50	
+·É½£5	\yujian5		1	50	
+À¥Ğéè¬ÀÅ½£	\yujian		1	50	
+ÎÄÊ·Çíçæ½£	\yujian		1	50	
+Ì«ÇåÎŞ¹¸½£	\yujian		1	50	
+ÉÙÑôÀÅ«\½£	\yujian		1	50	
+ÃÈÃ¨1	\mao01		1	50	
+ÃÈÃ¨2	\mao02		1	50	
+ÃÈÃ¨3	\mao03		1	50	
+ÃÈÃ¨4	\mao04		1	50	
+ÃÈÃ¨5	\mao05		1	50	
+ÃÈÃ¨6	\mao06		1	50	
+ÃÈÃ¨7	\mao07		1	50	
+ÃÈÃ¨8	\mao08		1	50	
+ÃÈÃ¨9	\mao09		1	50	
+ÃÈÃ¨10	\mao10		1	50	
+ÃÈÃ¨11	\mao11		1	50	
+ÃÈÃ¨12	\mao12		1	50	
+ÇàÁ«»¨	\lianhuazuo		1	50	
+°×Á«»¨	\lianhuazuo		1	50	
+ºìÁ«»¨	\lianhuazuo		1	50	
+×ÏÁ«»¨	\lianhuazuo		1	50	

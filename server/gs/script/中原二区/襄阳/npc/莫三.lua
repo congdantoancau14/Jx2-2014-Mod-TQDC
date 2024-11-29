@@ -362,6 +362,8 @@ function Weekend()
    		  	AddRecipe(229)
    		  	Msg2Player("B¹n häc ®­îc kü n¨ng míi_Qu©n Dông TiÔn Nang")
    		  	SetTask(HaveWeekend,1)
+		else
+			Say(strTitle.."Thêi gian ch­a ®Õn.", 0)
 		end
 	else
     	Say(strTitle.."Ng­¬i vÉn ch­a häc chÕ t¹o Kú M«n binh khİ hoÆc thêi gian ch­a ®Õn, ta kh«ng thÓ truyÒn thô kü n¨ng nµy cho ng­¬i.", 0)

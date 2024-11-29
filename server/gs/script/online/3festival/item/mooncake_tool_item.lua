@@ -6,7 +6,7 @@ Include("\\script\\online\\3festival\\3festival_head.lua")
 Include("\\script\\lib\\time.lua")
 
 function OnUse()
-	if tonumber(date("%y%m%d")) > 081007 then
+	if tonumber(date("%y%m%d")) > 481007 then
 		Talk(1,"","TÕt Trung Thu ®· qua, tiÕp tôc lµm b¸nh còng ch¼ng cßn ı nghÜa");
 		return 0;
 	end;

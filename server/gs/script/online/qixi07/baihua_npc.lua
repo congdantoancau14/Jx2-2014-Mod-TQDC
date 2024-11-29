@@ -8,7 +8,7 @@ Include("\\script\\lib\\lingshi_head.lua")
 -- Modified 04/09/2020
 CREATED_YEAR = 2020
 YEAR1 = 20200000 -- 20070000
-YEAR2 = 20200000 -- 20080000
+YEAR2 = 20300000 -- 20080000
 EVERY_YEAR = 1
 CHEAT_MOD = 1
 

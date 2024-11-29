@@ -13,7 +13,8 @@ TE_TASK_EAT_VOLUME		= 3077
 TE_TASK_DRINK_VOLUME	= 3078
 TE_TASK_SLEEP_VOLUME	= 3079
 FULL_VOLUME = 30		-- Full volume of eating and drinking	Default: 10
-FULL_VOLUME_SLEEP = 60	-- Full volume of sleeping (minute)		Default: 60*5
+FULL_VOLUME_SLEEP = 60*1	-- Full volume of sleeping (minute*hours)		Default: 60*5
+MEAL_SPACING = 5		-- Hours
 
 ET_TitleTable = 
 {
@@ -182,7 +183,11 @@ function ET_OnTimerReset()
 	if nVolume < FULL_VOLUME then 
 		SetTask(TE_TASK_STATE_DRUNK,0);
 	end
-	nVolume = GetTask(TE_TASK_SLEEP_VOLUME)
+
+end;
+
+function ET_OnTimerResetSleep()
+	local nVolume = GetTask(TE_TASK_SLEEP_VOLUME)
 	print(GetName().." GetTask(TE_TASK_SLEEP_VOLUME)",GetTask(TE_TASK_SLEEP_VOLUME))
 	if nVolume < FULL_VOLUME_SLEEP then 
 		SetTask(TE_TASK_STATE_SLEPT,0);
@@ -209,7 +214,7 @@ function getSleepVolume(bCurrent)
 	if nTimeStartSleep == 0 then 
 		return 0;
 	end
-
+	--print("nTimeEndedSleep - nTimeStartSleep:"..nTimeEndedSleep.." - "..nTimeStartSleep)
 	return (nTimeEndedSleep - nTimeStartSleep)/60; -- sleep time unit. Default: /3600 (hours)
 end;
 
@@ -226,7 +231,11 @@ function ET_OnGetup()
 	SetTask(TE_TASK_SLEEP_ENDED,GetTime())
 	local nVolume = getSleepVolume()
 	SetTask(TE_TASK_SLEEP_START,0)
-	if nVolume >= FULL_VOLUME_SLEEP and GetTask(TE_TASK_STATE_SLEPT) == 0 then 
+	--print("nVolume,FULL_VOLUME_SLEEP:"..nVolume.." "..FULL_VOLUME_SLEEP)
+	--print("GetTask(TE_TASK_STATE_SLEPT):"..GetTask(TE_TASK_STATE_SLEPT))
+	local nLastVolume = GetTask(TE_TASK_SLEEP_VOLUME);
+	local nTotalVolume = nVolume + nLastVolume;
+	if nTotalVolume >= FULL_VOLUME_SLEEP and GetTask(TE_TASK_STATE_SLEPT) == 0 then 
 		SetTask(TE_TASK_STATE_SLEPT,1)
 		--SetTask(TE_TASK_SLEEP_VOLUME,nVolume-FULL_VOLUME_SLEEP)
 		SetTask(TE_TASK_SLEEP_VOLUME,0)
@@ -234,11 +243,11 @@ function ET_OnGetup()
 		RemoveTitle(type1, type2);
 		Msg2Player("C¸c h¹ ®· ngñ ®ñ giÊc, c¶m gi¸c "..ET_GetTitleName(type1, type2).." ®· tan biÕn");
 	else
-		local nLastVolume = GetTask(TE_TASK_SLEEP_VOLUME);
-		SetTask(TE_TASK_SLEEP_VOLUME, nVolume + nLastVolume )
+		SetTask(TE_TASK_SLEEP_VOLUME, nTotalVolume )
+		nVolume = floor(nVolume);
 		if check_slept() == 0 then
 			Msg2Player("LÇn nµy c¸c h¹ ®· ngñ ®­îc "..nVolume.." phót. Céng thªm lÇn tr­íc "..nLastVolume
-				..". Tæng thêi gian lµ: "..nVolume + nLastVolume.." phót"
+				..". Tæng thêi gian lµ: "..nTotalVolume.." phót"
 				..". H·y nghØ ng¬i thªm ®Ó cã søc kháe tr¸ng kiÖn vµ tinh thÇn minh mÉn h¬n!");
 		end
 	end
@@ -306,7 +315,7 @@ function check_drunk()
 	local nTime = GetTask(TE_TASK_TIME_DRINK);
 	local nNowTime = GetTime();
 	local nState = GetTask(TE_TASK_STATE_DRUNK);
-	if (nNowTime - nTime)/3600 >= 5 and nState == 0 then 
+	if (nNowTime - nTime)/3600 >= MEAL_SPACING and nState == 0 then 
 		return 0;
 	end
 	return 1;
@@ -316,7 +325,7 @@ function check_ate()
 	local nTime = GetTask(TE_TASK_TIME_EATING);
 	local nNowTime = GetTime();
 	local nState = GetTask(TE_TASK_STATE_ATE);
-	if (nNowTime - nTime)/3600 >= 5 and nState == 0 then 
+	if (nNowTime - nTime)/3600 >= MEAL_SPACING and nState == 0 then 
 		return 0;
 	end
 	return 1;

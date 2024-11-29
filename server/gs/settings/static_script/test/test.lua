@@ -2,8 +2,8 @@
 --Include("\\script\\lib\\item.lua");
 
 function OnUse()
-	Msg2Player("test is called!");
-	test();
+	--Msg2Player("test is called!");
+	printFormattedPos()
 end;
 
 
@@ -17,10 +17,30 @@ function test2()
 end;
 
 function test1()
+
+local tSwordModels = {
+	{"Bµn Xµ"},
+	{"Tö §iÖn"},
+	{"§o¹n thñy"},
+	{"TriÒu D­¬ng kiÕm"},
+	{"Th¹ch DuyÖn kiÕm"},
+	{"§é Hån kiÕm"},
+	{"Hiªn Viªn kiÕm"},
+	{"Truy T×nh kiÕm"},
+	{"Tµng S¸t"},
+}
+
 	local m,x,y = GetWorldPos();
-	CreateNpc("Ma Ni TÂ¨ng","Ma Ni TÂ¨ng",m,x,y);
-	SummonNpc("CÃ´ giÂµ");
-	Msg2Player(GetWorldPos());
+	--local model = "Tµng S¸t"
+	--CreateNpc(model,model,m,x,y);
+	
+	for i=1, getn(tSwordModels) do
+		local x2 = x+i;
+		CreateNpc(tSwordModels[i][1],tSwordModels[i][1],m,x,y);
+	end
+
+	--SummonNpc(model,model);
+	--Msg2Player(GetWorldPos());
 end
 
 function test0()
@@ -36,4 +56,5 @@ end;
 function printFormattedPos()
 	local m,x,y = GetWorldPos();
 	print(format("\n[ %d,%d,%d ]",m,x,y))
+	Msg2Player(format("\n[ %d,%d,%d ]",m,x,y))
 end;

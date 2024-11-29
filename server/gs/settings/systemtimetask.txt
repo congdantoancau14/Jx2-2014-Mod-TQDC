@@ -102,3 +102,4 @@ HOUR	MIN	SCRIPT	d	DESC
 12	00	\script\online\eating\timer.lua		
 17	00	\script\online\eating\timer.lua		
 21	00	\script\online\eating\timer.lua		
+0	00	\script\online\eating\timer.lua		
